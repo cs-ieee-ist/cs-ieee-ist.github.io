@@ -1,0 +1,25 @@
+<html>
+  <head>
+
+    <title> Project Name </title>
+    <script src = "js/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+
+  </head>
+  <body>
+    <div id = "sidebar"></div>
+
+    <div style="margin-left:25%" id = "page">
+      ... page content ...
+    </div>
+
+    <script> // Load html files into divs
+
+      $(function(){
+        $("#sidebar").load("sidenav.html");
+      });
+
+    </script>
+  </body>
+</html>
