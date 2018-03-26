@@ -2,16 +2,18 @@
   <head>
 
     <script src = "js/sidenav.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sidenav.css"></link>
+
   </head>
   <body>
     <div class="sidenav">
-      <a href="#about" onclick = "location.reload();">Home</a>
+      <a href="" onclick = "location.reload();">Home</a>
 
-      <button class="dropdown-btn">FP
+      <button onclick = "navigate('fp')" class="dropdown-btn">FP
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-container">
-        <a href="#">Tipos de variáveis</a>
+        <a href="#" >Tipos de variáveis</a>
         <a href="#">Tipos de funções</a>
         <a href="#">Classes</a>
       </div>

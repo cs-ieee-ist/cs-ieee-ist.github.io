@@ -2,22 +2,36 @@
   <head>
 
     <title> Project Name </title>
+    <meta charset="UTF-8">
     <script src = "js/jquery-3.3.1.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="css/sidenav.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css"></link>
 
   </head>
   <body>
     <div id = "sidebar"></div>
 
-    <div style="margin-left:25%" id = "page">
-      ... page content ...
-    </div>
+    <!--   Classes   -->
+
+    <div class = "page" id = "welcome"  style = "display: block"></div>
+    <div class = "page" id = "fp"       style = "display: none "></div>
+
+    <!--   Classes   -->
 
     <script> // Load html files into divs
 
-      $(function(){
+      $(function() {
+
         $("#sidebar").load("sidenav.html");
+      });
+
+      $(function() {
+
+        $("#welcome").load("welcome.html");
+      });
+
+      $(function() {
+
+        $("#fp").load("fp.html");
       });
 
     </script>
