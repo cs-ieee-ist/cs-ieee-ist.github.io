@@ -40,7 +40,7 @@
 
 /* Add an active class to the active dropdown button */
 .active {
-  background-color: green;
+  background-color: #0073A9; /* cs logo color */
   color: white;
 }
 
