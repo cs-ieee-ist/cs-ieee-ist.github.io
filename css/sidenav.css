@@ -56,3 +56,11 @@
   float: right;
   padding-right: 8px;
 }
+
+#csLogo {
+
+  margin-top: 0;
+  outline-style: solid;
+  outline-width: 2px;
+  width: 100%;
+}
