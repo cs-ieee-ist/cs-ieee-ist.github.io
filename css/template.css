@@ -12,3 +12,11 @@
   font-style: bold;
 
 }
+
+#pageBody {
+
+  word-wrap: normal;
+  padding-top: 2%;
+  padding-left: 5%;
+  padding-right: 5%
+}
