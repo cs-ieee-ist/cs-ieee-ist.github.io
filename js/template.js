@@ -7,10 +7,25 @@ for (var n = 0; n < codewrapper.length; n++) {
   var paragraphs = codewrapper[n].getElementsByTagName('p');
 
   var i = 0;
-  for (i = 0; i < paragraphs.length; i++) {
 
-    oldHTML = paragraphs[i].innerHTML;
-      paragraphs[i].innerHTML = "<font class = 'beforeCode'> " + (i + 1).toString() + ".</font> " + oldHTML;
+  var a = paragraphs.length;
+
+  var added = 0;
+  while (a >= 10) {
+    added += 1;
+    a = Math.floor(a/10);
+  }
+
+    for (i = 0; i < paragraphs.length; i++) {
+
+      var toAdd = "";
+      var string = (i + 1).toString();
+
+      for (var j = 0; j <= added - string.length; j++)
+        toAdd += "0";
+
+      oldHTML = paragraphs[i].innerHTML;
+      paragraphs[i].innerHTML = "<font class = 'beforeCode'> " + toAdd + (i + 1).toString() + ".</font> " + oldHTML;
 
   }
 
