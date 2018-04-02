@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <script src = "js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css"></link>
-
+    <script> "use strict";</script>
   </head>
   <body>
     <div id = "sidebar"></div>
@@ -14,6 +14,7 @@
 
     <div class = "page" id = "welcome"  style = "display: block"></div>
     <div class = "page" id = "fp"       style = "display: none "></div>
+    <div class = "page" id = "iaed"     style = "display: none "></div>
 
     <!--   Classes   -->
 
@@ -32,6 +33,11 @@
       $(function() {
 
         $("#fp").load("fp.html");
+      });
+
+      $(function() {
+
+        $("#iaed").load("iaed.html");
       });
 
     </script>

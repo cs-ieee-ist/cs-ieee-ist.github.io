@@ -12,15 +12,40 @@
     <div id = "pageBody">
       <!-- Page Content -->
 
-      <div id = "codeWrapper">
+      <div class = "codeWrapper">
 
-      <p>dict = {"test": "code", "will": "compile"}</p>
-
-      <p class = "unselectable">for key in dict:</p>
-
-      <p>&nbsp&nbsp&nbsp print(key + ": " + dict[key])</p>
-
-      <p>print("this program is kindof useless, enjoy!")</p>
+        <p>import&nbsp sys</p>
+        <p></p>
+        <p>sub&nbsp =&nbsp {&nbsp '&nbsp ':&nbsp '&nbsp&nbsp ',&nbsp '&lt; ':&nbsp '&lt;&nbsp ',&nbsp '&gt; ':&nbsp '&gt;&nbsp ',&nbsp '\'':&nbsp ''',&nbsp '\t':&nbsp '&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp '&nbsp }</p>
+        <p>for&nbsp file&nbsp in&nbsp sys.argv[1:]:</p>
+        <p>&nbsp &nbsp &nbsp &nbsp if&nbsp file&nbsp ==&nbsp 'h':</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp print('python&nbsp codeParser.py&nbsp file1&nbsp file2&nbsp file3')</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp break</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp f&nbsp =&nbsp open(file,&nbsp 'r')</p>
+        <p>&nbsp &nbsp &nbsp &nbsp g&nbsp =&nbsp open(file&nbsp +&nbsp '.out',&nbsp 'w')</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp for&nbsp line&nbsp in&nbsp f:</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp =&nbsp '&lt; p&gt; '</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp spaces&nbsp =&nbsp 0</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp line&nbsp !=&nbsp '':</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp for&nbsp c&nbsp in&nbsp line[:-1]:</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp print(c&nbsp ==&nbsp '\t')</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp print(c)</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp c&nbsp in&nbsp sub.keys():</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp sub[c]</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp spaces&nbsp +=&nbsp 1</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp else:</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp c</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp '&lt; /p&gt; \n'</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write(newLine)</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp else:</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write('&lt; p&gt; &lt; /p&gt; ')</p>
+        <p>&nbsp &nbsp &nbsp &nbsp f.close()</p>
+        <p>&nbsp &nbsp &nbsp &nbsp g.close()</p>
 
       </div>
       <!-- Page Content -->

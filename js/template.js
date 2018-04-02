@@ -1,7 +1,17 @@
-var codewrapper = document.getElementById("codeWrapper");
+var codewrapper = document.getElementsByClassName("codeWrapper");
 
-var paragraphs = codewrapper.getElementsByTagName('p');
+for (var n = 0; n < codewrapper.length; n++) {
 
-var i = 0;
-for (i = 0; i < paragraphs.length; i++) 
-  paragraphs[i].innerText = (i + 1).toString() + ".  " + paragraphs[i].innerText;
+  if(codewrapper[n].classList.contains("done")) continue;
+  codewrapper[n].classList.add("done");
+  var paragraphs = codewrapper[n].getElementsByTagName('p');
+
+  var i = 0;
+  for (i = 0; i < paragraphs.length; i++) {
+
+    oldHTML = paragraphs[i].innerHTML;
+      paragraphs[i].innerHTML = "<font class = 'beforeCode'> " + (i + 1).toString() + ".</font> " + oldHTML;
+
+  }
+
+}

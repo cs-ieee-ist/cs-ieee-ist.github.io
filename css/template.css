@@ -5,7 +5,7 @@
   width: 100%;
   padding-bottom: 2%;
   margin-top: 0%;
-}
+}l
 
 #projectName {
 
@@ -31,14 +31,29 @@
   padding-right: 5%
 }
 
-#codeWrapper {
+.codeWrapper {
 
-  margin-left: auto;
-  margin-right: auto;
   display: inline-block;
+  margin:0 auto;
   background-color: #F5F5F5;
   padding: 2%;
+  width: 96%;
   border-style: solid;
   border-color: gray;
   border-width: 1px;
+}
+.codeWrapper p {
+  margin: 2px;
+  padding: 2px;
+}
+
+
+.beforeCode {
+
+  padding-right: 5px;
+  color: #777777;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
