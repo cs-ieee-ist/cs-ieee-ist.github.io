@@ -6,7 +6,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #333;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -24,6 +24,10 @@
   text-align: left;
   cursor: pointer;
   outline: none;
+  border-style: solid;
+  border-top: none;
+  border-width: 1px;
+  border-color: #484848;
 }
 
 /* On mouse-over */
@@ -60,7 +64,5 @@
 #csLogo {
 
   margin-top: 0;
-  outline-style: solid;
-  outline-width: 2px;
   width: 100%;
 }
