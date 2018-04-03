@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import sys
 
 sub = { " ": "&nbsp ", "<": "&lt; ", ">": "&gt; ", "\"": "'", "\t": "&nbsp &nbsp &nbsp &nbsp " }
