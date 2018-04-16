@@ -42,18 +42,19 @@ function navigate(p) {
 
     i = 1;
     l = document.getElementById(p + "0").getElementsByTagName("a").length;
-    for (n = 1; n <= l; n++) {
+    $(document).ready(function () {
+      for (n = 1; n <= l; n++) {
 
-      a = $("#" + p + "0").children()[n - 1];
-      console.log(a);
-      a.addEventListener("click", function() {
-        console.log($("#sub" + (n).toString()));
+        a = $("#" + p + "0").children()[n - 1];
+        console.log(a);
+        a.addEventListener("click", function() {
+          console.log($("#sub" + (n).toString()));
 
-        $('body').animate({
-         scrollTop: $("#sub" + (n).toString()).offset().top
-       }, 500);
+          $('body').animate({
+           scrollTop: $("#sub" + (n).toString()).offset().top
+         }, 500);
 
-     });
-
+       });
+     }
   }
 }
