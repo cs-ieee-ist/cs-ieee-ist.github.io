@@ -1,0 +1,8 @@
+executar com python o ficheiro makeClass.py em que o argumento é a sigla da cadeira (FP, SDis, IAC, etc), e inserir quando pedido o nome completo da cadeira para gerar o .html e
+fazer algumas alterações necessárias.
+
+para dar parse de código de html, criem um ou mais ficheiros com o código e corram com python o ficheiro codeParser.py em que o(s) argumento(s) são os nomes dos ficheiros com o código,
+será depois gerado o nomedoficheiro.out com o html ready to go #copyPaste
+
+vejam outros ficheiros já criados para verem as classes / ids com template já pronto e desenrasquem-se
+
