@@ -41,20 +41,37 @@ function navigate(p) {
   current.style.display = "block";
 
     i = 1;
-    l = document.getElementById(p + "0").getElementsByTagName("a").length;
-    $(document).ready(function () {
+
+
+    $( document ).ready( function() {
+
+      l = document.getElementById(p + "0").getElementsByTagName("a").length;
+      console.log(l);
       for (n = 1; n <= l; n++) {
-
+        console.log(n);
         a = $("#" + p + "0").children()[n - 1];
-        console.log(a);
-        a.addEventListener("click", function() {
-          console.log($("#sub" + (n).toString()));
-
-          $('body').animate({
-           scrollTop: $("#sub" + (n).toString()).offset().top
-         }, 500);
-
-       });
-     }
+        scroll(a, n);
+      }
+    });
   }
+
+function scroll(a, n) {
+
+          a.addEventListener("click", function() {
+            return function() {
+
+            doEvent(n);
+          }
+          }(a, n));
+}
+
+function doEvent(n) {
+
+
+  console.log(n);
+  console.log($("#sub" + (n).toString()));
+
+  $('body').animate({
+    scrollTop: jQuery("#sub" + (n).toString()).offset().top
+  }, 1000);
 }
