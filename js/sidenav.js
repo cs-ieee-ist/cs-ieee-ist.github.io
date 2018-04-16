@@ -47,7 +47,7 @@ function navigate(p) {
       a = $("#" + p + "0").children()[n - 1];
       console.log(a);
       a.addEventListener("click", function() {
-        console.log(a + " -> " + "sub" + i.toString());
+        console.log($("#sub" + (n).toString()));
 
         $('body').animate({
          scrollTop: $("#sub" + (n).toString()).offset().top
