@@ -50,7 +50,7 @@ function navigate(p) {
         console.log(a + " -> " + "sub" + i.toString());
 
         $('body').animate({
-         scrollTop: jQuery("#sub" + (n).toString()).offset().top
+         scrollTop: $("#sub" + (n).toString()).offset().top
        }, 500);
 
      });
