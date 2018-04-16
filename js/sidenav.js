@@ -4,6 +4,7 @@ var i;
 var current = document.getElementById("welcome");
 var active = null;
 var activeButton = null;
+var scrolling = true;
 
 for (i = 0; i < dropdown.length; i++) {
 
@@ -59,8 +60,14 @@ function scroll(a, n) {
 
           a.addEventListener("click", function() {
             return function() {
+              if (scrolling) {
 
-            doEvent(n);
+                scrolling = false;
+                doEvent(n);
+              }
+            window.setTimeout(function(){
+              scrolling = true;
+            }, 1250);
           }
           }(a, n));
 }
@@ -70,7 +77,6 @@ function doEvent(n) {
 
   console.log(n);
   console.log($("#sub" + (n).toString()));
-
   $('body').animate({
     scrollTop: jQuery("#sub" + (n).toString()).offset().top
   }, 1000);
