@@ -12,6 +12,19 @@
     <div id = "pageBody">
       <!-- Page Content -->
 
+
+      <center><h1 id = "sub1" class = "fp">Tipos de Variáveis</h1></center>
+
+      <div class = "paragraph">
+
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+      </div>
+
+
+
       <div class = "codeWrapper">
 
         <p>import&nbsp sys</p>
@@ -46,8 +59,67 @@
         <p>&nbsp &nbsp &nbsp &nbsp g.close()</p>
 
       </div>
-      <!-- Page Content -->
+
+
+      <center><h1 id = "sub2" class = "fp">Tipos de Funções</h1></center>
+
+
+      <table class = "splitCodeText">
+        <tr>
+          <td>
+            <div class = "paragraph pLeft">
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
+              </div>
+            </td>
+            <td>
+              <div class = "codeWrapper cRight">
+
+                <p>import&nbsp sys</p>
+                <p></p>
+                <p>sub&nbsp =&nbsp {&nbsp '&nbsp ':&nbsp '&nbsp&nbsp ',&nbsp '&lt; ':&nbsp '&lt;&nbsp ',&nbsp '&gt; ':&nbsp '&gt;&nbsp ',&nbsp '\'':&nbsp ''',&nbsp '\t':&nbsp '&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp '&nbsp }</p>
+                <p>for&nbsp file&nbsp in&nbsp sys.argv[1:]:</p>
+                <p>&nbsp &nbsp &nbsp &nbsp if&nbsp file&nbsp ==&nbsp 'h':</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp print('python&nbsp codeParser.py&nbsp file1&nbsp file2&nbsp file3')</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp break</p>
+                <p></p>
+                <p>&nbsp &nbsp &nbsp &nbsp f&nbsp =&nbsp open(file,&nbsp 'r')</p>
+                <p>&nbsp &nbsp &nbsp &nbsp g&nbsp =&nbsp open(file&nbsp +&nbsp '.out',&nbsp 'w')</p>
+                <p></p>
+                <p>&nbsp &nbsp &nbsp &nbsp for&nbsp line&nbsp in&nbsp f:</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp =&nbsp '&lt; p&gt; '</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp spaces&nbsp =&nbsp 0</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp line&nbsp !=&nbsp '':</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp for&nbsp c&nbsp in&nbsp line[:-1]:</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp c&nbsp in&nbsp sub.keys():</p>
+                <p></p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp sub[c]</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp spaces&nbsp +=&nbsp 1</p>
+                <p></p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp else:</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp c</p>
+                <p></p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp '&lt; /p&gt; \n'</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write(newLine)</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp else:</p>
+                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write('&lt; p&gt; &lt; /p&gt; ')</p>
+                <p>&nbsp &nbsp &nbsp &nbsp f.close()</p>
+                <p>&nbsp &nbsp &nbsp &nbsp g.close()</p>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+
+        <center><h1 id = "sub3" class = "fp">Classes</h1></center>
+
+
+        <!-- Page Content -->
     </div>
+
+
 
     <script src = "js/template.js"></script>
   </body>

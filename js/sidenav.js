@@ -39,4 +39,21 @@ function navigate(p) {
   current.style.display = "none";
   current = page;
   current.style.display = "block";
+
+    i = 1;
+    l = document.getElementById(p + "0").getElementsByTagName("a").length;
+    for (n = 1; n <= l; n++) {
+
+      a = $("#" + p + "0").children()[n - 1];
+      console.log(a);
+      a.addEventListener("click", function() {
+        console.log(a + " -> " + "sub" + i.toString());
+
+        $('body').animate({
+         scrollTop: jQuery("#sub" + (n).toString()).offset().top
+       }, 500);
+
+     });
+
+  }
 }
