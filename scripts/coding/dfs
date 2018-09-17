@@ -1,0 +1,51 @@
+#define WHITE 0
+#define GRAY 1
+#define BLACK 2
+
+typedef struct node {
+
+  int value;
+  int color;
+  struct node *next;
+} *link;
+
+void initializeNodes(link* list, int numNodes) {
+
+  int i;
+  for (i = 0; i < numNodes; i++) {
+
+    list[i] = malloc(sizeof(struct node));
+    list[i]->value = i;
+    list[i]->next = NULL;
+  }
+}
+
+void dfs(link* list, int numNodes, int* path) {
+
+  int i;
+  for (i = 0; i < numNodes; i++)
+    if (list[i]->color == WHITE)
+      dfsVisit(list, list[i], path, numNodes);
+
+}
+
+void dfsVisit(link* list, link node, int* path, int numNodes) {
+
+  node->color = GRAY;
+  link v = node->next;
+  while (v != NULL){
+
+    if (list[v->value]->color == GRAY) {
+
+      cycles = 1;
+      return;
+    }
+    else if(list[v->value]->color == WHITE) {
+
+      dfsVisit(list, list[v->value], path, numNodes);
+    }
+    v = v->next;
+  }
+  node->color = BLACK;
+  path[pathCount++] = node->value;
+}

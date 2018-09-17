@@ -1,5 +1,5 @@
 <html>
-  <head>
+<head>
 
     <title> Project Name </title>
     <meta charset="UTF-8">
@@ -14,6 +14,8 @@
 
     <div class = "page" id = "welcome"  style = "display: block"></div>
     <!-- Add here -->
+    <div class = "page" id = "rc"       style = "display: none "></div>
+    <div class = "page" id = "asa"       style = "display: none "></div>
     <div class = "page" id = "fp"       style = "display: none "></div>
 
     <!--   Classes   -->
@@ -21,6 +23,16 @@
     <script> // Load html files into divs
 
       // add here
+
+			$(function() {
+
+				$("#rc").load("rc.html");
+			});
+
+			$(function() {
+
+				$("#asa").load("asa.html");
+			});
 
       $(function() {
 

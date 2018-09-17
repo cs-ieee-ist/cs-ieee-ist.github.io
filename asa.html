@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/template.css"></link>
+    <!-- template.css has all default class names -->
+
+  </head>
+  <body>
+
+    <div id = "pageTop">
+      <div id = "projectName"><center>PROJECT NAME</center></div>
+      <p>
+
+      <div id = "className"><center>Análise e Síntese de Algoritmos</center></div>
+
+    </div>
+
+    <div id = "pageBody">
+      <!-- Page Content -->
+
+      <center><h1 id = "sub1" class = "Análise e Síntese de Algoritmos">Introdução</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+
+      <!-- Code for Topic 1 goes here -->
+      <div class = "paragraph">
+
+        <p>ASA é uma cadeira na linguagem C, que utiliza estruturas e grafos, aconcelha-se rever a matéria de IAED em caso de dúvidas.</p>
+        
+      </div>
+
+      <center><h1 id = "sub2" class = "Análise e Síntese de Algoritmos">DFS</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+
+      <!-- Code for Topic 2 goes here -->
+      sample dfs
+      <div class = "codeWrapper">
+        <p>#define&nbsp WHITE&nbsp 0</p>
+        <p>#define&nbsp GRAY&nbsp 1</p>
+        <p>#define&nbsp BLACK&nbsp 2</p>
+        <p></p>
+        <p>typedef&nbsp struct&nbsp node&nbsp {</p>
+        <p></p>
+        <p>&nbsp &nbsp int&nbsp value;</p>
+        <p>&nbsp &nbsp int&nbsp color;</p>
+        <p>&nbsp &nbsp struct&nbsp node&nbsp *next;</p>
+        <p>}&nbsp *link;</p>
+        <p></p>
+        <p>void&nbsp initializeNodes(link*&nbsp list,&nbsp int&nbsp numNodes)&nbsp {</p>
+        <p></p>
+        <p>&nbsp &nbsp int&nbsp i;</p>
+        <p>&nbsp &nbsp for&nbsp (i&nbsp =&nbsp 0;&nbsp i&nbsp &lt; &nbsp numNodes;&nbsp i++)&nbsp {</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp list[i]&nbsp =&nbsp malloc(sizeof(struct&nbsp node));</p>
+        <p>&nbsp &nbsp &nbsp &nbsp list[i]-&gt; value&nbsp =&nbsp i;</p>
+        <p>&nbsp &nbsp &nbsp &nbsp list[i]-&gt; next&nbsp =&nbsp NULL;</p>
+        <p>&nbsp &nbsp }</p>
+        <p>}</p>
+        <p></p>
+        <p>void&nbsp dfs(link*&nbsp list,&nbsp int&nbsp numNodes,&nbsp int*&nbsp path)&nbsp {</p>
+        <p></p>
+        <p>&nbsp &nbsp int&nbsp i;</p>
+        <p>&nbsp &nbsp for&nbsp (i&nbsp =&nbsp 0;&nbsp i&nbsp &lt; &nbsp numNodes;&nbsp i++)</p>
+        <p>&nbsp &nbsp &nbsp &nbsp if&nbsp (list[i]-&gt; color&nbsp ==&nbsp WHITE)</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp dfsVisit(list,&nbsp list[i],&nbsp path,&nbsp numNodes);</p>
+        <p></p>
+        <p>}</p>
+        <p></p>
+        <p>void&nbsp dfsVisit(link*&nbsp list,&nbsp link&nbsp node,&nbsp int*&nbsp path,&nbsp int&nbsp numNodes)&nbsp {</p>
+        <p></p>
+        <p>&nbsp &nbsp node-&gt; color&nbsp =&nbsp GRAY;</p>
+        <p>&nbsp &nbsp link&nbsp v&nbsp =&nbsp node-&gt; next;</p>
+        <p>&nbsp &nbsp while&nbsp (v&nbsp !=&nbsp NULL){</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp if&nbsp (list[v-&gt; value]-&gt; color&nbsp ==&nbsp GRAY)&nbsp {</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp cycles&nbsp =&nbsp 1;</p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp return;</p>
+        <p>&nbsp &nbsp &nbsp &nbsp }</p>
+        <p>&nbsp &nbsp &nbsp &nbsp else&nbsp if(list[v-&gt; value]-&gt; color&nbsp ==&nbsp WHITE)&nbsp {</p>
+        <p></p>
+        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp dfsVisit(list,&nbsp list[v-&gt; value],&nbsp path,&nbsp numNodes);</p>
+        <p>&nbsp &nbsp &nbsp &nbsp }</p>
+        <p>&nbsp &nbsp &nbsp &nbsp v&nbsp =&nbsp v-&gt; next;</p>
+        <p>&nbsp &nbsp }</p>
+        <p>&nbsp &nbsp node-&gt; color&nbsp =&nbsp BLACK;</p>
+        <p>&nbsp &nbsp path[pathCount++]&nbsp =&nbsp node-&gt; value;</p>
+        <p></p>
+      </div>
+
+      <!-- Page Content -->
+    </div>
+
+  </body>
+
+</html>

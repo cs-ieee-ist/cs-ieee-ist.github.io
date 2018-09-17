@@ -3,6 +3,7 @@
 
 import sys
 
+key = ["False", "True", "class", "finally", "is", "return", "None", "continue", "for", "while", "if", "in", "lambda", "try", "def", "from", "nonlocal", "and", "del", "global", "not", "with", "as", "elif", "else", "or", "yield", "assert", "import", "pass", "break", "except", "raise"]
 sub = { " ": "&nbsp ", "<": "&lt; ", ">": "&gt; ", "\"": "'", "\t": "&nbsp &nbsp &nbsp &nbsp " }
 for file in sys.argv[1:]:
 	if file == "h":
@@ -26,7 +27,11 @@ for file in sys.argv[1:]:
 					newLine += c
 
 			newLine += "</p>\n"
-			g.write(newLine)
+			tup = newLine.split(sub[" "])
+			# for color in tup:
+			# 	if color in key:
+			# 		color = "<font color = \"#5555AE\">" + color + "</font>"
+			g.write("".join(tup))
 		else:
 			g.write("<p></p>")
 	f.close()
