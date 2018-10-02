@@ -1,139 +1,59 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/template.css"></link>
+    <!-- template.css has all default class names -->
+
   </head>
   <body>
 
     <div id = "pageTop">
-      <div id = "projectName"><center>CodeRep</center></div>
-      <p></p>
-      <div id = "className"><center>Fundamentos da Programação</center></div>
+      <div id = "projectName"><center>PROJECT NAME</center></div>
+      <p>
+
+      <div id = "className"><center>Fundamentos da Programacao</center></div>
+
     </div>
+
     <div id = "pageBody">
       <!-- Page Content -->
 
+      <center><h1 id = "sub1" class = "Fundamentos da Programacao">Classes</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
 
-      <center><h1 id = "sub1" class = "fp">Tipos de Variáveis</h1></center>
-
-      <div class = "paragraph">
-
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
+      <div id = "#codeWrapper">
+	<p>classaccount:</p>
+	<p></p>
+<p>def__init__(self,quantity):</p>
+<p>'''Constructorisamethodthatcreatesanewinstanceoftheobject.</p>
+<p>  Themethodisresponsibleforallocatingresourcesnecessaryfortheoperationoftheobjectbeyondtheinitialdefinitionofthestatevariables'''</p>
+<p>self.balance=quantity</p>
+<p></p>
+<p>defconsult(self):</p>
+<p>'''Inobject-orientedprogrammingafunctioniscalledamethod.</p>
+<p>Methodsdeterminethebehaviorofobjectsinaclass.'''</p>
+<p>returnself.slado</p>
+<p></p>
+<p>defdeposit(self,quantity):</p>
+<p>'''Inobject-orientedprogrammingafunctioniscalledamethod.</p>
+<p>Themethodsdeterminethebehavioroftheobjectsofaclass.'''</p>
+<p>self.balance=self.balance+quantity</p>
+<p>returnself.balance</p>
+<p></p>
+<p>defwithdraw(self,quantity):</p>
+<p>ifself.balance-quantity&gt; =0:</p>
+<p>self.balance=self.balance-quantity</p>
+<p>returnself.balance</p>
+	<p>else:</p>
+	<p>print('notenoughbalance'</p>
       </div>
 
+      <center><h1 id = "sub2" class = "Fundamentos da Programacao">TÓPICO 2</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
 
+      <!-- Code for Topic 2 goes here -->
+      ADD STUFF TO ME
 
-      <div class = "codeWrapper">
-
-        <p>import&nbsp sys</p>
-        <p>import&nbsp os</p>
-        <p>className&nbsp =&nbsp sys.argv[1].lower()</p>
-        <p>os.system('touch&nbsp ../../'&nbsp +&nbsp className&nbsp +&nbsp '.html')</p>
-        <p>template&nbsp =&nbsp open('../../template.html',&nbsp 'r')</p>
-        <p></p>
-        <p>fullName&nbsp =&nbsp input('Class&nbsp full&nbsp name:&nbsp ')</p>
-        <p></p>
-        <p>g&nbsp =&nbsp open('../../'&nbsp +&nbsp className&nbsp +&nbsp '.html',&nbsp 'w')</p>
-        <p></p>
-        <p>for&nbsp line&nbsp in&nbsp template:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp if&nbsp 'CHANGEME'&nbsp in&nbsp line:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write(line.replace('CHANGEME',&nbsp fullName))</p>
-        <p></p>
-        <p>&nbsp &nbsp &nbsp &nbsp else:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write(line)</p>
-        <p></p>
-        <p>g.close()</p>
-        <p>template.close()</p>
-        <p></p>
-        <p>buf&nbsp =&nbsp ''</p>
-        <p>with&nbsp open('../../index.html',&nbsp 'r')&nbsp as&nbsp in_file:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp buf&nbsp =&nbsp in_file.readlines()</p>
-        <p></p>
-        <p>with&nbsp open('../../index.html',&nbsp 'w')&nbsp as&nbsp out_file:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp for&nbsp line&nbsp in&nbsp buf:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp &nbsp '&lt; !--&nbsp Add&nbsp here&nbsp --&gt; '&nbsp in&nbsp line:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp line&nbsp =&nbsp line&nbsp +&nbsp '&nbsp &nbsp &nbsp &nbsp &lt; div&nbsp class&nbsp =&nbsp \'page\'&nbsp id&nbsp =&nbsp \''+&nbsp className&nbsp +&nbsp '\'&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp style&nbsp =&nbsp \'display:&nbsp none&nbsp \'&gt; &lt; /div&gt; \n'</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp elif&nbsp '//&nbsp add&nbsp here'&nbsp in&nbsp line:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp line&nbsp =&nbsp line&nbsp +&nbsp '\n\t\t\t$(function()&nbsp {\n\n\t\t\t\t$(\'#'&nbsp +&nbsp className&nbsp +'\').load(\''&nbsp +&nbsp className&nbsp +'.html\');\n\t\t\t});\n'</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp out_file.write(line)</p>
-        <p></p>
-        <p>with&nbsp open('../../sidenav.html',&nbsp 'r')&nbsp as&nbsp in_file:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp buf&nbsp =&nbsp in_file.readlines()</p>
-        <p></p>
-        <p>with&nbsp open('../../sidenav.html',&nbsp 'w')&nbsp as&nbsp out_file:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp for&nbsp line&nbsp in&nbsp buf:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp &nbsp '&lt; !--&nbsp Add&nbsp here&nbsp --&gt; '&nbsp in&nbsp line:</p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp line&nbsp =&nbsp '\t\t\t&lt; button&nbsp class=\'dropdown-btn\'&nbsp onclick=\'navigate(''&nbsp +&nbsp className&nbsp +&nbsp '')\'&gt; '&nbsp +className.upper()&nbsp +&nbsp '\n\t\t\t\t&lt; i&nbsp class=\'fa&nbsp fa-caret-down\'&gt; &lt; /i&gt; \n\t\t\t&lt; /button&gt; \n\t\t\t&lt; div&nbsp class=\'dropdown-container\'&nbsp id&nbsp =&nbsp \''&nbsp +&nbsp className&nbsp +&nbsp '0\'&gt; \n\t\t\t\t&lt; a&nbsp href=\'#\'&nbsp id&nbsp =&nbsp \'d1\'&gt; Tópico1&lt; /a&gt; \n\t\t\t\t&lt; a&nbsp href=\'#\'&nbsp id&nbsp =&nbsp \'d2\'&gt; Tópico2&lt; /a&gt; \n\t\t\t&lt; /div&gt; \n\n'&nbsp +&nbsp line</p>
-        <p></p>
-        <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp out_file.write(line)</p>
-
-
-      </div>
-
-
-      <center><h1 id = "sub2" class = "fp">Tipos de Funções</h1></center>
-
-
-      <table class = "splitCodeText">
-        <tr>
-          <td>
-            <div class = "paragraph pLeft">
-
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-
-              </div>
-            </td>
-            <td>
-              <div class = "codeWrapper cRight">
-
-                <p>import&nbsp sys</p>
-                <p></p>
-                <p>sub&nbsp =&nbsp {&nbsp '&nbsp ':&nbsp '&nbsp&nbsp ',&nbsp '&lt; ':&nbsp '&lt;&nbsp ',&nbsp '&gt; ':&nbsp '&gt;&nbsp ',&nbsp '\'':&nbsp ''',&nbsp '\t':&nbsp '&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp '&nbsp }</p>
-                <p>for&nbsp file&nbsp in&nbsp sys.argv[1:]:</p>
-                <p>&nbsp &nbsp &nbsp &nbsp if&nbsp file&nbsp ==&nbsp 'h':</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp print('python&nbsp codeParser.py&nbsp file1&nbsp file2&nbsp file3')</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp break</p>
-                <p></p>
-                <p>&nbsp &nbsp &nbsp &nbsp f&nbsp =&nbsp open(file,&nbsp 'r')</p>
-                <p>&nbsp &nbsp &nbsp &nbsp g&nbsp =&nbsp open(file&nbsp +&nbsp '.out',&nbsp 'w')</p>
-                <p></p>
-                <p>&nbsp &nbsp &nbsp &nbsp for&nbsp line&nbsp in&nbsp f:</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp =&nbsp '&lt; p&gt; '</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp spaces&nbsp =&nbsp 0</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp line&nbsp !=&nbsp '':</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp for&nbsp c&nbsp in&nbsp line[:-1]:</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp if&nbsp c&nbsp in&nbsp sub.keys():</p>
-                <p></p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp sub[c]</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp spaces&nbsp +=&nbsp 1</p>
-                <p></p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp else:</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp c</p>
-                <p></p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp newLine&nbsp +=&nbsp '&lt; /p&gt; \n'</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write(newLine)</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp else:</p>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp g.write('&lt; p&gt; &lt; /p&gt; ')</p>
-                <p>&nbsp &nbsp &nbsp &nbsp f.close()</p>
-                <p>&nbsp &nbsp &nbsp &nbsp g.close()</p>
-              </div>
-            </td>
-          </tr>
-
-        </table>
-
-        <center><h1 id = "sub3" class = "fp">Classes</h1></center>
-
-
-        <!-- Page Content -->
+      <!-- Page Content -->
     </div>
 
-
-
-    <script src = "js/template.js"></script>
   </body>
 
 </html>
