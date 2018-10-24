@@ -12,7 +12,8 @@ for file in sys.argv[1:]:
 
 	f = open(file, "r")
 	g = open(file + ".out", "w")
-
+	
+	g.write("<div class = \"codewrapper\">")
 	for line in f:
 		newLine = "<p>"
 		spaces = 0
@@ -27,12 +28,13 @@ for file in sys.argv[1:]:
 					newLine += c
 
 			newLine += "</p>\n"
-			tup = newLine.split(sub[" "])
+			# tup = newLine.split(sub[" "])
 			# for color in tup:
 			# 	if color in key:
 			# 		color = "<font color = \"#5555AE\">" + color + "</font>"
-			g.write("".join(tup))
+			g.write(newLine)
 		else:
 			g.write("<p></p>")
+	g.write("</div>")
 	f.close()
 	g.close()
