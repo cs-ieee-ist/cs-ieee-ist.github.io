@@ -1,0 +1,24 @@
+<p>classaccount:</p>
+<p></p>
+<p>def__init__(self,quantity):</p>
+<p>'''Constructorisamethodthatcreatesanewinstanceoftheobject.</p>
+<p>  Themethodisresponsibleforallocatingresourcesnecessaryfortheoperationoftheobjectbeyondtheinitialdefinitionofthestatevariables'''</p>
+<p>self.balance=quantity</p>
+<p></p>
+<p>defconsult(self):</p>
+<p>'''Inobject-orientedprogrammingafunctioniscalledamethod.</p>
+<p>Methodsdeterminethebehaviorofobjectsinaclass.'''</p>
+<p>returnself.slado</p>
+<p></p>
+<p>defdeposit(self,quantity):</p>
+<p>'''Inobject-orientedprogrammingafunctioniscalledamethod.</p>
+<p>Themethodsdeterminethebehavioroftheobjectsofaclass.'''</p>
+<p>self.balance=self.balance+quantity</p>
+<p>returnself.balance</p>
+<p></p>
+<p>defwithdraw(self,quantity):</p>
+<p>ifself.balance-quantity&gt; =0:</p>
+<p>self.balance=self.balance-quantity</p>
+<p>returnself.balance</p>
+<p>else:</p>
+<p>print('notenoughbalance'</p>

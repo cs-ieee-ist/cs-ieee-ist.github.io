@@ -1,0 +1,74 @@
+<div class = "codewrapper"><p>/*</p>
+<p>Shellsort&nbsp is&nbsp a&nbsp generalization&nbsp of&nbsp insertion&nbsp sort&nbsp that&nbsp allows&nbsp the&nbsp exchange&nbsp of</p>
+<p>items&nbsp that&nbsp are&nbsp far&nbsp apart.&nbsp The&nbsp idea&nbsp is&nbsp to&nbsp arrange&nbsp the&nbsp list&nbsp of&nbsp elements&nbsp so&nbsp that,</p>
+<p>starting&nbsp anywhere,&nbsp considering&nbsp every&nbsp hth&nbsp element&nbsp gives&nbsp a&nbsp sorted&nbsp list.</p>
+<p>Such&nbsp a&nbsp list&nbsp is&nbsp said&nbsp to&nbsp be&nbsp h-sorted.&nbsp Equivalently,</p>
+<p>it&nbsp can&nbsp be&nbsp thought&nbsp of&nbsp as&nbsp h&nbsp interleaved&nbsp lists,&nbsp each&nbsp individually&nbsp sorted.</p>
+<p></p>
+<p>Worst&nbsp case:&nbsp O(n*2)</p>
+<p></p>
+<p>Best&nbsp case:&nbsp O(n&nbsp log&nbsp n)</p>
+<p></p>
+<p>*/</p>
+<p></p>
+<p>#define&nbsp key(A)&nbsp (A)</p>
+<p>#define&nbsp less(A,&nbsp B)&nbsp (key(A)&nbsp &lt; &nbsp key(B))</p>
+<p>#define&nbsp exch(A,&nbsp B)&nbsp {&nbsp int&nbsp t&nbsp =&nbsp A;&nbsp A&nbsp =&nbsp B;&nbsp B&nbsp =&nbsp t;&nbsp }</p>
+<p>#define&nbsp compexch(A,&nbsp B)&nbsp if&nbsp (less(B,&nbsp A))&nbsp exch(A,&nbsp B)</p>
+<p></p>
+<p>int&nbsp shellSort(int&nbsp arr[],&nbsp int&nbsp l,&nbsp int&nbsp r){</p>
+<p>&nbsp &nbsp &nbsp &nbsp int&nbsp i,&nbsp j;</p>
+<p>&nbsp &nbsp &nbsp &nbsp int&nbsp gap&nbsp =&nbsp 1;</p>
+<p>&nbsp &nbsp &nbsp &nbsp while&nbsp (gap&nbsp &lt; =&nbsp (r-l))&nbsp {</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp gap&nbsp =&nbsp 3*gap+1;</p>
+<p>&nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp for&nbsp (&nbsp ;&nbsp gap&nbsp &gt; &nbsp 0;&nbsp gap&nbsp /=&nbsp 3){</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp for&nbsp (i&nbsp =&nbsp l+gap;&nbsp i&nbsp &lt; =&nbsp r;&nbsp i++)&nbsp {</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp int&nbsp j&nbsp =&nbsp i;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp int&nbsp temp&nbsp =&nbsp arr[i];</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp while&nbsp (j&nbsp &gt; =&nbsp l+gap&nbsp &&&nbsp less(temp,&nbsp arr[j-gap]))&nbsp {</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j]&nbsp =&nbsp arr[j-gap];</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp j&nbsp -=&nbsp gap;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j]&nbsp =&nbsp temp;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp return&nbsp 0;</p>
+<p>}</p>
+<p></p>
+<p></p>
+<p>//&nbsp Another&nbsp implementation&nbsp of&nbsp shellSort&nbsp from&nbsp Geek&nbsp for&nbsp Geeks</p>
+<p>//&nbsp More&nbsp info:&nbsp https://www.geeksforgeeks.org/shellsort/</p>
+<p></p>
+<p>/*&nbsp function&nbsp to&nbsp sort&nbsp arr&nbsp using&nbsp shellSort&nbsp */</p>
+<p>int&nbsp shellSort(int&nbsp arr[],&nbsp int&nbsp n){</p>
+<p>&nbsp &nbsp &nbsp &nbsp //&nbsp Start&nbsp with&nbsp a&nbsp big&nbsp gap,&nbsp then&nbsp reduce&nbsp the&nbsp gap</p>
+<p>&nbsp &nbsp &nbsp &nbsp for&nbsp (int&nbsp gap&nbsp =&nbsp n/2;&nbsp gap&nbsp &gt; &nbsp 0;&nbsp gap&nbsp /=&nbsp 2){</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp Do&nbsp a&nbsp gapped&nbsp insertion&nbsp sort&nbsp for&nbsp this&nbsp gap&nbsp size.</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp The&nbsp first&nbsp gap&nbsp elements&nbsp a[0..gap-1]&nbsp are&nbsp already&nbsp in&nbsp gapped&nbsp order</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp keep&nbsp adding&nbsp one&nbsp more&nbsp element&nbsp until&nbsp the&nbsp entire&nbsp array&nbsp is</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp gap&nbsp sorted</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp for&nbsp (int&nbsp i&nbsp =&nbsp gap;&nbsp i&nbsp &lt; &nbsp n;&nbsp i&nbsp +=&nbsp 1){</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp add&nbsp a[i]&nbsp to&nbsp the&nbsp elements&nbsp that&nbsp have&nbsp been&nbsp gap&nbsp sorted</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp save&nbsp a[i]&nbsp in&nbsp temp&nbsp and&nbsp make&nbsp a&nbsp hole&nbsp at&nbsp position&nbsp i</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp int&nbsp temp&nbsp =&nbsp arr[i];</p>
+<p></p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp shift&nbsp earlier&nbsp gap-sorted&nbsp elements&nbsp up&nbsp until&nbsp the&nbsp correct</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp location&nbsp for&nbsp a[i]&nbsp is&nbsp found</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp int&nbsp j;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp for&nbsp (j&nbsp =&nbsp i;&nbsp j&nbsp &gt; =&nbsp gap&nbsp &&&nbsp arr[j&nbsp -&nbsp gap]&nbsp &gt; &nbsp temp;&nbsp j&nbsp -=&nbsp gap)</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j]&nbsp =&nbsp arr[j&nbsp -&nbsp gap];</p>
+<p></p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //&nbsp &nbsp put&nbsp temp&nbsp (the&nbsp original&nbsp a[i])&nbsp in&nbsp its&nbsp correct&nbsp location</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j]&nbsp =&nbsp temp;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp return&nbsp 0;</p>
+<p>}</p>
+<p></p>
+<p></p>
+<p>/*</p>
+<p>Sources:&nbsp https://en.wikipedia.org/wiki/Shellsort</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp https://www.geeksforgeeks.org/shellsort</p>
+<p>*/</p>
+</div>
