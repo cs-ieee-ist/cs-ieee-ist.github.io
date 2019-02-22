@@ -1,0 +1,57 @@
+<div class = "codewrapper"><p>/*</p>
+<p></p>
+<p>Insertion&nbsp sort&nbsp iterates,&nbsp consuming&nbsp one&nbsp input&nbsp element&nbsp each&nbsp repetition,</p>
+<p>and&nbsp growing&nbsp a&nbsp sorted&nbsp output&nbsp list.&nbsp At&nbsp each&nbsp iteration,&nbsp insertion&nbsp sort&nbsp removes</p>
+<p>one&nbsp element&nbsp from&nbsp the&nbsp input&nbsp data,&nbsp finds&nbsp the&nbsp location&nbsp it&nbsp belongs&nbsp within&nbsp the&nbsp sorted</p>
+<p>list,&nbsp and&nbsp inserts&nbsp it&nbsp there.&nbsp It&nbsp repeats&nbsp until&nbsp no&nbsp input&nbsp elements&nbsp remain.</p>
+<p></p>
+<p>Time&nbsp Complexity:&nbsp O(n*2)</p>
+<p></p>
+<p>Best&nbsp case:&nbsp O(n)</p>
+<p></p>
+<p>*/</p>
+<p></p>
+<p>#define&nbsp key(A)&nbsp (A)</p>
+<p>#define&nbsp less(A,&nbsp B)&nbsp (key(A)&nbsp &lt; &nbsp key(B))</p>
+<p>#define&nbsp exch(A,&nbsp B)&nbsp {&nbsp int&nbsp t&nbsp =&nbsp A;&nbsp A&nbsp =&nbsp B;&nbsp B&nbsp =&nbsp t;&nbsp }</p>
+<p>#define&nbsp compexch(A,&nbsp B)&nbsp if&nbsp (less(B,&nbsp A))&nbsp exch(A,&nbsp B)</p>
+<p></p>
+<p>int&nbsp insertionSort(int&nbsp arr[],&nbsp int&nbsp left,&nbsp int&nbsp right){</p>
+<p>&nbsp &nbsp &nbsp &nbsp int&nbsp i,&nbsp j;</p>
+<p>&nbsp &nbsp &nbsp &nbsp for&nbsp (i&nbsp =&nbsp left+1;&nbsp i&nbsp &lt; =&nbsp right;&nbsp i++)&nbsp {</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp int&nbsp temp&nbsp =&nbsp arr[i];</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp j&nbsp =&nbsp i-1;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp while&nbsp (j&nbsp &gt; =&nbsp left&nbsp &&&nbsp less(temp,&nbsp arr[j]))&nbsp {</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j+1]&nbsp =&nbsp arr[j];</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp j--;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j+1]&nbsp =&nbsp temp;</p>
+<p>&nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp return&nbsp 0;</p>
+<p>}</p>
+<p></p>
+<p></p>
+<p>//&nbsp Another&nbsp implementation&nbsp of&nbsp insertionSort&nbsp from&nbsp Geek&nbsp for&nbsp Geeks</p>
+<p>//&nbsp More&nbsp info:&nbsp https://www.geeksforgeeks.org/insertion-sort/</p>
+<p>void&nbsp insertionSort(int&nbsp arr[],&nbsp int&nbsp n){</p>
+<p>&nbsp &nbsp &nbsp int&nbsp i,&nbsp key,&nbsp j;</p>
+<p>&nbsp &nbsp &nbsp for&nbsp (i&nbsp =&nbsp 1;&nbsp i&nbsp &lt; &nbsp n;&nbsp i++){</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp key&nbsp =&nbsp arr[i];</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp j&nbsp =&nbsp i-1;</p>
+<p></p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp /*&nbsp Move&nbsp elements&nbsp of&nbsp arr[0..i-1],&nbsp that&nbsp are</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp greater&nbsp than&nbsp key,&nbsp to&nbsp one&nbsp position&nbsp ahead</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp of&nbsp their&nbsp current&nbsp position&nbsp */</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp while&nbsp (j&nbsp &gt; =&nbsp 0&nbsp &&&nbsp arr[j]&nbsp &gt; &nbsp key){</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j+1]&nbsp =&nbsp arr[j];</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp j&nbsp =&nbsp j-1;</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp }</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp arr[j+1]&nbsp =&nbsp key;</p>
+<p>&nbsp &nbsp &nbsp }</p>
+<p>}</p>
+<p></p>
+<p>/*</p>
+<p>Sources:&nbsp https://en.wikipedia.org/wiki/Shellsort</p>
+<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp https://www.geeksforgeeks.org/shellsort</p>
+<p>*/</p>
+</div>
