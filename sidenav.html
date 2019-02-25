@@ -8,14 +8,23 @@
   <body>
     <div class="sidenav">
 
-      <img id = "csLogo" onclick = "location.reload();" src = "media/img/logo-cs.png"></img>
+			<img id = "csLogo" onclick = "location.reload();" src = "media/img/logo-cs.png"></img>
+
+			<button class="dropdown-btn" onclick="navigate('fp')">FP
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container" id="fp0">
+				<a href="#" id="d1">Dictionaries</a>
+				<a href="#" id="d2">Classes</a>
+			</div>
 
 			<button class="dropdown-btn" onclick="navigate('iaed')">IAED
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container" id = "iaed0">
-				<a href="#" id = "d1">Tópico1</a>
-				<a href="#" id = "d2">Tópico2</a>
+				<a href="#" id = "d1">Heap Sort</a>
+				<a href="#" id = "d2">Insertion Sort</a>
+				<a href="#" id = "d3">Shell Sort</a>
 			</div>
 
       <!-- Add here -->
