@@ -86,3 +86,8 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+
+.gist {
+  overflow: auto;
+}
