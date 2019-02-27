@@ -88,6 +88,15 @@
 }
 
 
-.gist {
+.gistcontainer {
+  max-height: 300px;
   overflow: auto;
+}
+
+.gistcontainer:target .show {
+  display: none;
+}
+
+.gistcontainer:target {
+  max-height: none;
 }
