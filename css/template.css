@@ -86,3 +86,17 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+
+.gistcontainer {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.gistcontainer:target .show {
+  display: none;
+}
+
+.gistcontainer:target {
+  max-height: none;
+}
