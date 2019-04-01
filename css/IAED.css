@@ -10,6 +10,9 @@ body .gist .gist-data {
     border-bottom: none;
     border-radius: 0;
     background-color: #f1f3f5;
+    max-height: 500px;
+    max-width: 1000px;
+    padding-left: 700px;
 }
 
 body .gist .blob-wrapper {
