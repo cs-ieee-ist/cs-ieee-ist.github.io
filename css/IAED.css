@@ -13,6 +13,7 @@ body .gist .gist-data {
     max-height: 500px;
     max-width: 1000px;
     padding-left: 700px;
+    z-index: 100;
 }
 
 body .gist .blob-wrapper {
