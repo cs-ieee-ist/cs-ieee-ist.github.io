@@ -12,7 +12,7 @@ body .gist .gist-data {
     background-color: #f1f3f5;
     max-height: 500px;
     max-width: 1000px;
-    padding-left: 700px;
+    padding-right: 0px;
     z-index: 100;
 }
 
