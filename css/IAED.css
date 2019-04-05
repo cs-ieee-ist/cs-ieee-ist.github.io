@@ -11,7 +11,7 @@ body .gist .gist-data {
     border-radius: 0;
     background-color: #f1f3f5;
     max-height: 500px;
-    max-width: 1000px;
+    max-width: 500px;
     padding-right: 0px;
     z-index: 100;
 }

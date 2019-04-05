@@ -1,0 +1,180 @@
+
+<!-- saved from url=(0035)https://hastebin.com/umisijomav.cpp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>hastebin - umisijomav</title>
+
+<link rel="stylesheet" type="text/css" href="./hastebin - umisijomav_files/solarized_dark.css">
+<link rel="stylesheet" type="text/css" href="./hastebin - umisijomav_files/application.css">
+<script type="text/javascript" src="./hastebin - umisijomav_files/jquery.min.js"></script>
+<script type="text/javascript" src="./hastebin - umisijomav_files/highlight.min.js"></script>
+<script type="text/javascript" src="./hastebin - umisijomav_files/application.min.js"></script>
+<meta name="robots" content="noindex,nofollow">
+<script type="text/javascript">
+			var app = null;
+			// Handle pops
+			var handlePop = function(evt) {
+				var path = evt.target.location.pathname;
+				if (path === '/') { app.newDocument(true); }
+				else { app.loadDocument(path.substring(1, path.length)); }
+			};
+			// Set up the pop state to handle loads, skipping the first load
+			// to make chrome behave like others:
+			// http://code.google.com/p/chromium/issues/detail?id=63040
+			setTimeout(function() {
+				window.onpopstate = function(evt) {
+					try { handlePop(evt); } catch(err) { /* not loaded yet */ }
+				};
+			}, 1000);
+			// Construct app and load initial path
+			$(function() {
+				app = new haste('hastebin', { twitter: true });
+				handlePop({ target: window });
+			});
+		</script>
+</head>
+<body>
+<ul id="messages"></ul>
+<div id="key">
+
+<div id="box1">
+<a href="https://hastebin.com/about.md" class="logo"></a>
+</div>
+<div id="box2">
+<button class="save function button-picture">Save<div id="pointer" style="display: none;"></div></button>
+<button class="new function button-picture enabled">New</button>
+<button class="duplicate function button-picture enabled">Duplicate &amp; Edit</button>
+<button class="raw function button-picture enabled">Just Text</button>
+<button class="twitter function button-picture enabled">Twitter</button>
+</div>
+<div id="box3" style="display: none;">
+<div class="label">Save</div>
+<div class="shortcut">control + s</div>
+</div>
+</div>
+<div id="linenos">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br></div>
+<pre id="box" style="" class="hljs" tabindex="0"><code><span class="hljs-comment">/*
+In the first step, a heap is built out of the data. The heap is often placed
+    in an array with the layout of a complete binary tree.
+In the second step, a sorted array is created by repeatedly removing the largest
+    element from the heap (the root of the heap), and inserting it into the array.
+    The heap is updated after each removal to maintain the heap property.
+    Once all objects have been removed from the heap, the result is a sorted array.
+
+
+Worst case: O(n log n)
+
+Best case: O(n log n)
+
+*/</span>
+
+
+
+<span class="hljs-comment">/*
+
+Fixdown (indice i)
+    verifica se i tem um filho maior que ele
+    SE i tem um filho maior:
+        troca i com o filho_maior
+        Fixdown (pos_do_filho_maior)
+
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fixDown</span><span class="hljs-params">(Item a[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> k)</span></span>{
+    <span class="hljs-comment">/* fixdown(k) num amontoado definido entre l e r */</span>
+    <span class="hljs-keyword">int</span> ileft, iright, largest=k;
+
+    ileft=l+left(k-l); <span class="hljs-comment">/* filho esquerdo de k */</span>
+    iright=l+right(k-l); <span class="hljs-comment">/* filho direito de k */</span>
+
+    <span class="hljs-keyword">if</span> (ileft&lt;=r &amp;&amp; less(a[largest],a[ileft])){
+        largest=ileft;
+    }
+    <span class="hljs-keyword">if</span> (iright&lt;=r &amp;&amp; less(a[largest],a[iright])){
+        largest=iright;
+    }
+    <span class="hljs-keyword">if</span> (largest!=k){
+        exch(a[k],a[largest]);
+        fixDown(a, l, r, largest);
+    }
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">buildheap</span><span class="hljs-params">(Item a[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span>{
+    <span class="hljs-keyword">int</span> k, heapsize = r-l+<span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">for</span> (k = heapsize/<span class="hljs-number">2</span><span class="hljs-number">-1</span>; k &gt;= l; k--){
+        fixDown(a, l, r, l+k);
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">heapsort</span><span class="hljs-params">(Item a[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span>{
+
+    buildheap(a,l,r);
+
+    <span class="hljs-keyword">while</span> (r-l &gt; <span class="hljs-number">0</span>) {
+        exch(a[l], a[r]);
+        fixDown(a, l, --r, l);
+    }
+}
+
+<span class="hljs-comment">// Another implementation of heapSort from Geek for Geeks</span>
+<span class="hljs-comment">// More info: https://www.geeksforgeeks.org/heap-sort/</span>
+
+<span class="hljs-comment">// To heapify a subtree rooted with node i which is</span>
+<span class="hljs-comment">// an index in arr[]. n is size of heap</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">heapify</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> i)</span>
+</span>{
+    <span class="hljs-keyword">int</span> largest = i; <span class="hljs-comment">// Initialize largest as root</span>
+    <span class="hljs-keyword">int</span> l = <span class="hljs-number">2</span>*i + <span class="hljs-number">1</span>; <span class="hljs-comment">// left = 2*i + 1</span>
+    <span class="hljs-keyword">int</span> r = <span class="hljs-number">2</span>*i + <span class="hljs-number">2</span>; <span class="hljs-comment">// right = 2*i + 2</span>
+
+    <span class="hljs-comment">// If left child is larger than root</span>
+    <span class="hljs-keyword">if</span> (l &lt; n &amp;&amp; arr[l] &gt; arr[largest])
+        largest = l;
+
+    <span class="hljs-comment">// If right child is larger than largest so far</span>
+    <span class="hljs-keyword">if</span> (r &lt; n &amp;&amp; arr[r] &gt; arr[largest])
+        largest = r;
+
+    <span class="hljs-comment">// If largest is not root</span>
+    <span class="hljs-keyword">if</span> (largest != i)
+    {
+        swap(arr[i], arr[largest]);
+        <span class="hljs-keyword">int</span> temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+
+        <span class="hljs-comment">// Recursively heapify the affected sub-tree</span>
+        heapify(arr, n, largest);
+    }
+}
+
+
+<span class="hljs-comment">// main function to do heap sort</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">heapSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> n)</span></span>{
+    <span class="hljs-comment">// Build heap (rearrange array)</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n / <span class="hljs-number">2</span> - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)
+        heapify(arr, n, i);
+
+    <span class="hljs-comment">// One by one extract an element from heap</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=n<span class="hljs-number">-1</span>; i&gt;=<span class="hljs-number">0</span>; i--)
+    {
+        <span class="hljs-comment">// Move current root to end</span>
+        <span class="hljs-keyword">int</span> temp = arr[<span class="hljs-number">0</span>];
+        arr[<span class="hljs-number">0</span>] = arr[i];
+        arr[<span class="hljs-number">1</span>] = temp;
+
+        <span class="hljs-comment">// call max heapify on the reduced heap</span>
+        heapify(arr, i, <span class="hljs-number">0</span>);
+    }
+}
+
+<span class="hljs-comment">/*
+Sources: https://en.wikipedia.org/wiki/Heapsort
+         https://www.geeksforgeeks.org/heap-sort/
+*/</span>
+</code></pre>
+<textarea spellcheck="false" style="display: none;"></textarea>
+
+
+</body></html>
