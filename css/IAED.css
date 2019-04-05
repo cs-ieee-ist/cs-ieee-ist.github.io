@@ -54,6 +54,6 @@ body .gist .gist-meta {
 #pageBody {
     max-height: 500px;
     max-width: 1000px;
-    padding-left: 0px;
+    padding-left: 350px;
     z-index: 100;
 }
