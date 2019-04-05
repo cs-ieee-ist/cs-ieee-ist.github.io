@@ -1,7 +1,9 @@
 <html>
 <head>
 
-    <title><img src="media/img/icon.png"> Project Name </title>
+    <title>
+      <href src="media/img/icon.png"> Project Name
+    </title>
     <meta charset="UTF-8">
     <script src = "js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css"></link>
@@ -14,6 +16,7 @@
 
     <div class = "page" id = "welcome"  style = "display: block"></div>
     <!-- Add here -->
+    <div class = "page" id = "about"       style = "display: none "></div>
     <div class = "page" id = "fp"       style = "display: none "></div>
     <div class = "page" id = "iaed"       style = "display: none "></div>
     <div class = "page" id = "rc"       style = "display: none "></div>
@@ -26,6 +29,11 @@
 
       // add here
 
+			$(function() {
+
+				$("#about").load("about.html");
+			});
+
 			// $(function() {
 
 			// 	$("#fp").load("fp.html");
@@ -34,7 +42,12 @@
 			$(function() {
 
 				$("#iaed").load("iaed.html");
-			});
+      });
+
+      $(function() {
+
+        $("#about").load("about.html");
+      });
 
       $(function() {
 
