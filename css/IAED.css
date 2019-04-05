@@ -6,13 +6,18 @@ body .gist .gist-file {
     border-radius: 0;
 }
 
-body .gist .gist-data {
+body .gist .gist-data{
     border-bottom: none;
     border-radius: 0;
     background-color: #f1f3f5;
     max-height: 500px;
+<<<<<<< HEAD
     max-width: 500px;
     padding-right: 0px;
+=======
+    max-width: 1000px;
+    padding-left: 700px;
+>>>>>>> 8b5a4b8c430db4fe014412fb3216ce8446acaa01
     z-index: 100;
 }
 
@@ -49,4 +54,11 @@ body .gist .blob-num {
 
 body .gist .gist-meta {
     display: none;
+}
+
+#pageBody {
+    max-height: 500px;
+    max-width: 1000px;
+    padding-left: 700px;
+    z-index: 100;
 }
