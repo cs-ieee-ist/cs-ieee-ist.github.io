@@ -6,7 +6,7 @@ body .gist .gist-file {
     border-radius: 0;
 }
 
-body .gist .gist-data {
+body .gist .gist-data #sub1{
     border-bottom: none;
     border-radius: 0;
     background-color: #f1f3f5;
