@@ -221,16 +221,9 @@
   <span class="cm"> https://www.geeksforgeeks.org/heap-sort/</span>
   <span class="cm">*/</span></div>
 
-
-
-
-
-
-
-
+  
   <center><h1 id = "sub2" class = "Introdução a Algoritmos e Estruturas de Dados">Insertion Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
-            
-
+          
   <div class="code code-line-numbers unselectable" id="line-numbers" aria-hidden="true">
     <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span>
   </div>
@@ -335,8 +328,84 @@
 
     
       <center><h1 id="sub4" class="Introdução a Algoritmos e Estruturas de Dados">Bubble Sort</h1></center>
-    
 
+  <div class="code code-line-numbers unselectable" id="line-numbers" aria-hidden="true">
+    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span>
+  </div>
+<div class="code" id="code"><span class="c1">// BUBBLE SORT</span>
+
+    
+  <span class="c1">// Implementation from IST slides</span>
+  <span class="kt">void</span> <span class="nf">bubble</span><span class="p">(</span><span class="kt">int</span>
+  <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">l</span><span
+    class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span
+    class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span
+    class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span
+    class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span
+    class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span
+    class="p">)</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span
+    class="n">l</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span
+    class="n">r</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span
+    class="n">j</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">compexch</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span
+    class="n">j</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span
+    class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// The worst case is equal to the best case O(n²), contradictory to the next example that
+    will give, this algorithm has no stop condition, so it has to go through the 2 for's</span>
+  <span class="c1">// So it is n x n --&gt; n²</span>
+
+  <span class="c1">// https://www.youtube.com/watch?v=xli_FI7CuzA</span>
+
+  <span class="c1">// BUBBLE SORT OPTIMIZATION</span>
+
+  <span class="kt">void</span> <span class="nf">bubble_optimized</span><span class="p">(</span><span
+    class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span
+    class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span
+    class="p">)</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span
+    class="p">,</span> <span class="n">done</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span
+    class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span
+    class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span
+    class="p">){</span>
+  <span class="n">done</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span
+    class="n">r</span><span class="p">;</span> <span class="n">j</span> <span class="o">&gt;</span> <span
+    class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">--</span><span
+    class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">less</span><span class="p">(</span><span
+    class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span
+    class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span
+    class="mi">1</span><span class="p">])){</span>
+  <span class="n">exch</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span
+    class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span
+    class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+  <span class="n">done</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">done</span><span class="p">)</span> <span
+    class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">}</span>
+
+
+  <span class="c1">// The worst case is O(n²)</span>
+  <span class="c1">// The best case is having the inicial array already sorted, since the algorithm, will only
+    have to go through the 1º iteration of the first for, the break intruction</span>
+  <span class="c1">// will be activated, because the less comparation is always false and done remains with the
+    value of 1. </span>
+  <span class="c1">// So the best case is O(n * 1) witch means O(n)</span>
+
+  <span class="c1">// https://www.youtube.com/watch?v=32pF2cDbaSw where the "swapped" variable is our done
+    variable</span></div>
+  
 
 
 
