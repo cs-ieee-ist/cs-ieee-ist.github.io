@@ -12,7 +12,7 @@
   
   ### Auto Loader
   ``
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=sons-of-obsidian"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/lozader/run_prettify.js?lang=c&amp;skin=sons-of-obsidian"></script>
   ``
 
 
