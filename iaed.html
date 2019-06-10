@@ -1,267 +1,129 @@
 <html>
   <head>
-    <!-- <link rel="stylesheet" type="text/css" href="css/template.css"></link> -->
-    <link rel="stylesheet" type="text/css" href="css/IAED.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/template.css"></link>
+
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/lozader/run_prettify.js?lang=c&amp;skin=desert"></script>
     <!-- template.css has all default class names -->
 
   </head>
-
-	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-	<link rel="stylesheet" href="./css-code/application.min.4db4aeac.css" media="all">
-	<link rel="stylesheet" href="./css-code/application.min.4db4aeac.css" media="all">
-  <link rel="stylesheet" href="./css-code/theme.min.77312fb0.css" media="all">
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=sons-of-obsidian"></script>
-
-
-
-
   <body>
-    <!--
+
     <div id = "pageTop">
-      <div id = "projectName"><center>IAED</center></div>
-      <div id = "sub1"><center>Introducao aos algoritmos e estrutura de dados</center></div>
-    </div> 
-    -->
+      <div id = "projectName"><center>PROJECT NAME</center></div>
+      <p></p>
+
+      <div id = "className"><center>Introdução aos Algoritmos e Estruturas de Dados</center></div>
+
+    </div>
 
     <div id = "pageBody">
       <!-- Page Content -->
 
-      <center><h1 id = "sub1" class = "Introdução a Algoritmos e Estruturas de Dados">Heap Sort</h1></center> <!--increment the id for each topic ex sub1, sub2, sub3 etc -->
+      <center><h1 id = "sub1" class = "Introdução aos Algoritmos e Estruturas de Dados">Bubble Sort<</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
 
-      <?prettify?>
-      <pre>
+      <pre class="prettyprint linenums">
+        // Implementation from IST slides
+        void bubble(int a[], int l, int r) {
 
-       // DONE 2 
-      /*
-      In the first step, a heap is built out of the data. The heap is often placed
-          in an array with the layout of a complete binary tree.
-      In the second step, a sorted array is created by repeatedly removing the largest
-          element from the heap (the root of the heap), and inserting it into the array.
-          The heap is updated after each removal to maintain the heap property.
-          Once all objects have been removed from the heap, the result is a sorted array.
-      
-      
-      Worst case: O(n log n)
-      
-      Best case: O(n log n)
-      
-      */
-      
-      
-      
-      /*
-      
-      Fixdown (indice i)
-          verifica se i tem um filho maior que ele
-          SE i tem um filho maior:
-              troca i com o filho_maior
-              Fixdown (pos_do_filho_maior)
-      
-      */
-      
-      void fixDown(Item a[], int l, int r, int k){
-          /* fixdown(k) num amontoado definido entre l e r */
-          int ileft, iright, largest=k;
-      
-          ileft=l+left(k-l); /* filho esquerdo de k */
-          iright=l+right(k-l); /* filho direito de k */
-      
-          if (ileft<=r && less(a[largest],a[ileft])){
-              largest=ileft;
-          }
-          if (iright<=r && less(a[largest],a[iright])){
-              largest=iright;
-          }
-          if (largest!=k){
-              exch(a[k],a[largest]);
-              fixDown(a, l, r, largest);
-          }
-      }
-      
-      
-      void buildheap(Item a[], int l, int r){
-          int k, heapsize = r-l+1;
-      
-          for (k = heapsize/2-1; k >= l; k--){
-              fixDown(a, l, r, l+k);
-          }
-      }
-      
-      void heapsort(Item a[], int l, int r){
-      
-          buildheap(a,l,r);
-      
-          while (r-l > 0) {
-              exch(a[l], a[r]);
-              fixDown(a, l, --r, l);
-          }
-      }
-      
-      // Another implementation of heapSort from Geek for Geeks
-      // More info: https://www.geeksforgeeks.org/heap-sort/
-      
-      // To heapify a subtree rooted with node i which is
-      // an index in arr[]. n is size of heap
-      void heapify(int arr[], int n, int i)
-      {
-          int largest = i; // Initialize largest as root
-          int l = 2*i + 1; // left = 2*i + 1
-          int r = 2*i + 2; // right = 2*i + 2
-      
-          // If left child is larger than root
-          if (l < n && arr[l] > arr[largest])
-              largest = l;
-      
-          // If right child is larger than largest so far
-          if (r < n && arr[r] > arr[largest])
-              largest = r;
-      
-          // If largest is not root
-          if (largest != i)
-          {
-              swap(arr[i], arr[largest]);
-              int temp = arr[i];
-              arr[i] = arr[largest];
-              arr[largest] = temp;
-      
-              // Recursively heapify the affected sub-tree
-              heapify(arr, n, largest);
-          }
-      }
-      
-      
-      // main function to do heap sort
-      void heapSort(int arr[], int n){
-          // Build heap (rearrange array)
-          for (int i = n / 2 - 1; i >= 0; i--)
-              heapify(arr, n, i);
-      
-          // One by one extract an element from heap
-          for (int i=n-1; i>=0; i--)
-          {
-              // Move current root to end
-              int temp = arr[0];
-              arr[0] = arr[i];
-              arr[1] = temp;
-      
-              // call max heapify on the reduced heap
-              heapify(arr, i, 0);
-          }
-      }
-      
-      /*
-      Sources: https://en.wikipedia.org/wiki/Heapsort
-               https://www.geeksforgeeks.org/heap-sort/
-      */
-      
-    </pre>
-  
-      <center><h1 id = "sub2" class = "Introdução a Algoritmos e Estruturas de Dados">Insertion Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
-          
-  <div class="code code-line-numbers unselectable" id="line-numbers" aria-hidden="true">
-    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span>
-  </div>
-  <div class="code" id="code"><span class="cm">/*</span>
-  <span class="cm">Insertion sort iterates, consuming one input element each repetition,</span>
-  <span class="cm">and growing a sorted output list. At each iteration, insertion sort removes</span>
-  <span class="cm">one element from the input data, finds the location it belongs within the sorted</span>
-  <span class="cm">list, and inserts it there. It repeats until no input elements remain.</span>
+            int i, j;
+            for (i = l; i < r; i++)
+                for (j = l; j < r-i; j++)
+                    compexch(a[j], a[j+1]);
+        }
+
+        // The worst case is equal to the best case O(n²), contradictory to the next example that will give, this algorithm has no stop condition, so it has to go through the 2 for's
+        // So it is n x n --> n²
+
+        // https://www.youtube.com/watch?v=xli_FI7CuzA
+
+        // BUBBLE SORT OPTIMIZATION
+
+        void bubble_optimized(int a[], int l, int r) {
+
+            int i, j, done;
+            for (i = l; i < r; i++){
+                done=1;
+                for (j = r; j > i; j--) {
+                    if (less(a[j], a[j-1])){
+                        exch(a[j-1], a[j]);
+                        done=0;
+                    }
+                }
+                if (done) break;
+            }
+        }
 
 
-  <span class="cm">Time Complexity: O(n*2)</span>
+        // The worst case is O(n²)
+        // The best case is having the inicial array already sorted, since the algorithm, will only have to go through the 1º iteration of the first for, the break intruction
+        // will be activated, because the less comparation is always false and done remains with the value of 1. 
+        // So the best case is O(n * 1) witch means O(n)
 
-  <span class="cm">Best case: O(n)</span>
+        // https://www.youtube.com/watch?v=32pF2cDbaSw where the "swapped" variable is our done variable
+      </pre>
 
-  <span class="cm">*/</span>
+      <center><h1 id = "sub2" class = "Introdução aos Algoritmos e Estruturas de Dados">Insertion Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+      <pre class="prettyprint linenums">
+        /*
 
-  <span class="cp">#define key(A) (A)</span>
-  <span class="cp">#define less(A, B) (key(A) &lt; key(B))</span>
-  <span class="cp">#define exch(A, B) { int t = A; A = B; B = t; }</span>
-  <span class="cp">#define compexch(A, B) if (less(B, A)) exch(A, B)</span>
+        Insertion sort iterates, consuming one input element each repetition,
+        and growing a sorted output list. At each iteration, insertion sort removes
+        one element from the input data, finds the location it belongs within the sorted
+        list, and inserts it there. It repeats until no input elements remain.
+        
+        Time Complexity: O(n*2)
+        
+        Best case: O(n)
+        
+        */
+        
+        #define key(A) (A)
+        #define less(A, B) (key(A) < key(B))
+        #define exch(A, B) { int t = A; A = B; B = t; }
+        #define compexch(A, B) if (less(B, A)) exch(A, B)
+        
+        int insertionSort(int arr[], int left, int right){
+            int i, j;
+            for (i = left+1; i <= right; i++) {
+                int temp = arr[i];
+                j = i-1;
+                while (j >= left && less(temp, arr[j])) {
+                    arr[j+1] = arr[j];
+                    j--;
+                }
+                arr[j+1] = temp;
+            }
+            return 0;
+        }
+        
+        
+        // Another implementation of insertionSort from Geek for Geeks
+        // More info: https://www.geeksforgeeks.org/insertion-sort/
+        void insertionSort(int arr[], int n){
+           int i, key, j;
+           for (i = 1; i < n; i++){
+               key = arr[i];
+               j = i-1;
+        
+               /* Move elements of arr[0..i-1], that are
+                  greater than key, to one position ahead
+                  of their current position */
+               while (j >= 0 && arr[j] > key){
+                   arr[j+1] = arr[j];
+                   j = j-1;
+               }
+               arr[j+1] = key;
+           }
+        }
+        
+        /*
+        Sources: https://en.wikipedia.org/wiki/Shellsort
+                 https://www.geeksforgeeks.org/shellsort
+        */
+      </pre>
 
-  <span class="kt">int</span> <span class="nf">insertionSort</span><span class="p">(</span><span
-    class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span
-    class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span
-    class="p">){</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span
-      class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span
-      class="n">left</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span
-      class="n">i</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">;</span> <span
-      class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kt">int</> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span
-      class="p">[</span><span class="n">i</span><span class="p">];</span>
-      <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span
-      class="mi">1</span><span class="p">;</span>
-      <span class="k">while</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;=</span> <span
-      class="n">left</span> <span class="o">&amp;&amp;</span> <span class="n">less</span><span class="p">(</span><span
-      class="n">temp</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span
-      class="n">j</span><span class="p">]))</span> <span class="p">{</span>
-        <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span
-      class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span
-      class="p">[</span><span class="n">j</span><span class="p">];</span>
-        <span class="n">j</span><span class="o">--</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span
-      class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span
-      class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="p">}</span>
+      <center><h1 id = "sub3" class = "Introdução aos Algoritmos e Estruturas de Dados">Shell Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
 
-
-  <span class="c1">// Another implementation of insertionSort from Geek for Geeks</span>
-  <span class="c1">// More info: https://www.geeksforgeeks.org/insertion-sort/</span>
-  <span class="kt">void</span> <span class="nf">insertionSort</span><span class="p">(</span><span
-    class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span
-    class="n">n</span><span class="p">){</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span
-      class="p">,</span> <span class="n">j</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span
-      class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span
-      class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span
-      class="p">){</span>
-      <span class="n">key</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span
-        class="n">i</span><span class="p">];</span>
-      <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span
-        class="mi">1</span><span class="p">;</span>
-
-      <span class="cm">/* Move elements of arr[0..i-1], that are</span>
-      <span class="cm"> greater than key, to one position ahead</span>
-      <span class="cm"> of their current position */</span>
-      <span class="k">while</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;=</span> <span
-        class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="p">[</span><span
-        class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">key</span><span
-        class="p">){</span>
-        <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span
-          class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span
-          class="p">[</span><span class="n">j</span><span class="p">];</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">-</span><span
-          class="mi">1</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span
-      class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span
-      class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="cm">/*</span>
-  <span class="cm">Sources: https://en.wikipedia.org/wiki/Insertion_sort</span>
-  <span class="cm"> https://www.geeksforgeeks.org/insertion-sort/</span>
-  <span class="cm">*/</span></div>
-
-
-
-
-
-
-
-
-      <center><h1 id="sub3" class="Introdução a Algoritmos e Estruturas de Dados">Shell Sort</h1></center>
-          
       <pre class="prettyprint linenums">
         /*
         Shellsort is a generalization of insertion sort that allows the exchange of
@@ -272,7 +134,7 @@
         Worst case: O(n*2)
         Best case: O(n log n)
         */
-        
+
         #define key(A) (A)
         #define less(A, B) (key(A) < key(B))
         #define exch(A, B) \
@@ -284,7 +146,7 @@
         #define compexch(A, B) \
             if (less(B, A))    \
             exch(A, B)
-        
+
         int shellSort(int arr[], int l, int r)
         {
             int i, j;
@@ -309,10 +171,10 @@
             }
             return 0;
         }
-        
+
         // Another implementation of shellSort from Geek for Geeks
         // More info: https://www.geeksforgeeks.org/shellsort/
-        
+
         /* function to sort arr using shellSort */
         int shellSort(int arr[], int n)
         {
@@ -328,138 +190,151 @@
                     // add a[i] to the elements that have been gap sorted
                     // save a[i] in temp and make a hole at position i
                     int temp = arr[i];
-        
+
                     // shift earlier gap-sorted elements up until the correct
                     // location for a[i] is found
                     int j;
                     for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
                         arr[j] = arr[j - gap];
-        
+
                     //  put temp (the original a[i]) in its correct location
                     arr[j] = temp;
                 }
             }
             return 0;
         }
-        
+
         /*
         Sources: https://en.wikipedia.org/wiki/Shellsort
-                 https://www.geeksforgeeks.org/shellsort
+                https://www.geeksforgeeks.org/shellsort
         */
       </pre>
 
+      <center><h1 id = "sub4" class = "Introdução aos Algoritmos e Estruturas de Dados">Heap Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
 
-    
-      <center><h1 id="sub4" class="Introdução a Algoritmos e Estruturas de Dados">Bubble Sort</h1></center>
-
-  <div class="code code-line-numbers unselectable" id="line-numbers" aria-hidden="true">
-    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span>
-  </div>
-<div class="code" id="code"><span class="c1">// BUBBLE SORT</span>
-
-    
-  <span class="c1">// Implementation from IST slides</span>
-  <span class="kt">void</span> <span class="nf">bubble</span><span class="p">(</span><span class="kt">int</span>
-  <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">l</span><span
-    class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span
-    class="p">{</span>
-
-  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span
-    class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span
-    class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span
-    class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span
-    class="p">)</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span
-    class="n">l</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span
-    class="n">r</span><span class="o">-</span><span class="n">i</span><span class="p">;</span> <span
-    class="n">j</span><span class="o">++</span><span class="p">)</span>
-  <span class="n">compexch</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span
-    class="n">j</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span
-    class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// The worst case is equal to the best case O(n²), contradictory to the next example that
-    will give, this algorithm has no stop condition, so it has to go through the 2 for's</span>
-  <span class="c1">// So it is n x n --&gt; n²</span>
-
-  <span class="c1">// https://www.youtube.com/watch?v=xli_FI7CuzA</span>
-
-  <span class="c1">// BUBBLE SORT OPTIMIZATION</span>
-
-  <span class="kt">void</span> <span class="nf">bubble_optimized</span><span class="p">(</span><span
-    class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span
-    class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span
-    class="p">)</span> <span class="p">{</span>
-
-  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span
-    class="p">,</span> <span class="n">done</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span
-    class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span
-    class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span
-    class="p">){</span>
-  <span class="n">done</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span
-    class="n">r</span><span class="p">;</span> <span class="n">j</span> <span class="o">&gt;</span> <span
-    class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">--</span><span
-    class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">less</span><span class="p">(</span><span
-    class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span
-    class="n">a</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span
-    class="mi">1</span><span class="p">])){</span>
-  <span class="n">exch</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span
-    class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span
-    class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
-  <span class="n">done</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">done</span><span class="p">)</span> <span
-    class="k">break</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="p">}</span>
-
-
-  <span class="c1">// The worst case is O(n²)</span>
-  <span class="c1">// The best case is having the inicial array already sorted, since the algorithm, will only
-    have to go through the 1º iteration of the first for, the break intruction</span>
-  <span class="c1">// will be activated, because the less comparation is always false and done remains with the
-    value of 1. </span>
-  <span class="c1">// So the best case is O(n * 1) witch means O(n)</span>
-
-  <span class="c1">// https://www.youtube.com/watch?v=32pF2cDbaSw where the "swapped" variable is our done
-    variable</span></div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
+      <pre class="prettyprint linenums">
+        /*
+        In the first step, a heap is built out of the data. The heap is often placed
+            in an array with the layout of a complete binary tree.
+        In the second step, a sorted array is created by repeatedly removing the largest
+            element from the heap (the root of the heap), and inserting it into the array.
+            The heap is updated after each removal to maintain the heap property.
+            Once all objects have been removed from the heap, the result is a sorted array.
+        
+        
+        Worst case: O(n log n)
+        
+        Best case: O(n log n)
+        
+        */
+        
+        
+        
+        /*
+        
+        Fixdown (indice i)
+            verifica se i tem um filho maior que ele
+            SE i tem um filho maior:
+                troca i com o filho_maior
+                Fixdown (pos_do_filho_maior)
+        
+        */
+        
+        void fixDown(Item a[], int l, int r, int k){
+            /* fixdown(k) num amontoado definido entre l e r */
+            int ileft, iright, largest=k;
+        
+            ileft=l+left(k-l); /* filho esquerdo de k */
+            iright=l+right(k-l); /* filho direito de k */
+        
+            if (ileft<=r && less(a[largest],a[ileft])){
+                largest=ileft;
+            }
+            if (iright<=r && less(a[largest],a[iright])){
+                largest=iright;
+            }
+            if (largest!=k){
+                exch(a[k],a[largest]);
+                fixDown(a, l, r, largest);
+            }
+        }
+        
+        
+        void buildheap(Item a[], int l, int r){
+            int k, heapsize = r-l+1;
+        
+            for (k = heapsize/2-1; k >= l; k--){
+                fixDown(a, l, r, l+k);
+            }
+        }
+        
+        void heapsort(Item a[], int l, int r){
+        
+            buildheap(a,l,r);
+        
+            while (r-l > 0) {
+                exch(a[l], a[r]);
+                fixDown(a, l, --r, l);
+            }
+        }
+        
+        // Another implementation of heapSort from Geek for Geeks
+        // More info: https://www.geeksforgeeks.org/heap-sort/
+        
+        // To heapify a subtree rooted with node i which is
+        // an index in arr[]. n is size of heap
+        void heapify(int arr[], int n, int i)
+        {
+            int largest = i; // Initialize largest as root
+            int l = 2*i + 1; // left = 2*i + 1
+            int r = 2*i + 2; // right = 2*i + 2
+        
+            // If left child is larger than root
+            if (l < n && arr[l] > arr[largest])
+                largest = l;
+        
+            // If right child is larger than largest so far
+            if (r < n && arr[r] > arr[largest])
+                largest = r;
+        
+            // If largest is not root
+            if (largest != i)
+            {
+                swap(arr[i], arr[largest]);
+                int temp = arr[i];
+                arr[i] = arr[largest];
+                arr[largest] = temp;
+        
+                // Recursively heapify the affected sub-tree
+                heapify(arr, n, largest);
+            }
+        }
+        
+        
+        // main function to do heap sort
+        void heapSort(int arr[], int n){
+            // Build heap (rearrange array)
+            for (int i = n / 2 - 1; i >= 0; i--)
+                heapify(arr, n, i);
+        
+            // One by one extract an element from heap
+            for (int i=n-1; i>=0; i--)
+            {
+                // Move current root to end
+                int temp = arr[0];
+                arr[0] = arr[i];
+                arr[1] = temp;
+        
+                // call max heapify on the reduced heap
+                heapify(arr, i, 0);
+            }
+        }
+        
+        /*
+        Sources: https://en.wikipedia.org/wiki/Heapsort
+                 https://www.geeksforgeeks.org/heap-sort/
+        */        
+      </pre>
       
 
     </div>
