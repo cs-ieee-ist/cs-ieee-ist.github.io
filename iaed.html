@@ -107,7 +107,8 @@
             while (i < j) {
                 while (less(a[++i], pivot));    // if less == true then i moves forward to the right
                 while (less(pivot, a[--j])) {   // if less == true then j moves backwards to the left
-                    if (j == l)                 // if j == i + 1 then it mean that the next iteration of the while, i and j have been crossed over one and another,
+                    if (j == l)                 // if j == i + 1 then it mean that the next iteration of the while, 
+                                                //   i and j have been crossed over one and another,
                         break;                  // in this case we will not know how to identify the left partition and the right partition
                 }
                 if (i < j)
