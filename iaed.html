@@ -1,344 +1,488 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="css/template.css"></link>
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/lozader/run_prettify.js?lang=c&amp;skin=sons-of-obsidian"></script>
-  
-
+    <!-- <link rel="stylesheet" type="text/css" href="css/template.css"></link> -->
+    <link rel="stylesheet" type="text/css" href="css/IAED.css"></link>
     <!-- template.css has all default class names -->
 
   </head>
+
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="stylesheet" href="./css-code/application.min.4db4aeac.css" media="all">
+	<link rel="stylesheet" href="./css-code/application.min.4db4aeac.css" media="all">
+  <link rel="stylesheet" href="./css-code/theme.min.77312fb0.css" media="all">
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=sons-of-obsidian"></script>
+
+
+
+
   <body>
-
+    <!--
     <div id = "pageTop">
-      <div id = "projectName"><center>PROJECT NAME</center></div>
-      <p></p>
-
-      <div id = "className"><center>Introdução aos Algoritmos e Estruturas de Dados</center></div>
-
-    </div>
+      <div id = "projectName"><center>IAED</center></div>
+      <div id = "sub1"><center>Introducao aos algoritmos e estrutura de dados</center></div>
+    </div> 
+    -->
 
     <div id = "pageBody">
       <!-- Page Content -->
 
-      <center><h1 id = "sub1" class = "Introdução aos Algoritmos e Estruturas de Dados">Bubble Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
-      <?prettify lang=c?>
-      <pre class="prettyprint linenums">
-        check
-        // Implementation from IST slides
-        void bubble(int a[], int l, int r) {
+    <center><h1 id="sub1" class="Introdução a Algoritmos e Estruturas de Dados">Bubble Sort</h1></center>
+    
+    <?prettify?>
+    <pre>
+      // BUBBLE SORT
 
-            int i, j;
-            for (i = l; i < r; i++)
-                for (j = l; j < r-i; j++)
-                    compexch(a[j], a[j+1]);
-        }
-
-        // The worst case is equal to the best case O(n²), contradictory to the next example that will give, this algorithm has no stop condition, so it has to go through the 2 for's
-        // So it is n x n --> n²
-
-        // https://www.youtube.com/watch?v=xli_FI7CuzA
-
-        // BUBBLE SORT OPTIMIZATION
-
-        void bubble_optimized(int a[], int l, int r) {
-
-            int i, j, done;
-            for (i = l; i < r; i++){
-                done=1;
-                for (j = r; j > i; j--) {
-                    if (less(a[j], a[j-1])){
-                        exch(a[j-1], a[j]);
-                        done=0;
-                    }
-                }
-                if (done) break;
-            }
-        }
-
-
-        // The worst case is O(n²)
-        // The best case is having the inicial array already sorted, since the algorithm, will only have to go through the 1º iteration of the first for, the break intruction
-        // will be activated, because the less comparation is always false and done remains with the value of 1. 
-        // So the best case is O(n * 1) witch means O(n)
-
-        // https://www.youtube.com/watch?v=32pF2cDbaSw where the "swapped" variable is our done variable
-      </pre>
-
-      <center><h1 id = "sub2" class = "Introdução aos Algoritmos e Estruturas de Dados">Insertion Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
-      <?prettify?>
-      <pre class="prettyprint linenums">
-        /*
-
-        Insertion sort iterates, consuming one input element each repetition,
-        and growing a sorted output list. At each iteration, insertion sort removes
-        one element from the input data, finds the location it belongs within the sorted
-        list, and inserts it there. It repeats until no input elements remain.
-        
-        Time Complexity: O(n*2)
-        
-        Best case: O(n)
-        
-        */
-        
-        #define key(A) (A)
-        #define less(A, B) (key(A) < key(B))
-        #define exch(A, B) { int t = A; A = B; B = t; }
-        #define compexch(A, B) if (less(B, A)) exch(A, B)
-        
-        int insertionSort(int arr[], int left, int right){
-            int i, j;
-            for (i = left+1; i <= right; i++) {
-                int temp = arr[i];
-                j = i-1;
-                while (j >= left && less(temp, arr[j])) {
-                    arr[j+1] = arr[j];
-                    j--;
-                }
-                arr[j+1] = temp;
-            }
-            return 0;
-        }
-        
-        
-        // Another implementation of insertionSort from Geek for Geeks
-        // More info: https://www.geeksforgeeks.org/insertion-sort/
-        void insertionSort(int arr[], int n){
-           int i, key, j;
-           for (i = 1; i < n; i++){
-               key = arr[i];
-               j = i-1;
-        
-               /* Move elements of arr[0..i-1], that are
-                  greater than key, to one position ahead
-                  of their current position */
-               while (j >= 0 && arr[j] > key){
-                   arr[j+1] = arr[j];
-                   j = j-1;
-               }
-               arr[j+1] = key;
-           }
-        }
-        
-        /*
-        Sources: https://en.wikipedia.org/wiki/Shellsort
-                 https://www.geeksforgeeks.org/shellsort
-        */
-      </pre>
-
-      <center><h1 id = "sub3" class = "Introdução aos Algoritmos e Estruturas de Dados">Shell Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
-      <?prettify?>
-      <pre class="prettyprint linenums">
-        /*
-        Shellsort is a generalization of insertion sort that allows the exchange of
-        items that are far apart. The idea is to arrange the list of elements so that,
-        starting anywhere, considering every hth element gives a sorted list.
-        Such a list is said to be h-sorted. Equivalently,
-        it can be thought of as h interleaved lists, each individually sorted.
-        Worst case: O(n*2)
-        Best case: O(n log n)
-        */
-
-        #define key(A) (A)
-        #define less(A, B) (key(A) < key(B))
-        #define exch(A, B) \
-            {              \
-                int t = A; \
-                A = B;     \
-                B = t;     \
-            }
-        #define compexch(A, B) \
-            if (less(B, A))    \
-            exch(A, B)
-
-        int shellSort(int arr[], int l, int r)
-        {
-            int i, j;
-            int gap = 1;
-            while (gap <= (r - l))
-            {
-                gap = 3 * gap + 1;
-            }
-            for (; gap > 0; gap /= 3)
-            {
-                for (i = l + gap; i <= r; i++)
-                {
-                    int j = i;
-                    int temp = arr[i];
-                    while (j >= l + gap && less(temp, arr[j - gap]))
-                    {
-                        arr[j] = arr[j - gap];
-                        j -= gap;
-                    }
-                    arr[j] = temp;
-                }
-            }
-            return 0;
-        }
-
-        // Another implementation of shellSort from Geek for Geeks
-        // More info: https://www.geeksforgeeks.org/shellsort/
-
-        /* function to sort arr using shellSort */
-        int shellSort(int arr[], int n)
-        {
-            // Start with a big gap, then reduce the gap
-            for (int gap = n / 2; gap > 0; gap /= 2)
-            {
-                // Do a gapped insertion sort for this gap size.
-                // The first gap elements a[0..gap-1] are already in gapped order
-                // keep adding one more element until the entire array is
-                // gap sorted
-                for (int i = gap; i < n; i += 1)
-                {
-                    // add a[i] to the elements that have been gap sorted
-                    // save a[i] in temp and make a hole at position i
-                    int temp = arr[i];
-
-                    // shift earlier gap-sorted elements up until the correct
-                    // location for a[i] is found
-                    int j;
-                    for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
-                        arr[j] = arr[j - gap];
-
-                    //  put temp (the original a[i]) in its correct location
-                    arr[j] = temp;
-                }
-            }
-            return 0;
-        }
-
-        /*
-        Sources: https://en.wikipedia.org/wiki/Shellsort
-                https://www.geeksforgeeks.org/shellsort
-        */
-      </pre>
-
-      <center><h1 id = "sub4" class = "Introdução aos Algoritmos e Estruturas de Dados">Heap Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
-      <?prettify?>
-      <pre class="prettyprint linenums">
-        /*
-        In the first step, a heap is built out of the data. The heap is often placed
-            in an array with the layout of a complete binary tree.
-        In the second step, a sorted array is created by repeatedly removing the largest
-            element from the heap (the root of the heap), and inserting it into the array.
-            The heap is updated after each removal to maintain the heap property.
-            Once all objects have been removed from the heap, the result is a sorted array.
-        
-        
-        Worst case: O(n log n)
-        
-        Best case: O(n log n)
-        
-        */
-        
-        
-        
-        /*
-        
-        Fixdown (indice i)
-            verifica se i tem um filho maior que ele
-            SE i tem um filho maior:
-                troca i com o filho_maior
-                Fixdown (pos_do_filho_maior)
-        
-        */
-        
-        void fixDown(Item a[], int l, int r, int k){
-            /* fixdown(k) num amontoado definido entre l e r */
-            int ileft, iright, largest=k;
-        
-            ileft=l+left(k-l); /* filho esquerdo de k */
-            iright=l+right(k-l); /* filho direito de k */
-        
-            if (ileft<=r && less(a[largest],a[ileft])){
-                largest=ileft;
-            }
-            if (iright<=r && less(a[largest],a[iright])){
-                largest=iright;
-            }
-            if (largest!=k){
-                exch(a[k],a[largest]);
-                fixDown(a, l, r, largest);
-            }
-        }
-        
-        
-        void buildheap(Item a[], int l, int r){
-            int k, heapsize = r-l+1;
-        
-            for (k = heapsize/2-1; k >= l; k--){
-                fixDown(a, l, r, l+k);
-            }
-        }
-        
-        void heapsort(Item a[], int l, int r){
-        
-            buildheap(a,l,r);
-        
-            while (r-l > 0) {
-                exch(a[l], a[r]);
-                fixDown(a, l, --r, l);
-            }
-        }
-        
-        // Another implementation of heapSort from Geek for Geeks
-        // More info: https://www.geeksforgeeks.org/heap-sort/
-        
-        // To heapify a subtree rooted with node i which is
-        // an index in arr[]. n is size of heap
-        void heapify(int arr[], int n, int i)
-        {
-            int largest = i; // Initialize largest as root
-            int l = 2*i + 1; // left = 2*i + 1
-            int r = 2*i + 2; // right = 2*i + 2
-        
-            // If left child is larger than root
-            if (l < n && arr[l] > arr[largest])
-                largest = l;
-        
-            // If right child is larger than largest so far
-            if (r < n && arr[r] > arr[largest])
-                largest = r;
-        
-            // If largest is not root
-            if (largest != i)
-            {
-                swap(arr[i], arr[largest]);
-                int temp = arr[i];
-                arr[i] = arr[largest];
-                arr[largest] = temp;
-        
-                // Recursively heapify the affected sub-tree
-                heapify(arr, n, largest);
-            }
-        }
-        
-        
-        // main function to do heap sort
-        void heapSort(int arr[], int n){
-            // Build heap (rearrange array)
-            for (int i = n / 2 - 1; i >= 0; i--)
-                heapify(arr, n, i);
-        
-            // One by one extract an element from heap
-            for (int i=n-1; i>=0; i--)
-            {
-                // Move current root to end
-                int temp = arr[0];
-                arr[0] = arr[i];
-                arr[1] = temp;
-        
-                // call max heapify on the reduced heap
-                heapify(arr, i, 0);
-            }
-        }
-        
-        /*
-        Sources: https://en.wikipedia.org/wiki/Heapsort
-                 https://www.geeksforgeeks.org/heap-sort/
-        */        
-      </pre>
+      // Implementation from IST slides
+      void bubble(int a[], int l, int r) {
       
+          int i, j;
+          for (i = l; i < r; i++)
+              for (j = l; j < r-i; j++)
+                  compexch(a[j], a[j+1]);
+      }
+      
+      // The worst case is equal to the best case O(n²), contradictory to the next example that will give, this algorithm has no stop condition, so it has to go through the 2 for's
+      // So it is n x n --> n²
+      
+      // https://www.youtube.com/watch?v=xli_FI7CuzA
+      
+      // BUBBLE SORT OPTIMIZATION
+      
+      void bubble_optimized(int a[], int l, int r) {
+      
+          int i, j, done;
+          for (i = l; i < r; i++){
+              done=1;
+              for (j = r; j > i; j--) {
+                  if (less(a[j], a[j-1])){
+                      exch(a[j-1], a[j]);
+                      done=0;
+                  }
+              }
+              if (done) break;
+          }
+      }
+      
+      
+      // The worst case is O(n²)
+      // The best case is having the inicial array already sorted, since the algorithm, will only have to go through the 1º iteration of the first for, the break intruction
+      // will be activated, because the less comparation is always false and done remains with the value of 1. 
+      // So the best case is O(n * 1) witch means O(n)
+      
+      // https://www.youtube.com/watch?v=32pF2cDbaSw where the "swapped" variable is our done variable
+    </pre>
+
+      <center><h1 id = "sub2" class = "Introdução a Algoritmos e Estruturas de Dados">Quick Sort</h1></center> <!--increment the id for each topic ex sub1, sub2, sub3 etc -->
+
+      <?prettify?>
+      <pre>
+        // The next algorithms use recursion, which make us look at the execution time in a different way
+        // If you really wanna understand the execution times I strongly advise you to understand the first 2 points in the next link
+        // https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/
+
+
+        // QUICK SORT
+
+        // Implementation from IST slides
+        void quicksort(int a[], int l, int r) {
+
+            int i;
+            if (r <= l) 
+                return;
+
+            i = partition(a, l, r); // i is the index where the inicial vector is divided, creating the left and right partition
+            quicksort(a, l, i-1); // in the left(l) part of the inicial vector aka inicial left partition
+            quicksort(a, i+1, r); // in the right(r) part of the inicial vector aka inicial right partition
+        }
+
+
+        int partition(int a[], int l, int r) {
+
+            int i = l-1;
+            int j = r;
+            int pivot = a[r];
+            while (i < j) {
+                while (less(a[++i], pivot));    // if less == true then i moves forward to the right
+                while (less(pivot, a[--j])) {   // if less == true then j moves backwards to the left
+                    if (j == l)                 // if j == i + 1 then it mean that the next iteration of the while, i and j have been crossed over one and another,
+                        break;                  // in this case we will not know how to identify the left partition and the right partition
+                }
+                if (i < j)
+                    exch(a[i], a[j]);
+            }
+            exch(a[i], a[r]); // places the pivot in the correct position of the final solution
+            return i;
+        }
+
+
+        // https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/analysis-of-quicksort 
+
+        // Worst case running time is O(n²)
+        // Best case running time is O(n * log (2) n)
+        // Average case running time is O(n * log(2) n)
+
+
+        // https://www.youtube.com/watch?v=Hoixgm4-P4M
+        // http://me.dt.in.th/page/Quicksort/  visualize each step of the algorithm
+      </pre>
+
+      <center><h1 id = "sub3" class = "Introdução a Algoritmos e Estruturas de Dados">Heap Sort</h1></center> <!--increment the id for each topic ex sub1, sub2, sub3 etc -->
+
+      <?prettify?>
+      <pre>
+
+       // DONE 2 
+      /*
+      In the first step, a heap is built out of the data. The heap is often placed
+          in an array with the layout of a complete binary tree.
+      In the second step, a sorted array is created by repeatedly removing the largest
+          element from the heap (the root of the heap), and inserting it into the array.
+          The heap is updated after each removal to maintain the heap property.
+          Once all objects have been removed from the heap, the result is a sorted array.
+      
+      
+      Worst case: O(n log n)
+      
+      Best case: O(n log n)
+      
+      */
+      
+      
+      
+      /*
+      
+      Fixdown (indice i)
+          verifica se i tem um filho maior que ele
+          SE i tem um filho maior:
+              troca i com o filho_maior
+              Fixdown (pos_do_filho_maior)
+      
+      */
+      
+      void fixDown(Item a[], int l, int r, int k){
+          /* fixdown(k) num amontoado definido entre l e r */
+          int ileft, iright, largest=k;
+      
+          ileft=l+left(k-l); /* filho esquerdo de k */
+          iright=l+right(k-l); /* filho direito de k */
+      
+          if (ileft<=r && less(a[largest],a[ileft])){
+              largest=ileft;
+          }
+          if (iright<=r && less(a[largest],a[iright])){
+              largest=iright;
+          }
+          if (largest!=k){
+              exch(a[k],a[largest]);
+              fixDown(a, l, r, largest);
+          }
+      }
+      
+      
+      void buildheap(Item a[], int l, int r){
+          int k, heapsize = r-l+1;
+      
+          for (k = heapsize/2-1; k >= l; k--){
+              fixDown(a, l, r, l+k);
+          }
+      }
+      
+      void heapsort(Item a[], int l, int r){
+      
+          buildheap(a,l,r);
+      
+          while (r-l > 0) {
+              exch(a[l], a[r]);
+              fixDown(a, l, --r, l);
+          }
+      }
+      
+      // Another implementation of heapSort from Geek for Geeks
+      // More info: https://www.geeksforgeeks.org/heap-sort/
+      
+      // To heapify a subtree rooted with node i which is
+      // an index in arr[]. n is size of heap
+      void heapify(int arr[], int n, int i)
+      {
+          int largest = i; // Initialize largest as root
+          int l = 2*i + 1; // left = 2*i + 1
+          int r = 2*i + 2; // right = 2*i + 2
+      
+          // If left child is larger than root
+          if (l < n && arr[l] > arr[largest])
+              largest = l;
+      
+          // If right child is larger than largest so far
+          if (r < n && arr[r] > arr[largest])
+              largest = r;
+      
+          // If largest is not root
+          if (largest != i)
+          {
+              swap(arr[i], arr[largest]);
+              int temp = arr[i];
+              arr[i] = arr[largest];
+              arr[largest] = temp;
+      
+              // Recursively heapify the affected sub-tree
+              heapify(arr, n, largest);
+          }
+      }
+      
+      
+      // main function to do heap sort
+      void heapSort(int arr[], int n){
+          // Build heap (rearrange array)
+          for (int i = n / 2 - 1; i >= 0; i--)
+              heapify(arr, n, i);
+      
+          // One by one extract an element from heap
+          for (int i=n-1; i>=0; i--)
+          {
+              // Move current root to end
+              int temp = arr[0];
+              arr[0] = arr[i];
+              arr[1] = temp;
+      
+              // call max heapify on the reduced heap
+              heapify(arr, i, 0);
+          }
+      }
+      
+      /*
+      Sources: https://en.wikipedia.org/wiki/Heapsort
+               https://www.geeksforgeeks.org/heap-sort/
+      */
+      
+    </pre>
+  
+    <center><h1 id = "sub4" class = "Introdução a Algoritmos e Estruturas de Dados">Insertion Sort</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+    
+    <?prettify?>
+    <pre>
+      /*
+      Insertion sort iterates, consuming one input element each repetition,
+      and growing a sorted output list. At each iteration, insertion sort removes
+      one element from the input data, finds the location it belongs within the sorted
+      list, and inserts it there. It repeats until no input elements remain.
+
+      Time Complexity: O(n*2)
+
+      Best case: O(n)
+      */
+
+      #define key(A) (A)
+      #define less(A, B) (key(A) < key(B))
+      #define exch(A, B) { int t = A; A = B; B = t; }
+      #define compexch(A, B) if (less(B, A)) exch(A, B)
+
+      int insertionSort(int arr[], int left, int right){
+          int i, j;
+          for (i = left+1; i <= right; i++) {
+              int temp = arr[i];
+              j = i-1;
+              while (j >= left && less(temp, arr[j])) {
+                  arr[j+1] = arr[j];
+                  j--;
+              }
+              arr[j+1] = temp;
+          }
+          return 0;
+      }
+
+
+      // Another implementation of insertionSort from Geek for Geeks
+      // More info: https://www.geeksforgeeks.org/insertion-sort/
+      void insertionSort(int arr[], int n){
+        int i, key, j;
+        for (i = 1; i < n; i++){
+            key = arr[i];
+            j = i-1;
+
+            /* Move elements of arr[0..i-1], that are
+                greater than key, to one position ahead
+                of their current position */
+            while (j >= 0 && arr[j] > key){
+                arr[j+1] = arr[j];
+                j = j-1;
+            }
+            arr[j+1] = key;
+        }
+      }
+
+      /*
+      Sources: https://en.wikipedia.org/wiki/Shellsort
+              https://www.geeksforgeeks.org/shellsort
+      */
+    </pre>
+
+    <center><h1 id="sub5" class="Introdução a Algoritmos e Estruturas de Dados">Shell Sort</h1></center>
+       
+    <?prettify?>
+    <pre>
+      /*
+      Shellsort is a generalization of insertion sort that allows the exchange of
+      items that are far apart. The idea is to arrange the list of elements so that,
+      starting anywhere, considering every hth element gives a sorted list.
+      Such a list is said to be h-sorted. Equivalently,
+      it can be thought of as h interleaved lists, each individually sorted.
+      Worst case: O(n*2)
+      Best case: O(n log n)
+      */
+      
+      #define key(A) (A)
+      #define less(A, B) (key(A) < key(B))
+      #define exch(A, B) \
+          {              \
+              int t = A; \
+              A = B;     \
+              B = t;     \
+          }
+      #define compexch(A, B) \
+          if (less(B, A))    \
+          exch(A, B)
+      
+      int shellSort(int arr[], int l, int r)
+      {
+          int i, j;
+          int gap = 1;
+          while (gap <= (r - l))
+          {
+              gap = 3 * gap + 1;
+          }
+          for (; gap > 0; gap /= 3)
+          {
+              for (i = l + gap; i <= r; i++)
+              {
+                  int j = i;
+                  int temp = arr[i];
+                  while (j >= l + gap && less(temp, arr[j - gap]))
+                  {
+                      arr[j] = arr[j - gap];
+                      j -= gap;
+                  }
+                  arr[j] = temp;
+              }
+          }
+          return 0;
+      }
+      
+      // Another implementation of shellSort from Geek for Geeks
+      // More info: https://www.geeksforgeeks.org/shellsort/
+      
+      /* function to sort arr using shellSort */
+      int shellSort(int arr[], int n)
+      {
+          // Start with a big gap, then reduce the gap
+          for (int gap = n / 2; gap > 0; gap /= 2)
+          {
+              // Do a gapped insertion sort for this gap size.
+              // The first gap elements a[0..gap-1] are already in gapped order
+              // keep adding one more element until the entire array is
+              // gap sorted
+              for (int i = gap; i < n; i += 1)
+              {
+                  // add a[i] to the elements that have been gap sorted
+                  // save a[i] in temp and make a hole at position i
+                  int temp = arr[i];
+      
+                  // shift earlier gap-sorted elements up until the correct
+                  // location for a[i] is found
+                  int j;
+                  for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+                      arr[j] = arr[j - gap];
+      
+                  //  put temp (the original a[i]) in its correct location
+                  arr[j] = temp;
+              }
+          }
+          return 0;
+      }
+      
+      /*
+      Sources: https://en.wikipedia.org/wiki/Shellsort
+                https://www.geeksforgeeks.org/shellsort
+      */
+    </pre>
+
+    <center><h1 id="sub6" class="Introdução a Algoritmos e Estruturas de Dados">Merge Sort</h1></center>
+
+    <?prettify?>
+    <pre>
+      // MERGE SORT
+
+      // Implementation from IST slides
+      void mergesort(int a[], int l, int r) {
+          
+          int m = (r+l)/2;
+          if (r <= l) 
+              return;
+
+          // Divides the inicial array into sub-arrays of 1 element size, each one of them
+          mergesort(a, l, m);
+          mergesort(a, m+1, r);
+
+          // Once we get all the 1 element arrays, we merge them in the correct way (every merge gives a sorted array)
+          merge(a, l, m, r);
+      }
+
+
+      int aux[maxN];
+      void merge(int a[], int l, int m, int r) {
+
+          int i, j, k;
+
+          // Construction of the auxiliar vector //
+          for (i = m+1; i > l; i--)
+              aux[i-1] = a[i-1];
+          for (j = m; j < r; j++)
+              aux[r+m-j] = a[j+1];
+
+          // Connects and sorts each singular elements, starting from the left to the right     
+          for (k = l; k <= r; k++) {
+              if (less(aux[j], aux[i]))
+                  a[k] = aux[j--];
+              else
+                  a[k] = aux[i++];
+          }
+      }
+
+      // https://www.geeksforgeeks.org/merge-sort/
+
+      //Worst, Best and Average Case is O(n lg n)
+
+      // https://www.youtube.com/watch?v=4VqmGXwpLqc
+    </pre>
+
+    <center><h1 id="sub7" class="Introdução a Algoritmos e Estruturas de Dados">Selection Sort</h1></center>
+
+    <?prettify?>
+    <pre>
+      // SELECTION SORT
+
+      // Implementation from IST slides
+      void selection(int array[], int l, int r) {
+
+          int i, j;
+          for (i = l; i < r; i++) {
+              int min = i;
+              for (j = i+1; j <= r; j++) {
+                  if (less(array[j], array[min]))
+                      min = j;
+              }    
+              exch(array[i], array[min]); 
+          }
+      }
+
+      // The worst case is O(n²) for the case in witch we have an inversed sorted inicial array ex: [5,4,3,2,1]
+      // The best case is O(n²), equal to the worst, since the algorithm has to go through the complete array to identify the minimum in each iteration,
+      // which means it has to run through the entire range of each for, n x n --> n² 
+
+      // https://www.youtube.com/watch?v=g-PGLbMth_g
+    </pre>
 
     </div>
 
