@@ -25,3 +25,38 @@
   $ python3 makeClass.py $(ABREVIACAO_DA_NOVA_CADEIRA)
   > Class full name: $(NOME_DA_NOVA_CADEIRA)
   ```
+  
+## Repository workaround with Branches and Issues
+
+
+Criar issues (nome oficial do github)
+
+Uma issue corresponde a uma tarefa, no contexto deste repositótio será por exemplo:
+
+- Criar X algoritmo
+- Adicionar X matéria teórica
+- Formatação de X
+
+Após a criação dessa issue, deve ser dado "Assign" decidam de entre quem está responsável da disciplina, quem deve ficar com essa issue
+
+Uma vez feitos os passos anteriores, é uma questão de criarem branches para cada issue
+(cada issue vai ter um número identidicador dessa tipo "#12")
+
+
+# criar branch
+```sh
+$ git branch issue#12
+```
+# criar branch e mover diretamente para ele
+```sh
+$ git checkout -b issue#12
+```
+# mudar de branches
+```sh
+$ git checkout master
+```
+# saber em que branch estou
+```sh
+$ git branch
+```
+
