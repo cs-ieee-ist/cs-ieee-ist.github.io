@@ -43,19 +43,19 @@ Uma vez feitos os passos anteriores, é uma questão de criarem branches para ca
 (cada issue vai ter um número identidicador dessa tipo "#12")
 
 
-# criar branch
+#### criar branch
 ```sh
 $ git branch issue#12
 ```
-# criar branch e mover diretamente para ele
+#### criar branch e mover diretamente para ele
 ```sh
 $ git checkout -b issue#12
 ```
-# mudar de branches
+#### mudar de branches
 ```sh
 $ git checkout master
 ```
-# saber em que branch estou
+#### saber em que branch estou
 ```sh
 $ git branch
 ```
