@@ -53,10 +53,21 @@ $ git checkout -b issue#12
 ```
 #### mudar de branches
 ```sh
-$ git checkout master
+$ git checkout develop
 ```
 #### saber em que branch estou
 ```sh
 $ git branch
 ```
 
+Quando terminado o issue fazem (após todos os adds e commits que quiserem) um último commit com a mensagem " whatever closes#12"
+
+
+## Repository workaround with Projects in github
+
+
+O repositório já tem como podem reparar Projects para cada disciplina, que será o local onde dão a info se a tarefa está a ser realizada ou já acabada (arrastando a issue para a coluna adequada). 
+
+Como é óbvio eu não estou preocupado em saber quando é que o fazem ou a que horas, serve apenas para organização de trabalho e para ter noção do que já foi concluído.
+
+Qualquer dúvidas que tenham, não hesitem em contactar.
