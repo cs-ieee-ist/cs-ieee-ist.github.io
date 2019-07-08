@@ -1,0 +1,101 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/template.css">
+  <link rel="stylesheet" type="text/css" href="css/ia.css">
+  </link>
+  <!-- template.css has all default class names -->
+
+</head>
+
+<body>
+
+  <div id="pageTop">
+    <center>
+      <div id="projectName">IA</div>
+    </center>
+    <center>
+      <div class="">Inteligência Arteficial</div>
+    </center>
+
+  </div>
+
+  <div id="pageBody">
+    <!-- Page Content -->
+
+    <h3 id="ia--aprend-n-param" class="topic-title">Aprendizagem não paramétrica</h3>
+    <h6 class="topic-book-chapter">Capitulo 18.8</h6>
+
+
+    <h4 class="sub-topic-title">k-nearest neighbors</h4>
+    <p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como tinhas na
+      Aprendizagem Paramétrica. E portanto o peso da computação estará na fase de classificação.
+      Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a distância do
+      exemplo a cada ponto e as respetivas labels.
+      Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
+    </p>
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
+
+    <p class="topic-content-text">
+      <b>Exemplo</b></br>
+      Considere o seguinte conjunto de pontos: D = {(−2, 2),(−1, 3),(0, 1),(2, −1)}.</br>
+      Calcule a previsão obtida para os pontos (1, y) e (0, y)</br>
+      (a) Para K = 2.</br>
+      </br>
+      O primeiro passo é calcular a matriz de distâncias para ambos os pontos:</br></br>
+      <img class="latex-img" src="http://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
+      3 & 2 & 1 & 1 \\ 
+      2 & 1 & 0 & 2
+     \end{bmatrix}" /></br></br>
+
+      <b>(a)</b>Tendo em conta os 2 vizinhos mais próximos, obtemos as seguintes estimativas:</br>
+      </br>
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
+
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
+      </br>
+    </p>
+
+    <h4 class="sub-topic-title">Kernels</h4>
+    <p class="topic-content-text">
+      Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para pesarmos os
+      diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será mais
+      penalizado, um
+      exemplo mais perto será menos penalizado ou não será penalizado de todo.</br></br>
+      Exemplos de diferentes funções que podemos usar como Kernel:<br><br>
+      Kernel Quadrático</br></br>
+
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
+      <div class="graph-img-container">
+        <img class="graph-img" src="./media/img/ia/kernel_quad.png">
+      </div></br></br>
+
+      Kernel Gaussiano</br></br>
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
+
+      <div class="graph-img-container">
+        <img class="graph-img" src="./media/img/ia/kernel_gauss.png">
+      </div></br></br>
+
+      Este tipo de regressão que usa um Kernel segue a mesma lógica do k-nearest neighbors, no entanto, agora fazemos
+      uma média ponderada sobre todos os elementos do conjunto de treino.</br></br>
+
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
+    </p>
+
+    <p class="topic-content-text">
+      Exemplos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
+      (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
+      (manuel.lopes@tecnico.ulisboa.pt)
+      <!-- End Page Content -->
+  </div>
+
+</body>
+
+</html>
