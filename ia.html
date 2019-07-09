@@ -22,6 +22,344 @@
   <div id="pageBody">
     <!-- Page Content -->
 
+    <!-- Agentes Inteligentes -->
+
+    <h3 id="ia--agentes-inteigentes" class="topic-title">Agentes Inteligentes</h3>
+    <h6 class="topic-book-chapter">Capitulo 2.1, 2.4.2, 2.4.3, 2.4.6</h6>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/agente.png">
+    </div></br>
+    Imagem retirada do livro: Artificial Intelligence: A Modern Approach</br></br>
+
+    <h4 class="sub-topic-title">Agente</h4>
+
+    Um agente é qualquer coisa que consegue captar/perceber o ambiente onde se encontra e que actua nesse mesmo ambiente
+    através de atuadores.</br>
+
+    O termo percepção refere-se a um input do agente recebido a qualquer instante. Uma sequência de percepções será
+    então a história completa de tudo o que agente ja captou/percebeu.</br></br>
+    <i>"an agent’s choice of action at any given instant can depend on the entire percept
+      sequence observed to date, but not on anything it hasn’t perceived"</i></br></br>
+    O comportamente de um agente pode ser representado matemáticamente por uma função que mapeia qualquer percepção
+    recebida numa ação.</br></br>
+
+    Exemplo de um aspirador:</br>
+    <div class="ia-snippet">
+      <b>função</b> AgenteAspirador ([posição, estadoLocal]) <b>devolve</b> acção</br>
+      <div class="ia-snippet-scope">
+        Se estadoLocal = Sujo então Aspirar</br>
+        Senão se posição = A então Direita</br>
+        Senão se posição = B então Esquerda
+
+      </div>
+    </div>
+
+
+    </br>
+
+    <h4 class="sub-topic-title">Agente racional</h4>
+
+    Um agente racional deve procurar fazer “o que está certo”, com base nas suas percepções e nas acções que pode tomar.
+    No entanto, o que quer fazer “o que está certo”? Bem, podemos considerar as consequências do comportamento do
+    agente. Se a sequência de estados que ambiente sofrer, resultantes das ações do agente, for considerada boa então
+    podemos dizer que o agente está a ter uma boa performance.</br></br>
+
+    Definição de agente racional:</br>
+    "For each possible percept sequence, a rational agent should select an action that is expected to maximize its
+    performance measure, given the evidence provided by the percept
+    sequence and whatever built-in knowledge the agent has."</br></br>
+
+    Exemplo do aspirador:</br>
+    A medida de desempenho do
+    agente aspirador pode ser a sujidade
+    aspirada, tempo utilizado, electricidade
+    consumida, ruído gerado, etc.</br></br>
+
+    <h4 class="sub-topic-title">Agente Autónomo</h4>
+
+    Um agente é autónomo se o seu conhecimento for determinado apenas pela sua experiência, ou seja, este tem a
+    capacidade de aprender e adaptar-se.</br></br>
+
+    <h4 class="sub-topic-title">PEAS</h4>
+
+    – Performance (desempenho)</br>
+    – Environment (ambiente)</br>
+    – Actuators (actuadores)</br>
+    – Sensors (sensores)</br></br>
+
+    PEAS: Agente taxista</br>
+    • Desempenho</br>
+    – Segurança, destino, lucros,
+    legalidade, conforto</br>
+    • Ambiente</br>
+    – Clientes, estradas, trânsito, transeuntes, tempo</br>
+    • Actuadores</br>
+    – Volante, acelerador, travão, buzina, pisca</br>
+    • Sensores</br>
+    – GPS, conta km, velocímetro, nível do depósito,
+    temperatura do óleo</br>
+
+
+    <h4 class="sub-topic-title">Tipos de ambientes</h4>
+
+    <b>- Observável vs Parcialmente Observável</b>
+
+    <ul>
+      <li>Num ambiente “observável” os sensores do agente dão acesso ao estado
+        completo do ambiente em cada instante de tempo, pelo que não é
+        necessário manter um estado interno sobre o mundo.</li>
+      <li>Ou seja, o agente consegue a cada instante obter informação correcta e
+        actualizada do mundo que o rodeia.</li>
+      <li>A maioria dos ambientes não são totalmente observáveis tendo em conta
+        o aparelho sensorial comum.</li>
+      <li>Quanto mais observável é um ambiente mais fácil a criação de agentes
+        que nele operem</li>
+    </ul>
+
+    <b>- Estático vs Dinâmico</b>
+
+    <ul>
+      <li>Um ambiente estático é um ambiente que não é alterado enquanto
+        o agente decide que acção vai tomar</li>
+      <li>Um ambiente é semi-dinâmico se este permanece inalterado com a passagem do tempo mas a qualidade do desempenho
+        do agente é alterada</li>
+      <li>Um ambiente dinâmico pergunta constantemente ao agente o que este quer fazer se não decidir então conta como
+        decidir fazer nada.</li>
+    </ul>
+
+    <b>- Determinístico vs Estocástico</b>
+
+    <ul>
+      <li>Num ambiente Determinístico o estado seguinte do ambiente é
+        determinado somente em função do estado actual e da acção
+        executada pelo agente – não há incerteza para o agente sobre o estado
+        do mundo quando o agente executa uma acção</li>
+      <li>Se o ambiente é sempre determinístico excepto para as acções de outros agentes, então o ambiente é estratégico
+      </li>
+      <li>Os ambientes não determinísticos são bastante mais complexos de lidar
+        quando da criação dos agentes</li>
+    </ul>
+
+    <b>- Episódico vs Sequencial</b>
+
+    <ul>
+      <li>Num ambiente Episódico a experiência do agente está dividida em episódios atómicos (em que cada episódio
+        consiste em percepção+acção do agente) e a escolha de cada acção em cada episódio depende apenas do próprio
+        episódio</li>
+    </ul>
+
+    <b>- Discreto vs Contínuo</b>
+
+    <ul>
+      <li>Num ambiente Discreto o agente tem um número limitado de percepções e acções distintas que estão claramente
+        definidas</li>
+    </ul>
+
+    <b>- Single vs Multi-Agente</b>
+
+    <ul>
+      <li>Num ambiente Single Agent, tal como o próprio nome diz, só existe um agente nesse ambiente.</li>
+    </ul>
+
+    Exemplo</br>
+    <table style="margin: auto;border-collapse: collapse">
+      <tr>
+        <th>Ambientes</th>
+        <th>Observavel</th>
+        <th>Agentes</th>
+        <th>Deterministico</th>
+        <th>Episodico</th>
+        <th>Estático</th>
+        <th>Discreto</th>
+      </tr>
+      <tr>
+        <td>Palavras cruzadas</td>
+        <td>Totalmente</td>
+        <td>Single</td>
+        <td>Determinístico</td>
+        <td>Sequencial</td>
+        <td>Estático</td>
+        <td>Discreto</td>
+      </tr>
+      <tr>
+        <td>Xadrez com relógio</td>
+        <td>Totalmente</td>
+        <td>Multi</td>
+        <td>Determinístico</td>
+        <td>Sequencial</td>
+        <td>Semi</td>
+        <td>Discreto</td>
+      </tr>
+      <tr>
+        <td>Poker</td>
+        <td>Parcialmente</td>
+        <td>Multi</td>
+        <td>Estocástico</td>
+        <td>Sequencial</td>
+        <td>Estático</td>
+        <td>Discreto</td>
+      </tr>
+      <tr>
+        <td>Gamão</td>
+        <td>Totalmente</td>
+        <td>Multi</td>
+        <td>Estocástico</td>
+        <td>Sequencial</td>
+        <td>Estático</td>
+        <td>Discreto</td>
+      </tr>
+      <tr>
+        <td>Taxista</td>
+        <td>Parcialmente</td>
+        <td>Multi</td>
+        <td>Estocástico</td>
+        <td>Sequencial</td>
+        <td>Dinâmico</td>
+        <td>Contínuo</td>
+      </tr>
+      <tr>
+        <td>Diagnóstico Médico</td>
+        <td>Parcialmente</td>
+        <td>Single</td>
+        <td>Estocástico</td>
+        <td>Sequencial</td>
+        <td>Dinâmico</td>
+        <td>Contínuo</td>
+      </tr>
+      <tr>
+        <td>Análise de imagens</td>
+        <td>Totalmente</td>
+        <td>Single</td>
+        <td>Determinístico</td>
+        <td>Episódico</td>
+        <td>Semi</td>
+        <td>Contínuo</td>
+      </tr>
+      <tr>
+        <td>Part-picking robot</td>
+        <td>Parcialmente</td>
+        <td>Single</td>
+        <td>Estocástico</td>
+        <td>Episódico</td>
+        <td>Dinâmico</td>
+        <td>Contínuo</td>
+      </tr>
+      <tr>
+        <td>Refinery controller</td>
+        <td>Parcialmente</td>
+        <td>Single</td>
+        <td>Estocástico</td>
+        <td>Sequencial</td>
+        <td>Dinâmico</td>
+        <td>Contínuo</td>
+      </tr>
+      <tr>
+        <td>Tutor interativo de Inglês</td>
+        <td>Parcialmente</td>
+        <td>Multi</td>
+        <td>Estocástico</td>
+        <td>Sequencial</td>
+        <td>Dinâmico</td>
+        <td>Discreto</td>
+      </tr>
+    </table>
+
+    <h4 class="sub-topic-title">Tipos de agentes</h4>
+
+    <ul>
+      <li>Agentes reflexos simples</li>
+      <li>Agentes reflexos baseados em modelos</li>
+      <li>Agentes baseados em objectivos</li>
+      <li>Agentes baseados em utilidade</li>
+      <li>Agentes com aprendizagem</li>
+    </ul>
+
+    <b>- Agentes reflexos simples</b></br></br>
+
+    Os agentes de reflexos simples são o tipo de agentes mais simples. Estes escolhem uma ação com base na percepção
+    atual, ignorando todo o historial de percepções. O exemplo do aspirador apresentado anteriormente é um agente de
+    reflexos simples.</br></br>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/agente_simples.png">
+    </div></br>
+
+    <div class="ia-snippet">
+      <b>function</b> SIMPLE-REFLEX-AGENT(percept) <b>returns</b> an action</br>
+      <div class="ia-snippet-scope">
+        persistent: rules, a set of condition–action rules</br>
+        state ← INTERPRET-INPUT(percept)</br>
+        rule ← RULE-MATCH(state, rules)</br>
+        action ← rule.ACTION</br>
+        <b>return</b> action</br>
+      </div>
+    </div>
+
+    <b>- Agentes reflexos simples</b></br></br>
+
+    Os agentes de reflexos baseados em modelos são agentes que mantêm um estado interno que lhes diz como é que o "mundo
+    funciona". O estado interno vai depender do histórico de percepções do agente.</br></br>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/agente_model_based.png">
+    </div></br>
+
+    <div class="ia-snippet">
+      <b>function</b> MODEL-BASED-REFLEX-AGENT(percept) <b>returns</b> an action
+      <div class="ia-snippet-scope">
+        <b>persistent</b>: state, the agent’s current conception of the world state
+        <div class="ia-snippet-scope">
+          model, a description of how the next state depends on current state and action</br>
+          rules, a set of condition–action rules</br>
+          action, the most recent action, initially none
+        </div>
+        state ← UPDATE-STATE(state, action, percept, model)</br>
+        rule ← RULE-MATCH(state, rules)</br>
+        action ← rule.ACTION</br>
+        <b>returns</b> action
+      </div>
+    </div>
+
+    <b>- Agentes baseados em objetivos</b></br></br>
+
+    Conhecer algo o estado atual do ambiente nem sempre é suficiente para decidir o que fazer. Por exemplo, num
+    cruzamento, o taxi pode virar à esquerda, virar à esquerda ou ir em frente. A melhor decisão vai depender do local
+    para onde o taxi quer ir. Um agente (model based) pode combinar com o modelo um objetivo de forma a escolher a
+    melhor ação para alcançar esse mesmo objetivo.</br></br>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/agente_goal_based.png">
+    </div></br>
+
+    <b>- Agentes baseados em utilidade</b></br></br>
+
+    Este agente tem uma função de utilidade. Esta função de utilidade permite estabelecer preferências
+    entre sequências de estados que permitem atingir os mesmos objectivos. Por exemplo, um agente taxista que
+    pretende chegar a um destino, a função de utilidade permite distinguir as diferentes
+    formas de chegar ao destino, em função do tempo, da despesa, da segurança.</br></br>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/agente_utility_based.png">
+    </div></br>
+
+    <b>- Agentes com aprendizagem</b></br></br>
+
+    Este agentec orresponde à ideia de máquina inteligente caracterizada por Turing (1950), em que o agente actua num
+    mundo
+    inicialmente desconhecido. Este é composto por três elementos:
+    <ul>
+      <li>O Elemento de aprendizagem, responsável por tornar o agente mais eficiente ao longo do tempo. Através do
+        feedback da crítica que avalia actuação do agente de acordo com o desempenho espectável.</li>
+      <li>O Elemento de desempenho, responsável por seleccionar as acções do agente</li>
+      <li>O Elemento de geração de problemas, responsável por sugerir acções que podem trazer informação útil.</li>
+    </ul>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/agente_learning.png">
+    </div></br>
+
+    <!-- Fim Agentes Inteligentes -->
     <!-- Aprendizagem por reforco-->
 
     <h3 id="ia--aprend-reforco" class="topic-title">Aprendizagem por reforço</h3>
@@ -117,26 +455,26 @@
     estado, represente todas as possibilidades.</br></br>
 
     <table style="width:300px;height: auto;margin: auto;border-collapse: collapse">
-        <style>
-          td {
-            border: 1px solid;
-            text-align: center;
-          }
-  
-          tr {
-            height: 50px;
-          }
-        </style>
-        <tr>
-          <td>→</td>
-          <td>→</td>
-          <td>←</td>
-        </tr>
-        <tr>
-          <td>↑ →</td>
-          <td>↑</td>
-        </tr>
-      </table></br></br>
+      <style>
+        td {
+          border: 1px solid;
+          text-align: center;
+        }
+
+        tr {
+          height: 50px;
+        }
+      </style>
+      <tr>
+        <td>→</td>
+        <td>→</td>
+        <td>←</td>
+      </tr>
+      <tr>
+        <td>↑ →</td>
+        <td>↑</td>
+      </tr>
+    </table></br></br>
 
     <!-- Fim Aprendizagem por reforco-->
     <!-- Aprendizagem nao parametrica  -->

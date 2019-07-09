@@ -19,3 +19,13 @@
 .graph-img {
     width: 100%;
 }
+
+.ia-snippet {
+    border: 1px solid;
+    padding: 16px;
+    margin: 12px auto;
+}
+
+.ia-snippet-scope {
+    margin-left: 20px;
+}
