@@ -477,81 +477,177 @@
     </table></br></br>
 
     <!-- Fim Aprendizagem por reforco-->
-    <!-- Aprendizagem nao parametrica  -->
+    <!-- Aprendizagem parametrica-->
 
-    <h3 id="ia--aprend-n-param" class="topic-title">Aprendizagem não paramétrica</h3>
-    <h6 class="topic-book-chapter">Capitulo 18.8</h6>
+    <h3 id="ia--aprend-param" class="topic-title">Aprendizagem paramétrica</h3>
+    <h6 class="topic-book-chapter">Capitulo 18.6.4, 18.7</h6>
+
+    <h4 class="sub-topic-title">Perceptrão</h4>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/perceptron.png">
+    </div></br></br>
+
+    O Perceptrão é um classificador linear que coloca um separador entre pontos positivos e negativos de uma
+    classe. Este é composto por três partes: função de input, função de ativação e output.</br></br>
+
+    <b>Função de input:</b></br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?in = \sum_{i=0}^{n}w_{i}x_{i}\ ou\ ent\tilde{a}o\ w.x" /></br></br>
+
+    <b>Função de ativação:</b></br>
+    <ul>
+      <li>Se in = 0, ou seja o ponto está em cima do separador: h(in) = 1.</li>
+      <li>Se in > 0 , ou seja o ponto está em acima do separador: h(in) = 1.</li>
+      <li>Se in < 0 , ou seja o ponto está em abaixo do separador: h(in)=−1.</li> </ul> <b>Output:</b></br></br>
+
+          <img class="latex-img"
+            src="http://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
+
+          Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que definem
+          o separador. Dado um conjunto de treino X com classificações Y. Começa-se por inicializar o vetor w com valores
+          aleatórios. De seguida cálcula-se para cada exemplo no conjunto de treino o output do perceptrão. Se este
+          valor for igual ao esperado então não se faz nada. Se for diferente então utilizamos a seguinte regra de
+          update para atualizarmos os pesos.</br></br>
+          <img class="latex-img"
+            src="http://latex.codecogs.com/gif.latex?w = w + \alpha (y_{i}- \hat{y}) x_{i}" /></br></br>
+
+          <b>Exemplo</b></br>
+          Considere o conjunto de treino com 8 pontos:</br></br>
 
 
-    <h4 class="sub-topic-title">k-nearest neighbors</h4>
-    <p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como tinhas na
-      Aprendizagem Paramétrica. E portanto o peso da computação estará na fase de classificação.
-      Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a distância do
-      exemplo a cada ponto e as respetivas labels.
-      Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
-    </p>
+          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}
+            -2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 
+            0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5
+            \end{bmatrix}" /></br></br>
 
-    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
 
-    <p class="topic-content-text">
-      <b>Exemplo</b></br>
-      Considere o seguinte conjunto de pontos: D = {(−2, 2),(−1, 3),(0, 1),(2, −1)}.</br>
-      Calcule a previsão obtida para os pontos (1, y) e (0, y)</br>
-      (a) Para K = 2.</br>
-      </br>
-      O primeiro passo é calcular a matriz de distâncias para ambos os pontos:</br></br>
-      <img class="latex-img" src="http://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
+          Com as seguintes classificações:</br></br>
+          <img class="latex-img"
+            src="http://latex.codecogs.com/gif.latex?Y= [True\ True\ True\ True\ False\ False\ False\ False]" /></br></br>
+          Considere os seguintes pontos de teste.</br></br>
+          <img class="latex-img"
+            src="http://latex.codecogs.com/gif.latex?\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}-0.5\\ 0.5\end{bmatrix}" /></br></br>
+
+          (a) Fazendo uma ronda de updates com α = 1, w = [1, 1] e w0 = 0, como fica o vector de pesos?</br></br>
+          <b>Resolução:</b></br>
+          O primeiro passo é acrescentar uma dimensão a X para podermos tratar o termo de bias
+          como um peso normal. Assim, ficamos com:</br></br>
+          <img class="latex-img"
+            src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}-2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5\\1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\end{bmatrix}" /></br></br>
+
+          Deste modo, podemos escrever os pesos num só vector: w = [1, 1, 0].
+          Se definirmos True com +1 e False como −1 ficamos com:</br></br>
+          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y = [1\ 1\ 1\ 1\ -1\ -1\ -1\ -1]" /></br></br>
+
+          Façamos então um ronda de updates</br></br>
+
+          <div class="graph-img-container">
+            <img class="graph-img" src="./media/img/ia/perceptron-example.png">
+          </div></br></br>
+
+
+          (b) Qual a classificação que o Perceptrão treinado retorna para os pontos de teste.</br></br>
+          <b>Resolução:</b></br></br>
+          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}([0, 0, 1]) = h([-5, -2.8, 0] · [0, 0, 1]) = h(0) = 1\\
+          \hat{y}([-0.5, 0.5, 1]) = h([-5, -2.8, 0] · [-0.5, 0.5, 1]) = h(1.1) = 1" /></br></br>
+
+          <h4 class="sub-topic-title">Reqressão Logística</h4>
+
+          O modelo de regressão logística funciona de forma muito semelhante ao Perceptrão. Sendo também classificador
+          linear que coloca um separador entre pontos positivos e negativos de
+          uma classe.
+          No caso do Perceptrão a função de ativação retornava 1 ou −1. No caso da regressão logística, função utilizada
+          passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo [0,1].</br></br>
+          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
+          Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o w
+          agora passamos a usar o β.</br>
+          Assim, dado um ponto x o retorno da regressão logística pode ser definido por:</br></br>
+          <img class="latex-img"
+            src="http://latex.codecogs.com/gif.latex?p(+|x)=\sigma(\beta.x)=\frac{1}{1+e^{-\beta.x}}" /></br></br>
+          Tal como para o Perceptrão existem regras de update que podem ser utilizadas para aprender os pesos.
+          Contudo, nesta cadeira esses métodos não são abordados.</br></br>
+
+
+          <!-- Fim Aprendizagem parametrica  -->
+          <!-- Aprendizagem nao parametrica  -->
+
+          <h3 id="ia--aprend-n-param" class="topic-title">Aprendizagem não paramétrica</h3>
+          <h6 class="topic-book-chapter">Capitulo 18.8</h6>
+
+
+          <h4 class="sub-topic-title">k-nearest neighbors</h4>
+          <p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como tinhas na
+            Aprendizagem Paramétrica. E portanto o peso da computação estará na fase de classificação.
+            Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a distância
+            do
+            exemplo a cada ponto e as respetivas labels.
+            Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
+          </p>
+
+          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
+
+          <p class="topic-content-text">
+            <b>Exemplo</b></br>
+            Considere o seguinte conjunto de pontos: D = {(−2, 2),(−1, 3),(0, 1),(2, −1)}.</br>
+            Calcule a previsão obtida para os pontos (1, y) e (0, y)</br>
+            (a) Para K = 2.</br>
+            </br>
+            O primeiro passo é calcular a matriz de distâncias para ambos os pontos:</br></br>
+            <img class="latex-img" src="http://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
       3 & 2 & 1 & 1 \\ 
       2 & 1 & 0 & 2
      \end{bmatrix}" /></br></br>
 
-      <b>(a)</b>Tendo em conta os 2 vizinhos mais próximos, obtemos as seguintes estimativas:</br>
-      </br>
-      <img class="latex-img"
-        src="http://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
+            <b>(a)</b>Tendo em conta os 2 vizinhos mais próximos, obtemos as seguintes estimativas:</br>
+            </br>
+            <img class="latex-img"
+              src="http://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
 
-      <img class="latex-img"
-        src="http://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
-      </br>
-    </p>
+            <img class="latex-img"
+              src="http://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
+            </br>
+          </p>
 
-    <h4 class="sub-topic-title">Kernels</h4>
-    <p class="topic-content-text">
-      Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para pesarmos os
-      diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será mais
-      penalizado, um
-      exemplo mais perto será menos penalizado ou não será penalizado de todo.</br></br>
-      Exemplos de diferentes funções que podemos usar como Kernel:<br><br>
-      Kernel Quadrático</br></br>
+          <h4 class="sub-topic-title">Kernels</h4>
+          <p class="topic-content-text">
+            Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para pesarmos
+            os
+            diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será mais
+            penalizado, um
+            exemplo mais perto será menos penalizado ou não será penalizado de todo.</br></br>
+            Exemplos de diferentes funções que podemos usar como Kernel:<br><br>
+            Kernel Quadrático</br></br>
 
-      <img class="latex-img"
-        src="http://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
-      <div class="graph-img-container">
-        <img class="graph-img" src="./media/img/ia/kernel_quad.png">
-      </div></br></br>
+            <img class="latex-img"
+              src="http://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
+            <div class="graph-img-container">
+              <img class="graph-img" src="./media/img/ia/kernel_quad.png">
+            </div></br></br>
 
-      Kernel Gaussiano</br></br>
-      <img class="latex-img"
-        src="http://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
+            Kernel Gaussiano</br></br>
+            <img class="latex-img"
+              src="http://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
 
-      <div class="graph-img-container">
-        <img class="graph-img" src="./media/img/ia/kernel_gauss.png">
-      </div></br></br>
+            <div class="graph-img-container">
+              <img class="graph-img" src="./media/img/ia/kernel_gauss.png">
+            </div></br></br>
 
-      Este tipo de regressão que usa um Kernel segue a mesma lógica do k-nearest neighbors, no entanto, agora fazemos
-      uma média ponderada sobre todos os elementos do conjunto de treino.</br></br>
+            Este tipo de regressão que usa um Kernel segue a mesma lógica do k-nearest neighbors, no entanto, agora
+            fazemos
+            uma média ponderada sobre todos os elementos do conjunto de treino.</br></br>
 
-      <img class="latex-img"
-        src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
-    </p>
+            <img class="latex-img"
+              src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
+          </p>
 
-    <!-- Fim Aprendizagem nao parametrica  -->
+          <!-- Fim Aprendizagem nao parametrica  -->
 
-    <p class="topic-content-text">
-      Exemplos e excertos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
-      (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
-      (manuel.lopes@tecnico.ulisboa.pt)
-      <!-- End Page Content -->
+          <p class="topic-content-text">
+            Exemplos e excertos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
+            (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
+            (manuel.lopes@tecnico.ulisboa.pt)
+            <!-- End Page Content -->
   </div>
 
 
