@@ -15,13 +15,131 @@
       <div id="projectName">IA</div>
     </center>
     <center>
-      <div class="">Inteligência Arteficial</div>
+      <div class="">Inteligência Artificial</div>
     </center>
-
   </div>
 
   <div id="pageBody">
     <!-- Page Content -->
+
+    <!-- Aprendizagem por reforco-->
+
+    <h3 id="ia--aprend-reforco" class="topic-title">Aprendizagem por reforço</h3>
+    <h6 class="topic-book-chapter">Capitulo 21.1, 21.2 e 21.3</h6>
+
+    Nesta cadeira o tipo de Aprendizagem por reforço que estudamos modela o problema da seguinte forma:</br>
+
+    • Conjunto de estados: X = x1, x2, ..., xn </br>
+    • Conjunto de ações: A = a1, a2, ..., am </br>
+    • Funcão de reward: R: X × A → |R </br>
+    Função V (x) que calcula o reward obtido após uma trajectória com T passos que começa no estado x.
+    Se assumirmos γ como o factor de desconto, podemos calcular V (x) da seguinte forma:</br></br>
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?V(x) = \sum_{t=0}^{T-1}\gamma ^tr^t" /></br></br>
+    Matriz Q com dimensões X x A</br></br>
+    Funcão Q : X × A → R, calcula o mesmo que V mas para um par estado acção inicial.
+    Uma política π(a|x) : X × A → [0, 1] define a probabilidade de se executar cada acção a para cada
+    estado x. À política que maximiza o reward total chamamos política óptima π∗
+    . Esta pode ser extraída
+    da função Q da seguinte forma:</br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?\pi^\ast(x) = argmax_{a\in A} Q^\ast(x,a)" /></br></br>
+
+    Assim, para podermos aprender a política
+    óptima para um dado ambiente, apenas precisamos de aprender a função Q∗
+    . Utilizando Q-learning
+    podemos apróximar a função Q∗ a partir de várias trajectórias de exemplo no ambiente.
+    Se considerarmos um passo de uma trajectória como o conjunto (x, a, y, r), onde:</br></br>
+
+    • x: estado antes de fazer a acção</br>
+    • a: acção utilizada</br>
+    • y: estado após fazer a acção</br>
+    • r: reward obtida por fazer a acção a no estado x</br>
+    Podemos assim usar a seguinte regra de update (alpha é o <i>learning rate</i>):</br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Q(x,a) = Q(x,a) + \alpha(R(x,a) + max_{b}Q(y,b) - Q(x,a))" /></br></br>
+
+    Exame 2 2018/2019</br></br>
+
+    Considere o seguinte ambiente com 5 estados:</br></br>
+
+    <table style="width:300px;height: auto;margin: auto;border-collapse: collapse">
+      <style>
+        td {
+          border: 1px solid;
+          text-align: center;
+        }
+
+        tr {
+          height: 50px;
+        }
+      </style>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+    </table></br></br>
+
+    Em cada estado podem ser executadas 4 acções, cima (↑), direita (→), baixo (↓) e esquerda (←), sendo que
+    aquelas que atravessam uma linha a tracejado fazem o agente transitar entre estados e as restantes fazem com
+    que este se mantenha no mesmo estado. O agente recebe uma recompensa de 1 sempre que executa uma acção
+    que o faz atravessar uma linha a tracejado, excepto ao executar a acção → no estado 2, caso em que recebe uma
+    recompensa de 4. Nos restantes casos o agente tem uma penalização de 2, isto é, recebe uma recompensa de
+    -2.</br></br>
+
+    8.1. (1.0) Calcule os updates feitos pelo algoritmo Q-Learning quando o agente começa no estado 1 e executa a
+    seguinte sequência de acções: → ↑ → → ←. Assuma que os valores de Q estão inicialmente a 0 e
+    considere α = 0.5 e γ = 0.5.</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Q(1, \rightarrow) = Q(1, \rightarrow) + \alpha(r(1, \rightarrow) + \gamma max_{b}Q(2, b) - Q(1, \rightarrow)) = 0 + 0.5 * (1 + 0.5 * 0 - 0) = 0.5" /></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Q(2, \uparrow) = Q(2, \uparrow) + \alpha(r(2, \uparrow) + \gamma max_{b}Q(2, b) - Q(2, \uparrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Q(2, \rightarrow) = Q(2, \rightarrow) + \alpha(r(2, \rightarrow) + \gamma max_{b}Q(3, b) - Q(2, \rightarrow)) = 0 + 0.5 * (4 + 0.5 * 0 - 0) = 2" /></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Q(3, \rightarrow) = Q(3, \rightarrow) + \alpha(r(3, \rightarrow) + \gamma max_{b}Q(3, b) - Q(3, \rightarrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Q(3, \leftarrow) = Q(3, \leftarrow) + \alpha(r(3, \leftarrow) + \gamma max_{b}Q(2, b) - Q(3, \leftarrow)) = 0 + 0.5 * (1 + 0.5 * 2 - 0) = 1" /></br>
+    </br>
+    8.2. (0.5) Seguindo uma política de exploitation e assumindo o estado de Q obtido após realizar os updates da
+    alínea anterior, quais são as 5 primeiras acções efectuadas pelo agente, começando no estado 1? Indique
+    não só as acções, mas também o seu resultado, no formato (estado inicial, acção, estado final, recompensa)</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?(1, \rightarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow , 2, 1)" /></br></br>
+
+    8.3 (0.5) Qual é a política óptima para este ambiente? Caso existam múltiplas acções óptimas num determinado
+    estado, represente todas as possibilidades.</br></br>
+
+    <table style="width:300px;height: auto;margin: auto;border-collapse: collapse">
+        <style>
+          td {
+            border: 1px solid;
+            text-align: center;
+          }
+  
+          tr {
+            height: 50px;
+          }
+        </style>
+        <tr>
+          <td>→</td>
+          <td>→</td>
+          <td>←</td>
+        </tr>
+        <tr>
+          <td>↑ →</td>
+          <td>↑</td>
+        </tr>
+      </table></br></br>
+
+    <!-- Fim Aprendizagem por reforco-->
+    <!-- Aprendizagem nao parametrica  -->
 
     <h3 id="ia--aprend-n-param" class="topic-title">Aprendizagem não paramétrica</h3>
     <h6 class="topic-book-chapter">Capitulo 18.8</h6>
@@ -89,12 +207,16 @@
         src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
     </p>
 
+    <!-- Fim Aprendizagem nao parametrica  -->
+
     <p class="topic-content-text">
-      Exemplos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
+      Exemplos e excertos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
       (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
       (manuel.lopes@tecnico.ulisboa.pt)
       <!-- End Page Content -->
   </div>
+
+
 
 </body>
 
