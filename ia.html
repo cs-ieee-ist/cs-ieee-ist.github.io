@@ -360,6 +360,173 @@
     </div></br>
 
     <!-- Fim Agentes Inteligentes -->
+    <!-- Procura não informada -->
+    <h3 id="ia--procura-n-informada" class="topic-title">Procura não informada</h3>
+    <h6 class="topic-book-chapter">Capitulo 3.1, 3.4, 3.5.1, 3.5.2</h6>
+
+    <h4 class="sub-topic-title">Estratégias de procura</h4>
+    As estratégias são avaliadas de acordo com 4 aspectos:</br>
+    <ul>
+      <li><b>Completude</b>: encontra sempre uma solução caso exista (se não existir diz que não há solução)</li>
+      <li><b>Complexidade temporal</b>: número de nós gerados</li>
+      <li><b>Complexidade espacial</b>: número máximo de nós em memória</li>
+      <li><b>Optimalidade</b>: encontra a solução de menor custo</li>
+    </ul>
+
+    Complexidade temporal e espacial são medidas em termos de:</br>
+    <ul>
+      <li><b>b</b>: máximo factor de ramificação da árvore de procura (branching factor)</li>
+      <li><b>d</b>: profundidade da solução de menor custo (nó com estado inicial tem profundidade 0)</li>
+      <li><b>m</b>: máxima profundidade do espaço de estados (pode ser ∞)</li>
+    </ul>
+
+    Complexidade temporal:</br>
+    <ul>
+      <li>Função do número de nós gerados durante a procura</li>
+    </ul>
+
+    Complexidade espacial:</br>
+    <ul>
+      <li>Função do número de nós guardados em memória</li>
+    </ul>
+
+    <h4 class="sub-topic-title">Estratégias de procura não informada</h4>
+
+    <b>Largura Primeiro (Breadth-first search)</b></br>
+
+    <ul>
+      <li><b>Completa:</b> Sim, se b for finito</li>
+      <li><b>Tempo:</b> b + b<sup>2</sup> + b<sup>3</sup> + ... + b<sup>d</sup> = O(b<sup>d</sup>), exponencial em d
+      </li>
+      <li><b>Espaço:</b> O(b<sup>d</sup>), todos os nós por expandir em memória</li>
+      <li><b>Ótima:</b> Sim, se custo de caminho for uma função não-decrescente da profundidade (e.g. se custo por ação
+        for = 1)</li>
+    </ul>
+
+    <div class="ia-snippet">
+      <b>function</b> BREADTH-FIRST-SEARCH(problem) <b>returns</b> a solution, or failure
+      <div class="ia-snippet-scope">
+        node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
+        <b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+        frontier ← a FIFO queue with node as the only element</br>
+        explored ← an empty set</br>
+        <b>loop do</b>
+        <div class="ia-snippet-scope">
+          <b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
+          node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
+          add node.STATE to explored</br>
+          <b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
+          <div class="ia-snippet-scope">
+            child ← CHILD-NODE(problem, node, action)</br>
+            <b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
+            <div class="ia-snippet-scope">
+              <b>if</b> problem.GOAL-TEST(child.STATE) <b>then return</b> SOLUTION(child)</br>
+              frontier ← INSERT(child,frontier )
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <b>Custo Uniforme (Uniform cost search)</b></br>
+
+    <ul>
+      <li><b>Completa:</b> Sim, se custo do ramo ≥ ε, em que ε é uma constante > 0, para evitar ciclos em ramos com
+        custo 0</li>
+      <li><b>Tempo:</b> # de nós com g ≤ custo da solução óptima, O(b<sup>1+[C*/ε]</sup>) onde C* é o custo da solução
+        óptima</li>
+      <li><b>Espaço:</b> # de nós com g ≤ custo da solução óptima, O(b<sup>1+[C*/ε]</sup>)</li>
+      <li><b>Ótima:</b> Sim, nós expandidos por ordem crescente de g </li>
+    </ul>
+
+    <div class="ia-snippet">
+      <b>function</b> n UNIFORM-COST-SEARCH(problem) <b>returns</b> a solution, or failure
+      <div class="ia-snippet-scope">
+        node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
+        frontier ← a priority queue ordered by PATH-COST, with node as the only element
+        explored ← an empty set</br>
+        <b>loop do</b>
+        <div class="ia-snippet-scope">
+          <b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
+          node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
+          <b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+          add node.STATE to explored</br>
+          <b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
+          <div class="ia-snippet-scope">
+            child ← CHILD-NODE(problem, node, action)</br>
+            <b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
+            <div class="ia-snippet-scope">
+              frontier ← INSERT(child,frontier )
+            </div>
+            <b>else if</b> child.STATE is in frontier with higher PATH-COST <b>then</b></br>
+            <div class="ia-snippet-scope">
+              replace that frontier node with child
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <b>Profundidade Primeiro (Depth-first search)</b></br>
+
+    <ul>
+      <li><b>Completa:</b> Não: não encontra a solução em espaços de estados com profundidade infinita/com ciclos</li>
+      <li><b>Tempo:</b> O(b<sup>m</sup>): problemático se máxima profundidade do espaço de estados m é muito maior do
+        que profundidade da solução de menor custo d</li>
+      <li><b>Espaço:</b> O(b*m) - espaço linear (só um caminho)</li>
+      <li><b>Ótima:</b> Não </li>
+    </ul>
+
+    <b>Profundidade Limitada (Depth-limited search)</b></br>
+
+    <div class="ia-snippet">
+      <b>function</b> DEPTH-LIMITED-SEARCH(problem, limit) <b>returns</b> a solution, or failure/cutoff
+      <div class="ia-snippet-scope">
+        <b>return</b> RECURSIVE-DLS(MAKE-NODE(problem.INITIAL-STATE), problem, limit)
+      </div>
+      <b>function</b> RECURSIVE-DLS(node, problem, limit) <b>returns</b> a solution, or failure/cutoff
+      <div class="ia-snippet-scope">
+
+        <b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+        <b>else if</b> limit = 0 t<b>then return</b> cutoff</br>
+        <b>else</b></br>
+        <div class="ia-snippet-scope">
+
+          cutoff occurred?←false</br>
+          <b>for each</b> action in problem.ACTIONS(node.STATE) <b>do</b></br>
+          <div class="ia-snippet-scope">
+
+            child ← CHILD-NODE(problem, node, action)</br>
+            result ← RECURSIVE-DLS(child, problem, limit − 1)</br>
+            <b>if</b> result = cutoff <b>then</b> cutoff occurred?← true</br>
+            <b>else if</b> result != failure <b>then return</b> result</br>
+            <b>if</b> cutoff occurred? <b>then return</b> cutoff <b>else return</b> failure</br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <b>Profundidade Limitada Iterativa ( Iterative deepening depth-first search)</b></br>
+
+    <ul>
+      <li><b>Completa:</b> Sim</li>
+      <li><b>Tempo:</b> (d)b + (d − 1)b<sup>2</sup> + ··· + (1)b<sup>d</sup></li>
+      <li><b>Espaço:</b> O(b*d)</li>
+      <li><b>Ótima:</b> Sim, se custo de cada ramo for = 1 </li>
+    </ul>
+
+    <div class="ia-snippet">
+      <b>function</b> ITERATIVE-DEEPENING-SEARCH(problem) <b>returns</b> a solution, or failure/cutoff
+      <div class="ia-snippet-scope">
+        <b>for</b> depth = 0 <b>to</b> ∞ <b>do</b>
+        <div class="ia-snippet-scope">
+          result ← DEPTH-LIMITED-SEARCH(problem, depth)</br>
+          <b>if</b> result != cutoff <b>then return</b> result
+        </div>
+      </div>
+    </div>
+
+    <!-- Fim Procura não informada -->
     <!-- Aprendizagem por reforco-->
 
     <h3 id="ia--aprend-reforco" class="topic-title">Aprendizagem por reforço</h3>
@@ -505,7 +672,8 @@
             src="http://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
 
           Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que definem
-          o separador. Dado um conjunto de treino X com classificações Y. Começa-se por inicializar o vetor w com valores
+          o separador. Dado um conjunto de treino X com classificações Y. Começa-se por inicializar o vetor w com
+          valores
           aleatórios. De seguida cálcula-se para cada exemplo no conjunto de treino o output do perceptrão. Se este
           valor for igual ao esperado então não se faz nada. Se for diferente então utilizamos a seguinte regra de
           update para atualizarmos os pesos.</br></br>
@@ -558,7 +726,8 @@
           linear que coloca um separador entre pontos positivos e negativos de
           uma classe.
           No caso do Perceptrão a função de ativação retornava 1 ou −1. No caso da regressão logística, função utilizada
-          passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo [0,1].</br></br>
+          passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo
+          [0,1].</br></br>
           <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
           Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o w
           agora passamos a usar o β.</br>
