@@ -510,7 +510,7 @@
 
     <ul>
       <li><b>Completa:</b> Sim</li>
-      <li><b>Tempo:</b> (d)b + (d − 1)b<sup>2</sup> + ··· + (1)b<sup>d</sup></li>
+      <li><b>Tempo:</b> (d)b + (d − 1)b<sup>2</sup> + ··· + (1)b<sup>d</sup> = O(b<sup>d</sup>)</li>
       <li><b>Espaço:</b> O(b*d)</li>
       <li><b>Ótima:</b> Sim, se custo de cada ramo for = 1 </li>
     </ul>
@@ -527,6 +527,168 @@
     </div>
 
     <!-- Fim Procura não informada -->
+    <!-- Procura informada -->
+
+    <h3 id="ia--procura-informada" class="topic-title">Procura informada</h3>
+    <h6 class="topic-book-chapter">Capitulo 21.1, 21.2 e 21.3</h6>
+
+    <h4 class="sub-topic-title">Função heurística</h4>
+
+    <ul>
+      <li>g(n) – custo do caminho do estado inicial até o nó n</li>
+      <li>h*(n) – custo do melhor caminho a partir do nó n até um objectivo</li>
+      <li>h(n) – estimativa do custo do melhor caminho a partir do nó n até um objectivo</li>
+      <li>h(n) = 0, se n = estado objectivo</li>
+    </ul>
+
+    <ul>
+      <li><b>Ideia</b>: usar uma função de avaliação f(n) para cada nó</br>
+        – f(n) usa conhecimento específico do problema</br>
+        – O “melhor” nó é o que tem o menor valor de f(n)</br>
+        - Expandir primeiro o nó que tem o menor valor de f(n)</li>
+      <li><b>Implementação</b>:
+        Nós na fronteira ordenados por ordem crescente da função de avaliação </br>
+        – Fronteira = {n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub>, ...} -> f(n<sub>1</sub>) ≤ f(n<sub>2</sub>) ≤
+        f(<sub>3</sub>) ≤ ...
+      </li>
+      <li><b>Casos especiais:</b></br>
+        – Procura Gananciosa </br>
+        – Procura A*
+      </li>
+    </ul>
+
+    <b>Procura Melhor Primeiro (Best First Search)</b></br>
+
+    <ul>
+      <li>Algoritmo Procura Melhor Primeiro</br>
+        – Igual à Procura Custo Uniforme</br>
+        – Fronteira ordenada por f(n) em vez do custo </br>
+        – Procura custo uniforme pode ser vista como Procura Melhor Primeiro, f(n) = g(n)</li>
+    </ul>
+
+    <div class="ia-snippet">
+      <b>function</b> BEST-FIRST-SEARCH (problem) <b>returns</b> a solution, or failure
+      <div class="ia-snippet-scope">
+
+        node ← a node with State = problem.Initial-State, Path-Cost = 0</br>
+        frontier ← a priority queue ordered by F(node), with node as the only element</br>
+        explored ← an empty set</br>
+        <b>loop do</b>
+        <div class="ia-snippet-scope">
+          <b>if</b> EMPTY?(frontier) <b>then return</b> failure</br>
+          node ← POP(frontier)</br>
+          <b>if</b> problem.Goal-Test(node.State) <b>then return</b> Solution(node)</br>
+          add node.State to explored</br>
+          <b>for each</b> action in problem.Actions(node.State) <b>do</b>
+          <div class="ia-snippet-scope">
+            child ← CHILD-NODE(problem,node,action)</br>
+            <b>if</b> child.State is not in explored or frontier <b>then</b>
+            <div class="ia-snippet-scope">
+              frontier ← Insert(child,frontier)
+            </div>
+            <b>else if</b> child.State is in frontier with higher F-Value <b>then</b>
+            <div class="ia-snippet-scope">
+              replace that frontier node with child
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <b>Gananciosa (Greedy Best First Search)</b></br>
+
+    <ul>
+      <li>Função de avaliação f(n) = h(n) (heurística)</li>
+      <li>Procura gananciosa expande o nó que “parece” estar mais próximo do objectivo</li>
+    </ul>
+
+    <ul>
+      <li><b>Completa:</b> Não, pois pode entrar em ciclo</li>
+      <li><b>Tempo:</b> O(b<sup>m</sup>) mas uma boa heurística pode reduzi-lo dramaticamente</li>
+      <li><b>Espaço:</b> O(b<sup>m</sup>) no pior caso mantém todos os nós em memória</li>
+      <li><b>Ótima:</b> Não </li>
+    </ul>
+
+    <b>Procura A*</b></br>
+
+    <ul>
+      <li><b>Ideia:</b> evitar expandir caminhos que já têm um custo muito elevado</li>
+      <li>Função de avaliação f(n) = g(n) + h(n)</br>
+        – g(n) = custo desde o nó inicial até n</br>
+        – h(n) = estimativa do custo desde n até um estado objectivo
+      </li>
+      <li>f(n) = estimativa do custo total da melhor solução que passa por n</br>
+        – caminho desde o estado inicial até estado objectivo (passando por n)
+      </li>
+    </ul>
+
+
+    <ul>
+      <li><b>Completa:</b>Sim, a versão de procura em árvore é ótima se h(n) é admissivel, enquanto a versão de procura
+        em grafo é ótima se h(n) for consistente.</li>
+      <li><b>Tempo:</b> Exponencial</li>
+      <li><b>Espaço:</b> Exponencial</li>
+      <li><b>Ótima:</b> Sim</li>
+    </ul>
+
+    <b>Heurística Admissível</b></br></br>
+    Uma heurística é admissível se o valor estimado para cada nó nunca for superior ao valor ótimo.</br></br>
+
+    <b>Heurística Consistente</b></br></br>
+    Uma heurística é consistente se para cada nó n, e para cada sucessor n' de n gerado por uma acção a temos: h(n) ≤
+    c(n,a,n') + h(n'), ou seja um lado de um triângulo não pode ser maior que
+    a soma dos outros dois lados.</br>
+    <b>Se h é consistente então h é admissível</b>, o caso contrário não se verifica.</br></br>
+
+    <h4 class="sub-topic-title">IDA* (Iterative Deepening A*)</h4>
+
+    <ul>
+      <li>Versão iterativa em profundidade da procura A*</li>
+      <li>Critério de corte/Limite:</br>
+        – f(n) = g(n) + h(n)</br>
+        – Em vez se usar profundidade usa-se o custo de f</li>
+      <li>Em cada nova iteração o valor limite é actualizado com o menor valor de f(n) para os nós cortados na
+        iteração anterior</li>
+    </ul>
+
+    <h4 class="sub-topic-title">RBFS</h4>
+
+    <ul>
+      <li>Tenta simular o Best-First search mas usando espaço linear</li>
+      <li>Semelhante à procura em profundidade (implementação recursiva)</br>
+        – Para cada nó explorado, mantém o registo do caminho alternativo com menor valor de f</br>
+        – Para escolher o próximo nó a expandir olha apenas para os filhos do nó actual</br>
+        – Se o valor de f para o melhor filho excede o valor em memória, a recursão permite recuperar o melhor caminho
+        alternativo</li>
+    </ul>
+
+    <ul>
+      <li><b>Completa:</b>Sim</li>
+      <li><b>Tempo:</b> Depende da precisão da heurística e de quantas vezes muda o melhor caminho à medida que os
+        nós vão sendo expandidos</li>
+      <li><b>Espaço:</b> O(bd)</li>
+      <li><b>Ótima:</b> Sim, se heurística h(n) for admissível</li>
+    </ul>
+
+
+    <h4 class="sub-topic-title">SMA* (Simplified Memory A*)</h4>
+
+    <ul>
+      <li>Procede primeiro como o A*: </br>
+        - Expande sempre o melhor nó na fronteira</br>
+        - Até a memória ficar cheia
+      </li>
+      <li>
+        Quando a memória está cheia:</br>
+        - Esquece o pior nó na fronteira para poder acrescentar outro</br>
+        - Mas, tal como o RBFS, regista o valor da nó esquecido no pai
+      </li>
+      <li>O nó esquecido pode ser regenerado se todos os
+        caminhos forem piores do que o seu valor</li>
+    </ul>
+
+    <!-- Fim Procura informada -->
+
     <!-- Aprendizagem por reforco-->
 
     <h3 id="ia--aprend-reforco" class="topic-title">Aprendizagem por reforço</h3>
@@ -534,7 +696,7 @@
 
     Nesta cadeira o tipo de Aprendizagem por reforço que estudamos modela o problema da seguinte forma:</br>
 
-    • Conjunto de estados: X = x1, x2, ..., xn </br>
+    • Conjunto de estados: X = x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> </br>
     • Conjunto de ações: A = a1, a2, ..., am </br>
     • Funcão de reward: R: X × A → |R </br>
     Função V (x) que calcula o reward obtido após uma trajectória com T passos que começa no estado x.
