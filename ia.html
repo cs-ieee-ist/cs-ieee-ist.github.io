@@ -83,21 +83,21 @@
 
     <h4 class="sub-topic-title">PEAS</h4>
 
-    – Performance (desempenho)</br>
-    – Environment (ambiente)</br>
-    – Actuators (actuadores)</br>
-    – Sensors (sensores)</br></br>
+    - Performance (desempenho)</br>
+    - Environment (ambiente)</br>
+    - Actuators (actuadores)</br>
+    - Sensors (sensores)</br></br>
 
     PEAS: Agente taxista</br>
     • Desempenho</br>
-    – Segurança, destino, lucros,
+    - Segurança, destino, lucros,
     legalidade, conforto</br>
     • Ambiente</br>
-    – Clientes, estradas, trânsito, transeuntes, tempo</br>
+    - Clientes, estradas, trânsito, transeuntes, tempo</br>
     • Actuadores</br>
-    – Volante, acelerador, travão, buzina, pisca</br>
+    - Volante, acelerador, travão, buzina, pisca</br>
     • Sensores</br>
-    – GPS, conta km, velocímetro, nível do depósito,
+    - GPS, conta km, velocímetro, nível do depósito,
     temperatura do óleo</br>
 
 
@@ -133,7 +133,7 @@
     <ul>
       <li>Num ambiente Determinístico o estado seguinte do ambiente é
         determinado somente em função do estado actual e da acção
-        executada pelo agente – não há incerteza para o agente sobre o estado
+        executada pelo agente - não há incerteza para o agente sobre o estado
         do mundo quando o agente executa uma acção</li>
       <li>Se o ambiente é sempre determinístico excepto para as acções de outros agentes, então o ambiente é estratégico
       </li>
@@ -288,7 +288,7 @@
     <div class="ia-snippet">
       <b>function</b> SIMPLE-REFLEX-AGENT(percept) <b>returns</b> an action</br>
       <div class="ia-snippet-scope">
-        persistent: rules, a set of condition–action rules</br>
+        persistent: rules, a set of condition-action rules</br>
         state ← INTERPRET-INPUT(percept)</br>
         rule ← RULE-MATCH(state, rules)</br>
         action ← rule.ACTION</br>
@@ -311,7 +311,7 @@
         <b>persistent</b>: state, the agent’s current conception of the world state
         <div class="ia-snippet-scope">
           model, a description of how the next state depends on current state and action</br>
-          rules, a set of condition–action rules</br>
+          rules, a set of condition-action rules</br>
           action, the most recent action, initially none
         </div>
         state ← UPDATE-STATE(state, action, percept, model)</br>
@@ -535,25 +535,25 @@
     <h4 class="sub-topic-title">Função heurística</h4>
 
     <ul>
-      <li>g(n) – custo do caminho do estado inicial até o nó n</li>
-      <li>h*(n) – custo do melhor caminho a partir do nó n até um objectivo</li>
-      <li>h(n) – estimativa do custo do melhor caminho a partir do nó n até um objectivo</li>
+      <li>g(n) - custo do caminho do estado inicial até o nó n</li>
+      <li>h*(n) - custo do melhor caminho a partir do nó n até um objectivo</li>
+      <li>h(n) - estimativa do custo do melhor caminho a partir do nó n até um objectivo</li>
       <li>h(n) = 0, se n = estado objectivo</li>
     </ul>
 
     <ul>
       <li><b>Ideia</b>: usar uma função de avaliação f(n) para cada nó</br>
-        – f(n) usa conhecimento específico do problema</br>
-        – O “melhor” nó é o que tem o menor valor de f(n)</br>
+        - f(n) usa conhecimento específico do problema</br>
+        - O “melhor” nó é o que tem o menor valor de f(n)</br>
         - Expandir primeiro o nó que tem o menor valor de f(n)</li>
       <li><b>Implementação</b>:
         Nós na fronteira ordenados por ordem crescente da função de avaliação </br>
-        – Fronteira = {n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub>, ...} → f(n<sub>1</sub>) ≤ f(n<sub>2</sub>) ≤
+        - Fronteira = {n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub>, ...} → f(n<sub>1</sub>) ≤ f(n<sub>2</sub>) ≤
         f(<sub>3</sub>) ≤ ...
       </li>
       <li><b>Casos especiais:</b></br>
-        – Procura Gananciosa </br>
-        – Procura A*
+        - Procura Gananciosa </br>
+        - Procura A*
       </li>
     </ul>
 
@@ -561,9 +561,9 @@
 
     <ul>
       <li>Algoritmo Procura Melhor Primeiro</br>
-        – Igual à Procura Custo Uniforme</br>
-        – Fronteira ordenada por f(n) em vez do custo </br>
-        – Procura custo uniforme pode ser vista como Procura Melhor Primeiro, f(n) = g(n)</li>
+        - Igual à Procura Custo Uniforme</br>
+        - Fronteira ordenada por f(n) em vez do custo </br>
+        - Procura custo uniforme pode ser vista como Procura Melhor Primeiro, f(n) = g(n)</li>
     </ul>
 
     <div class="ia-snippet">
@@ -614,11 +614,11 @@
     <ul>
       <li><b>Ideia:</b> evitar expandir caminhos que já têm um custo muito elevado</li>
       <li>Função de avaliação f(n) = g(n) + h(n)</br>
-        – g(n) = custo desde o nó inicial até n</br>
-        – h(n) = estimativa do custo desde n até um estado objectivo
+        - g(n) = custo desde o nó inicial até n</br>
+        - h(n) = estimativa do custo desde n até um estado objectivo
       </li>
       <li>f(n) = estimativa do custo total da melhor solução que passa por n</br>
-        – caminho desde o estado inicial até estado objectivo (passando por n)
+        - caminho desde o estado inicial até estado objectivo (passando por n)
       </li>
     </ul>
 
@@ -645,8 +645,8 @@
     <ul>
       <li>Versão iterativa em profundidade da procura A*</li>
       <li>Critério de corte/Limite:</br>
-        – f(n) = g(n) + h(n)</br>
-        – Em vez se usar profundidade usa-se o custo de f</li>
+        - f(n) = g(n) + h(n)</br>
+        - Em vez se usar profundidade usa-se o custo de f</li>
       <li>Em cada nova iteração o valor limite é actualizado com o menor valor de f(n) para os nós cortados na
         iteração anterior</li>
     </ul>
@@ -656,9 +656,9 @@
     <ul>
       <li>Tenta simular o Best-First search mas usando espaço linear</li>
       <li>Semelhante à procura em profundidade (implementação recursiva)</br>
-        – Para cada nó explorado, mantém o registo do caminho alternativo com menor valor de f</br>
-        – Para escolher o próximo nó a expandir olha apenas para os filhos do nó actual</br>
-        – Se o valor de f para o melhor filho excede o valor em memória, a recursão permite recuperar o melhor caminho
+        - Para cada nó explorado, mantém o registo do caminho alternativo com menor valor de f</br>
+        - Para escolher o próximo nó a expandir olha apenas para os filhos do nó actual</br>
+        - Se o valor de f para o melhor filho excede o valor em memória, a recursão permite recuperar o melhor caminho
         alternativo</li>
     </ul>
 
@@ -688,7 +688,93 @@
     </ul>
 
     <!-- Fim Procura informada -->
+    <!-- Aprendizagem automática -->
 
+    <h3 id="ia--aprend-automatica" class="topic-title">Aprendizagem automática</h3>
+    <h6 class="topic-book-chapter">Capitulo 18.1, 18.4 e 18.5</h6>
+
+    A ideia por detrás da aprendizagem é que as percepções de um agente devem servir não apenas para o agente agir, mas
+    igualmente para melhorar a sua capacidade de acção no futuro.
+    As técnicas usadas para melhorar essas capacidades, dependem de quatro fatores:
+    <ul>
+      <li>
+        Componente a ser melhorado.
+      </li>
+      <li>
+        Que conhecimento prévio tem o agente
+      </li>
+      <li>
+        Qual a representação usada para a informação e componenente
+      </li>
+      <li>
+        Qual o feedback disponível para se aprender
+      </li>
+    </ul>
+
+    <b>Componentes do desempenho que devem ser aprendidos</b></br>
+    <ul>
+      <li>
+        Mapeamento de condições do estado atual para acções - Se o instrutor gritar muitas vezes "trava"
+        sempre que há um sinal vermelho, pode-se aprender este par condições/acção.
+      </li>
+      <li>
+        Propriedades do mundo que podem ser inferidas a partir de uma sequência de percepções - Vendo muitas imagens com
+        autocarros, pode aprender a reconhecê-los
+      </li>
+      <li>
+        Informação sobre o modo como o mundo evolui e sobre o resultado de possíveis acções que o agente pode tomar -
+        Travando a fundo sobre piso molhado pode aprender as consequências dos
+        seus actos
+      </li>
+      <li>
+        Função de utilidade indicando quão desejável é um estado do mundo - Se sempre que conduzir como um louco, não
+        receber gorjeta, pode aprender uma componente muito útil para a sua função de utilidade
+      </li>
+      <li>...</li>
+    </ul>
+
+    <b>Representação usada para os componentes</b></br></br>
+
+    Exemplos de matérias anteriores:</br>
+    <ul>
+      <li>
+        Funções de utilidade em jogos
+      </li>
+      <li>
+        Fórmulas lógicas para os componentes de um agente
+      </li>
+    </ul>
+
+    <b>Conhecimento já existente</b></br></br>
+
+    O último factor a ter em conta na criação de um sistema de aprendizagem é a possível existência de
+    conhecimento anterior, em muitos casos o agente inicialmente não tem conhecimento
+    nenhum sobre o que vai aprender, apenas tem acesso aos
+    exemplos apresentados na sua experiência.</br></br>
+
+    <b>Tipos de feedback</b></br>
+
+    <ul>
+      <li><b>Aprendizagem supervisionada:</b> para cada exemplo é dado input e output (implica aprender uma função) -
+        e.g. aprender a reconhecer autocarros: mostram-lhe imagens e dizem-lhe se a imagem contém ou não autocarros (a
+        função a aprender recebe uma imagem e devolve um valor Booleano)
+      </li>
+      <li>
+        <b>Aprendizagem não supervisionada:</b> para cada exemplo só é dado input (implica aprender padrões a partir do
+        input) - e.g. agente aprende a reconhecer (infere) o que é um bom/mau dia de tráfego
+      </li>
+      <li>
+        <b>Aprendizagem com reforço:</b> prémios ocasionais - e.g. gorjeta é consequência de um bom serviço
+      </li>
+    </ul>
+
+    Os seguintes tópicos são muito teóricos, por isso sugerimos a leitura dos seguintes capítulos:
+    <h4 class="sub-topic-title">Aprendizagem supervisionada (Capitulo 18.2)</h4>
+    <h4 class="sub-topic-title">Árvores de decisão (Capitulo 18.3)</h4>
+    <h4 class="sub-topic-title">Generalização e Overfitting (Capitulo 18.3.5)</h4>
+    <h4 class="sub-topic-title">Teoria de aprendizagem computacional (Capitulo 18.5)</h4>
+
+    <!-- Fim Aprendizagem automática -->
     <!-- Aprendizagem por reforco-->
 
     <h3 id="ia--aprend-reforco" class="topic-title">Aprendizagem por reforço</h3>
