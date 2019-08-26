@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/template.css"></link>
-    <!-- template.css has all default class names -->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script>
 
   </head>
   <body>
@@ -15,9 +15,51 @@
     </div>
 
     <div id = "pageBody">
-      <!-- Page Content -->
 
-      <center><h1 id = "sub1" class = "Programação com Objectos"></h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+      <center><h1 id = "sub1" class = "Programação com Objectos">Singleton</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+
+      <b> Goal </b>
+      <p> &bull; Ensure there is only one instance of the class </p>
+      <p> &bull; Provide global access to it </p>
+
+      <div id="Structure" style="margin-top: 2%">
+        <b> Structure </b>
+        <center><img src="media/img/po/Singleton.jpg" width="20%"></img></center>
+      </div>
+
+      <b> Implementation </b>
+
+<pre class="prettyprint linenums">
+
+public class Singleton {
+
+      private static Singleton  _singleInstance;
+
+      private Singleton() {}
+
+      public static Singleton getInstance() {
+            if (_singleInstance == null)
+                 _singleInstance = new Singleton();
+            return _singleInstance;
+      }
+
+      public void displayInfo() {
+         System.out.println("Single instance of the class.");
+      }
+}
+
+public class Test {
+
+      public static void main(String args[]) {
+
+          Singleton _singleton = Singleton.getInstance();
+          _singleton.displayInfo();
+
+          //Singleton _newSingleton = new Singleton();  The constructor is private so it can't be instantiated
+      }
+}
+
+</pre>
 
       
     </div>
