@@ -24,7 +24,7 @@
 
       <div style="margin-top: 2%">
         <b> UML </b>
-        <center><img src="media/img/po/Singleton.jpg" width="20%"></img></center>
+        <center><img src="media/img/po/UML/UML - Implementation/Singleton.jpg" width="20%"></img></center>
       </div>
 
       <b> Implementation </b>
@@ -72,7 +72,7 @@ public class Test {
 
     <div style="margin-top: 2%">
         <b> UML </b>
-        <center><img src="media/img/po/State.jpg" width="40%"></img></center>
+        <center><img src="media/img/po/UML/UML - Implementation/State.jpg" width="40%"></img></center>
     </div>
 
     <b> Implementation </b>
@@ -217,7 +217,119 @@ public class Test {
             "Press 4 to exit." + "\n");
       }
 }
+    </pre>
 
+<center><h1 id = "sub3" class = "Programação com Objectos">Composite</h1></center>
+
+    <b> Goal </b>
+    <p> &bullet; Compose objects into tree structures to represent part-whole hierarchies</p>
+
+    <b> When to use </b>
+    <p> &bullet; Represent part-whole hierarchies of objects</p>
+    <p> &bullet; Treat all objects in the composite structure uniformly</p>
+
+    <b> Structure - Generalization </b>
+    <center><img src="media/img/po/UML/UML - Generalization/Composite.png" width="40%"></img></center>
+    
+    <div style="margin-top: 2%">
+        <b> UML </b>
+        <center><img src="media/img/po/UML/UML - Implementation/Composite.jpg" width="40%"></img></center>
+    </div>
+
+    <b> Implementation </b>
+
+    <pre class="prettyprint linenums lang="java">
+
+import java.util.ArrayList;
+
+interface AbstractFile {
+    void displayInfo();
+}
+
+public class Directory implements AbstractFile {
+      private String _name;
+      private ArrayList&ltAbstractFile&gt _files;
+
+      public Directory(String name) {
+          _name = name;
+          _files = new ArrayList&ltAbstractFile&gt();
+      }
+
+      public void add(AbstractFile file) {
+          _files.add(file);
+      }
+
+      public void displayInfo() {
+          System.out.println("\n\nThe directoy's name is: " + _name);
+
+          for (AbstractFile file : _files)
+              file.displayInfo();   
+      }
+}
+
+public class Album implements AbstractFile {
+      private String _name;
+      private ArrayList&ltSong&gt _albumSongs;
+
+      public Album(String name) {
+          _name = name;
+          _albumSongs = new ArrayList&ltSong&gt();
+      }
+
+      public void addSong(Song song) {
+          _albumSongs.add(song);
+      }
+
+      public void displayInfo() {
+          System.out.println("The album's name is: " + _name);
+
+          for (Song song : _albumSongs)
+              song.displayInfo();
+
+          System.out.println("");
+      }
+}
+
+public class Song implements AbstractFile {
+      private String _name;
+
+      public Song(String name) {
+          _name = name;
+      }
+
+      public void displayInfo() {
+          System.out.println("The song name is: " + _name);
+      }
+}
+
+public class Test {
+
+      public static void main(String args[]) {
+          Directory music = new Directory("Music");
+          Directory moreMusic = new Directory("More Music");
+          Song song1 = new Song("crybaby");
+          Song song2 = new Song("AOV");
+          Song song3 = new Song("Killpop");
+          Song song4 = new Song("Custer");
+          Song song5 = new Song("The Devil in I");
+          Song song6 = new Song("Unsainted");
+          Song song7 = new Song("Another Brick In the Wall");
+          Album album1 = new Album(".5: The Gray Chapter");
+
+          album1.addSong(song2);
+          album1.addSong(song3);
+          album1.addSong(song4);
+          album1.addSong(song5);
+
+          music.add(album1);
+          music.add(song1);
+          music.add(song6);
+          music.add(moreMusic);
+          moreMusic.add(song7);
+
+          music.displayInfo();
+      }
+}
     </pre>
 
       
