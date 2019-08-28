@@ -332,9 +332,105 @@ public class Test {
 }
     </pre>
 
-      
+    <center><h1 id = "sub3" class = "Programação com Objectos">Visitor</h1></center>
+
+    <b> Goal </b>
+    <p> &bullet; Represent an operation to be performed on the elements of an object structure without changing the original classes of those elements </p>
+
+    <b> When to use </b>
+    <p> &bullet; The classes defining the object structure rarely change, but you often want to define new operations over the structure </p>
+    <p> &bullet; Many distinct and unrelated operations need to be performed on objects in an object structure, and you want to avoid "polluting" their classes with these operations </p>
+
+    <b> Structure - Generalization </b>
+    <center><img src="media/img/po/UML/UML - Generalization/Visitor.png" width="40%"></img></center>
+    
+    <div style="margin-top: 2%">
+        <b> UML </b>
+        <center><img  src="media/img/po/UML/UML - Implementation/Visitor.jpg" width="40%"></img></center>
     </div>
 
+    <b> Implementation </b>
+
+    <pre class="prettyprint linenums lang="java">
+
+interface Element {
+      void accept(Visitor visitor);
+}
+
+interface Visitor {
+      void visitStudent(Student student);
+      void visitTeacher(Teacher teacher);
+}
+
+public abstract class Person {
+      private String _name;
+      private int _age;
+
+      public Person(String name, int age) {
+          _name = name;
+          _age = age;
+      }
+
+      public String getName() {
+          return _name;
+      }
+
+      public int getAge() {
+          return _age;
+      }
+
+      @Override
+      public String toString() {
+          return String.format("Name: " + getName() + " Age: " + getAge());
+      }
+}
+
+public class Student extends Person implements Element {
+      private int _id;
+  
+      public Student(String name, int age, int id) {
+          super(name, age);
+          _id = id;
+      }
+
+      public int getId() {
+          return _id;
+      }
+
+      public void accept(Visitor visitor) {
+          visitor.visitStudent(this);
+      }
+}
+
+public class Teacher extends Person implements Element {
+      private String _subject;
+
+      public Teacher(String name, int age, String subject) {
+          super(name, age);
+          _subject = subject;
+      }
+
+      public String getSubject() {
+          return _subject;
+      }
+
+      public void accept(Visitor visitor) {
+          visitor.visitTeacher(this);
+      }
+}
+
+public class InformationVisitor implements Visitor {
+
+      public void visitStudent(Student student) {
+          System.out.println("Student -> " + student.toString() + " id: " + student.getId());
+      }
+
+      public void visitTeacher(Teacher teacher) {
+          System.out.println("Teacher -> " + teacher.toString() + " subject: " + teacher.getSubject());
+      }
+}
+
+    </pre>
   </body>
 
 </html>
