@@ -444,6 +444,134 @@ public class Test {
 
 </pre>
 
+<center><h1 id = "sub5" class = "Programação com Objectos">Observer</h1></center>
+
+    <b> Goal </b>
+    <p> &bullet; Define a one-to-many dependency between objects so that when one object changes, all its dependents are notified and updated automatically </p>
+    <br>
+
+    <b> When to use </b>
+    <p> &bullet; When a change to one object requires changing others, and the amount of objects is unknown </p>
+    <p> &bullet; When an object should be able to notify other objects without knowing who these objects are </p>
+    <br>
+
+    <b> Structure - Generalization </b>
+    <center><img src="media/img/po/UML/UML - Generalization/Observer.png" width="40%"></img></center>
+
+    <br>
+    <h3> Participants </h3>
+    <h4> Subject </h4>
+    <p> &bullet; Provides an interface for attaching and detaching Observer objects </p>
+    <h4> Observer </h4>
+    <p> &bullet; Provides an interface for objects that should be notified of changes in a subject </p>
+    <h4> ConcreteSubject </h4>
+    <p> &bullet; Sends a notification to its observers when changes occur </p>
+    <p> &bullet; Implements the Subject's methods </p>
+    <h4> ConcreteObserver </h4>
+    <p> &bullet; Implements the Observer's update method </p>
+
+    <div style="margin-top: 2%">
+        <b> UML </b>
+        <center><img  src="media/img/po/UML/UML - Implementation/Observer.jpg" width="40%"></img></center>
+    </div>
+
+    <b> Implementation </b>
+
+    <pre class="prettyprint linenums lang="java">
+
+import java.util.ArrayList;
+
+interface Observer {
+      public void update(String message);
+}
+
+interface Subject {
+      public void register(Observer observer);
+      public void unregister(Observer observer);
+      public void notifyObserver();
+}
+
+public class Notification implements Subject {
+      private ArrayList&ltObserver&gt _observers;
+      private String _message;
+
+      public Notification() {
+          _observers = new ArrayList&ltObserver&gt();
+      }
+
+      public void register(Observer observer) {
+          _observers.add(observer);
+      }
+
+      public void unregister(Observer observer) {
+          _observers.remove(observer);
+      }
+
+      public void notifyObserver() {
+          for (Observer observer: _observers)
+              observer.update(_message);
+      }
+
+      public void addNotification(String notification) {
+          _message = notification;
+          notifyObserver();
+      }
+}
+
+public class Student implements Observer {
+      private ArrayList&ltString&gt _messages;
+      private String _name;
+  
+      public Student(String name) {
+          _name = name;
+          _messages = new ArrayList&ltString&gt();
+      }
+
+      public String getName() {
+          return _name;
+      }
+
+      public void displayMessages() {
+          System.out.println(getName() + " has " + _messages.size() + " messages.");
+          for (String message: _messages)
+              System.out.println(message);
+          System.out.println("");
+      }
+
+      public void update(String message) {
+          _messages.add(message);
+      }
+}
+
+public class Test {
+
+      public static void main(String args[]) {
+          Notification notification = new Notification();
+          Student student1 = new Student("Student1");
+          Student student2 = new Student("Student2");
+
+          //student1 and student2 are registered to recieve notifications
+          notification.register(student1);
+          notification.register(student2);
+
+          notification.addNotification("Message 1");
+
+          //Both observers will get notified
+          student1.displayMessages();
+          student2.displayMessages();
+
+          notification.unregister(student2);
+
+          notification.addNotification("Message 2");
+
+          //student2 won't get this last notification
+          student1.displayMessages();
+          student2.displayMessages();
+      }
+}
+
+    </pre>
+
   </body>
 
 </html>
