@@ -688,6 +688,56 @@
     </ul>
 
     <!-- Fim Procura informada -->
+    <!-- Incerteza -->
+
+    <h3 id="ia--incerteza" class="topic-title">Incerteza</h3>
+    <h6 class="topic-book-chapter">Capitulo 13</h6>
+
+    <h4 class="sub-topic-title">Regra de Bayes</h4>
+
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(a|b)P(b)}{P(a)}" /></br></br>
+
+    <b>Versão normalizada</b></br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(b|a)P(a)}{P(b|a)P(a) + P(b|\neg a)P(\neg a)}" /></br></br>
+
+
+    <!-- Fim Incerteza -->
+    <!-- Racicionio probabilistico -->
+
+    <h3 id="ia--incerteza" class="topic-title">Racicionio probabilistico</h3>
+    <h6 class="topic-book-chapter">Capitulo 14.1, 14.2, 14.4</h6>
+
+    <h4 class="sub-topic-title">Redes Bayesianas</h4>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/bayesian-network.png">
+    </div></br>
+
+    Uma rede Baysiana é um grafo dirigido e acíclico em que cada nó é anotado com a informação sobre
+    probabilidades.</br>
+    Cada nó corresponde a uma variável aleatória (que pode ser discreta ou contínua) e contém um conjunto de
+    ligações direccionadas e uma distribuição condicional P(X<sub>i</sub>|Pais(X<sub>i</sub>)) que quantifica o efeito
+    dos pais sobre o nó.</br></br>
+
+    <b>Semântica global</b>(ou numérica)</br></br>
+
+    Na Semântica global as redes são entendidas como uma representação da distribuição de probabilidade conjunta, ou
+    seja, indica como construir uma rede.
+    E a distribuição de probabilidade total é definida como produto das distribuições condicionais locais.</br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?P(X_{1},...,X_{n})=\prod_{i=1}P(X_{i}, Parents(X_{i}))" /></br></br>
+
+
+    <b>Semântica local</b>(ou topológica)</br></br>
+
+    Na Semântica local as redes são visualizadas como uma codificação de uma coleção de declarações de independência
+    condicional, ou seja, indica como fazer inferências com uma rede.
+    Cada nó é condicionalmente independente de seus não descendentes, dados os seus pais.
+
+    <!-- Fim Racicionio probabilistico -->
     <!-- Aprendizagem automática -->
 
     <h3 id="ia--aprend-automatica" class="topic-title">Aprendizagem automática</h3>
