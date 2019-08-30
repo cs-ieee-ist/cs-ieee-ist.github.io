@@ -688,6 +688,139 @@
     </ul>
 
     <!-- Fim Procura informada -->
+    <!-- Jogos -->
+
+    <h3 id="ia--incerteza" class="topic-title">Procura em Jogos</h3>
+    <h6 class="topic-book-chapter">Capitulo 5.1, 5.2, 5.3</h6>
+
+    <h4 class="sub-topic-title">Minimax</h4>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/minimax.png">
+    </div></br>
+
+    Consideremos um jogo com dois jogadores, um chamado MAX o outro MIN. Eles vão jogar de forma alternada sendo que o
+    MAX começa primeiro. No fim são dados pontos ao vencedor e penalidades ao derrotado. Um jogo pode ser definido como
+    um problema de procura com as seguintes caraterísticas:
+    <ul>
+      <li>S<sub>0</sub>: Estado inicial</li>
+      <li>PLAYER(s): Jogador que tem de jogar no estado s.</li>
+      <li>ACTIONS(s): Conjunto de jogadas possíveis no estado s.</li>
+      <li>RESULT(s, a): Resultado de uma jogada a no estado s.</li>
+      <li>TERMINAL-TEST(s): O terminal test, é true quando o jogo termina e false caso contrário. Estados em que o jogo
+        acaba são chamados de estados finais.</li>
+      <li>UTILITY(s, p): Função de utilidade, define o valor numérico final para um jogo que termina num estado terminal
+        s para um jogador p. Num jogo de xadrez, os resultados possíveis serão +1, 0, -1 que correspondem respetivamente
+        a vitória, empate e derrota.</li>
+    </ul>
+
+    O S<sub>0</sub>, a função ACTIONS e a função RESULT definem uma árvore para o jogo. Onde os nós são estados do jogo
+    e as arestas são jogadas. Por exemplo no jogo do galo (imagem em cima), a partir do S<sub>0</sub>, o MAX tem nove
+    jogadas possíveis.
+    Depois vai-se alternando o MAX, que coloca um X, com o MIN, que coloco uma O, até se se chegar ás folhas da árvore.
+    Esses estados terminais terão um valor que irá corresponder ao retorno da função UTILITY para o MAX em que cada um desses
+    mesmos estados.</br></br>
+
+    <b>Valor MINIMAX</b></br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?MINIMAX(s)=\left\{\begin{matrix} UTILITY(s)\ \ \if \ TERMINAL-TEST(s) \\max_{a\epsilon Actions(s)}MINIMAX(RESULT(s, a)) \  if \ PLAYER(s)=MAX \\min_{a\epsilon Actions(s)}  MINIMAX(RESULT(s, a)) \ if \ PLAYER(s)=MIN\end{matrix}\right." /></br></br>
+
+    <b>Algoritmo MINIMAX</b></br></br>
+
+    <div class="ia-snippet">
+      <b>function</b> MINIMAX-DECISION(state) <b>returns</b> an action
+      <div class="ia-snippet-scope">
+        <b>return</b> arg maxa ∈ ACTIONS(s) MIN-VALUE(RESULT(state, a))
+      </div></br></br>
+
+      <b>function</b> MAX-VALUE(state) <b>returns</b> a utility value
+      <div class="ia-snippet-scope">
+        <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+        v ← −∞</br>
+        <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+        <div class="ia-snippet-scope">
+          v ← MAX(v, MIN-VALUE(RESULT(s, a)))
+        </div>
+        <b>return</b> v</br>
+      </div></br></br>
+
+      <b>function</b> MIN-VALUE(state) <b>returns</b> a utility value
+      <div class="ia-snippet-scope">
+        <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+        v ← ∞
+        <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+        <div class="ia-snippet-scope">
+          v ← MIN(v, MAX-VALUE(RESULT(s, a)))
+        </div>
+        <b>return</b> v
+      </div>
+
+    </div>
+
+    <ul>
+      <li>Completo Sim (se a árvore de procura for finita)</li>
+      <li>Óptimo: Sim (contra um adversário óptimo)</li>
+      <li>Complexidade temporal: O(b<sup>m</sup>)</li>
+      <li> Complexidade espacial: O(bm) para um algoritmo que gera todos os sucessores de
+        uma vez, O(m) para um algoritmo que gera os sucessores um a um</li>
+    </ul>
+
+    <h4 class="sub-topic-title">Cortes Alpha-Beta</h4>
+
+    Na procura Minimax o número de estados a examinar é exponencial. No entanto podemos reduzir o número de estado
+    analisados para metade. O truque passa por calcular a decisão Minimax
+    sem ter de analisar todos os estados, ou seja, fazer uma procura com cortes.
+
+    <ul>
+      <li>α de um nó n = valor da melhor escolha para o jogador MAX (i.e. valor mais alto) encontrada em qualquer ponto
+        de decisão ao longo do caminho para n</li>
+      <li>β e um nó n = valor da melhor escolha para o jogador MIN (i.e. valor mais baixo), encontrada em qualquer ponto
+        de decisão ao longo do caminho para n</li>
+    </ul>
+
+    <div class="ia-snippet">
+
+
+      <b>function</b> ALPHA-BETA-SEARCH(state) <b>returns</b> an action
+      <div class="ia-snippet-scope">
+        v ← MAX-VALUE(state,−∞,+∞)</br>
+        <b>return</b> the action <b>in</b> ACTIONS(state) with value v
+      </div></br></br>
+
+      <b>function</b> MAX-VALUE(state,α, β) <b>returns</b> a utility value
+      <div class="ia-snippet-scope">
+
+        <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+        v ← −∞
+        <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+        <div class="ia-snippet-scope">
+          v ← MAX(v, MIN-VALUE(RESULT(s,a),α, β))</br>
+          <b>if</b> v ≥ β <b>then return</b> v</br>
+          α ← MAX(α, v)
+        </div>
+        <b>return</b> v
+      </div></br></br>
+
+      <b>function</b> MIN-VALUE(state,α, β) <b>returns</b> a utility value
+      <div class="ia-snippet-scope">
+
+        <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+        v ← +∞</br>
+        <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+        <div class="ia-snippet-scope">
+
+          v ← MIN(v, MAX-VALUE(RESULT(s,a) ,α, β))
+          <b>if</b> v ≤ α <b>then return</b> v</br>
+          β ← MIN(β, v)
+        </div>
+        <b>return</b> v
+      </div>
+
+    </div>
+
+
+    <!-- Fim Jogos -->
     <!-- Incerteza -->
 
     <h3 id="ia--incerteza" class="topic-title">Incerteza</h3>
