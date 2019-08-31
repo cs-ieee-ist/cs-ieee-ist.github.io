@@ -472,7 +472,7 @@ public class Test {
 
     <div style="margin-top: 2%">
         <b> UML </b>
-        <center><img  src="media/img/po/UML/UML - Implementation/Observer.jpg" width="40%"></img></center>
+        <center><img src="media/img/po/UML/UML - Implementation/Observer.jpg" width="40%"></img></center>
     </div>
 
     <b> Implementation </b>
@@ -568,6 +568,110 @@ public class Test {
           student1.displayMessages();
           student2.displayMessages();
       }
+}
+
+    </pre>
+
+<center><h1 id = "sub6" class = "Programação com Objectos">Decorator</h1></center>
+
+    <b> Goal </b>
+    <p> &bullet;  Attach additional responsibilities to an object </p>
+    <br>
+
+    <b> When to use </b>
+    <p> &bullet;  Add responsibilities to individual objects without affecting other objects </p>
+    <p> &bullet;  For responsibilities that can be withdrawn </p>
+    <br>
+
+    <b> Structure - Generalization </b>
+    <center><img src="media/img/po/UML/UML - Generalization/Decorator.png" width="40%"></img></center>
+
+    <br>
+    <h3> Participants </h3>
+    <h4> Component </h4>
+    <p> &bullet; Defines the interface for objects that can have responsabilities added to them dynamically </p>
+    <h4> ConcreteComponent </h4>
+    <p> &bullet; Defines an object to which additional responsabilities can be attached </p>
+    <h4>  Decorator </h4>
+    <p> &bullet; Maintains a reference to a Component object </p>
+    <h4>  ConcreteDecorator </h4>
+    <p> &bullet; Adds responsibilities to the component </p>
+
+    <div style="margin-top: 2%">
+        <b> UML </b>
+        <center><img src="media/img/po/UML/UML - Implementation/Decorator.jpg" width="40%"></img></center>
+    </div>
+
+    <b> Implementation </b>
+
+    <pre class="prettyprint linenums lang="java">
+
+interface PizzaComponent {
+      public int getCost();
+}
+
+public abstract class PizzaDecorator implements PizzaComponent {
+      protected PizzaComponent _pizza;
+      private int _cost;
+
+      public PizzaDecorator(PizzaComponent pizza) {
+          _pizza = pizza;
+      }
+
+      public int getCost() {
+          return _cost;
+      }
+}
+
+public class BasePizza implements PizzaComponent {
+      private int _cost;
+
+      public BasePizza() {
+          _cost = 6;
+      }
+
+      public int getCost() {
+          return  _cost;
+      }
+}
+
+public class TunaPizzaDecorator extends PizzaDecorator {
+  
+      public TunaPizzaDecorator(PizzaComponent pizza) {
+          super(pizza);
+      }
+
+      @Override
+      public int getCost() {
+          return _pizza.getCost() + 1;
+      }
+}
+
+public class MushroomPizzaDecorator extends PizzaDecorator {
+  
+      public MushroomPizzaDecorator(PizzaComponent pizza) {
+          super(pizza);
+      }
+
+      @Override
+      public int getCost() {
+          return _pizza.getCost() + 1;
+      }
+}
+
+public class Test {
+      public static void main(String args[]) {
+
+          BasePizza pizza = new BasePizza();
+          System.out.println("Cost: " + pizza.getCost());
+
+          TunaPizzaDecorator tuna = new TunaPizzaDecorator(pizza);
+          TunaPizzaDecorator extraTuna = new TunaPizzaDecorator(tuna);
+          System.out.println("Cost: " + extraTuna.getCost());
+
+          MushroomPizzaDecorator mushroom = new MushroomPizzaDecorator(extraTuna);
+          System.out.println("Cost: " + mushroom.getCost());
+  }
 }
 
     </pre>
