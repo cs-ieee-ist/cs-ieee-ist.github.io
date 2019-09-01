@@ -676,6 +676,92 @@ public class Test {
 
     </pre>
 
+    <center><h1 id = "sub7" class = "Programação com Objectos">Adapter</h1></center>
+
+    <b> Goal </b>
+    <p> &bullet; Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces </p>
+    <br>
+
+    <b> When to use </b>
+    <p> &bullet; You want to use an existing class, and its interface does not match the one you need </p>
+    <p> &bullet; You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don't necessarily have compatible interfaces </p>
+    <br>
+
+    <b> Structure - Generalization </b>
+    <center><img src="media/img/po/UML/UML - Generalization/Adapter.png" width="40%"></img></center>
+
+    <br>
+    <h3> Participants </h3>
+    <h4> Target </h4>
+    <p> &bullet; Defines the interface that the Client uses </p>
+    <h4> Adaptee </h4>
+    <p> &bullet; Defines an existing interface that needs adapting </p>
+    <h4> Adapter </h4>
+    <p> &bullet; Adapts the interface of Adaptee to the Target interface </p>
+
+
+    <div style="margin-top: 2%">
+        <b> UML </b>
+        <center><img src="media/img/po/UML/UML - Implementation/Adapter.jpg" width="40%"></img></center>
+    </div>
+
+    <b> Implementation </b>
+
+    <pre class="prettyprint linenums lang="java">
+
+interface ISystem {
+      public void runSpecificSystem();
+}
+
+public class GameAdapter implements ISystem {
+      private Game _game;
+
+      public GameAdapter(Game game) {
+          _game = game;
+      }
+
+      public void runSpecificSystem() {
+          _game.run();
+      }
+}
+
+public class MusicAppAdapter implements ISystem {
+      private MusicApp _musicApp;
+
+      public MusicAppAdapter(MusicApp musicApp) {
+          _musicApp = musicApp;
+      }
+
+      public void runSpecificSystem() {
+          _musicApp.run();
+      }
+}
+
+public class Game {
+
+      public void run() {
+          System.out.println("Running game");
+      }
+}
+
+public class MusicApp {
+
+      public void run() {
+          System.out.println("Running music app");
+      }
+}
+
+public class Test {
+      public static void main(String args[]) {
+
+          ISystem game = new GameAdapter(new Game());
+          ISystem musicApp = new MusicAppAdapter(new MusicApp());
+          game.runSpecificSystem();
+          musicApp.runSpecificSystem();
+      }
+}
+    </pre>
+
   </body>
 
 </html>
