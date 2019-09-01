@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/template.css"></link>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script>
     <!-- template.css has all default class names -->
 
   </head>
@@ -17,18 +18,536 @@
     <div id = "pageBody">
       <!-- Page Content -->
 
-      <center><h1 id = "sub1" class = "Sistemas Operativos">TÓPICO 1</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+      <center><h1 id = "sub1" class = "Sistemas Operativos">Fork</h1></center>
 
-      <!-- Code for Topic 1 goes here -->
-      ADD STUFF TO ME
+      <div style="margin-top: 2%">
+          <center><img src="media/img/so/fork.png" width="40%"></img></center>
+      </div>
 
-      <center><h1 id = "sub2" class = "Sistemas Operativos">TÓPICO 2</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Criação de um Processo</h2></center> 
 
-      <!-- Code for Topic 2 goes here -->
-      ADD STUFF TO ME
 
-      <!-- Page Content -->
+
+      <div>
+          <img src="media/img/so/fork_padrao.png" width="40%" align="right"></img>
+          <div>
+              pid = fork();
+          </div>
+          <br/>
+          <div>
+              A função não tem parâmetros, em particular o ficheiro a executar.
+          </div>
+          <br/>
+          <div>
+              Então que atributos diferem o pai do filho?
+          </div>
+          <div>
+              Processo filho é uma cópia do pai:
+          </div>
+          <div>
+              O espaço de endereçamento é copiado.
+          </div>
+          <div>
+              Contexto de execução é copiado.
+          </div>
+          <div>
+          </div>
+          <div>
+              Estas cópias são pesadas?
+          </div>
+          <div>
+              Se acontecessem literalmente, seriam.
+          </div>
+          <div>
+              Na verdade, a chama a fork é muito rápida.
+          </div>
+          <br/>
+          <div>
+              A função retorna o PID do processo.
+          </div>
+          <div>
+              Este parâmetro assume valores diferentes consoante o processo em que se
+              efectua o retorno:
+          </div>
+          <div>
+              Ao processo pai é devolvido o “pid” do filho.
+          </div>
+          <div>
+              Ao processo filho é devolvido 0.
+          </div>
+          <div>
+              -1 em caso de erro.
+          </div>
+          <br/>
+          <div>
+              Retorno de uma função com valores diferentes!
+          </div>
+          <div>
+              Nunca visto em programação sequencial.
+          </div>
+          <br/>
+        </div>
+
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Terminação do Processo</h2></center> 
+
+      <div>
+          <img src="media/img/so/terminao_processo.png" width="30%" align="right"></img>
+
+          <div>
+            Termina o processo, liberta todos os recursos detidos pelo processo, ex.: os ficheiros abertos.
+          </div>
+
+          <div>
+            Assinala ao processo pai a terminação.
+          </div>
+          <br/>
+          
+          <div>
+              E se a main terminar com return em vez de exit?
+          </div>
+          <div>
+              Até agora, nunca chamámos exit para terminar programas
+          </div>
+          <div>
+              Terminação de programa feita usando return (int) na função main do programa
+          </div>
+          <div>
+              Qual a diferença?
+          </div>
+          <div>
+              Nenhuma, pois o compilador assegura que return da main resulta em chamada a
+              exit!
+          </div>
+          <br/>
+          <div>
+              Em Unix existe uma função para o processo pai se sincronizar com a
+              terminação de um processo filho
+          </div>
+          <div>
+              Bloqueia o processo pai até que um dos filhos termine
+          </div>
+          
+          
+      </div>
+      
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 1</h2></center> 
+
+      <pre class="prettyprint linenums lang=c">
+      <pre class="prettyprint linenums">
+
+      /*
+        Ficheiro: fork.c
+        Autor: João Caldeira
+        Este programa demonstra algumas operações básicas sobre processos.
+      */
+      
+      
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>		// para o fork() e o sleep()
+      #include <sys/wait.h>	// para o wait()
+      
+      
+      #define	MAX_ITER	3
+      
+      
+      /*
+        RESUMO DO PROGRAMA
+        Começamos por fazer a chamada de sistema fork() e guardar o seu valor de retorno.
+        O processo criado (processo filho) é uma cópia do pai - o espaço de endereçamento
+        e o contexto de execução são copiados.
+        Qual será o valor de retorno da chamada fork()?
+          - ao processo pai é devolvido o pid (process id) do filho
+          - ao processo filho é devolvido 0 (zero)
+          - caso a chamada de sistema falhe, é devolvido -1
+        
+        Tendo dois processos a executar o mesmo código, teremos então 3 condições:
+          - se o valor de retorno for igual a 0, trata-se do processo filho, e portanto
+            o código executado será o que está incluído nessa condição
+          - se o valor de retorno for superior a 0, temos o pid do filho, pelo que será
+            o pai a executar o código incluído nessa condição
+          - se o valor de retorno for inferior a 0, a chamada de sistema falhou e
+            portanto terminamos o programa
+      */
+      
+      
+      int main ()
+      {
+        int r = fork();	// guardamos o valor de retorno do fork()
+      
+        if (r == 0) {	// verificar se é o filho
+          // CÓDIGO DO PROCESSO FILHO
+          int i;
+      
+          // chamada de sistema que devolve o pid do processo
+          printf("Filho:\tHello! Sou o filho com pid=%d.\n", getpid());
+      
+          for (i = 0; i < MAX_ITER; i++) {
+            sleep(1);
+            printf("Filho:\tExisto há cerca de %d segundos!\n", i+1);
+          }
+      
+          sleep(1);
+          printf("Filho:\tMr. Stark, I don't feel so good... Vou terminar!\n");
+      
+          // filho termina com sucesso
+          exit(EXIT_SUCCESS);
+        } else if (r > 0) {	// verificar se é o pai
+          // CÓDIGO DO PROCESSO PAI
+          int status;
+          int pid;
+      
+          printf("Pai:\tHello! Sou o pai que criou o filho pid=%d\n", r);
+      
+          // execução do pai é suspendida até que um dos seus filhos termine
+          pid = wait(&status);
+      
+          /*
+            - wait(): devolve o pid do filho que terminou, ou -1 caso ocorra um erro
+            - WIFEXITED: devolve "true" caso o filho tenha terminado normalmente,
+              "false" caso contrário
+            - WEXITSTATUS: devolve o exit status do filho (em caso de sucesso, o valor é 0)
+          */
+      
+          if (WIFEXITED(status))
+            printf("Pai:\tFilho %d terminou com código de retorno %d.\n", pid, WEXITSTATUS(status));
+          else
+            printf("Pai:\tFilho %d terminou abruptamente.\n", pid);
+      
+          // pai termina com sucesso
+          exit(EXIT_SUCCESS);
+        } else {	// verificar se a chamada fork() deu erro
+          printf("Oops! Erro no fork().\n");
+          exit(EXIT_FAILURE);
+        }
+      
+        exit(EXIT_SUCCESS);
+      }
+      </pre>
+      </pre>
+
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 2</h2></center> 
+      
+      <pre class="prettyprint linenums lang=c">
+      <pre class="prettyprint linenums">
+
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>
+      #include <sys/types.h>
+      #include <sys/wait.h>
+      
+      int main (int argc, char** argv) {
+      
+        int r = fork();
+        
+        if (r == 0) {
+          //So o filho entrara nesta parte!!!
+          printf("ola! sou o filho com pid=%d\n", getpid());
+      
+          sleep(20);
+      
+          printf("filho: vou terminar\n");
+          exit(EXIT_SUCCESS);
+      
+        }
+        else if (r > 0) {
+          int status;
+          int pid;
+          
+          //So o pai entrara aqui!!!
+          printf("ola! sou o pai que criou o filho pid=%d\n", r);
+      
+          sleep(40);
+          
+          pid = wait(&status);
+      
+          if (WIFEXITED(status))
+            printf("pai: filho %d terminou com exit(%d)\n", pid, WEXITSTATUS(status));
+          else
+            printf("pai: filho %d terminou abruptamente\n", pid);
+      
+          exit(EXIT_SUCCESS);
+          
+        }
+        else
+          return 1;
+          
+        
+      
+        return 0;
+        
+      }
+
+      </pre>
+      </pre>
+          
+      
+      <center><h1 id = "sub2" class = "Sistemas Operativos">Pipe</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+
+
+      <div style="margin-top: 2%">
+          <center><img src="media/img/so/pipe.png" width="40%"></img></center>
+      </div>
+
+      <pre class="prettyprint linenums lang=c">
+      <pre class="prettyprint linenums">
+
+      #include <unistd.h>
+      #include <stdio.h>
+      #include <sys/types.h>
+      #include <sys/stat.h>
+      
+      /* Exemplo de comunicação entre pai e filho usando pipe simples, programado durante a aula de SO. */
+      
+      char msg[] = "ola!";
+      
+      int main() {
+        char buffer[1024];
+      
+        int fd[2];
+      
+        if (pipe(fd) == -1) {
+          perror("Erro ao criar o pipe");
+          return 1;
+        }
+        printf("pipe foi criado\n");
+        
+        int p = fork();
+      
+        if (p==-1) {
+          perror("Erro ao criar processo filho");
+          return 2;
+        }
+      
+        if (p==0) {
+          /* Processo filho */
+      
+          sleep(5);
+          
+          printf("Vou enviar mensagem ao pai\n");    
+          write(fd[1], msg, sizeof(msg));
+        }
+      
+        else {
+          /* Processo pai */
+          printf("Processo pai vai aguardar por mensagem do filho\n");
+          if (read (fd[0], buffer, sizeof (msg)) == -1) {
+            perror("Erro na leitura");
+            return 3;
+          }
+          printf("recebi esta mensagem: %s\n", buffer);     
+        }
+      
+        return 0;
+      }
+        
+      </pre>
+      </pre>
+      
+      <center><h1 id = "sub1" class = "Sistemas Operativos">Named Pipe</h1></center>
+
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 1</h2></center> 
+
+      <pre class="prettyprint linenums lang=c">
+      <pre class="prettyprint linenums">
+
+      #include <unistd.h>
+          #include <unistd.h>
+          #include <stdio.h>
+          #include <sys/types.h>
+          #include <sys/stat.h>
+          #include <fcntl.h>
+          
+          /* Exemplo com named pipes criado durante a aula teórica de SO.
+          Objetivo: dois programas, P1 e P2, comunicam por named pipe.
+          Mais precisamente: P1 cria o named pipe e aguarda por mensagem enviada por P2. */
+          
+          char msg[] = "ola!";
+          
+          int main() {
+            char buffer[1024];
+            char *pipename = "/tmp/so-pipe";
+            
+            unlink(pipename);
+            
+            if (mkfifo (pipename, 0644) == -1) {
+              perror("Erro no mkfifo");
+              return 1;
+            }
+              
+            printf("pipe foi criado\n");
+          
+            int p = open(pipename, O_RDONLY);
+          
+            if (p==-1) {
+              perror("Erro ao abrir o pipe");
+              return 2;
+            }
+              
+            if (read (p, buffer, sizeof (msg)) == -1) {
+              perror("Erro na leitura");
+              return 3;
+            }
+            
+            printf("recebi esta mensagem: %s\n", buffer);     
+          
+            return 0;
+          }
+          
+      </pre>
+      </pre>
+
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 2</h2></center> 
+
+      <pre class="prettyprint linenums lang=c">
+      <pre class="prettyprint linenums">
+
+      #include <unistd.h>
+          #include <unistd.h>
+          #include <stdio.h>
+          #include <sys/types.h>
+          #include <sys/stat.h>
+            #include <fcntl.h>
+          
+          
+          char msg[] = "ola!";
+          
+          int main() {
+            char buffer[1024];
+          
+            int p = open("/tmp/so-pipe", O_WRONLY);
+          
+            if (p==-1) {
+              perror("Erro ao abrir o pipe");
+              return 1;
+            }
+          
+            sleep(5);
+            
+            if (write (p, msg, sizeof (msg)) == -1) {
+              perror("Erro ao escrever no pipe");
+              return 2;
+            }
+            
+            printf("Escrevi e vou retornar\n");
+          
+            return 0;
+          }
+          
+      </pre>
+      </pre>
+
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 3 (Escreve Primeiro)</h2></center> 
+
+      <pre class="prettyprint linenums lang=c">
+      <pre class="prettyprint linenums">
+
+      // C program to implement one side of FIFO 
+      // This side writes first, then reads 
+      #include <stdio.h> 
+      #include <string.h> 
+      #include <fcntl.h> 
+      #include <sys/stat.h> 
+      #include <sys/types.h> 
+      #include <unistd.h> 
+        
+      int main() 
+      { 
+          int fd; 
+        
+          // FIFO file path 
+          char * myfifo = "/tmp/myfifo"; 
+        
+          // Creating the named file(FIFO) 
+          // mkfifo(<pathname>, <permission>) 
+          mkfifo(myfifo, 0666); 
+        
+          char arr1[80], arr2[80]; 
+          while (1) 
+          { 
+              // Open FIFO for write only 
+              fd = open(myfifo, O_WRONLY); 
+        
+              // Take an input arr2ing from user. 
+              // 80 is maximum length 
+              fgets(arr2, 80, stdin); 
+        
+              // Write the input arr2ing on FIFO 
+              // and close it 
+              write(fd, arr2, strlen(arr2)+1); 
+              close(fd); 
+        
+              // Open FIFO for Read only 
+              fd = open(myfifo, O_RDONLY); 
+        
+              // Read from FIFO 
+              read(fd, arr1, sizeof(arr1)); 
+        
+              // Print the read message 
+              printf("User2: %s\n", arr1); 
+              close(fd); 
+          } 
+          return 0; 
+      } 
+
+      /* Source: https://www.geeksforgeeks.org/named-pipe-fifo-example-c-program/ */
+
+      </pre>
+      </pre>
+
+      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 4 (Lê Primeiro)</h2></center> 
+
+      <pre class="prettyprint linenums lang=c">
+      <pre class="prettyprint linenums">
+      
+      // C program to implement one side of FIFO 
+      // This side reads first, then reads 
+      #include <stdio.h> 
+      #include <string.h> 
+      #include <fcntl.h> 
+      #include <sys/stat.h> 
+      #include <sys/types.h> 
+      #include <unistd.h> 
+        
+      int main() 
+      { 
+          int fd1; 
+        
+          // FIFO file path 
+          char * myfifo = "/tmp/myfifo"; 
+        
+          // Creating the named file(FIFO) 
+          // mkfifo(<pathname>,<permission>) 
+          mkfifo(myfifo, 0666); 
+        
+          char str1[80], str2[80]; 
+          while (1) 
+          { 
+              // First open in read only and read 
+              fd1 = open(myfifo,O_RDONLY); 
+              read(fd1, str1, 80); 
+        
+              // Print the read string and close 
+              printf("User1: %s\n", str1); 
+              close(fd1); 
+        
+              // Now open in write mode and write 
+              // string taken from user. 
+              fd1 = open(myfifo,O_WRONLY); 
+              fgets(str2, 80, stdin); 
+              write(fd1, str2, strlen(str2)+1); 
+              close(fd1); 
+          } 
+          return 0; 
+      } 
+
+      /* Source: https://www.geeksforgeeks.org/named-pipe-fifo-example-c-program/ */
+
+      </pre>
+      </pre>
     </div>
+
 
   </body>
 
