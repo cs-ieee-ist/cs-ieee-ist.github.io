@@ -1,35 +1,44 @@
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="css/template.css"></link>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script>
 
-  </head>
-  <body>
+</head>
 
-    <div id = "pageTop">
-      <div id = "projectName"><center>PO</center></div>
-      <p></p>
+<body>
 
-      <div id = "className"><center>Programação com Objectos</center></div>
+    <div id="pageTop">
+        <div id="projectName">
+            <center>PO</center>
+        </div>
+        <p></p>
+
+        <div id="className">
+            <center>Programaï¿½ï¿½o com Objectos</center>
+        </div>
 
     </div>
 
-    <div id = "pageBody">
+    <div id="pageBody">
 
-      <center><h1 id = "sub1" class = "Programação com Objectos">Singleton</h1></center>
+        <center>
+            <h1 id="sub1" class="Programaï¿½ï¿½o com Objectos">Singleton</h1>
+        </center>
 
-      <b> Goal </b>
-      <p> &bull; Ensure there is only one instance of the class </p>
-      <p> &bull; Provide global access to it </p>
+        <b> Goal </b>
+        <p> &bull; Ensure there is only one instance of the class </p>
+        <p> &bull; Provide global access to it </p>
 
-      <div style="margin-top: 2%">
-        <b> UML </b>
-        <center><img src="media/img/po/UML/UML - Implementation/Singleton.jpg" width="20%"></img></center>
-      </div>
+        <div style="margin-top: 2%">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Singleton.jpg" width="20%"></img>
+            </center>
+        </div>
 
-      <b> Implementation </b>
+        <b> Implementation </b>
 
-<pre class="prettyprint linenums">
+        <pre class="prettyprint linenums">
 
 public class Singleton {
 
@@ -61,23 +70,26 @@ public class Test {
 
 </pre>
 
-<center><h1 id = "sub2" class = "Programação com Objectos">State</h1></center>
+        <center>
+            <h1 id="sub2" class="Programaï¿½ï¿½o com Objectos">State</h1>
+        </center>
 
-    <b> Goal </b>
-    <p> &bullet; Allow an object to change its behavior when its internal state changes</p>
+        <b> Goal </b>
+        <p> &bullet; Allow an object to change its behavior when its internal state changes</p>
 
-    <b> When to use </b>
-    <p> &bullet; An object's behavior depends on its state, and it must change its behavior at run-time depending on that state </p>
-    <p> &bullet; There's several conditional statements that depend on the object's state </p>
+        <b> When to use </b>
+        <p> &bullet; An object's behavior depends on its state, and it must change its behavior at run-time depending on that state </p>
+        <p> &bullet; There's several conditional statements that depend on the object's state </p>
 
-    <div style="margin-top: 2%">
-        <b> UML </b>
-        <center><img src="media/img/po/UML/UML - Implementation/State.jpg" width="40%"></img></center>
-    </div>
+        <div style="margin-top: 2%">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/State.jpg" width="40%"></img>
+            </center>
+        </div>
 
-    <b> Implementation </b>
+        <b> Implementation </b>
 
-    <pre class="prettyprint linenums">
+        <pre class="prettyprint linenums">
 
 import java.util.Scanner;  //Used for testing purposes
 
@@ -219,26 +231,30 @@ public class Test {
 }
     </pre>
 
-<center><h1 id = "sub3" class = "Programação com Objectos">Composite</h1></center>
+        <center>
+            <h1 id="sub3" class="Programaï¿½ï¿½o com Objectos">Composite</h1>
+        </center>
 
-    <b> Goal </b>
-    <p> &bullet; Compose objects into tree structures to represent part-whole hierarchies</p>
+        <b> Goal </b>
+        <p> &bullet; Compose objects into tree structures to represent part-whole hierarchies</p>
 
-    <b> When to use </b>
-    <p> &bullet; Represent part-whole hierarchies of objects</p>
-    <p> &bullet; Treat all objects in the composite structure uniformly</p>
+        <b> When to use </b>
+        <p> &bullet; Represent part-whole hierarchies of objects</p>
+        <p> &bullet; Treat all objects in the composite structure uniformly</p>
 
-    <b> Structure - Generalization </b>
-    <center><img src="media/img/po/UML/UML - Generalization/Composite.png" width="40%"></img></center>
-    
-    <div style="margin-top: 2%">
-        <b> UML </b>
-        <center><img src="media/img/po/UML/UML - Implementation/Composite.jpg" width="40%"></img></center>
-    </div>
+        <b> Structure - Generalization </b>
+        <center><img src="media/img/po/UML/UML - Generalization/Composite.png" width="40%"></img>
+        </center>
 
-    <b> Implementation </b>
+        <div style="margin-top: 2%">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Composite.jpg" width="40%"></img>
+            </center>
+        </div>
 
-    <pre class="prettyprint linenums lang="java">
+        <b> Implementation </b>
+
+        <pre class="prettyprint linenums lang=" java ">
 
 import java.util.ArrayList;
 
@@ -260,7 +276,7 @@ public class Directory implements AbstractFile {
       }
 
       public void displayInfo() {
-          System.out.println("\n\nThe directoy's name is: " + _name);
+          System.out.println("\n\nThe directoy 's name is: " + _name);
 
           for (AbstractFile file : _files)
               file.displayInfo();   
@@ -286,7 +302,7 @@ public class Album implements AbstractFile {
           for (Song song : _albumSongs)
               song.displayInfo();
 
-          System.out.println("");
+          System.out.println(" ");
       }
 }
 
@@ -305,16 +321,16 @@ public class Song implements AbstractFile {
 public class Test {
 
       public static void main(String args[]) {
-          Directory music = new Directory("Music");
-          Directory moreMusic = new Directory("More Music");
-          Song song1 = new Song("crybaby");
-          Song song2 = new Song("AOV");
-          Song song3 = new Song("Killpop");
-          Song song4 = new Song("Custer");
-          Song song5 = new Song("The Devil in I");
-          Song song6 = new Song("Unsainted");
-          Song song7 = new Song("Another Brick In the Wall");
-          Album album1 = new Album(".5: The Gray Chapter");
+          Directory music = new Directory("Music ");
+          Directory moreMusic = new Directory("More Music ");
+          Song song1 = new Song("crybaby ");
+          Song song2 = new Song("AOV ");
+          Song song3 = new Song("Killpop ");
+          Song song4 = new Song("Custer ");
+          Song song5 = new Song("The Devil in I ");
+          Song song6 = new Song("Unsainted ");
+          Song song7 = new Song("Another Brick In the Wall ");
+          Album album1 = new Album(".5: The Gray Chapter ");
 
           album1.addSong(song2);
           album1.addSong(song3);
@@ -332,152 +348,73 @@ public class Test {
 }
     </pre>
 
-    <center><h1 id = "sub4" class = "Programação com Objectos">Visitor</h1></center>
+    <center><h1 id = "sub4 " class = "Programaï¿½ï¿½o com Objectos ">Visitor</h1></center>
 
     <b> Goal </b>
     <p> &bullet; Represent an operation to be performed on the elements of an object structure without changing the original classes of those elements </p>
 
     <b> When to use </b>
     <p> &bullet; The classes defining the object structure rarely change, but you often want to define new operations over the structure </p>
-    <p> &bullet; Many distinct and unrelated operations need to be performed on objects in an object structure, and you want to avoid "polluting" their classes with these operations </p>
+    <p> &bullet; Many distinct and unrelated operations need to be performed on objects in an object structure, and you want to avoid "polluting " their classes with these operations </p>
 
     <b> Structure - Generalization </b>
-    <center><img src="media/img/po/UML/UML - Generalization/Visitor.png" width="40%"></img></center>
+    <center><img src="media/img/po/UML/UML - Generalization/Visitor.png " width="40% "></img></center>
     
-    <div style="margin-top: 2%">
+    <div style="margin-top: 2% ">
         <b> UML </b>
-        <center><img  src="media/img/po/UML/UML - Implementation/Visitor.jpg" width="40%"></img></center>
+        <center><img  src="media/img/po/UML/UML - Implementation/Visitor.jpg " width="40% "></img></center>
     </div>
 
     <b> Implementation </b>
 
-    <pre class="prettyprint linenums lang="java">
+    <pre class="prettyprint linenums lang="java"> interface Element { void accept(Visitor visitor); } interface Visitor { void visitStudent(Student student); void visitTeacher(Teacher teacher); } public abstract class Person { private String
+        _name; private int _age; public Person(String name, int age) { _name = name; _age = age; } public String getName() { return _name; } public int getAge() { return _age; } @Override public String toString() { return String.format("Name: " + getName()
+        + " Age: " + getAge()); } } public class Student extends Person implements Element { private int _id; public Student(String name, int age, int id) { super(name, age); _id = id; } public int getId() { return _id; } public void accept(Visitor visitor)
+        { visitor.visitStudent(this); } } public class Teacher extends Person implements Element { private String _subject; public Teacher(String name, int age, String subject) { super(name, age); _subject = subject; } public String getSubject() { return
+        _subject; } public void accept(Visitor visitor) { visitor.visitTeacher(this); } } public class InformationVisitor implements Visitor { public void visitStudent(Student student) { System.out.println("Student -> " + student.toString() + " id: "
+        + student.getId()); } public void visitTeacher(Teacher teacher) { System.out.println("Teacher -> " + teacher.toString() + " subject: " + teacher.getSubject()); } } public class Test { public static void main(String args[]) { InformationVisitor
+        visitor = new InformationVisitor(); Student student = new Student("John", 21, 999); Teacher teacher = new Teacher("Josef", 37, "PO"); student.accept(visitor); teacher.accept(visitor); } }
 
-interface Element {
-      void accept(Visitor visitor);
-}
+        </pre>
 
-interface Visitor {
-      void visitStudent(Student student);
-      void visitTeacher(Teacher teacher);
-}
+        <center>
+            <h1 id="sub5" class="Programaï¿½ï¿½o com Objectos">Observer</h1>
+        </center>
 
-public abstract class Person {
-      private String _name;
-      private int _age;
+        <b> Goal </b>
+        <p> &bullet; Define a one-to-many dependency between objects so that when one object changes, all its dependents are notified and updated automatically </p>
+        <br>
 
-      public Person(String name, int age) {
-          _name = name;
-          _age = age;
-      }
+        <b> When to use </b>
+        <p> &bullet; When a change to one object requires changing others, and the amount of objects is unknown </p>
+        <p> &bullet; When an object should be able to notify other objects without knowing who these objects are </p>
+        <br>
 
-      public String getName() {
-          return _name;
-      }
+        <b> Structure - Generalization </b>
+        <center><img src="media/img/po/UML/UML - Generalization/Observer.png" width="40%"></img>
+        </center>
 
-      public int getAge() {
-          return _age;
-      }
+        <br>
+        <h3> Participants </h3>
+        <h4> Subject </h4>
+        <p> &bullet; Provides an interface for attaching and detaching Observer objects </p>
+        <h4> Observer </h4>
+        <p> &bullet; Provides an interface for objects that should be notified of changes in a subject </p>
+        <h4> ConcreteSubject </h4>
+        <p> &bullet; Sends a notification to its observers when changes occur </p>
+        <p> &bullet; Implements the Subject's methods </p>
+        <h4> ConcreteObserver </h4>
+        <p> &bullet; Implements the Observer's update method </p>
 
-      @Override
-      public String toString() {
-          return String.format("Name: " + getName() + " Age: " + getAge());
-      }
-}
+        <div style="margin-top: 2%">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Observer.jpg" width="40%"></img>
+            </center>
+        </div>
 
-public class Student extends Person implements Element {
-      private int _id;
-  
-      public Student(String name, int age, int id) {
-          super(name, age);
-          _id = id;
-      }
+        <b> Implementation </b>
 
-      public int getId() {
-          return _id;
-      }
-
-      public void accept(Visitor visitor) {
-          visitor.visitStudent(this);
-      }
-}
-
-public class Teacher extends Person implements Element {
-      private String _subject;
-
-      public Teacher(String name, int age, String subject) {
-          super(name, age);
-          _subject = subject;
-      }
-
-      public String getSubject() {
-          return _subject;
-      }
-
-      public void accept(Visitor visitor) {
-          visitor.visitTeacher(this);
-      }
-}
-
-public class InformationVisitor implements Visitor {
-
-      public void visitStudent(Student student) {
-          System.out.println("Student -> " + student.toString() + " id: " + student.getId());
-      }
-
-      public void visitTeacher(Teacher teacher) {
-          System.out.println("Teacher -> " + teacher.toString() + " subject: " + teacher.getSubject());
-      }
-}
-
-public class Test {
-
-      public static void main(String args[]) {
-          InformationVisitor visitor = new InformationVisitor();
-          Student student = new Student("John", 21, 999);
-          Teacher teacher = new Teacher("Josef", 37, "PO");
-
-          student.accept(visitor);
-          teacher.accept(visitor);
-      }
-}
-
-</pre>
-
-<center><h1 id = "sub5" class = "Programação com Objectos">Observer</h1></center>
-
-    <b> Goal </b>
-    <p> &bullet; Define a one-to-many dependency between objects so that when one object changes, all its dependents are notified and updated automatically </p>
-    <br>
-
-    <b> When to use </b>
-    <p> &bullet; When a change to one object requires changing others, and the amount of objects is unknown </p>
-    <p> &bullet; When an object should be able to notify other objects without knowing who these objects are </p>
-    <br>
-
-    <b> Structure - Generalization </b>
-    <center><img src="media/img/po/UML/UML - Generalization/Observer.png" width="40%"></img></center>
-
-    <br>
-    <h3> Participants </h3>
-    <h4> Subject </h4>
-    <p> &bullet; Provides an interface for attaching and detaching Observer objects </p>
-    <h4> Observer </h4>
-    <p> &bullet; Provides an interface for objects that should be notified of changes in a subject </p>
-    <h4> ConcreteSubject </h4>
-    <p> &bullet; Sends a notification to its observers when changes occur </p>
-    <p> &bullet; Implements the Subject's methods </p>
-    <h4> ConcreteObserver </h4>
-    <p> &bullet; Implements the Observer's update method </p>
-
-    <div style="margin-top: 2%">
-        <b> UML </b>
-        <center><img src="media/img/po/UML/UML - Implementation/Observer.jpg" width="40%"></img></center>
-    </div>
-
-    <b> Implementation </b>
-
-    <pre class="prettyprint linenums lang="java">
+        <pre class="prettyprint linenums lang=" java ">
 
 import java.util.ArrayList;
 
@@ -532,10 +469,10 @@ public class Student implements Observer {
       }
 
       public void displayMessages() {
-          System.out.println(getName() + " has " + _messages.size() + " messages.");
+          System.out.println(getName() + " has " + _messages.size() + " messages. ");
           for (String message: _messages)
               System.out.println(message);
-          System.out.println("");
+          System.out.println(" ");
       }
 
       public void update(String message) {
@@ -547,14 +484,14 @@ public class Test {
 
       public static void main(String args[]) {
           Notification notification = new Notification();
-          Student student1 = new Student("Student1");
-          Student student2 = new Student("Student2");
+          Student student1 = new Student("Student1 ");
+          Student student2 = new Student("Student2 ");
 
           //student1 and student2 are registered to recieve notifications
           notification.register(student1);
           notification.register(student2);
 
-          notification.addNotification("Message 1");
+          notification.addNotification("Message 1 ");
 
           //Both observers will get notified
           student1.displayMessages();
@@ -562,7 +499,7 @@ public class Test {
 
           notification.unregister(student2);
 
-          notification.addNotification("Message 2");
+          notification.addNotification("Message 2 ");
 
           //student2 won't get this last notification
           student1.displayMessages();
@@ -572,7 +509,7 @@ public class Test {
 
     </pre>
 
-<center><h1 id = "sub6" class = "Programação com Objectos">Decorator</h1></center>
+<center><h1 id = "sub6 " class = "Programaï¿½ï¿½o com Objectos ">Decorator</h1></center>
 
     <b> Goal </b>
     <p> &bullet;  Attach additional responsibilities to an object </p>
@@ -584,7 +521,7 @@ public class Test {
     <br>
 
     <b> Structure - Generalization </b>
-    <center><img src="media/img/po/UML/UML - Generalization/Decorator.png" width="40%"></img></center>
+    <center><img src="media/img/po/UML/UML - Generalization/Decorator.png " width="40% "></img></center>
 
     <br>
     <h3> Participants </h3>
@@ -597,117 +534,58 @@ public class Test {
     <h4>  ConcreteDecorator </h4>
     <p> &bullet; Adds responsibilities to the component </p>
 
-    <div style="margin-top: 2%">
+    <div style="margin-top: 2% ">
         <b> UML </b>
-        <center><img src="media/img/po/UML/UML - Implementation/Decorator.jpg" width="40%"></img></center>
+        <center><img src="media/img/po/UML/UML - Implementation/Decorator.jpg " width="40% "></img></center>
     </div>
 
     <b> Implementation </b>
 
-    <pre class="prettyprint linenums lang="java">
+    <pre class="prettyprint linenums lang="java"> interface PizzaComponent { public int getCost(); } public abstract class PizzaDecorator implements PizzaComponent { protected PizzaComponent _pizza; private int _cost; public PizzaDecorator(PizzaComponent
+        pizza) { _pizza = pizza; } public int getCost() { return _cost; } } public class BasePizza implements PizzaComponent { private int _cost; public BasePizza() { _cost = 6; } public int getCost() { return _cost; } } public class TunaPizzaDecorator
+        extends PizzaDecorator { public TunaPizzaDecorator(PizzaComponent pizza) { super(pizza); } @Override public int getCost() { return _pizza.getCost() + 1; } } public class MushroomPizzaDecorator extends PizzaDecorator { public MushroomPizzaDecorator(PizzaComponent
+        pizza) { super(pizza); } @Override public int getCost() { return _pizza.getCost() + 1; } } public class Test { public static void main(String args[]) { BasePizza pizza = new BasePizza(); System.out.println("Cost: " + pizza.getCost()); TunaPizzaDecorator
+        tuna = new TunaPizzaDecorator(pizza); TunaPizzaDecorator extraTuna = new TunaPizzaDecorator(tuna); System.out.println("Cost: " + extraTuna.getCost()); MushroomPizzaDecorator mushroom = new MushroomPizzaDecorator(extraTuna); System.out.println("Cost:
+        " + mushroom.getCost()); } }
 
-interface PizzaComponent {
-      public int getCost();
-}
+        </pre>
 
-public abstract class PizzaDecorator implements PizzaComponent {
-      protected PizzaComponent _pizza;
-      private int _cost;
+        <center>
+            <h1 id="sub7" class="Programaï¿½ï¿½o com Objectos">Adapter</h1>
+        </center>
 
-      public PizzaDecorator(PizzaComponent pizza) {
-          _pizza = pizza;
-      }
+        <b> Goal </b>
+        <p> &bullet; Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces </p>
+        <br>
 
-      public int getCost() {
-          return _cost;
-      }
-}
+        <b> When to use </b>
+        <p> &bullet; You want to use an existing class, and its interface does not match the one you need </p>
+        <p> &bullet; You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don't necessarily have compatible interfaces </p>
+        <br>
 
-public class BasePizza implements PizzaComponent {
-      private int _cost;
+        <b> Structure - Generalization </b>
+        <center><img src="media/img/po/UML/UML - Generalization/Adapter.png" width="40%"></img>
+        </center>
 
-      public BasePizza() {
-          _cost = 6;
-      }
-
-      public int getCost() {
-          return  _cost;
-      }
-}
-
-public class TunaPizzaDecorator extends PizzaDecorator {
-  
-      public TunaPizzaDecorator(PizzaComponent pizza) {
-          super(pizza);
-      }
-
-      @Override
-      public int getCost() {
-          return _pizza.getCost() + 1;
-      }
-}
-
-public class MushroomPizzaDecorator extends PizzaDecorator {
-  
-      public MushroomPizzaDecorator(PizzaComponent pizza) {
-          super(pizza);
-      }
-
-      @Override
-      public int getCost() {
-          return _pizza.getCost() + 1;
-      }
-}
-
-public class Test {
-      public static void main(String args[]) {
-
-          BasePizza pizza = new BasePizza();
-          System.out.println("Cost: " + pizza.getCost());
-
-          TunaPizzaDecorator tuna = new TunaPizzaDecorator(pizza);
-          TunaPizzaDecorator extraTuna = new TunaPizzaDecorator(tuna);
-          System.out.println("Cost: " + extraTuna.getCost());
-
-          MushroomPizzaDecorator mushroom = new MushroomPizzaDecorator(extraTuna);
-          System.out.println("Cost: " + mushroom.getCost());
-  }
-}
-
-    </pre>
-
-    <center><h1 id = "sub7" class = "Programação com Objectos">Adapter</h1></center>
-
-    <b> Goal </b>
-    <p> &bullet; Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces </p>
-    <br>
-
-    <b> When to use </b>
-    <p> &bullet; You want to use an existing class, and its interface does not match the one you need </p>
-    <p> &bullet; You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don't necessarily have compatible interfaces </p>
-    <br>
-
-    <b> Structure - Generalization </b>
-    <center><img src="media/img/po/UML/UML - Generalization/Adapter.png" width="40%"></img></center>
-
-    <br>
-    <h3> Participants </h3>
-    <h4> Target </h4>
-    <p> &bullet; Defines the interface that the Client uses </p>
-    <h4> Adaptee </h4>
-    <p> &bullet; Defines an existing interface that needs adapting </p>
-    <h4> Adapter </h4>
-    <p> &bullet; Adapts the interface of Adaptee to the Target interface </p>
+        <br>
+        <h3> Participants </h3>
+        <h4> Target </h4>
+        <p> &bullet; Defines the interface that the Client uses </p>
+        <h4> Adaptee </h4>
+        <p> &bullet; Defines an existing interface that needs adapting </p>
+        <h4> Adapter </h4>
+        <p> &bullet; Adapts the interface of Adaptee to the Target interface </p>
 
 
-    <div style="margin-top: 2%">
-        <b> UML </b>
-        <center><img src="media/img/po/UML/UML - Implementation/Adapter.jpg" width="40%"></img></center>
-    </div>
+        <div style="margin-top: 2%" class="graph-img">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Adapter.jpg" width="40%"></img>
+            </center>
+        </div>
 
-    <b> Implementation </b>
+        <b> Implementation </b>
 
-    <pre class="prettyprint linenums lang="java">
+        <pre class="prettyprint linenums lang=" java ">
 
 interface ISystem {
       public void runSpecificSystem();
@@ -740,14 +618,14 @@ public class MusicAppAdapter implements ISystem {
 public class Game {
 
       public void run() {
-          System.out.println("Running game");
+          System.out.println("Running game ");
       }
 }
 
 public class MusicApp {
 
       public void run() {
-          System.out.println("Running music app");
+          System.out.println("Running music app ");
       }
 }
 

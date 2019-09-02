@@ -1,139 +1,177 @@
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="css/template.css"></link>
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script>
+
+    <link rel="stylesheet" type="text/css" href="google-code-prettify/skins/default.css">
+    <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script> -->
     <!-- template.css has all default class names -->
 
-  </head>
-  <body>
+</head>
 
-    <div id = "pageTop">
-      <div id = "projectName"><center>PROJECT NAME</center></div>
-      <p></p>
+<body onload="PR.prettyPrint()">
 
-      <div id = "className"><center>Sistemas Operativos</center></div>
+    <div id="pageTop">
+        <div id="projectName">
+            <center>PROJECT NAME</center>
+        </div>
+        <p></p>
+
+        <div id="className">
+            <center>Sistemas Operativos</center>
+        </div>
 
     </div>
 
-    <div id = "pageBody">
-      <!-- Page Content -->
+    <div id="pageBody">
+        <!-- Page Content -->
 
-      <center><h1 id = "sub1" class = "Sistemas Operativos">Fork</h1></center>
+        <center>
+            <h1 id="sub1" class="Sistemas Operativos">Fork</h1>
+        </center>
 
-      <div style="margin-top: 2%">
-          <center><img src="media/img/so/fork.png" width="40%"></img></center>
-      </div>
-
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Criação de um Processo</h2></center> 
-
-
-
-      <div>
-          <img src="media/img/so/fork_padrao.png" width="40%" align="right"></img>
-          <div>
-              pid = fork();
-          </div>
-          <br/>
-          <div>
-              A função não tem parâmetros, em particular o ficheiro a executar.
-          </div>
-          <br/>
-          <div>
-              Então que atributos diferem o pai do filho?
-          </div>
-          <div>
-              Processo filho é uma cópia do pai:
-          </div>
-          <div>
-              O espaço de endereçamento é copiado.
-          </div>
-          <div>
-              Contexto de execução é copiado.
-          </div>
-          <div>
-          </div>
-          <div>
-              Estas cópias são pesadas?
-          </div>
-          <div>
-              Se acontecessem literalmente, seriam.
-          </div>
-          <div>
-              Na verdade, a chama a fork é muito rápida.
-          </div>
-          <br/>
-          <div>
-              A função retorna o PID do processo.
-          </div>
-          <div>
-              Este parâmetro assume valores diferentes consoante o processo em que se
-              efectua o retorno:
-          </div>
-          <div>
-              Ao processo pai é devolvido o “pid” do filho.
-          </div>
-          <div>
-              Ao processo filho é devolvido 0.
-          </div>
-          <div>
-              -1 em caso de erro.
-          </div>
-          <br/>
-          <div>
-              Retorno de uma função com valores diferentes!
-          </div>
-          <div>
-              Nunca visto em programação sequencial.
-          </div>
-          <br/>
+        <div style="margin-top: 2%">
+            <center><img src="media/img/so/fork.png" width="40%"></img>
+            </center>
         </div>
 
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Terminação do Processo</h2></center> 
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Criação de um Processo</h2>
+        </center>
 
-      <div>
-          <img src="media/img/so/terminao_processo.png" width="30%" align="right"></img>
 
-          <div>
-            Termina o processo, liberta todos os recursos detidos pelo processo, ex.: os ficheiros abertos.
-          </div>
 
-          <div>
-            Assinala ao processo pai a terminação.
-          </div>
-          <br/>
-          
-          <div>
-              E se a main terminar com return em vez de exit?
-          </div>
-          <div>
-              Até agora, nunca chamámos exit para terminar programas
-          </div>
-          <div>
-              Terminação de programa feita usando return (int) na função main do programa
-          </div>
-          <div>
-              Qual a diferença?
-          </div>
-          <div>
-              Nenhuma, pois o compilador assegura que return da main resulta em chamada a
-              exit!
-          </div>
-          <br/>
-          <div>
-              Em Unix existe uma função para o processo pai se sincronizar com a
-              terminação de um processo filho
-          </div>
-          <div>
-              Bloqueia o processo pai até que um dos filhos termine
-          </div>
-          
-          
-      </div>
-      
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 1</h2></center> 
+        <div>
+            <img src="media/img/so/fork_padrao.png" width="40%" align="right"></img>
+            <div>
+                pid = fork();
+            </div>
+            <br/>
+            <div>
+                A função não tem parâmetros, em particular o ficheiro a executar.
+            </div>
+            <br/>
+            <div>
+                Então que atributos diferem o pai do filho?
+            </div>
+            <div>
+                Processo filho é uma cópia do pai:
+            </div>
+            <div>
+                O espaço de endereçamento é copiado.
+            </div>
+            <div>
+                Contexto de execução é copiado.
+            </div>
+            <div>
+            </div>
+            <div>
+                Estas cópias são pesadas?
+            </div>
+            <div>
+                Se acontecessem literalmente, seriam.
+            </div>
+            <div>
+                Na verdade, a chama a fork é muito rápida.
+            </div>
+            <br/>
+            <div>
+                A função retorna o PID do processo.
+            </div>
+            <div>
+                Este parâmetro assume valores diferentes consoante o processo em que se efectua o retorno:
+            </div>
+            <div>
+                Ao processo pai é devolvido o “pid” do filho.
+            </div>
+            <div>
+                Ao processo filho é devolvido 0.
+            </div>
+            <div>
+                -1 em caso de erro.
+            </div>
+            <br/>
+            <div>
+                Retorno de uma função com valores diferentes!
+            </div>
+            <div>
+                Nunca visto em programação sequencial.
+            </div>
+            <br/>
+        </div>
 
-      <pre class="prettyprint linenums lang=c">
-      <pre class="prettyprint linenums">
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Terminação do Processo</h2>
+        </center>
+
+        <div>
+            <img src="media/img/so/terminao_processo.png" width="30%" align="right"></img>
+
+            <div>
+                Termina o processo, liberta todos os recursos detidos pelo processo, ex.: os ficheiros abertos.
+            </div>
+
+            <div>
+                Assinala ao processo pai a terminação.
+            </div>
+            <br/>
+
+            <div>
+                E se a main terminar com return em vez de exit?
+            </div>
+            <div>
+                Até agora, nunca chamámos exit para terminar programas
+            </div>
+            <div>
+                Terminação de programa feita usando return (int) na função main do programa
+            </div>
+            <div>
+                Qual a diferença?
+            </div>
+            <div>
+                Nenhuma, pois o compilador assegura que return da main resulta em chamada a exit!
+            </div>
+            <br/>
+            <div>
+                Em Unix existe uma função para o processo pai se sincronizar com a terminação de um processo filho
+            </div>
+            <div>
+                Bloqueia o processo pai até que um dos filhos termine
+            </div>
+
+
+        </div>
+
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Sincronização entre o Processo Pai e o Processo Filho</h2>
+        </center>
+
+        <div>
+            <img src="media/img/so/sincronizacao_processos.png" width="30%" align="right"></img>
+            São mantidos os atributos necessários para quando o pai chamar wait:
+        </div>
+        <div>
+            - Pid do processo terminado e do seu processo pai
+        </div>
+        <div>
+            - Status da terminação
+        </div>
+        <br/>
+        <div>
+            Entre exit e wait, processo diz-se zombie
+            <br/>
+        </div>
+        <div>
+            Só depois de wait o processo é totalmente esquecido
+        </div>
+
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Exemplo 1</h2>
+        </center>
+
+        <pre class="prettyprint linenums lang=c">
+        <pre class="prettyprint linenums">
 
       /*
         Ficheiro: fork.c
@@ -224,11 +262,13 @@
         exit(EXIT_SUCCESS);
       }
       </pre>
-      </pre>
+        </pre>
 
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 2</h2></center> 
-      
-      <pre class="prettyprint linenums lang=c">
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Exemplo 2</h2>
+        </center>
+
+        <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
       #include <stdio.h>
@@ -280,17 +320,21 @@
       }
 
       </pre>
-      </pre>
-          
-      
-      <center><h1 id = "sub2" class = "Sistemas Operativos">Pipe</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+        </pre>
 
 
-      <div style="margin-top: 2%">
-          <center><img src="media/img/so/pipe.png" width="40%"></img></center>
-      </div>
+        <center>
+            <h1 id="sub2" class="Sistemas Operativos">Pipe</h1>
+        </center>
+        <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
 
-      <pre class="prettyprint linenums lang=c">
+
+        <div style="margin-top: 2%">
+            <center><img src="media/img/so/pipe.png" width="40%"></img>
+            </center>
+        </div>
+
+        <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
       #include <unistd.h>
@@ -343,13 +387,17 @@
       }
         
       </pre>
-      </pre>
-      
-      <center><h1 id = "sub1" class = "Sistemas Operativos">Named Pipe</h1></center>
+        </pre>
 
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 1</h2></center> 
+        <center>
+            <h1 id="sub1" class="Sistemas Operativos">Named Pipe</h1>
+        </center>
 
-      <pre class="prettyprint linenums lang=c">
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Exemplo 1</h2>
+        </center>
+
+        <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
       #include <unistd.h>
@@ -396,11 +444,13 @@
           }
           
       </pre>
-      </pre>
+        </pre>
 
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 2</h2></center> 
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Exemplo 2</h2>
+        </center>
 
-      <pre class="prettyprint linenums lang=c">
+        <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
       #include <unistd.h>
@@ -436,11 +486,13 @@
           }
           
       </pre>
-      </pre>
+        </pre>
 
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 3 (Escreve Primeiro)</h2></center> 
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Exemplo 3 (Escreve Primeiro)</h2>
+        </center>
 
-      <pre class="prettyprint linenums lang=c">
+        <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
       // C program to implement one side of FIFO 
@@ -494,11 +546,13 @@
       /* Source: https://www.geeksforgeeks.org/named-pipe-fifo-example-c-program/ */
 
       </pre>
-      </pre>
+        </pre>
 
-      <center><h2 id = "sub2" class = "Sistemas Operativos">Exemplo 4 (Lê Primeiro)</h2></center> 
+        <center>
+            <h2 id="sub2" class="Sistemas Operativos">Exemplo 4 (Lê Primeiro)</h2>
+        </center>
 
-      <pre class="prettyprint linenums lang=c">
+        <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
       
       // C program to implement one side of FIFO 
@@ -543,12 +597,18 @@
       } 
 
       /* Source: https://www.geeksforgeeks.org/named-pipe-fifo-example-c-program/ */
-
-      </pre>
-      </pre>
+      
+    </pre>
+        </pre>
+        <div>
+            <div>
+                Imagens de Slide da Cadeira de Sistemas Operativos do IST
+            </div>
+        </div>
     </div>
 
 
-  </body>
+
+</body>
 
 </html>

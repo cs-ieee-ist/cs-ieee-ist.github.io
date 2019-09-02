@@ -71,3 +71,5 @@ O repositório já tem como podem reparar Projects para cada disciplina, que ser
 Como é óbvio eu não estou preocupado em saber quando é que o fazem ou a que horas, serve apenas para organização de trabalho e para ter noção do que já foi concluído.
 
 Qualquer dúvidas que tenham, não hesitem em contactar.
+
+TODO: depois temos de ver o melhor tema, https://jmblog.github.io/color-themes-for-google-code-prettify/
