@@ -821,6 +821,61 @@
 
 
     <!-- Fim Jogos -->
+    <!-- Problema de Satisfação de Restrições -->
+
+    <h3 id="ia--incerteza" class="topic-title">Problema de Satisfação de Restrições (CSP)</h3>
+    <h6 class="topic-book-chapter">Capitulo 6.1, 6.2, 6.3</h6>
+
+    Um problema de satisfação de restrições tem três componentes, X, D, e C:
+    <ul>
+      <li>X é o conjunto das variáveis, {X<sub>1</sub>,...,X<sub>n</sub>}.</li>
+      <li>D é o conjunto dos domínios, {D<sub>1</sub>,...,D<sub>n</sub>}, um para cada variável.</li>
+      <li>C é o conjunto das restrições que especificam combinações possíveis de valores para
+        subconjuntos de variáveis</li>
+    </ul>
+
+    Um domínio D<sub>i</sub> consiste no conjunto de valores possíveis, {v<sub>1</sub>,...,v<sub>k</sub>} para a
+    variável X<sub>i</sub>.
+    Cada restrição C<sub>i</sub> consiste no par &lt;scope,rel>, onde "scope" é um tuplo com as variáveis que participam
+    na
+    restrição e "rel" é uma relação que define o conjunto de valores que essas variáveis podem ter. A relação
+    pode ter uma representação explícita, onde é uma lista com todos os tuplos de valores que satisfazem a restrição,
+    exemplo, &lt;(X<sub>1</sub>,X<sub>2</sub>),[(0,1),(1,0)]>. Ou uma representação implícita, exemplo,
+    &lt;(X<sub>1</sub>,X<sub>2</sub>),X<sub>1</sub>!=X<sub>2</sub>>
+
+    Cada estado num CSP é definido por uma atribuição de valores para nenhumas, algumas ou todas as variáveis. Uma
+    atribuição diz-se:
+    <ul>
+      <li>Consistente: se não violar nenhuma restrição.</li>
+      <li>Vazia: se não atribuir valores a qualquer variável</li>
+      <li>Parcial: se atribui valores a apenas algumas variáveis</li>
+      <li>Completa: se atribui valores a todas as variávies</li>
+    </ul>
+
+    A solução de um CSP tem uma uma atribuição completa e consistente.</br></br>
+
+    <b>Examplo: Map coloring</b></br></br>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/csp.png">
+    </div></br>
+
+    Temos um mapa da Austrália com todos os estados e territórios. O nosso objetivo é colorir cada região de vermelho,
+    verde ou azul. No entanto, regiões vizinhas não podem ter a mesma cor. Para formularmos isto como um CSP temos de
+    começar por definir:
+    <ul>
+      <li>As variáveis neste caso serão as regiões, X={WA, NT, Q, NSW ,V, SA, T}</li>
+      <li>O domínio de cada variável será D<sub>i</sub> = {red, green, blue} </li>
+      <li>E as restrições do problema serão C = {SA != WA, SA != NT, SA != Q, SA != NSW , SA != V,
+        WA != NT, NT != Q, Q != NSW , NSW != V }, em que X != Y é a abreviatura de &lt;(X,Y), X != Y> e X != Y pode
+        ainda ser enumarada da seguinte forma {(red, green),(red, blue),(green, red),(green, blue),(blue, red),(blue,
+        green)}</li>
+    </ul>
+
+    Para ajudar a visualizar o problema pode-se usarm grafo, como na figura a cima, onde os nós são as variáveis e cada
+    arco representa um restrição em que ambas as variáveis participam.
+
+    <!-- Fim Problema de Satisfação de Restrições -->
     <!-- Incerteza -->
 
     <h3 id="ia--incerteza" class="topic-title">Incerteza</h3>
@@ -852,7 +907,8 @@
     Uma rede Baysiana é um grafo dirigido e acíclico em que cada nó é anotado com a informação sobre
     probabilidades.</br>
     Cada nó corresponde a uma variável aleatória (que pode ser discreta ou contínua) e contém um conjunto de
-    ligações direccionadas e uma distribuição condicional P(X<sub>i</sub>|Pais(X<sub>i</sub>)) que quantifica o efeito
+    ligações direccionadas e uma distribuição condicional P(X<sub>i</sub>|Pais(X<sub>i</sub>)) que quantifica o
+    efeito
     dos pais sobre o nó.</br></br>
 
     <b>Semântica global</b>(ou numérica)</br></br>
@@ -876,7 +932,8 @@
     <h3 id="ia--aprend-automatica" class="topic-title">Aprendizagem automática</h3>
     <h6 class="topic-book-chapter">Capitulo 18.1, 18.4 e 18.5</h6>
 
-    A ideia por detrás da aprendizagem é que as percepções de um agente devem servir não apenas para o agente agir, mas
+    A ideia por detrás da aprendizagem é que as percepções de um agente devem servir não apenas para o agente agir,
+    mas
     igualmente para melhorar a sua capacidade de acção no futuro.
     As técnicas usadas para melhorar essas capacidades, dependem de quatro fatores:
     <ul>
@@ -901,16 +958,19 @@
         sempre que há um sinal vermelho, pode-se aprender este par condições/acção.
       </li>
       <li>
-        Propriedades do mundo que podem ser inferidas a partir de uma sequência de percepções - Vendo muitas imagens com
+        Propriedades do mundo que podem ser inferidas a partir de uma sequência de percepções - Vendo muitas imagens
+        com
         autocarros, pode aprender a reconhecê-los
       </li>
       <li>
-        Informação sobre o modo como o mundo evolui e sobre o resultado de possíveis acções que o agente pode tomar -
+        Informação sobre o modo como o mundo evolui e sobre o resultado de possíveis acções que o agente pode tomar
+        -
         Travando a fundo sobre piso molhado pode aprender as consequências dos
         seus actos
       </li>
       <li>
-        Função de utilidade indicando quão desejável é um estado do mundo - Se sempre que conduzir como um louco, não
+        Função de utilidade indicando quão desejável é um estado do mundo - Se sempre que conduzir como um louco,
+        não
         receber gorjeta, pode aprender uma componente muito útil para a sua função de utilidade
       </li>
       <li>...</li>
@@ -938,12 +998,15 @@
     <b>Tipos de feedback</b></br>
 
     <ul>
-      <li><b>Aprendizagem supervisionada:</b> para cada exemplo é dado input e output (implica aprender uma função) -
-        e.g. aprender a reconhecer autocarros: mostram-lhe imagens e dizem-lhe se a imagem contém ou não autocarros (a
+      <li><b>Aprendizagem supervisionada:</b> para cada exemplo é dado input e output (implica aprender uma função)
+        -
+        e.g. aprender a reconhecer autocarros: mostram-lhe imagens e dizem-lhe se a imagem contém ou não autocarros
+        (a
         função a aprender recebe uma imagem e devolve um valor Booleano)
       </li>
       <li>
-        <b>Aprendizagem não supervisionada:</b> para cada exemplo só é dado input (implica aprender padrões a partir do
+        <b>Aprendizagem não supervisionada:</b> para cada exemplo só é dado input (implica aprender padrões a partir
+        do
         input) - e.g. agente aprende a reconhecer (infere) o que é um bom/mau dia de tráfego
       </li>
       <li>
@@ -963,12 +1026,17 @@
     <h3 id="ia--aprend-reforco" class="topic-title">Árvores de decisão</h3>
     <h6 class="topic-book-chapter">Capitulo 18.3</h6>
 
-    Uma árvore de decisão representa uma função que recebe como input um vetor de atributos e que retorna uma "decisão",
+    Uma árvore de decisão representa uma função que recebe como input um vetor de atributos e que retorna uma
+    "decisão",
     o
-    valor de output para o input recebido. Os valores dos atributos e do output podem ser discretos ou contínuos, nesta
-    disciplina estuda-se apenas os casos de classificação Booleana em que cada exemplo é classificado como positivo ou
-    negativo. A árvore chega a uma decisão depois de fazer uma sequencia de testes em que cada nó da árvore corresponde
-    a um teste a um dos atributos, os ramos estão rotulados com os possiveís valores do atributo a testar e as folhas
+    valor de output para o input recebido. Os valores dos atributos e do output podem ser discretos ou contínuos,
+    nesta
+    disciplina estuda-se apenas os casos de classificação Booleana em que cada exemplo é classificado como positivo
+    ou
+    negativo. A árvore chega a uma decisão depois de fazer uma sequencia de testes em que cada nó da árvore
+    corresponde
+    a um teste a um dos atributos, os ramos estão rotulados com os possiveís valores do atributo a testar e as
+    folhas
     representam o valor a ser devolvido.</br></br>
 
     <div class="graph-img-container">
@@ -1154,7 +1222,8 @@
     </br>
     8.2. (0.5) Seguindo uma política de exploitation e assumindo o estado de Q obtido após realizar os updates da
     alínea anterior, quais são as 5 primeiras acções efectuadas pelo agente, começando no estado 1? Indique
-    não só as acções, mas também o seu resultado, no formato (estado inicial, acção, estado final, recompensa)</br></br>
+    não só as acções, mas também o seu resultado, no formato (estado inicial, acção, estado final,
+    recompensa)</br></br>
 
     <img class="latex-img"
       src="http://latex.codecogs.com/gif.latex?(1, \rightarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow , 2, 1)" /></br></br>
@@ -1190,6 +1259,75 @@
     <h3 id="ia--aprend-param" class="topic-title">Aprendizagem paramétrica</h3>
     <h6 class="topic-book-chapter">Capitulo 18.6.4, 18.7</h6>
 
+    <h4 class="sub-topic-title">Regressão Paramétrica</h4>
+
+    Na regressão paramétrica o mapeamento entre features e previsão
+    é descrito por um vector de parâmetros β. Para aprendermos, estes parâmetros, usamos um conjunto de
+    treino que associa cada um de n exemplos com m features, a um retorno:</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?\begin{matrix} x^{(1)}_{1}\ x^{(1)}_{2}\ ...\ x^{(1)}_{m}\rightarrow y^{1}\\x^{(2)}_{1}\ x^{(2)}_{2}\ ...\ x^{(2)}_{m}\rightarrow y^{2}\\ ... \\x^{(n)}_{1}\ x^{(n)}_{2}\ ...\ x^{(n)}_{m}\rightarrow y^{n}\end{matrix}" /></br></br>
+
+    Agora podemos escrever a previsão do modelo para cada exemplo:</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?\begin{matrix}\hat{y}^{(1)}=\beta_{0}+\beta_{1}x^{(1)}_{1}+...+\beta_{m}x^{(1)}_{m}\\\hat{y}^{(2)}=\beta_{0}+\beta_{1}x^{(2)}_{1}+...+\beta_{m}x^{(2)}_{m}\\...\\\hat{y}^{(n)}=\beta_{0}+\beta_{1}x^{(n)}_{1}+...+\beta_{m}x^{(n)}_{m}\end{matrix}" /></br></br>
+
+    Podemos escrever este sistema de equações da seguinte forma:</br></br>
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y=X\beta" /></br></br>
+
+    Assim, só falta saber como definir o vector de parâmetros β. Para isso necessitamos de definir uma
+    medida de erro para o nosso modelo. Tradicionalmente usa-se a função dos resíduos quadrados (squared loss
+    function):</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Loss^{(i)}=(y^{(i)}-\hat{y}^{(i)})^{2}=(y^{(i)}-X^{(i)}\beta)^{2}" /></br></br>
+
+    Assim, podemos definir o erro total de um modelo para um dado vector de parâmetros como a soma
+    dos resíduos quadrados para todo o conjunto de treino:</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Loss=\sum_{i=1}^{n}Loss^{(i)}=\sum_{i=1}^{n}(y^{(i)}-X^{(i)}\beta)^{2}=(Y-X\beta)^{T}(Y-X\beta)" /></br></br>
+
+
+    <h4 class="sub-topic-title">Regressão Linear</h4>
+
+    No caso da regressão linear, vamos procurar o vector β que minimiza o erro do modelo.
+    Para tal, basta encontrar onde a primeira derivada da função do erro total se anula:</br></br>
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\begin{align*}
+      \frac{\partial Loss}{\partial\beta}=0 \\ 
+      \frac{\partial}{\partial\beta}(Y-X\beta)^{T}(Y-X\beta)=0 \\ 
+      [\frac{\partial}{\partial\beta}(Y-X\beta)^{T}](Y-X\beta)+(Y-X\beta)^{T}[\frac{\partial}{\partial\beta}(Y-X\beta)]=0 \\ 
+      [-X^{T}](Y-X\beta)+(Y-X\beta)^{T}[-X]=0 \\ 
+      [-X^{T}](Y-X\beta)-[X]^{T}(Y-X\beta)=0 \\ 
+      -2X^{T}(Y-X\beta)=0 \\ 
+      X^{T}Y-X^{T}X\beta=0 \\ 
+      X^{T}X\beta=X^{T}Y \\ 
+      \beta=(X^{T}X)^{-1}X^{T}Y 
+     \end{align*}" /></br></br>
+
+
+    <h4 class="sub-topic-title">Regressão de Ridge</h4>
+
+    No caso da regressão ridge, vamos, também, calcular um vector β que tenta minimizar o erro do modelo. Contudo
+    para
+    evitar aprender ruído no conjunto de treino, soma-se um termo que
+    penaliza mudanças dos parâmetros. Assim, de modo a actualizar os parâmetros num sentido, o modelo
+    precisa de ver vários exemplos nesse mesmo sentido.
+    O termo de penalização, neste caso, é a norma (L2) do vector β ponderada por um coeficiente de
+    controlo λ. Assim, a derivada que procuramos é a seguinte:</br></br>
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\begin{align*}
+    \frac{\partial}{\partial\beta}[Loss+\lambda\left \|\beta\right \|_{2}^{2}]=0\\ 
+    \frac{\partial Loss}{\partial\beta}+\frac{\partial}{\partial\beta}[\lambda\left \|\beta\right \|_{2}^{2}]=0\\ 
+    -2X^{T}(Y-X\beta)+2\lambda\beta=0\\ 
+    -X^{T}Y+X^{T}X\beta+\lambda\beta=0\\ 
+    (X^{T}X+\lambda I)\beta=X^{T}Y\\ 
+    \beta=(X^{T}X+\lambda I)^{-1}X^{T}Y
+    \end{align*}" /></br></br>
+
     <h4 class="sub-topic-title">Perceptrão</h4>
 
     <div class="graph-img-container">
@@ -1212,7 +1350,8 @@
           <img class="latex-img"
             src="http://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
 
-          Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que definem
+          Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que
+          definem
           o separador. Dado um conjunto de treino X com classificações Y. Começa-se por inicializar o vetor w com
           valores
           aleatórios. De seguida cálcula-se para cada exemplo no conjunto de treino o output do perceptrão. Se este
@@ -1263,14 +1402,17 @@
 
           <h4 class="sub-topic-title">Reqressão Logística</h4>
 
-          O modelo de regressão logística funciona de forma muito semelhante ao Perceptrão. Sendo também classificador
+          O modelo de regressão logística funciona de forma muito semelhante ao Perceptrão. Sendo também
+          classificador
           linear que coloca um separador entre pontos positivos e negativos de
           uma classe.
-          No caso do Perceptrão a função de ativação retornava 1 ou −1. No caso da regressão logística, função utilizada
+          No caso do Perceptrão a função de ativação retornava 1 ou −1. No caso da regressão logística, função
+          utilizada
           passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo
           [0,1].</br></br>
           <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
-          Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o w
+          Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o
+          w
           agora passamos a usar o β.</br>
           Assim, dado um ponto x o retorno da regressão logística pode ser definido por:</br></br>
           <img class="latex-img"
@@ -1287,9 +1429,12 @@
 
 
           <h4 class="sub-topic-title">k-nearest neighbors</h4>
-          <p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como tinhas na
+          <p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como
+            tinhas
+            na
             Aprendizagem Paramétrica. E portanto o peso da computação estará na fase de classificação.
-            Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a distância
+            Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a
+            distância
             do
             exemplo a cada ponto e as respetivas labels.
             Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
@@ -1321,9 +1466,11 @@
 
           <h4 class="sub-topic-title">Kernels</h4>
           <p class="topic-content-text">
-            Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para pesarmos
+            Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para
+            pesarmos
             os
-            diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será mais
+            diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será
+            mais
             penalizado, um
             exemplo mais perto será menos penalizado ou não será penalizado de todo.</br></br>
             Exemplos de diferentes funções que podemos usar como Kernel:<br><br>
@@ -1358,12 +1505,12 @@
             (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
             (manuel.lopes@tecnico.ulisboa.pt)
           </p>
-          <p class="topic-content-text">As imagens foram retiradas do livro - Artificial Intelligence: A Modern Approach
+          <p class="topic-content-text">As imagens foram retiradas do livro - Artificial Intelligence: A Modern
+            Approach
             :
             Stuart Russel and Peter Norvig 2003 Prentice Hall</p>
           <!-- End Page Content -->
   </div>
-
 
 
 </body>
