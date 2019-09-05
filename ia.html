@@ -718,8 +718,8 @@
     e as arestas são jogadas. Por exemplo no jogo do galo (imagem em cima), a partir do S<sub>0</sub>, o MAX tem nove
     jogadas possíveis.
     Depois vai-se alternando o MAX, que coloca um X, com o MIN, que coloco uma O, até se se chegar ás folhas da árvore.
-    Esses estados terminais terão um valor que irá corresponder ao retorno da função UTILITY para o MAX em que cada um desses
-    mesmos estados.</br></br>
+    Esses estados terminais terão um valor que irá corresponder ao retorno da função UTILITY para o MAX em que cada um
+    desses mesmos estados.</br></br>
 
     <b>Valor MINIMAX</b></br></br>
 
@@ -958,6 +958,116 @@
     <h4 class="sub-topic-title">Teoria de aprendizagem computacional (Capitulo 18.5)</h4>
 
     <!-- Fim Aprendizagem automática -->
+    <!-- Arvores de descisao -->
+
+    <h3 id="ia--aprend-reforco" class="topic-title">Árvores de decisão</h3>
+    <h6 class="topic-book-chapter">Capitulo 18.3</h6>
+
+    Uma árvore de decisão representa uma função que recebe como input um vetor de atributos e que retorna uma "decisão",
+    o
+    valor de output para o input recebido. Os valores dos atributos e do output podem ser discretos ou contínuos, nesta
+    disciplina estuda-se apenas os casos de classificação Booleana em que cada exemplo é classificado como positivo ou
+    negativo. A árvore chega a uma decisão depois de fazer uma sequencia de testes em que cada nó da árvore corresponde
+    a um teste a um dos atributos, os ramos estão rotulados com os possiveís valores do atributo a testar e as folhas
+    representam o valor a ser devolvido.</br></br>
+
+    <div class="graph-img-container">
+      <img class="graph-img" src="./media/img/ia/decision-tree.png">
+    </div></br></br>
+
+    <b>Exemplo:</b> Decidir se esperamos por uma mesa num restaurante, com base nos seguintes atributos:</br>
+    <ol>
+      <li>Alternativa: existe um restaurante alternativo próximo?</li>
+      <li>Bar: existe uma área de bar confortável para esperar?</li>
+      <li>Sexta/Sábado: hoje é Sexta ou Sábado?</li>
+      <li>Fome: temos fome?</li>
+      <li>Clientes: número de pessoas no restaurante (Nenhum, Algum, Cheio)</li>
+      <li>Preço: gama de preços ($, $$, $$$)</li>
+      <li>Chuva: está a chover lá fora?</li>
+      <li>Reserva: fizemos uma reserva?</li>
+      <li>Tipo de restaurante: Francês, Italiano, Tailandês, Burger, ...</li>
+      <li>Estimativa do tempo de espera: 0 - 10, 10 - 30, 30 - 60, >60</li>
+    </ol>
+
+    Uma árvore de decisão pode ser escrita da seguinte forma na lógica proposicional:</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Objetivo \Leftrightarrow (Caminho_{1},Caminho_{2},...)" /></br></br>
+
+    Onde um caminho é um conjunto de testes feitos a atributos e que são necessários para seguir esse mesmo
+    caminho.</br></br>
+
+    <b>Indução de árvores de decisão</b></br></br>
+
+    Quanto mais simples for a árvore (i.e. menor) menos esta vai refletir particularidades do conjunto de
+    treino que não interessam aprender. Deste modo, uma árvore mais simples vai classificar melhor instâncias
+    não vistas do conjunto de treino. Logo, será mais útil.
+    Para extrairmos uma boa árvore, temos que escolher uma boa ordem para os atributos. Uma forma
+    de o fazer é seguir o critério do ganho de informação.</br>
+    Temos que:
+
+    <ul>
+      <li>p: número de instâncias positivas no conjunto de treino</li>
+      <li>n: número de instâncias negativas no conjunto de treino</li>
+    </ul>
+
+    Então a entropia associada a um conjunto de treino é dada por:</br></br>
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?I(\frac{p}{n+p},\frac{n}{n+p})" /></br></br>
+
+    sendo,</br></br>
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?I(V)=-\sum_{k}P(v_{k})log_{2}P(v_{k})" /></br></br>
+
+    Se assumirmos que:
+
+    <ul>
+      <li>p<sub>A=i</sub>: número de instâncias positivas cujo atributo A tem o valor i</li>
+      <li>n<sub>A=i</sub>: número de instâncias negativas cujo atributo A tem o valor i</li>
+    </ul>
+
+    Então podemos calcular a entropia do conjunto de instâncias com atributo A = i:</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+
+    Se considerarmos que um atributo A pode ter valores i ∈ {1, 2, ..., m}, então uma separação de instâncias pelo
+    atributo A, vai partir o conjunto de treino em m subconjuntos diferentes. A entropia associada
+    a essa partição é apenas a média ponderada das entropias de cada subconjunto:</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+
+    Assim, o ganho de informação, GI, associado a partir pelo atributo A, não é mais do que a diferença
+    entre a entropia de um conjunto inteiro e a entropia do conjunto partido pelo atributo A:</br></br>
+
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?GI(A)=I(\frac{p}{n+p},\frac{n}{n+p})-\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+
+
+    <div class="ia-snippet">
+      <b>function</b> DECISION-TREE-LEARNING(examples, attributes, parent examples) <b>returns</b>
+      a tree
+      <div class="ia-snippet-scope">
+        <b>if</b> examples is empty <b>then return</b> PLURALITY-VALUE(parent examples)</br>
+        <b>else if</b> all examples have the same classification <b>then return</b> the classification</br>
+        <b>else if</b> attributes is empty <b>then return</b> PLURALITY-VALUE(examples)</br>
+        <b>else</b>
+        <div class="ia-snippet-scope">
+          A ← argmax<sub>a ∈ attributes</sub> IMPORTANCE(a, examples)</br>
+          tree ← a new decision tree with root test A</br>
+          <b>for each</b> value v<sub>k</sub> of A <b>do</b>
+          <div class="ia-snippet-scope">
+            exs ← {e : e ∈examples <b>and</b> e.A = v<sub>k</sub>}</br>
+            subtree ← DECISION-TREE-LEARNING(exs, attributes − A, examples)</br>
+            add a branch to tree with label (A = v<sub>k</sub>) and subtree subtree</br>
+          </div>
+          <b>return</b> tree
+        </div>
+      </div>
+    </div>
+
+    <!-- Fim Arvores de descisao -->
     <!-- Aprendizagem por reforco-->
 
     <h3 id="ia--aprend-reforco" class="topic-title">Aprendizagem por reforço</h3>
@@ -1247,7 +1357,11 @@
             Exemplos e excertos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
             (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
             (manuel.lopes@tecnico.ulisboa.pt)
-            <!-- End Page Content -->
+          </p>
+          <p class="topic-content-text">As imagens foram retiradas do livro - Artificial Intelligence: A Modern Approach
+            :
+            Stuart Russel and Peter Norvig 2003 Prentice Hall</p>
+          <!-- End Page Content -->
   </div>
 
 
