@@ -6,11 +6,12 @@
 
 .page__title {
   font-size: 3rem;
-  font-style: bold;
+  font-weight: 600;
   color: var(--primary-color);
 }
 
 .page__content {
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -95,9 +96,11 @@
 }
 
 .latex-img {
+  max-width: 100%;
   background: #fff;
   padding: 6px 10px;
   border: 0;
+  box-sizing: border-box;
 }
 
 .template-img-container {
@@ -118,6 +121,8 @@
   padding: 16px;
   margin: 12px auto;
   line-height: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .code-snippet-scope {
@@ -126,4 +131,51 @@
 
 .img-reference {
   font-size: 0.8rem;
+}
+
+table {
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 1300px) {
+  .page__content {
+    max-width: 90%;
+    width: 90%;
+  }
+  .page__title {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    width: 100%;
+    right: 0;
+  }
+  .sidenav {
+    position: fixed;
+    transform: translateX(-400px);
+  }
+  .sidenav.active {
+    transform: translateX(0);
+  }
+  .page__content {
+    max-width: 95vw;
+  }
+  .template-img-container {
+    width: 80%;
+    min-width: 0;
+  }
+  .code-snippet {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 70%;
+  }
 }
