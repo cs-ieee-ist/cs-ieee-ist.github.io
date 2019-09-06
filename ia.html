@@ -1,38 +1,34 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/template.css">
-  <link rel="stylesheet" type="text/css" href="css/ia.css">
-  </link>
-  <!-- template.css has all default class names -->
-
 </head>
 
 <body>
 
-  <div id="pageTop">
-    <center>
-      <div id="projectName">IA</div>
-    </center>
-    <center>
-      <div class="">Inteligência Artificial</div>
-    </center>
+  <div class="page__header">
+    <div class="page__title">
+      Inteligência Artifical
+    </div>
   </div>
 
-  <div id="pageBody">
+  <div class="page__content">
     <!-- Page Content -->
 
     <!-- Agentes Inteligentes -->
 
-    <h3 id="ia--agentes-inteigentes" class="topic-title">Agentes Inteligentes</h3>
+    <div id="ia--agentes-inteigentes" class="section-title-anchor">
+      <h3 class="section-title">Agentes Inteligentes</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 2.1, 2.4.2, 2.4.3, 2.4.6</h6>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/agente.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/agente.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
     Imagem retirada do livro: Artificial Intelligence: A Modern Approach</br></br>
 
-    <h4 class="sub-topic-title">Agente</h4>
+    <h4 class="sub-section-title">Agente</h4>
 
     Um agente é qualquer coisa que consegue captar/perceber o ambiente onde se encontra e que actua nesse mesmo ambiente
     através de atuadores.</br>
@@ -45,20 +41,18 @@
     recebida numa ação.</br></br>
 
     Exemplo de um aspirador:</br>
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>função</b> AgenteAspirador ([posição, estadoLocal]) <b>devolve</b> acção</br>
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         Se estadoLocal = Sujo então Aspirar</br>
         Senão se posição = A então Direita</br>
         Senão se posição = B então Esquerda
 
       </div>
     </div>
-
-
     </br>
 
-    <h4 class="sub-topic-title">Agente racional</h4>
+    <h4 class="sub-section-title">Agente racional</h4>
 
     Um agente racional deve procurar fazer “o que está certo”, com base nas suas percepções e nas acções que pode tomar.
     No entanto, o que quer fazer “o que está certo”? Bem, podemos considerar as consequências do comportamento do
@@ -76,12 +70,12 @@
     aspirada, tempo utilizado, electricidade
     consumida, ruído gerado, etc.</br></br>
 
-    <h4 class="sub-topic-title">Agente Autónomo</h4>
+    <h4 class="sub-section-title">Agente Autónomo</h4>
 
     Um agente é autónomo se o seu conhecimento for determinado apenas pela sua experiência, ou seja, este tem a
     capacidade de aprender e adaptar-se.</br></br>
 
-    <h4 class="sub-topic-title">PEAS</h4>
+    <h4 class="sub-section-title">PEAS</h4>
 
     - Performance (desempenho)</br>
     - Environment (ambiente)</br>
@@ -101,7 +95,7 @@
     temperatura do óleo</br>
 
 
-    <h4 class="sub-topic-title">Tipos de ambientes</h4>
+    <h4 class="sub-section-title">Tipos de ambientes</h4>
 
     <b>- Observável vs Parcialmente Observável</b>
 
@@ -265,7 +259,7 @@
       </tr>
     </table>
 
-    <h4 class="sub-topic-title">Tipos de agentes</h4>
+    <h4 class="sub-section-title">Tipos de agentes</h4>
 
     <ul>
       <li>Agentes reflexos simples</li>
@@ -281,13 +275,15 @@
     atual, ignorando todo o historial de percepções. O exemplo do aspirador apresentado anteriormente é um agente de
     reflexos simples.</br></br>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/agente_simples.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/agente_simples.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> SIMPLE-REFLEX-AGENT(percept) <b>returns</b> an action</br>
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         persistent: rules, a set of condition-action rules</br>
         state ← INTERPRET-INPUT(percept)</br>
         rule ← RULE-MATCH(state, rules)</br>
@@ -301,15 +297,17 @@
     Os agentes de reflexos baseados em modelos são agentes que mantêm um estado interno que lhes diz como é que o "mundo
     funciona". O estado interno vai depender do histórico de percepções do agente.</br></br>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/agente_model_based.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/agente_model_based.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> MODEL-BASED-REFLEX-AGENT(percept) <b>returns</b> an action
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         <b>persistent</b>: state, the agent’s current conception of the world state
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           model, a description of how the next state depends on current state and action</br>
           rules, a set of condition-action rules</br>
           action, the most recent action, initially none
@@ -328,8 +326,10 @@
     para onde o taxi quer ir. Um agente (model based) pode combinar com o modelo um objetivo de forma a escolher a
     melhor ação para alcançar esse mesmo objetivo.</br></br>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/agente_goal_based.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/agente_goal_based.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
     <b>- Agentes baseados em utilidade</b></br></br>
@@ -339,8 +339,10 @@
     pretende chegar a um destino, a função de utilidade permite distinguir as diferentes
     formas de chegar ao destino, em função do tempo, da despesa, da segurança.</br></br>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/agente_utility_based.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/agente_utility_based.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
     <b>- Agentes com aprendizagem</b></br></br>
@@ -355,16 +357,20 @@
       <li>O Elemento de geração de problemas, responsável por sugerir acções que podem trazer informação útil.</li>
     </ul>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/agente_learning.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/agente_learning.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
     <!-- Fim Agentes Inteligentes -->
     <!-- Procura não informada -->
-    <h3 id="ia--procura-n-informada" class="topic-title">Procura não informada</h3>
+    <div id="ia--procura-n-informada" class="section-title-anchor">
+      <h3 class="section-title">Procura não informada</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 3.1, 3.4, 3.5.1, 3.5.2</h6>
 
-    <h4 class="sub-topic-title">Estratégias de procura</h4>
+    <h4 class="sub-section-title">Estratégias de procura</h4>
     As estratégias são avaliadas de acordo com 4 aspectos:</br>
     <ul>
       <li><b>Completude</b>: encontra sempre uma solução caso exista (se não existir diz que não há solução)</li>
@@ -390,7 +396,7 @@
       <li>Função do número de nós guardados em memória</li>
     </ul>
 
-    <h4 class="sub-topic-title">Estratégias de procura não informada</h4>
+    <h4 class="sub-section-title">Estratégias de procura não informada</h4>
 
     <b>Largura Primeiro (Breadth-first search)</b></br>
 
@@ -403,23 +409,23 @@
         for = 1)</li>
     </ul>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> BREADTH-FIRST-SEARCH(problem) <b>returns</b> a solution, or failure
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
         <b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
         frontier ← a FIFO queue with node as the only element</br>
         explored ← an empty set</br>
         <b>loop do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           <b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
           node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
           add node.STATE to explored</br>
           <b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
-          <div class="ia-snippet-scope">
+          <div class="code-snippet-scope">
             child ← CHILD-NODE(problem, node, action)</br>
             <b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
-            <div class="ia-snippet-scope">
+            <div class="code-snippet-scope">
               <b>if</b> problem.GOAL-TEST(child.STATE) <b>then return</b> SOLUTION(child)</br>
               frontier ← INSERT(child,frontier )
             </div>
@@ -439,27 +445,27 @@
       <li><b>Ótima:</b> Sim, nós expandidos por ordem crescente de g </li>
     </ul>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> n UNIFORM-COST-SEARCH(problem) <b>returns</b> a solution, or failure
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
         frontier ← a priority queue ordered by PATH-COST, with node as the only element
         explored ← an empty set</br>
         <b>loop do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           <b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
           node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
           <b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
           add node.STATE to explored</br>
           <b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
-          <div class="ia-snippet-scope">
+          <div class="code-snippet-scope">
             child ← CHILD-NODE(problem, node, action)</br>
             <b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
-            <div class="ia-snippet-scope">
+            <div class="code-snippet-scope">
               frontier ← INSERT(child,frontier )
             </div>
             <b>else if</b> child.STATE is in frontier with higher PATH-COST <b>then</b></br>
-            <div class="ia-snippet-scope">
+            <div class="code-snippet-scope">
               replace that frontier node with child
             </div>
           </div>
@@ -479,22 +485,22 @@
 
     <b>Profundidade Limitada (Depth-limited search)</b></br>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> DEPTH-LIMITED-SEARCH(problem, limit) <b>returns</b> a solution, or failure/cutoff
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         <b>return</b> RECURSIVE-DLS(MAKE-NODE(problem.INITIAL-STATE), problem, limit)
       </div>
       <b>function</b> RECURSIVE-DLS(node, problem, limit) <b>returns</b> a solution, or failure/cutoff
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
 
         <b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
         <b>else if</b> limit = 0 t<b>then return</b> cutoff</br>
         <b>else</b></br>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
 
           cutoff occurred?←false</br>
           <b>for each</b> action in problem.ACTIONS(node.STATE) <b>do</b></br>
-          <div class="ia-snippet-scope">
+          <div class="code-snippet-scope">
 
             child ← CHILD-NODE(problem, node, action)</br>
             result ← RECURSIVE-DLS(child, problem, limit − 1)</br>
@@ -515,11 +521,11 @@
       <li><b>Ótima:</b> Sim, se custo de cada ramo for = 1 </li>
     </ul>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> ITERATIVE-DEEPENING-SEARCH(problem) <b>returns</b> a solution, or failure/cutoff
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         <b>for</b> depth = 0 <b>to</b> ∞ <b>do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           result ← DEPTH-LIMITED-SEARCH(problem, depth)</br>
           <b>if</b> result != cutoff <b>then return</b> result
         </div>
@@ -529,10 +535,12 @@
     <!-- Fim Procura não informada -->
     <!-- Procura informada -->
 
-    <h3 id="ia--procura-informada" class="topic-title">Procura informada</h3>
+    <div id="ia--procura-informada" class="section-title-anchor">
+      <h3 class="section-title">Procura informada</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 21.1, 21.2 e 21.3</h6>
 
-    <h4 class="sub-topic-title">Função heurística</h4>
+    <h4 class="sub-section-title">Função heurística</h4>
 
     <ul>
       <li>g(n) - custo do caminho do estado inicial até o nó n</li>
@@ -566,28 +574,28 @@
         - Procura custo uniforme pode ser vista como Procura Melhor Primeiro, f(n) = g(n)</li>
     </ul>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> BEST-FIRST-SEARCH (problem) <b>returns</b> a solution, or failure
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
 
         node ← a node with State = problem.Initial-State, Path-Cost = 0</br>
         frontier ← a priority queue ordered by F(node), with node as the only element</br>
         explored ← an empty set</br>
         <b>loop do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           <b>if</b> EMPTY?(frontier) <b>then return</b> failure</br>
           node ← POP(frontier)</br>
           <b>if</b> problem.Goal-Test(node.State) <b>then return</b> Solution(node)</br>
           add node.State to explored</br>
           <b>for each</b> action in problem.Actions(node.State) <b>do</b>
-          <div class="ia-snippet-scope">
+          <div class="code-snippet-scope">
             child ← CHILD-NODE(problem,node,action)</br>
             <b>if</b> child.State is not in explored or frontier <b>then</b>
-            <div class="ia-snippet-scope">
+            <div class="code-snippet-scope">
               frontier ← Insert(child,frontier)
             </div>
             <b>else if</b> child.State is in frontier with higher F-Value <b>then</b>
-            <div class="ia-snippet-scope">
+            <div class="code-snippet-scope">
               replace that frontier node with child
             </div>
           </div>
@@ -640,7 +648,7 @@
     a soma dos outros dois lados.</br>
     <b>Se h é consistente então h é admissível</b>, o caso contrário não se verifica.</br></br>
 
-    <h4 class="sub-topic-title">IDA* (Iterative Deepening A*)</h4>
+    <h4 class="sub-section-title">IDA* (Iterative Deepening A*)</h4>
 
     <ul>
       <li>Versão iterativa em profundidade da procura A*</li>
@@ -651,7 +659,7 @@
         iteração anterior</li>
     </ul>
 
-    <h4 class="sub-topic-title">RBFS</h4>
+    <h4 class="sub-section-title">RBFS</h4>
 
     <ul>
       <li>Tenta simular o Best-First search mas usando espaço linear</li>
@@ -671,7 +679,7 @@
     </ul>
 
 
-    <h4 class="sub-topic-title">SMA* (Simplified Memory A*)</h4>
+    <h4 class="sub-section-title">SMA* (Simplified Memory A*)</h4>
 
     <ul>
       <li>Procede primeiro como o A*: </br>
@@ -690,13 +698,17 @@
     <!-- Fim Procura informada -->
     <!-- Jogos -->
 
-    <h3 id="ia--incerteza" class="topic-title">Procura em Jogos</h3>
+    <div id="ia--jogos" class="section-title-anchor">
+      <h3 class="section-title">Procura em Jogos</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 5.1, 5.2, 5.3</h6>
 
-    <h4 class="sub-topic-title">Minimax</h4>
+    <h4 class="sub-section-title">Minimax</h4>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/minimax.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/minimax.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
     Consideremos um jogo com dois jogadores, um chamado MAX o outro MIN. Eles vão jogar de forma alternada sendo que o
@@ -728,29 +740,29 @@
 
     <b>Algoritmo MINIMAX</b></br></br>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> MINIMAX-DECISION(state) <b>returns</b> an action
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         <b>return</b> arg maxa ∈ ACTIONS(s) MIN-VALUE(RESULT(state, a))
       </div></br></br>
 
       <b>function</b> MAX-VALUE(state) <b>returns</b> a utility value
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
         v ← −∞</br>
         <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           v ← MAX(v, MIN-VALUE(RESULT(s, a)))
         </div>
         <b>return</b> v</br>
       </div></br></br>
 
       <b>function</b> MIN-VALUE(state) <b>returns</b> a utility value
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
         v ← ∞
         <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           v ← MIN(v, MAX-VALUE(RESULT(s, a)))
         </div>
         <b>return</b> v
@@ -766,7 +778,7 @@
         uma vez, O(m) para um algoritmo que gera os sucessores um a um</li>
     </ul>
 
-    <h4 class="sub-topic-title">Cortes Alpha-Beta</h4>
+    <h4 class="sub-section-title">Cortes Alpha-Beta</h4>
 
     Na procura Minimax o número de estados a examinar é exponencial. No entanto podemos reduzir o número de estado
     analisados para metade. O truque passa por calcular a decisão Minimax
@@ -779,22 +791,22 @@
         de decisão ao longo do caminho para n</li>
     </ul>
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
 
 
       <b>function</b> ALPHA-BETA-SEARCH(state) <b>returns</b> an action
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         v ← MAX-VALUE(state,−∞,+∞)</br>
         <b>return</b> the action <b>in</b> ACTIONS(state) with value v
       </div></br></br>
 
       <b>function</b> MAX-VALUE(state,α, β) <b>returns</b> a utility value
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
 
         <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
         v ← −∞
         <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           v ← MAX(v, MIN-VALUE(RESULT(s,a),α, β))</br>
           <b>if</b> v ≥ β <b>then return</b> v</br>
           α ← MAX(α, v)
@@ -803,12 +815,12 @@
       </div></br></br>
 
       <b>function</b> MIN-VALUE(state,α, β) <b>returns</b> a utility value
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
 
         <b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
         v ← +∞</br>
         <b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
 
           v ← MIN(v, MAX-VALUE(RESULT(s,a) ,α, β))
           <b>if</b> v ≤ α <b>then return</b> v</br>
@@ -823,7 +835,9 @@
     <!-- Fim Jogos -->
     <!-- Problema de Satisfação de Restrições -->
 
-    <h3 id="ia--incerteza" class="topic-title">Problema de Satisfação de Restrições (CSP)</h3>
+    <div id="ia--csp" class="section-title-anchor">
+      <h3 class="section-title">Problema de Satisfação de Restrições (CSP)</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 6.1, 6.2, 6.3</h6>
 
     Um problema de satisfação de restrições tem três componentes, X, D, e C:
@@ -836,7 +850,8 @@
 
     Um domínio D<sub>i</sub> consiste no conjunto de valores possíveis, {v<sub>1</sub>,...,v<sub>k</sub>} para a
     variável X<sub>i</sub>.
-    Cada restrição C<sub>i</sub> consiste no par &lt;scope,rel>, onde "scope" é um tuplo com as variáveis que participam
+    Cada restrição C<sub>i</sub> consiste no par &lt;scope,rel>, onde "scope" é um tuplo com as variáveis que
+    participam
     na
     restrição e "rel" é uma relação que define o conjunto de valores que essas variáveis podem ter. A relação
     pode ter uma representação explícita, onde é uma lista com todos os tuplos de valores que satisfazem a restrição,
@@ -856,8 +871,10 @@
 
     <b>Examplo: Map coloring</b></br></br>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/csp.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/csp.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
     Temos um mapa da Austrália com todos os estados e territórios. O nosso objetivo é colorir cada região de vermelho,
@@ -872,16 +889,19 @@
         green)}</li>
     </ul>
 
-    Para ajudar a visualizar o problema pode-se usarm grafo, como na figura a cima, onde os nós são as variáveis e cada
+    Para ajudar a visualizar o problema pode-se usarm grafo, como na figura a cima, onde os nós são as variáveis e
+    cada
     arco representa um restrição em que ambas as variáveis participam.
 
     <!-- Fim Problema de Satisfação de Restrições -->
     <!-- Incerteza -->
 
-    <h3 id="ia--incerteza" class="topic-title">Incerteza</h3>
+    <div id="ia--incerteza" class="section-title-anchor">
+      <h3 class="section-title">Incerteza</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 13</h6>
 
-    <h4 class="sub-topic-title">Regra de Bayes</h4>
+    <h4 class="sub-section-title">Regra de Bayes</h4>
 
 
     <img class="latex-img" src="http://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(a|b)P(b)}{P(a)}" /></br></br>
@@ -895,13 +915,17 @@
     <!-- Fim Incerteza -->
     <!-- Racicionio probabilistico -->
 
-    <h3 id="ia--incerteza" class="topic-title">Racicionio probabilistico</h3>
+    <div id="ia--raciocinio-probabilistico" class="section-title-anchor">
+      <h3 class="section-title">Racicionio probabilistico</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 14.1, 14.2, 14.4</h6>
 
-    <h4 class="sub-topic-title">Redes Bayesianas</h4>
+    <h4 class="sub-section-title">Redes Bayesianas</h4>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/bayesian-network.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/bayesian-network.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br>
 
     Uma rede Baysiana é um grafo dirigido e acíclico em que cada nó é anotado com a informação sobre
@@ -929,7 +953,9 @@
     <!-- Fim Racicionio probabilistico -->
     <!-- Aprendizagem automática -->
 
-    <h3 id="ia--aprend-automatica" class="topic-title">Aprendizagem automática</h3>
+    <div id="ia--aprend-automatica" class="section-title-anchor">
+      <h3 class="section-title">Aprendizagem automática</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 18.1, 18.4 e 18.5</h6>
 
     A ideia por detrás da aprendizagem é que as percepções de um agente devem servir não apenas para o agente agir,
@@ -1015,15 +1041,17 @@
     </ul>
 
     Os seguintes tópicos são muito teóricos, por isso sugerimos a leitura dos seguintes capítulos:
-    <h4 class="sub-topic-title">Aprendizagem supervisionada (Capitulo 18.2)</h4>
-    <h4 class="sub-topic-title">Árvores de decisão (Capitulo 18.3)</h4>
-    <h4 class="sub-topic-title">Generalização e Overfitting (Capitulo 18.3.5)</h4>
-    <h4 class="sub-topic-title">Teoria de aprendizagem computacional (Capitulo 18.5)</h4>
+    <h4 class="sub-section-title">Aprendizagem supervisionada (Capitulo 18.2)</h4>
+    <h4 class="sub-section-title">Árvores de decisão (Capitulo 18.3)</h4>
+    <h4 class="sub-section-title">Generalização e Overfitting (Capitulo 18.3.5)</h4>
+    <h4 class="sub-section-title">Teoria de aprendizagem computacional (Capitulo 18.5)</h4>
 
     <!-- Fim Aprendizagem automática -->
     <!-- Arvores de descisao -->
 
-    <h3 id="ia--aprend-reforco" class="topic-title">Árvores de decisão</h3>
+    <div id="ia--arvores-decisao" class="section-title-anchor">
+      <h3 class="section-title">Árvores de decisão</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 18.3</h6>
 
     Uma árvore de decisão representa uma função que recebe como input um vetor de atributos e que retorna uma
@@ -1039,8 +1067,10 @@
     folhas
     representam o valor a ser devolvido.</br></br>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/decision-tree.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/decision-tree.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br></br>
 
     <b>Exemplo:</b> Decidir se esperamos por uma mesa num restaurante, com base nos seguintes atributos:</br>
@@ -1113,19 +1143,19 @@
       src="http://latex.codecogs.com/gif.latex?GI(A)=I(\frac{p}{n+p},\frac{n}{n+p})-\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
 
 
-    <div class="ia-snippet">
+    <div class="code-snippet">
       <b>function</b> DECISION-TREE-LEARNING(examples, attributes, parent examples) <b>returns</b>
       a tree
-      <div class="ia-snippet-scope">
+      <div class="code-snippet-scope">
         <b>if</b> examples is empty <b>then return</b> PLURALITY-VALUE(parent examples)</br>
         <b>else if</b> all examples have the same classification <b>then return</b> the classification</br>
         <b>else if</b> attributes is empty <b>then return</b> PLURALITY-VALUE(examples)</br>
         <b>else</b>
-        <div class="ia-snippet-scope">
+        <div class="code-snippet-scope">
           A ← argmax<sub>a ∈ attributes</sub> IMPORTANCE(a, examples)</br>
           tree ← a new decision tree with root test A</br>
           <b>for each</b> value v<sub>k</sub> of A <b>do</b>
-          <div class="ia-snippet-scope">
+          <div class="code-snippet-scope">
             exs ← {e : e ∈examples <b>and</b> e.A = v<sub>k</sub>}</br>
             subtree ← DECISION-TREE-LEARNING(exs, attributes − A, examples)</br>
             add a branch to tree with label (A = v<sub>k</sub>) and subtree subtree</br>
@@ -1138,7 +1168,9 @@
     <!-- Fim Arvores de descisao -->
     <!-- Aprendizagem por reforco-->
 
-    <h3 id="ia--aprend-reforco" class="topic-title">Aprendizagem por reforço</h3>
+    <div id="ia--aprend-reforco" class="section-title-anchor">
+      <h3 class="section-title">Aprendizagem por reforço</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 21.1, 21.2 e 21.3</h6>
 
     Nesta cadeira o tipo de Aprendizagem por reforço que estudamos modela o problema da seguinte forma:</br>
@@ -1256,10 +1288,12 @@
     <!-- Fim Aprendizagem por reforco-->
     <!-- Aprendizagem parametrica-->
 
-    <h3 id="ia--aprend-param" class="topic-title">Aprendizagem paramétrica</h3>
+    <div id="ia--aprend-param" class="section-title-anchor">
+      <h3 class="section-title">Aprendizagem paramétrica</h3>
+    </div>
     <h6 class="topic-book-chapter">Capitulo 18.6.4, 18.7</h6>
 
-    <h4 class="sub-topic-title">Regressão Paramétrica</h4>
+    <h4 class="sub-section-title">Regressão Paramétrica</h4>
 
     Na regressão paramétrica o mapeamento entre features e previsão
     é descrito por um vector de parâmetros β. Para aprendermos, estes parâmetros, usamos um conjunto de
@@ -1291,7 +1325,7 @@
       src="http://latex.codecogs.com/gif.latex?Loss=\sum_{i=1}^{n}Loss^{(i)}=\sum_{i=1}^{n}(y^{(i)}-X^{(i)}\beta)^{2}=(Y-X\beta)^{T}(Y-X\beta)" /></br></br>
 
 
-    <h4 class="sub-topic-title">Regressão Linear</h4>
+    <h4 class="sub-section-title">Regressão Linear</h4>
 
     No caso da regressão linear, vamos procurar o vector β que minimiza o erro do modelo.
     Para tal, basta encontrar onde a primeira derivada da função do erro total se anula:</br></br>
@@ -1309,7 +1343,7 @@
      \end{align*}" /></br></br>
 
 
-    <h4 class="sub-topic-title">Regressão de Ridge</h4>
+    <h4 class="sub-section-title">Regressão de Ridge</h4>
 
     No caso da regressão ridge, vamos, também, calcular um vector β que tenta minimizar o erro do modelo. Contudo
     para
@@ -1328,10 +1362,12 @@
     \beta=(X^{T}X+\lambda I)^{-1}X^{T}Y
     \end{align*}" /></br></br>
 
-    <h4 class="sub-topic-title">Perceptrão</h4>
+    <h4 class="sub-section-title">Perceptrão</h4>
 
-    <div class="graph-img-container">
-      <img class="graph-img" src="./media/img/ia/perceptron.png">
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/perceptron.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
     </div></br></br>
 
     O Perceptrão é um classificador linear que coloca um separador entre pontos positivos e negativos de uma
@@ -1345,171 +1381,174 @@
     <ul>
       <li>Se in = 0, ou seja o ponto está em cima do separador: h(in) = 1.</li>
       <li>Se in > 0 , ou seja o ponto está em acima do separador: h(in) = 1.</li>
-      <li>Se in < 0 , ou seja o ponto está em abaixo do separador: h(in)=−1.</li> </ul> <b>Output:</b></br></br>
+      <li>Se in &lt; 0 , ou seja o ponto está em abaixo do separador: h(in)=−1.</li>
+    </ul> <b>Output:</b></br></br>
 
-          <img class="latex-img"
-            src="http://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
 
-          Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que
-          definem
-          o separador. Dado um conjunto de treino X com classificações Y. Começa-se por inicializar o vetor w com
-          valores
-          aleatórios. De seguida cálcula-se para cada exemplo no conjunto de treino o output do perceptrão. Se este
-          valor for igual ao esperado então não se faz nada. Se for diferente então utilizamos a seguinte regra de
-          update para atualizarmos os pesos.</br></br>
-          <img class="latex-img"
-            src="http://latex.codecogs.com/gif.latex?w = w + \alpha (y_{i}- \hat{y}) x_{i}" /></br></br>
+    Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que
+    definem
+    o separador. Dado um conjunto de treino X com classificações Y. Começa-se por inicializar o vetor w com
+    valores
+    aleatórios. De seguida cálcula-se para cada exemplo no conjunto de treino o output do perceptrão. Se este
+    valor for igual ao esperado então não se faz nada. Se for diferente então utilizamos a seguinte regra de
+    update para atualizarmos os pesos.</br></br>
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?w = w + \alpha (y_{i}- \hat{y}) x_{i}" /></br></br>
 
-          <b>Exemplo</b></br>
-          Considere o conjunto de treino com 8 pontos:</br></br>
+    <b>Exemplo</b></br>
+    Considere o conjunto de treino com 8 pontos:</br></br>
 
 
-          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}
             -2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 
             0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5
             \end{bmatrix}" /></br></br>
 
 
-          Com as seguintes classificações:</br></br>
-          <img class="latex-img"
-            src="http://latex.codecogs.com/gif.latex?Y= [True\ True\ True\ True\ False\ False\ False\ False]" /></br></br>
-          Considere os seguintes pontos de teste.</br></br>
-          <img class="latex-img"
-            src="http://latex.codecogs.com/gif.latex?\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}-0.5\\ 0.5\end{bmatrix}" /></br></br>
+    Com as seguintes classificações:</br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?Y= [True\ True\ True\ True\ False\ False\ False\ False]" /></br></br>
+    Considere os seguintes pontos de teste.</br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}-0.5\\ 0.5\end{bmatrix}" /></br></br>
 
-          (a) Fazendo uma ronda de updates com α = 1, w = [1, 1] e w0 = 0, como fica o vector de pesos?</br></br>
-          <b>Resolução:</b></br>
-          O primeiro passo é acrescentar uma dimensão a X para podermos tratar o termo de bias
-          como um peso normal. Assim, ficamos com:</br></br>
-          <img class="latex-img"
-            src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}-2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5\\1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\end{bmatrix}" /></br></br>
+    (a) Fazendo uma ronda de updates com α = 1, w = [1, 1] e w0 = 0, como fica o vector de pesos?</br></br>
+    <b>Resolução:</b></br>
+    O primeiro passo é acrescentar uma dimensão a X para podermos tratar o termo de bias
+    como um peso normal. Assim, ficamos com:</br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}-2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5\\1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\end{bmatrix}" /></br></br>
 
-          Deste modo, podemos escrever os pesos num só vector: w = [1, 1, 0].
-          Se definirmos True com +1 e False como −1 ficamos com:</br></br>
-          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y = [1\ 1\ 1\ 1\ -1\ -1\ -1\ -1]" /></br></br>
+    Deste modo, podemos escrever os pesos num só vector: w = [1, 1, 0].
+    Se definirmos True com +1 e False como −1 ficamos com:</br></br>
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y = [1\ 1\ 1\ 1\ -1\ -1\ -1\ -1]" /></br></br>
 
-          Façamos então um ronda de updates</br></br>
+    Façamos então um ronda de updates</br></br>
 
-          <div class="graph-img-container">
-            <img class="graph-img" src="./media/img/ia/perceptron-example.png">
-          </div></br></br>
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/perceptron-example.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+          Pearson</span>
+    </div></br></br>
 
 
-          (b) Qual a classificação que o Perceptrão treinado retorna para os pontos de teste.</br></br>
-          <b>Resolução:</b></br></br>
-          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}([0, 0, 1]) = h([-5, -2.8, 0] · [0, 0, 1]) = h(0) = 1\\
+    (b) Qual a classificação que o Perceptrão treinado retorna para os pontos de teste.</br></br>
+    <b>Resolução:</b></br></br>
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}([0, 0, 1]) = h([-5, -2.8, 0] · [0, 0, 1]) = h(0) = 1\\
           \hat{y}([-0.5, 0.5, 1]) = h([-5, -2.8, 0] · [-0.5, 0.5, 1]) = h(1.1) = 1" /></br></br>
 
-          <h4 class="sub-topic-title">Reqressão Logística</h4>
+    <h4 class="sub-section-title">Reqressão Logística</h4>
 
-          O modelo de regressão logística funciona de forma muito semelhante ao Perceptrão. Sendo também
-          classificador
-          linear que coloca um separador entre pontos positivos e negativos de
-          uma classe.
-          No caso do Perceptrão a função de ativação retornava 1 ou −1. No caso da regressão logística, função
-          utilizada
-          passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo
-          [0,1].</br></br>
-          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
-          Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o
-          w
-          agora passamos a usar o β.</br>
-          Assim, dado um ponto x o retorno da regressão logística pode ser definido por:</br></br>
-          <img class="latex-img"
-            src="http://latex.codecogs.com/gif.latex?p(+|x)=\sigma(\beta.x)=\frac{1}{1+e^{-\beta.x}}" /></br></br>
-          Tal como para o Perceptrão existem regras de update que podem ser utilizadas para aprender os pesos.
-          Contudo, nesta cadeira esses métodos não são abordados.</br></br>
-
-
-          <!-- Fim Aprendizagem parametrica  -->
-          <!-- Aprendizagem nao parametrica  -->
-
-          <h3 id="ia--aprend-n-param" class="topic-title">Aprendizagem não paramétrica</h3>
-          <h6 class="topic-book-chapter">Capitulo 18.8</h6>
+    O modelo de regressão logística funciona de forma muito semelhante ao Perceptrão. Sendo também
+    classificador
+    linear que coloca um separador entre pontos positivos e negativos de
+    uma classe.
+    No caso do Perceptrão a função de ativação retornava 1 ou −1. No caso da regressão logística, função
+    utilizada
+    passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo
+    [0,1].</br></br>
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
+    Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o
+    w
+    agora passamos a usar o β.</br>
+    Assim, dado um ponto x o retorno da regressão logística pode ser definido por:</br></br>
+    <img class="latex-img"
+      src="http://latex.codecogs.com/gif.latex?p(+|x)=\sigma(\beta.x)=\frac{1}{1+e^{-\beta.x}}" /></br></br>
+    Tal como para o Perceptrão existem regras de update que podem ser utilizadas para aprender os pesos.
+    Contudo, nesta cadeira esses métodos não são abordados.</br></br>
 
 
-          <h4 class="sub-topic-title">k-nearest neighbors</h4>
-          <p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como
-            tinhas
-            na
-            Aprendizagem Paramétrica. E portanto o peso da computação estará na fase de classificação.
-            Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a
-            distância
-            do
-            exemplo a cada ponto e as respetivas labels.
-            Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
-          </p>
+    <!-- Fim Aprendizagem parametrica  -->
+    <!-- Aprendizagem nao parametrica  -->
+    <div id="ia--aprend-n-param" class="section-title-anchor">
+      <h3 class="section-title">Aprendizagem não paramétrica</h3>
+    </div>
+    <h6 class="topic-book-chapter">Capitulo 18.8</h6>
 
-          <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
 
-          <p class="topic-content-text">
-            <b>Exemplo</b></br>
-            Considere o seguinte conjunto de pontos: D = {(−2, 2),(−1, 3),(0, 1),(2, −1)}.</br>
-            Calcule a previsão obtida para os pontos (1, y) e (0, y)</br>
-            (a) Para K = 2.</br>
-            </br>
-            O primeiro passo é calcular a matriz de distâncias para ambos os pontos:</br></br>
-            <img class="latex-img" src="http://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
+    <h4 class="sub-section-title">k-nearest neighbors</h4>
+    <p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como
+      tinhas
+      na
+      Aprendizagem Paramétrica. E portanto o peso da computação estará na fase de classificação.
+      Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a
+      distância
+      do
+      exemplo a cada ponto e as respetivas labels.
+      Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
+    </p>
+
+    <img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
+
+    <p class="topic-content-text">
+      <b>Exemplo</b></br>
+      Considere o seguinte conjunto de pontos: D = {(−2, 2),(−1, 3),(0, 1),(2, −1)}.</br>
+      Calcule a previsão obtida para os pontos (1, y) e (0, y)</br>
+      (a) Para K = 2.</br>
+      </br>
+      O primeiro passo é calcular a matriz de distâncias para ambos os pontos:</br></br>
+      <img class="latex-img" src="http://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
       3 & 2 & 1 & 1 \\ 
       2 & 1 & 0 & 2
      \end{bmatrix}" /></br></br>
 
-            <b>(a)</b>Tendo em conta os 2 vizinhos mais próximos, obtemos as seguintes estimativas:</br>
-            </br>
-            <img class="latex-img"
-              src="http://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
+      <b>(a)</b>Tendo em conta os 2 vizinhos mais próximos, obtemos as seguintes estimativas:</br>
+      </br>
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
 
-            <img class="latex-img"
-              src="http://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
-            </br>
-          </p>
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
+      </br>
+    </p>
 
-          <h4 class="sub-topic-title">Kernels</h4>
-          <p class="topic-content-text">
-            Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para
-            pesarmos
-            os
-            diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será
-            mais
-            penalizado, um
-            exemplo mais perto será menos penalizado ou não será penalizado de todo.</br></br>
-            Exemplos de diferentes funções que podemos usar como Kernel:<br><br>
-            Kernel Quadrático</br></br>
+    <h4 class="sub-section-title">Kernels</h4>
+    <p class="topic-content-text">
+      Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para
+      pesarmos
+      os
+      diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será
+      mais
+      penalizado, um
+      exemplo mais perto será menos penalizado ou não será penalizado de todo.</br></br>
+      Exemplos de diferentes funções que podemos usar como Kernel:<br><br>
+      Kernel Quadrático</br></br>
 
-            <img class="latex-img"
-              src="http://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
-            <div class="graph-img-container">
-              <img class="graph-img" src="./media/img/ia/kernel_quad.png">
-            </div></br></br>
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
+      <div class="template-img-container">
+        <img class="template-img" src="./media/img/ia/kernel_quad.png">
+      </div></br></br>
 
-            Kernel Gaussiano</br></br>
-            <img class="latex-img"
-              src="http://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
+      Kernel Gaussiano</br></br>
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
 
-            <div class="graph-img-container">
-              <img class="graph-img" src="./media/img/ia/kernel_gauss.png">
-            </div></br></br>
+      <div class="template-img-container">
+        <img class="template-img" src="./media/img/ia/kernel_gauss.png">
+      </div></br></br>
 
-            Este tipo de regressão que usa um Kernel segue a mesma lógica do k-nearest neighbors, no entanto, agora
-            fazemos
-            uma média ponderada sobre todos os elementos do conjunto de treino.</br></br>
+      Este tipo de regressão que usa um Kernel segue a mesma lógica do k-nearest neighbors, no entanto, agora
+      fazemos
+      uma média ponderada sobre todos os elementos do conjunto de treino.</br></br>
 
-            <img class="latex-img"
-              src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
-          </p>
+      <img class="latex-img"
+        src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
+    </p>
 
-          <!-- Fim Aprendizagem nao parametrica  -->
+    <!-- Fim Aprendizagem nao parametrica  -->
 
-          <p class="topic-content-text">
-            Exemplos e excertos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
-            (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
-            (manuel.lopes@tecnico.ulisboa.pt)
-          </p>
-          <p class="topic-content-text">As imagens foram retiradas do livro - Artificial Intelligence: A Modern
-            Approach
-            :
-            Stuart Russel and Peter Norvig 2003 Prentice Hall</p>
-          <!-- End Page Content -->
+    <p class="topic-content-text">
+      Exemplos e excertos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
+      (luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
+      (manuel.lopes@tecnico.ulisboa.pt)
+    </p>
+    <p class="topic-content-text">As imagens foram retiradas do livro - Artificial Intelligence: A Modern
+      Approach
+      :
+      Stuart Russel and Peter Norvig 2003 Prentice Hall</p>
+    <!-- End Page Content -->
   </div>
 
 

@@ -1,31 +1,23 @@
-#pageTop {
-
-  background-color: #333;
-  display:inline-block;
+.page__header {
   width: 100%;
-  padding-bottom: 2%;
-  margin-top: 0%;
+  max-width: 900px;
+  margin: 82px auto 32px auto;
 }
 
-#projectName {
-
-  font-size: 3em;
+.page__title {
+  font-size: 3rem;
   font-style: bold;
-
+  color: var(--primary-color);
 }
 
-
-#pageBody {
-
-  padding-top: 2%;
-  padding-left: 5%;
-  padding-right: 5%
+.page__content {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .codeWrapper {
-
   display: inline-block;
-  margin:0 auto;
+  margin: 0 auto;
   background-color: #F5F5F5;
   padding: 2%;
   width: 96%;
@@ -38,15 +30,12 @@
 }
 
 .codeWrapper p {
-
   margin: 2px;
   padding: 2px;
 }
 
 .paragraph {
-
   display: inline-block;
-
   word-wrap: normal;
   margin: 0 auto;
   padding: 2%;
@@ -54,26 +43,19 @@
 }
 
 .splitCodeText {
-
   display: inline;
   margin: 0 auto;
-
 }
 
 .pLeft {
-
   width: 30%;
   white-space: normal;
-
 }
 
 .cRight {
-
   width: 337%;
   margin-left: -240%;
   white-space: normal;
-
-
 }
 
 .beforeCode {
@@ -87,3 +69,61 @@
   user-select: none;
 }
 
+.section-title {
+  position: relative;
+  bottom: -80px;
+  font-size: 1.5rem;
+  margin: 44px 0 0 0;
+  padding-bottom: 12px;
+  color: #333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.section-title-anchor {
+  position: relative;
+  bottom: 80px;
+}
+
+.sub-section-title {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.topic-book-chapter {
+  margin: 12px 0 30px 0;
+  font-size: 0.75rem;
+}
+
+.latex-img {
+  background: #fff;
+  padding: 6px 10px;
+  border: 0;
+}
+
+.template-img-container {
+  width: 60%;
+  min-width: 300px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.template-img {
+  width: 100%;
+}
+
+.code-snippet {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 1.1rem;
+  border: 1px solid;
+  padding: 16px;
+  margin: 12px auto;
+  line-height: 20px;
+}
+
+.code-snippet-scope {
+  margin-left: 20px;
+}
+
+.img-reference {
+  font-size: 0.8rem;
+}

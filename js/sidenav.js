@@ -6,7 +6,7 @@ var active = null;
 var activeButton = null;
 var scrolling = true;
 
-for (i = 0; i < dropdown.length; i++) {
+/* for (i = 0; i < dropdown.length; i++) {
 
   dropdown[i].addEventListener("click", function() {
 
@@ -32,7 +32,7 @@ for (i = 0; i < dropdown.length; i++) {
 
   });
 }
-
+ */
 function navigate(p) {
 
   page = document.getElementById(p);

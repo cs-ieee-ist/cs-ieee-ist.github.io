@@ -1,84 +1,100 @@
+<!doctype html>
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="#">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no">
+    <meta name="theme-color" content="#0072A7">
 
     <title>Computer Society IEEE-IST Code Repository</title>
-    <meta charset="UTF-8">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index.css"></link>
-    <script>
-        "use strict";
-    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
-    <div id="sidebar"></div>
 
-    <!--   Classes   -->
+    <header>
+        <ul class="header__list">
+            <li class="header__options" id="navigate-about">
+                Sobre
+            </li>
+        </ul>
+    </header>
 
-    <div class="page" id="welcome" style="display: block"></div>
-    <!-- Add here -->
-    <div class="page" id="makeclass.py" style="display: none "></div>
-    <div class="page" id="makeclass.py" style="display: none "></div>
-    <div class="page" id="makeclass.py" style="display: none "></div>
-    <div class="page" id="so" style="display: none "></div>
-    <div class="page" id="so" style="display: none "></div>
-    <div class="page" id="so" style="display: none "></div>
-    <div class="page" id="po" style="display: none "></div>
-    <div class="page" id="bd" style="display: none "></div>
-    <div class="page" id="po" style="display: none "></div>
-    <div class="page" id="lp" style="display: none "></div>
-    <div class="page" id="iaed" style="display: none "></div>
-    <div class="page" id="ia" style="display: none "></div>
-    <div class="page" id="so" style="display: none "></div>
-    <div class="page" id="asa" style="display: none "></div>
-    <div class="page" id="fp" style="display: none "></div>
-    <div class="page" id="iaed" style="display: none "></div>
-    <div class="page" id="rc" style="display: none "></div>
-    <div class="page" id="asa" style="display: none "></div>
-    <div class="page" id="fp" style="display: none "></div>
 
-    <!--   Classes   -->
+    <div id="sidebar">
+        <div class="sidenav">
+            <div class="sidenav__image-container">
+                <a href="/">
+                    <img id="csLogo" src="media/img/logo-cs.png"></img>
+                </a>
+            </div>
 
-    <script>
-        // Load html files into divs
+            <button class="dropdown-btn" id="navigate-fp">FP</button>
+            <div class="dropdown-container" id="options-fp">
+                <a href="#" id="d1">Dictionaries</a>
+                <a href="#" id="d2">Classes</a>
+            </div>
 
-        // add here
-        $(function() {
+            <button class="dropdown-btn" id="navigate-iaed">IAED</button>
+            <div class="dropdown-container" id="options-iaed">
+                <a href="#" id="d1">Bubble Sort</a>
+                <a href="#" id="d2">Quick Sort</a>
+                <a href="#" id="d3">Heap Sort</a>
+                <a href="#" id="d4">Insertion Sort</a>
+                <a href="#" id="d5">Shell Sort</a>
+                <a href="#" id="d6">Merge Sort</a>
+                <a href="#" id="d7">Selection Sort</a>
+            </div>
 
-            $("#po").load("po.html");
-        });
+            <button class="dropdown-btn" id="navigate-so">SO</button>
+            <div class="dropdown-container" id="options-so">
+                <a href="#" id="d1">Tópico1</a>
+                <a href="#" id="d2">Tópico2</a>
+            </div>
 
-        $(function() {
+            <button class="dropdown-btn" id="navigate-ia">IA</button>
+            <div class="dropdown-container" id="options-ia">
+                <a href="#ia--agentes-inteigentes">Agentes Inteligentes</a>
+                <a href="#ia--procura-n-informada">Procura não informada</a>
+                <a href="#ia--procura-informada">Procura informada</a>
+                <a href="#ia--incerteza">Incerteza</a>
+                <a href="#ia--aprend-automatica">Aprendizagem automática</a>
+                <a href="#ia--aprend-reforco">Aprendizagem por reforço</a>
+                <a href="#ia--aprend-param">Aprendizagem paramétrica</a>
+                <a href="#ia--aprend-n-param">Aprendizagem não paramétrica</a>
+            </div>
 
-            $("#ia").load("ia.html");
-        });
+            <button class="dropdown-btn" id="navigate-po">PO</button>
+            <div class="dropdown-container" id="options-po">
+                <a href="#" id="d1">Tópico1</a>
+                <a href="#" id="d2">Tópico2</a>
+            </div>
 
-        $(function() {
+            <!-- Add here -->
 
-            $("#so").load("so.html");
-        });
+        </div>
+    </div>
 
-        $(function() {
+    <div class="content">
+        <div class="page" id="welcome" style="display: block"></div>
+        <!-- Add here -->
+        <div class="page" id="so" style="display: none "></div>
+        <div class="page" id="template" style="display: none "></div>
+        <div class="page" id="po" style="display: none "></div>
+        <div class="page" id="bd" style="display: none "></div>
+        <div class="page" id="lp" style="display: none "></div>
+        <div class="page" id="iaed" style="display: none "></div>
+        <div class="page" id="ia" style="display: none "></div>
+        <div class="page" id="asa" style="display: none "></div>
+        <div class="page" id="fp" style="display: none "></div>
+        <div class="page" id="rc" style="display: none "></div>
+        <div class="page" id="about" style="display: none "></div>
+    </div>
 
-            $("#fp").load("fp.html");
-        });
-
-        $(function() {
-
-            $("#iaed").load("iaed.html");
-        });
-
-        $(function() {
-
-            $("#welcome").load("welcome.html");
-        });
-
-        $(function() {
-
-            $("#sidebar").load("sidenav.html");
-        });
-    </script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

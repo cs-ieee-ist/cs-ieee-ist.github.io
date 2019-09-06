@@ -1,68 +1,115 @@
 /* Fixed sidenav, full height */
+
 .sidenav {
-  height: 100%;
-  width: 23%;
-  position: fixed;
+  height: 100vh;
+  width: 300px;
+  padding-bottom: 24px;
   z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #262626;
+  background-color: var(--sidenav-background-color);
   overflow-x: hidden;
-  padding-top: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 /* Style the sidenav links and the dropdown button */
-.sidenav a, .dropdown-btn {
-  padding: 6px 8px 6px 16px;
+
+.dropdown-btn {
+  padding: 10px 6px 10px 18px;
   text-decoration: none;
-  font-size: 20px;
-  color: #818181;
+  font-size: 1.25rem;
+  color: #000;
   display: block;
   border: none;
   background: none;
-  width:100%;
+  width: 100%;
   text-align: left;
   cursor: pointer;
   outline: none;
-  border-style: solid;
-  border-top: none;
-  border-width: 1px;
-  border-color: #484848;
+  box-sizing: border-box;
 }
 
-/* On mouse-over */
+.sidenav a {
+  padding: 10px 6px 10px 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #000;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+}
+
 .sidenav a:hover, .dropdown-btn:hover {
-  color: #f1f1f1;
+  background-color: #e4e4e4;
 }
 
-/* Main content */
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-  font-size: 20px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-/* Add an active class to the active dropdown button */
-.active {
-  background-color: #0073A9; /* cs logo color */
+.dropdown-btn.active {
+  background-color: var(--primary-color);
+  /* cs logo color */
   color: white;
 }
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-btn:hover.active {
+  background: var(--primary-dark-color);
+}
+
 .dropdown-container {
   display: none;
-  background-color: #262626;
-  padding-left: 8px;
 }
 
 /* Optional: Style the caret down icon */
+
 .fa-caret-down {
   float: right;
   padding-right: 8px;
 }
 
-#csLogo {
+.sidenav__image-container {
+  margin: 0 auto 12px auto;
+}
 
-  width: 100%;
-  margin: 0 auto;
+.sidenav__image-container a {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#csLogo {
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+header {
+  position: fixed;
+  width: calc(100% - 316px);
+  height: 44px;
+  top: 0;
+  right: 16px;
+  background: rgba(230, 230, 230, 0.6);
+  backdrop-filter: saturate(180%) blur(20px);
+  z-index: 4;
+}
+
+.header__list {
+  height: 100%;
+  display: flex;
+  float: right;
+  margin: 0;
+  padding-right: 12px;
+  list-style: none;
+  align-items: center;
+}
+
+.header__options {
+  color: #000;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.header__options:hover {
+  color: #555555;
 }

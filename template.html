@@ -1,36 +1,87 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/template.css"></link>
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script>
-    <!-- template.css has all default class names -->
 
-  </head>
-  <body>
+<head>
+  <!-- Add custom style here -->
+</head>
 
-    <div id = "pageTop">
-      <div id = "projectName"><center>PROJECT NAME</center></div>
-      <p></p>
+<body>
 
-      <div id = "className"><center>CHANGEME</center></div>
+  <div class="page__header">
+    <div class="page__title">
+      Title
+    </div>
+  </div>
 
+  <div class="page__content">
+    <!-- Page Content -->
+
+    <!-- Section -->
+
+    <div id="CHANGE-ME" class="section-title-anchor">
+      <h3 class="section-title">Section</h3>
+    </div>
+    <h6 class="topic-book-chapter">Capitulo 2.1</h6>
+
+    <h4 class="sub-section-title">Sub Section</h4>
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    <h4 class="sub-section-title">Pseudocode</h4>
+
+    <div class="code-snippet">
+      <b>function</b> BREADTH-FIRST-SEARCH(problem) <b>returns</b> a solution, or failure
+      <div class="code-snippet-scope">
+        node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
+        <b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+        frontier ← a FIFO queue with node as the only element</br>
+        explored ← an empty set</br>
+        <b>loop do</b>
+        <div class="code-snippet-scope">
+          <b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
+          node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
+          add node.STATE to explored</br>
+          <b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
+          <div class="code-snippet-scope">
+            child ← CHILD-NODE(problem, node, action)</br>
+            <b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
+            <div class="code-snippet-scope">
+              <b>if</b> problem.GOAL-TEST(child.STATE) <b>then return</b> SOLUTION(child)</br>
+              frontier ← INSERT(child,frontier )
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id = "pageBody">
-      <!-- Page Content -->
+    <h4 class="sub-section-title">Code</h4>
 
-      <center><h1 id = "sub1" class = "CHANGEME">TÓPICO 1</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+    <?prettify?>
+    <pre class="prettyprint linenums lang-c">
+      #include &lt;stdio.h> 
+      
+      int main() {
+        printf("Hello World");
+        return 0;
+      }
+    </pre>
 
-      <!-- Code for Topic 1 goes here -->
-      ADD STUFF TO ME
+    <h4 class="sub-section-title">Image</h4>
 
-      <center><h1 id = "sub2" class = "CHANGEME">TÓPICO 2</h1></center> <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
+    <div class="template-img-container">
+      <img class="template-img" src="./media/img/ia/minimax.png">
+      <span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+        Pearson</span>
+    </div></br>
 
-      <!-- Code for Topic 2 goes here -->
-      ADD STUFF TO ME
+    <!-- End Section -->
+    <!-- End Page Content -->
+  </div>
 
-      <!-- Page Content -->
-    </div>
+  <script src="./google-code-prettify/run_prettify.js?skin=desert"></script>
 
-  </body>
+</body>
 
 </html>
