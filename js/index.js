@@ -1,5 +1,4 @@
 let currentPageId = "welcome";
-let currentDropdownBtn = "";
 
 document.querySelector("body").onload = () => {
 	$.ajaxSetup({
@@ -19,14 +18,16 @@ const handleUrl = () => {
 		showPage(currentPageId);
 		return;
 	};
-	const section = location.href.split("/")[4];
-	$(`#${section}`).load(`${section}.html`);
-	showPage(section);
+	const pageId = location.href.split("/")[4];
+	$(`#${pageId}`).load(`${pageId}.html`);
+	expandDropdownOptions(pageId);
+	showPage(pageId);
 }
 
 const setupListeners = () => {
 	$(".dropdown-btn").on("click", handleDropdownBtnClick);
 	$("#navigate-about").on("click", handleDropdownBtnClick);
+	$(".menu-icon").on("click", handleMenuBtnClick);
 }
 
 const loadPage = (pageId) => {
@@ -39,7 +40,7 @@ const loadPage = (pageId) => {
 const showPage = (newPageId) => {
 	const currentPage = $(`#${currentPageId}`);
 	const newPage = $(`#${newPageId}`);
-
+	console.log(currentPageId);
 	loadPage(newPageId);
 
 	if (currentPageId !== newPageId)
@@ -48,24 +49,41 @@ const showPage = (newPageId) => {
 	currentPageId = newPageId;
 }
 
-const handleDropdownBtnClick = (e) => {
-	const btn = $(e.target);
-	const pageId = e.target.id.split("-")[1] // id format: navigate-$[page id]
-	const options = $(`#options-${pageId}`);
-
-	const previousBtn = $(`#navigate-${currentDropdownBtn}`);
-	const previouOptions = $(`#options-${currentDropdownBtn}`);
-
-	if (pageId !== currentDropdownBtn) {
-		previousBtn.removeClass("active");
-		previouOptions.hide();
+const handleMenuBtnClick = () => {
+	const menu = $(".sidenav");
+	const menuBtn = $(".menu-icon");
+	if (menu.hasClass("active")) {
+		menu.removeClass("active");
+		menuBtn.removeClass("close");
 	}
+	else {
+		menu.addClass("active");
+		menuBtn.addClass("close");
+	}
+}
+
+const handleDropdownBtnClick = (e) => {
+	const pageId = e.target.id.split("-")[1] // id format: navigate-$[page id]
+
+	if (pageId !== currentPageId && currentPageId !== "welcome")
+		closeDropdownOption(currentPageId);
+	expandDropdownOptions(pageId);
 
 	window.location.href = location.origin + `#/${pageId}`;
 
+	showPage(pageId);
+}
+
+const closeDropdownOption = (pageId) => {
+	const btn = $(`#navigate-${pageId}`);
+	const options = $(`#options-${pageId}`);
+	btn.removeClass("active");
+	options.hide();
+}
+
+const expandDropdownOptions = (pageId) => {
+	const btn = $(`#navigate-${pageId}`);
+	const options = $(`#options-${pageId}`);
 	btn.addClass("active");
 	options.show();
-
-	showPage(pageId);
-	currentDropdownBtn = pageId;
 }

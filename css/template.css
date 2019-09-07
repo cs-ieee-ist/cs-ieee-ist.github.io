@@ -151,17 +151,6 @@ table {
 }
 
 @media screen and (max-width: 1024px) {
-  header {
-    width: 100%;
-    right: 0;
-  }
-  .sidenav {
-    position: fixed;
-    transform: translateX(-400px);
-  }
-  .sidenav.active {
-    transform: translateX(0);
-  }
   .page__content {
     max-width: 95vw;
   }

@@ -7,6 +7,7 @@
 	--primary-dark-color: #006492;
 	--page-background-color: #fff;
 	--sidenav-background-color: #f0f0f0;
+	--header-height: 44px;
 }
 
 html {
@@ -33,3 +34,4 @@ body {
 pre {
 	padding: 16px 0;
 }
+
