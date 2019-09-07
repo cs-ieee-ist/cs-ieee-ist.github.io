@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap');
 @import url("./sidenav.css");
 @import url("./template.css");
+
 :root {
 	--primary-color: #0073a9;
 	--primary-dark-color: #006492;
