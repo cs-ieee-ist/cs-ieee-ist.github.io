@@ -87,10 +87,10 @@
 
 header {
   position: fixed;
-  width: calc(100% - 316px);
+  width: calc(100% - (300px + 1.25%));
   height: var(--header-height);
   top: 0;
-  right: 16px;
+  right: 1.25%;
   background: rgba(0, 115, 169, 0.6);
   backdrop-filter: saturate(180%) blur(20px);
   z-index: 4;
