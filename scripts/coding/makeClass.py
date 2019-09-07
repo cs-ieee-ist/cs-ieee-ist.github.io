@@ -1,17 +1,16 @@
 import sys
 import os
-className = sys.argv[1].lower()
-os.system("touch ../../" + className + ".html")
-template = open("../../template.html", "r")
-
+print("==== Please make sure you are using a Bash terminal or equivalent ====")
+classId = input("Class abbreviation: ")
 fullName = input("Class full name: ")
+os.system(f'touch ../../{classId}.html')
 
-g = open("../../" + className + ".html", "w")
+template = open("../../template.html", "r", encoding="utf8")
+g = open(f'../../{classId}.html', "w", encoding="utf8")
 
 for line in template:
-    if "CHANGEME" in line:
-        g.write(line.replace("CHANGEME", fullName))
-
+    if "Title" in line:
+        g.write(line.replace("Title", fullName))
     else:
         g.write(line)
 
@@ -19,23 +18,14 @@ g.close()
 template.close()
 
 buf = ""
-with open("../../index.html", "r") as in_file:
+with open("../../index.html", "r", encoding="utf8") as in_file:
     buf = in_file.readlines()
 
-with open("../../index.html", "w") as out_file:
+with open("../../index.html", "w", encoding="utf8") as out_file:
     for line in buf:
-        if  "<!-- Add here -->" in line:
-            line = line + "    <div class = \"page\" id = \""+ className + "\"       style = \"display: none \"></div>\n"
-        elif "// add here" in line:
-            line = line + "\n\t\t\t$(function() {\n\n\t\t\t\t$(\"#" + className +"\").load(\"" + className +".html\");\n\t\t\t});\n"
-        out_file.write(line)
-
-with open("../../sidenav.html", "r") as in_file:
-    buf = in_file.readlines()
-
-with open("../../sidenav.html", "w") as out_file:
-    for line in buf:
-        if  "<!-- Add here -->" in line:
-            line = "\t\t\t<button class=\"dropdown-btn\" onclick=\"navigate('" + className + "')\">" +className.upper() + "\n\t\t\t\t<i class=\"fa fa-caret-down\"></i>\n\t\t\t</button>\n\t\t\t<div class=\"dropdown-container\" id = \"" + className + "0\">\n\t\t\t\t<a href=\"#\" id = \"d1\">Tópico1</a>\n\t\t\t\t<a href=\"#\" id = \"d2\">Tópico2</a>\n\t\t\t</div>\n\n" + line
-
+        if "<!-- Add dropdown here -->" in line:
+            line = f'\t\t\t<button class="dropdown-btn" id="navigate-{classId}">{classId.upper()}\n\t\t\t</button>\n\t\t\t<div class="dropdown-container" id="options-{classId}">\n\t\t\t\t<a href="#" id="d1">Topico1</a>\n\t\t\t\t<a href="#" id="d2">Topico2</a>\n\t\t\t</div>\n\n{line}'
+        elif "<!-- Add page here -->" in line:
+            line = line + \
+                f'<div class="page" id="{classId}" style="display: none"></div>\n'
         out_file.write(line)
