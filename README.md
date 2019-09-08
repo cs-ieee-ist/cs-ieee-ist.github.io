@@ -21,8 +21,9 @@
   >Requisitos: [python3](https://www.python.org/download/releases/3.0/)
 
   ```sh
-  $ cd cs-ieee-ist.github.io/scripts/coding 
-  $ python3 makeClass.py $(ABREVIACAO_DA_NOVA_CADEIRA)
+  $ cd ./scripts/coding 
+  $ python3 makeClass.py
+  > Class abbreviation: $(ABREVIACAO_DA_NOVA_CADEIRA)
   > Class full name: $(NOME_DA_NOVA_CADEIRA)
   ```
   

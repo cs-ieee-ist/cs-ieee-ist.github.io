@@ -1,85 +1,212 @@
 /* Fixed sidenav, full height */
 
 .sidenav {
-    height: 100%;
-    width: 23%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #262626;
-    overflow-x: hidden;
-    padding-top: 20px;
+	height: 100vh;
+	width: 300px;
+	padding-bottom: 24px;
+	z-index: 1;
+	background-color: var(--sidenav-background-color);
+	overflow-x: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
+	-webkit-transition: transform .44s .2s cubic-bezier(0.19, 0.05, 0.73, 0.94);
+	transition: transform .44s .2s cubic-bezier(0.19, 0.05, 0.73, 0.94);
 }
 
 
 /* Style the sidenav links and the dropdown button */
 
-.sidenav a,
 .dropdown-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-    border-style: solid;
-    border-top: none;
-    border-width: 1px;
-    border-color: #484848;
+	padding: 10px 6px 10px 18px;
+	text-decoration: none;
+	font-size: 1.25rem;
+	color: #000;
+	display: block;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+	box-sizing: border-box;
 }
 
-
-/* On mouse-over */
-
-.sidenav a:hover,
-.dropdown-btn:hover {
-    color: #f1f1f1;
+.sidenav a {
+	padding: 10px 6px 10px 30px;
+	text-decoration: none;
+	font-size: 1.2rem;
+	color: #000;
+	display: block;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+	box-sizing: border-box;
 }
 
-
-/* Main content */
-
-.main {
-    margin-left: 200px;
-    /* Same as the width of the sidenav */
-    font-size: 20px;
-    /* Increased text to enable scrolling */
-    padding: 0px 10px;
+.sidenav a:hover, .dropdown-btn:hover {
+	background-color: #e4e4e4;
 }
 
-
-/* Add an active class to the active dropdown button */
-
-.active {
-    background-color: #0073A9;
-    /* cs logo color */
-    color: white;
+.dropdown-btn.active {
+	background-color: var(--primary-color);
+	/* cs logo color */
+	color: white;
 }
 
-
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-btn:hover.active {
+	background: var(--primary-dark-color);
+}
 
 .dropdown-container {
-    display: none;
-    background-color: #262626;
-    padding-left: 8px;
+	display: none;
 }
 
 
 /* Optional: Style the caret down icon */
 
 .fa-caret-down {
-    float: right;
-    padding-right: 8px;
+	float: right;
+	padding-right: 8px;
+}
+
+.sidenav__image-container {
+	margin: 0 auto 12px auto;
+}
+
+.sidenav__image-container a {
+	padding: 0;
+	display: flex;
+	justify-content: center;
 }
 
 #csLogo {
-    width: 100%;
-    margin: 0 auto;
+	padding: 12px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+header {
+	position: fixed;
+	width: calc(100% - (300px + 1.25%));
+	height: var(--header-height);
+	top: 0;
+	right: 1.25%;
+	background: rgba(0, 115, 169, 0.6);
+	backdrop-filter: saturate(180%) blur(20px);
+	z-index: 4;
+}
+
+.header__list {
+	height: 100%;
+	display: flex;
+	float: right;
+	margin: 0;
+	padding-right: 12px;
+	list-style: none;
+	align-items: center;
+}
+
+.header__options {
+	color: #fff;
+	cursor: pointer;
+	margin-right: 20px;
+	transition: opacity 0.2s linear;
+}
+
+.header__options:hover {
+	opacity: 0.7;
+}
+
+.menu-icon {
+	height: 44px;
+	width: 44px;
+	position: relative;
+	float: left;
+	cursor: pointer;
+	transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+	-webkit-tap-highlight-color: transparent;
+	display: none;
+}
+
+.menu-icon__bread {
+	position: absolute;
+	width: 34px;
+	height: 34px;
+	top: 5px;
+	left: 5px;
+	transition: transform .3s linear;
+}
+
+.menu-icon.close .menu-icon__top {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.menu-icon.close .menu-icon__bottom {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.menu-icon__bread-crust {
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 2px;
+	left: 7px;
+	background: #fff;
+	z-index: 1;
+	transition: transform 0.2s linear;
+}
+
+.menu-icon.close .menu-icon__bread-crust-top {
+	transform: translateY(4px);
+}
+
+.menu-icon.close .menu-icon__bread-crust-bottom {
+	transform: translateY(-4px);
+}
+
+.menu-icon:hover {
+	opacity: 0.7;
+}
+
+.menu-icon__bread-crust-top {
+	top: 12px;
+}
+
+.menu-icon__bread-crust-bottom {
+	bottom: 12px;
+}
+
+a.menu-link {
+	padding: 10px 6px 10px 6px;
+	text-align: center;
+	color: #003e5a;
+}
+
+a.external {
+	background-position: center right 54px;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%23333' d='M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z' /%3E%3C/svg%3E");
+	padding-right: 13px;
+}
+
+@media screen and (max-width: 1024px) {
+	header {
+		width: 100%;
+		right: 0;
+	}
+	.sidenav {
+		position: fixed;
+		padding-top: var(--header-height);
+		transform: translateX(-400px);
+	}
+	.sidenav.active {
+		transform: translateX(0);
+	}
+	.menu-icon {
+		display: block;
+	}
 }
