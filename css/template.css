@@ -1,170 +1,170 @@
 .page__header {
-  width: 100%;
-  max-width: 900px;
-  margin: 82px auto 32px auto;
+	width: 100%;
+	max-width: 900px;
+	margin: 82px auto 32px auto;
 }
 
 .page__title {
-  font-size: 3rem;
-  font-weight: 600;
-  color: var(--primary-color);
+	font-size: 3rem;
+	font-weight: 600;
+	color: var(--primary-color);
 }
 
 .page__content {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
+	position: relative;
+	max-width: 900px;
+	margin: 0 auto;
 }
 
 .codeWrapper {
-  display: inline-block;
-  margin: 0 auto;
-  background-color: #F5F5F5;
-  padding: 2%;
-  width: 96%;
-  margin-bottom: 5%;
-  border-style: solid;
-  border-color: gray;
-  border-width: 1px;
-  white-space: nowrap;
-  overflow-x: scroll;
+	display: inline-block;
+	margin: 0 auto;
+	background-color: #F5F5F5;
+	padding: 2%;
+	width: 96%;
+	margin-bottom: 5%;
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	white-space: nowrap;
+	overflow-x: scroll;
 }
 
 .codeWrapper p {
-  margin: 2px;
-  padding: 2px;
+	margin: 2px;
+	padding: 2px;
 }
 
 .paragraph {
-  display: inline-block;
-  word-wrap: normal;
-  margin: 0 auto;
-  padding: 2%;
-  width: 96%;
+	display: inline-block;
+	word-wrap: normal;
+	margin: 0 auto;
+	padding: 2%;
+	width: 96%;
 }
 
 .splitCodeText {
-  display: inline;
-  margin: 0 auto;
+	display: inline;
+	margin: 0 auto;
 }
 
 .pLeft {
-  width: 30%;
-  white-space: normal;
+	width: 30%;
+	white-space: normal;
 }
 
 .cRight {
-  width: 337%;
-  margin-left: -240%;
-  white-space: normal;
+	width: 337%;
+	margin-left: -240%;
+	white-space: normal;
 }
 
 .beforeCode {
-  padding-right: 5px;
-  color: #333;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+	padding-right: 5px;
+	color: #333;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .section-title {
-  position: relative;
-  bottom: -80px;
-  font-size: 1.5rem;
-  margin: 44px 0 0 0;
-  padding-bottom: 12px;
-  color: #333;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+	position: relative;
+	bottom: -80px;
+	font-size: 1.5rem;
+	margin: 44px 0 0 0;
+	padding-bottom: 12px;
+	color: #333;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .section-title-anchor {
-  position: relative;
-  bottom: 80px;
+	position: relative;
+	bottom: 80px;
 }
 
 .sub-section-title {
-  font-size: 1.25rem;
-  color: #333;
+	font-size: 1.25rem;
+	color: #333;
 }
 
 .topic-book-chapter {
-  margin: 12px 0 30px 0;
-  font-size: 0.75rem;
+	margin: 12px 0 30px 0;
+	font-size: 0.75rem;
 }
 
 .latex-img {
-  max-width: 100%;
-  background: #fff;
-  padding: 6px 10px;
-  border: 0;
-  box-sizing: border-box;
+	max-width: 100%;
+	background: #fff;
+	padding: 6px 10px;
+	border: 0;
+	box-sizing: border-box;
 }
 
 .template-img-container {
-  width: 60%;
-  min-width: 300px;
-  max-width: 500px;
-  margin: auto;
+	width: 60%;
+	min-width: 300px;
+	max-width: 500px;
+	margin: auto;
 }
 
 .template-img {
-  width: 100%;
+	width: 100%;
 }
 
 .code-snippet {
-  font-family: 'Anonymous Pro', monospace;
-  font-size: 1.1rem;
-  border: 1px solid;
-  padding: 16px;
-  margin: 12px auto;
-  line-height: 20px;
-  overflow-x: auto;
-  white-space: nowrap;
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 1.1rem;
+	border: 1px solid;
+	padding: 16px;
+	margin: 12px auto;
+	line-height: 20px;
+	overflow-x: auto;
+	white-space: nowrap;
 }
 
 .code-snippet-scope {
-  margin-left: 20px;
+	margin-left: 20px;
 }
 
 .img-reference {
-  font-size: 0.8rem;
+	font-size: 0.8rem;
 }
 
 table {
-  max-width: 100%;
-  display: block;
-  overflow-x: auto;
+	max-width: 100%;
+	display: block;
+	overflow-x: auto;
 }
 
 @media screen and (max-width: 1300px) {
-  .page__content {
-    max-width: 90%;
-    width: 90%;
-  }
-  .page__title {
-    width: 90%;
-    margin: auto;
-  }
+	.page__content {
+		max-width: 90%;
+		width: 90%;
+	}
+	.page__title {
+		width: 90%;
+		margin: auto;
+	}
 }
 
 @media screen and (max-width: 1024px) {
-  .page__content {
-    max-width: 95vw;
-  }
-  .template-img-container {
-    width: 80%;
-    min-width: 0;
-  }
-  .code-snippet {
-    font-size: 0.8rem;
-  }
+	.page__content {
+		max-width: 95vw;
+	}
+	.template-img-container {
+		width: 80%;
+		min-width: 0;
+	}
+	.code-snippet {
+		font-size: 0.8rem;
+	}
 }
 
 @media screen and (max-width: 500px) {
-  html {
-    font-size: 70%;
-  }
+	html {
+		font-size: 70%;
+	}
 }
