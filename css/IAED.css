@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans+Mono');
-
 body .gist .gist-file {
     margin-bottom: 0;
     border: 1px dashed #adb5bd;
     border-radius: 0;
 }
 
-body .gist .gist-data{
+body .gist .gist-data {
     border-bottom: none;
     border-radius: 0;
     background-color: #f1f3f5;
@@ -43,7 +42,7 @@ body .gist tr:last-child td {
 
 body .gist .blob-num {
     color: #ced4da;
-    background-color: #495057;
+    background-color: #ffffff;
     pointer-events: none;
 }
 

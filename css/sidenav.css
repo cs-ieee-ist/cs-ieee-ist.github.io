@@ -13,6 +13,7 @@
 	transition: transform .44s .2s cubic-bezier(0.19, 0.05, 0.73, 0.94);
 }
 
+
 /* Style the sidenav links and the dropdown button */
 
 .dropdown-btn {
@@ -62,6 +63,7 @@
 .dropdown-container {
 	display: none;
 }
+
 
 /* Optional: Style the caret down icon */
 
