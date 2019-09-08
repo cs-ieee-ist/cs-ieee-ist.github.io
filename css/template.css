@@ -1,89 +1,72 @@
 #pageTop {
-
-  background-color: #333;
-  display:inline-block;
-  width: 100%;
-  padding-bottom: 2%;
-  margin-top: 0%;
+    background-color: #fff;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 2%;
+    margin-top: 0%;
 }
 
 #projectName {
-
-  font-size: 3em;
-  font-style: bold;
-
+    font-size: 3em;
+    font-style: bold;
 }
 
-
 #pageBody {
-
-  padding-top: 2%;
-  padding-left: 5%;
-  padding-right: 5%
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%
 }
 
 .codeWrapper {
-
-  display: inline-block;
-  margin:0 auto;
-  background-color: #F5F5F5;
-  padding: 2%;
-  width: 96%;
-  margin-bottom: 5%;
-  border-style: solid;
-  border-color: gray;
-  border-width: 1px;
-  white-space: nowrap;
-  overflow-x: scroll;
+    display: inline-block;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    padding: 2%;
+    width: 96%;
+    margin-bottom: 5%;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    white-space: nowrap;
+    overflow-x: scroll;
 }
 
 .codeWrapper p {
-
-  margin: 2px;
-  padding: 2px;
+    margin: 2px;
+    padding: 2px;
 }
 
 .paragraph {
-
-  display: inline-block;
-
-  word-wrap: normal;
-  margin: 0 auto;
-  padding: 2%;
-  width: 96%;
+    display: inline-block;
+    word-wrap: normal;
+    margin: 0 auto;
+    padding: 2%;
+    width: 96%;
 }
 
 .splitCodeText {
-
-  display: inline;
-  margin: 0 auto;
-
+    display: inline;
+    margin: 0 auto;
 }
 
 .pLeft {
-
-  width: 30%;
-  white-space: normal;
-
+    width: 30%;
+    white-space: normal;
 }
 
 .cRight {
-
-  width: 337%;
-  margin-left: -240%;
-  white-space: normal;
-
-
+    width: 337%;
+    margin-left: -240%;
+    white-space: normal;
 }
 
 .beforeCode {
-  padding-right: 5px;
-  color: #333;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    padding-right: 5px;
+    color: #fff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-
