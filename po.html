@@ -776,6 +776,138 @@ public class Test {
 }
     </pre>
 
+    <center>
+            <h1 id="TemplateMethod" class="Programa��o com Objectos">Template Method</h1>
+        </center>
+
+        <b> Goal </b>
+        <p> &bullet; Define the skeleton of an algorithm in an operation, deferring some steps to subclasses </p>
+        <p> &bullet; Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure </p>
+        <br>
+
+        <b> When to use </b>
+        <p> &bullet; When you want to implement the invariant parts of an algorithm once and leave it up to subclasses to implement the behavior that can vary </p>
+        <p> &bullet; When common behavior among certain classes should be factored and localized in a common class </p>
+        <br>
+
+        <b> Structure - Generalization </b>
+        <center><img  src="media/img/po/UML/UML - Generalization/TemplateMethod.png" width="40%"></img>
+        </center>
+
+        <br>
+        <h3> Participants </h3>
+        <h4> AbstractClass </h4>
+        <p> &bullet; Defines abstract operations that concrete subclasses define to implement certain steps of an algorithm </p>
+        <p> &bullet; Implements a template method defining the skeleton of an algorithm </p>
+        <h4> ConcreteClass </h4>
+        <p> &bullet; Implements the operations using specific steps of the algorithm </p>
+
+
+        <div style="margin-top: 2%" class="graph-img">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/TemplateMethod.jpg" width="40%"></img>
+            </center>
+        </div>
+
+        <b> Implementation </b>
+
+        <pre class="prettyprint linenums lang=" java ">
+
+import java.util.ArrayList;
+
+public abstract class SortTemplateMethod {
+
+  public abstract boolean isFirst(Student s1, Student s2);
+
+  public ArrayList&ltStudent&gt sort(ArrayList&ltStudent&gt toSortList) {
+    int size = toSortList.size();
+
+    for (int i = 0; i < size; i++)
+      for (int j = 0; j < size; j++)
+        if (!isFirst(toSortList.get(i), toSortList.get(j))) {
+          Student tmp = toSortList.get(j);
+          toSortList.set(j, toSortList.get(i));
+          toSortList.set(i, tmp);
+        } 
+    return toSortList;
+  }
+}
+
+public class SortById extends SortTemplateMethod {
+
+  @Override
+  public boolean isFirst(Student s1, Student s2) {
+    return s1.getId() > s2.getId();
+  }
+}
+
+public class SortByName extends SortTemplateMethod {
+
+  @Override
+  public boolean isFirst(Student s1, Student s2) {
+    return s1.getName().compareTo(s2.getName()) > 0;
+  }
+}
+
+public class Student {
+    private String _name;
+    private int _id;
+  
+    public Student(String name, int id) {
+      _name = name;
+      _id = id;
+    }
+
+    public String getName() {
+      return _name;
+    }
+
+    public int getId() {
+      return _id;
+    }
+
+    @Override
+    public String toString() {
+      return String.format("Name: " + getName() + " Id: " + getId() + "\n");
+    }
+}
+
+public class Test { 
+
+  public static void main(String args[]) {
+    ArrayList&ltStudent&gt students = new ArrayList&ltStudent&gt();
+    Student s1 = new Student("Z", 23);
+    Student s2 = new Student("A", 22);
+    Student s3 = new Student("B", 77);
+    Student s4 = new Student("F", 13);
+
+    students.add(s1);
+    students.add(s2);
+    students.add(s3);
+    students.add(s4);
+
+    SortById sortById = new SortById();
+    SortByName sortByName = new SortByName();
+
+    System.out.println("Sorting by id");
+    sortById.sort(students);
+    displayInfo(students);
+
+    System.out.println("Sorting by name");
+    sortByName.sort(students);
+    displayInfo(students);
+  }
+
+  public static void displayInfo(ArrayList&ltStudent&gt students) {
+    int size = students.size();
+
+    for (int i = 0; i < size; i++)
+      System.out.println(students.get(i).toString());
+  }
+}
+
+</pre>
+
   </body>
 
 </html>
