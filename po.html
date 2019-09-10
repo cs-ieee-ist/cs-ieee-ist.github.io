@@ -908,6 +908,197 @@ public class Test {
 
 </pre>
 
+<h3>NOTE &bullet; Bubble Sort was only implemented for demonstration purposes. ArrayLists already have a sort method implemented. For more information on <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">ArrayLists</a> or <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a>. </h3> 
+
+        <center>
+            <h1 id="Facade" class="Programa��o com Objectos">Facade</h1>
+        </center>
+
+        <b> Goal </b>
+        <p> &bullet; Hide the complexety of the subsystem and provide an interface to the client </p>
+        <br>
+
+        <b> When to use </b>
+        <p> &bullet;  When you want to provide a simple interface to a complex subsystem </p>
+        <br>
+
+        <b> Structure - Generalization </b>
+        <center><img  src="media/img/po/UML/UML - Generalization/Facade.png" width="40%"></img>
+        </center>
+
+        <br>
+        <h3> Participants </h3>
+        <h4> Facade </h4>
+        <p> &bullet; Knows which subsystem classes are responsible for a request </p>
+        <p> &bullet; Delegates client requests to appropriate subsystem objects </p>
+        <h4> Subsystem classes </h4>
+        <p> &bullet; Implement subsystem functionality </p>
+        <p> &bullet; Handle work assigned by the Facade object </p>
+        <p> &bullet; Keeps no references to the Facade </p>
+
+
+        <div style="margin-top: 2%" class="graph-img">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Facade.jpg" width="40%"></img>
+            </center>
+        </div>
+
+        <b> Implementation </b>
+
+        <pre class="prettyprint linenums lang=" java ">
+import java.util.HashSet;
+
+public class SchoolManager {
+
+  private School _school;
+
+  public SchoolManager() {
+    _school = new School();
+  }
+
+  public void addStudent(Student student) {
+    _school.addStudent(student);
+  }
+
+  public void displayStudentsInfo() {
+    HashSet&ltStudent&gt students = _school.getAllStudents();
+
+    for (Student s: students)
+      System.out.println(s.toString());
+  }
+
+  public void addCourse(Course course) {
+    _school.addCourse(course);
+  }
+
+  public void displayCoursesInfo() {
+    HashSet&ltCourse&gt courses = _school.getAllCourses();
+
+    for (Course c: courses)
+      System.out.println(c.toString());
+  }
+}
+
+public class School {
+  private HashSet&ltStudent&gt _students;
+  private HashSet&ltCourse&gt _courses;
+
+  public School() {
+    _students = new HashSet&ltStudent&gt();
+    _courses = new HashSet&ltCourse&gt();
+  }
+
+  public void addStudent(Student student) {
+    if(!_students.add(student))
+      System.out.println("Error: \"" + student.toString() + "\" has already been added." + "\n");
+  }
+
+  public HashSet&ltStudent&gt getAllStudents() {
+    return _students;
+  }
+
+  public void addCourse(Course course) {
+    if(!_courses.add(course))
+      System.out.println("Error: \"" + course.toString() + "\" has already been added.");
+  }
+  public HashSet&ltCourse&gt getAllCourses() {
+    return _courses;
+  }
+}
+
+public class Student {
+  private String _name;
+  private int _id;
+
+  public Student(String name, int id) {
+    _name = name;
+    _id = id;
+  }
+
+  public String getName() {
+    return _name;
+  }
+
+  public int getId() {
+    return _id;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("Student name: " + getName() + " Id: " + getId());
+  }
+
+ //hashCode and equals methods must be overridden so that the HashSet in the School class indentifies two Students with the same _id as being the same Object
+ @Override
+ public int hashCode() {
+  return _id;
+ }
+ 
+ @Override
+ public boolean equals(Object obj) {
+  if (this.getId() == ((Student)obj).getId())
+    return true;
+
+  return false;
+ }
+}
+
+public class Course {
+  private String _name;
+
+  public Course(String name) {
+    _name = name;
+  }
+
+  public String getName() {
+    return _name;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("Course name: " + getName());
+  }
+
+  @Override
+  public int hashCode() {
+    return 1;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+      if (this.getName().compareTo(((Course)obj).getName()) == 0)
+          return true;
+
+      return false;
+  }
+}
+
+public class Test { 
+
+  public static void main(String args[]) {
+    Student s1 = new Student("Generic Student", 23);
+    Student s2 = new Student("Generic Student", 23);
+    Student s3 = new Student("Generic Student 1", 25);
+    Course c1 = new Course("PO");
+    Course c2 = new Course("SO");
+    Course c3 = new Course("SO");
+    SchoolManager school = new SchoolManager();
+
+    school.addStudent(s1);
+    school.addStudent(s2);
+    school.addStudent(s3);
+    school.displayStudentsInfo();
+
+    school.addCourse(c1);
+    school.addCourse(c2);
+    school.displayCoursesInfo();
+
+    school.addCourse(c3);
+  }
+}
+
+        </pre>
+
   </body>
 
 </html>
