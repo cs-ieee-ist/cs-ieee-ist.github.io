@@ -23,7 +23,7 @@
     <div id="pageBody">
 
         <center>
-            <h1 id="sub1" class="Programa��o com Objectos">Singleton</h1>
+            <h1 id="Singleton" class="Programa��o com Objectos">Singleton</h1>
         </center>
 
         <b> Goal </b>
@@ -71,7 +71,7 @@ public class Test {
 </pre>
 
         <center>
-            <h1 id="sub2" class="Programa��o com Objectos">State</h1>
+            <h1 id="State" class="Programa��o com Objectos">State</h1>
         </center>
 
         <b> Goal </b>
@@ -232,7 +232,7 @@ public class Test {
     </pre>
 
         <center>
-            <h1 id="sub3" class="Programa��o com Objectos">Composite</h1>
+            <h1 id="Composite" class="Programa��o com Objectos">Composite</h1>
         </center>
 
         <b> Goal </b>
@@ -348,7 +348,7 @@ public class Test {
 }
     </pre>
 
-    <center><h1 id = "sub4 " class = "Programa��o com Objectos ">Visitor</h1></center>
+    <center><h1 id = "Visitor " class = "Programa��o com Objectos ">Visitor</h1></center>
 
     <b> Goal </b>
     <p> &bullet; Represent an operation to be performed on the elements of an object structure without changing the original classes of those elements </p>
@@ -367,18 +367,96 @@ public class Test {
 
     <b> Implementation </b>
 
-    <pre class="prettyprint linenums lang="java"> interface Element { void accept(Visitor visitor); } interface Visitor { void visitStudent(Student student); void visitTeacher(Teacher teacher); } public abstract class Person { private String
-        _name; private int _age; public Person(String name, int age) { _name = name; _age = age; } public String getName() { return _name; } public int getAge() { return _age; } @Override public String toString() { return String.format("Name: " + getName()
-        + " Age: " + getAge()); } } public class Student extends Person implements Element { private int _id; public Student(String name, int age, int id) { super(name, age); _id = id; } public int getId() { return _id; } public void accept(Visitor visitor)
-        { visitor.visitStudent(this); } } public class Teacher extends Person implements Element { private String _subject; public Teacher(String name, int age, String subject) { super(name, age); _subject = subject; } public String getSubject() { return
-        _subject; } public void accept(Visitor visitor) { visitor.visitTeacher(this); } } public class InformationVisitor implements Visitor { public void visitStudent(Student student) { System.out.println("Student -> " + student.toString() + " id: "
-        + student.getId()); } public void visitTeacher(Teacher teacher) { System.out.println("Teacher -> " + teacher.toString() + " subject: " + teacher.getSubject()); } } public class Test { public static void main(String args[]) { InformationVisitor
-        visitor = new InformationVisitor(); Student student = new Student("John", 21, 999); Teacher teacher = new Teacher("Josef", 37, "PO"); student.accept(visitor); teacher.accept(visitor); } }
+    <pre class="prettyprint linenums lang="java">
+interface Element { 
+  void accept(Visitor visitor); 
+} 
 
+interface Visitor { 
+  void visitStudent(Student student); 
+  void visitTeacher(Teacher teacher); 
+} 
+
+public abstract class Person { 
+  private String _name; 
+  private int _age; 
+
+  public Person(String name, int age) { 
+    _name = name; 
+    _age = age; 
+  } 
+
+  public String getName() { 
+    return _name; 
+  } 
+
+  public int getAge() { 
+    return _age; 
+  } 
+
+  @Override 
+  public String toString() { 
+    return String.format("Name: " + getName() + " Age: " + getAge()); 
+  } 
+} 
+
+public class Student extends Person implements Element { 
+  private int _id; 
+
+  public Student(String name, int age, int id) { 
+    super(name, age); _id = id; 
+  } 
+
+  public int getId() { 
+    return _id; 
+  } 
+
+  public void accept(Visitor visitor) { 
+    visitor.visitStudent(this); 
+  } 
+} 
+
+public class Teacher extends Person implements Element { 
+  private String _subject; 
+
+  public Teacher(String name, int age, String subject) { 
+    super(name, age); 
+    _subject = subject; 
+  } 
+
+  public String getSubject() { 
+    return _subject; 
+  } 
+  public void accept(Visitor visitor) { 
+    visitor.visitTeacher(this); 
+  } 
+} 
+
+public class InformationVisitor implements Visitor {
+
+  public void visitStudent(Student student) { 
+    System.out.println("Student -> " + student.toString() + " id: " + student.getId()); 
+  } 
+
+  public void visitTeacher(Teacher teacher) { 
+    System.out.println("Teacher -> " + teacher.toString() + " subject: " + teacher.getSubject()); 
+  } 
+}
+
+public class Test { 
+
+  public static void main(String args[]) { 
+    InformationVisitor~visitor = new InformationVisitor(); 
+    Student student = new Student("John", 21, 999); 
+    Teacher teacher = new Teacher("Josef", 37, "PO"); 
+    student.accept(visitor); 
+    teacher.accept(visitor); 
+  } 
+}
         </pre>
 
         <center>
-            <h1 id="sub5" class="Programa��o com Objectos">Observer</h1>
+            <h1 id="Observer" class="Programa��o com Objectos">Observer</h1>
         </center>
 
         <b> Goal </b>
@@ -509,7 +587,7 @@ public class Test {
 
     </pre>
 
-<center><h1 id = "sub6 " class = "Programa��o com Objectos ">Decorator</h1></center>
+<center><h1 id = "Decorator" class = "Programa��o com Objectos ">Decorator</h1></center>
 
     <b> Goal </b>
     <p> &bullet;  Attach additional responsibilities to an object </p>
@@ -541,17 +619,75 @@ public class Test {
 
     <b> Implementation </b>
 
-    <pre class="prettyprint linenums lang="java"> interface PizzaComponent { public int getCost(); } public abstract class PizzaDecorator implements PizzaComponent { protected PizzaComponent _pizza; private int _cost; public PizzaDecorator(PizzaComponent
-        pizza) { _pizza = pizza; } public int getCost() { return _cost; } } public class BasePizza implements PizzaComponent { private int _cost; public BasePizza() { _cost = 6; } public int getCost() { return _cost; } } public class TunaPizzaDecorator
-        extends PizzaDecorator { public TunaPizzaDecorator(PizzaComponent pizza) { super(pizza); } @Override public int getCost() { return _pizza.getCost() + 1; } } public class MushroomPizzaDecorator extends PizzaDecorator { public MushroomPizzaDecorator(PizzaComponent
-        pizza) { super(pizza); } @Override public int getCost() { return _pizza.getCost() + 1; } } public class Test { public static void main(String args[]) { BasePizza pizza = new BasePizza(); System.out.println("Cost: " + pizza.getCost()); TunaPizzaDecorator
-        tuna = new TunaPizzaDecorator(pizza); TunaPizzaDecorator extraTuna = new TunaPizzaDecorator(tuna); System.out.println("Cost: " + extraTuna.getCost()); MushroomPizzaDecorator mushroom = new MushroomPizzaDecorator(extraTuna); System.out.println("Cost:
-        " + mushroom.getCost()); } }
+    <pre class="prettyprint linenums lang="java">
+interface PizzaComponent { 
+  public int getCost(); 
+}
 
+public abstract class PizzaDecorator implements PizzaComponent { 
+  protected PizzaComponent _pizza; 
+  private int _cost; 
+
+  public PizzaDecorator(PizzaComponent pizza) {
+   _pizza = pizza; 
+  } 
+
+  public int getCost() { 
+    return _cost; 
+  } 
+} 
+
+public class BasePizza implements PizzaComponent { 
+  private int _cost; 
+
+  public BasePizza() { 
+    _cost = 6; 
+  } 
+
+  public int getCost() { 
+    return _cost; 
+  } 
+} 
+
+public class TunaPizzaDecorator extends PizzaDecorator { 
+
+  public TunaPizzaDecorator(PizzaComponent pizza) { 
+    super(pizza); 
+  } 
+
+  @Override public int getCost() { 
+    return _pizza.getCost() + 1; 
+  } 
+} 
+
+public class MushroomPizzaDecorator extends PizzaDecorator { 
+
+  public MushroomPizzaDecorator(PizzaComponent pizza) { 
+    super(pizza); 
+  } 
+
+  @Override 
+  public int getCost() { 
+    return _pizza.getCost() + 1; 
+  } 
+} 
+
+public class Test 
+{ 
+  public static void main(String args[]) { 
+    BasePizza pizza = new BasePizza(); 
+    System.out.println("Cost: " + pizza.getCost()); 
+    TunaPizzaDecorator tuna = new TunaPizzaDecorator(pizza); 
+    TunaPizzaDecorator extraTuna = new TunaPizzaDecorator(tuna); 
+    System.out.println("Cost: " + extraTuna.getCost()); 
+    MushroomPizzaDecorator mushroom = new MushroomPizzaDecorator(extraTuna); 
+    System.out.println("Cost:" + mushroom.getCost()); 
+  } 
+}
         </pre>
 
         <center>
-            <h1 id="sub7" class="Programa��o com Objectos">Adapter</h1>
+            <h1 id="Adapter" class="Programa��o com Objectos">Adapter</h1>
         </center>
 
         <b> Goal </b>
