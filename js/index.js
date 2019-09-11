@@ -40,7 +40,6 @@ const loadPage = (pageId) => {
 const showPage = (newPageId) => {
 	const currentPage = $(`#${currentPageId}`);
 	const newPage = $(`#${newPageId}`);
-	console.log(currentPageId);
 	loadPage(newPageId);
 
 	if (currentPageId !== newPageId)
