@@ -1187,6 +1187,106 @@ public class Test {
 
         </pre>
 
+           <center>
+            <h1 id="Bridge" class="Programa��o com Objectos">Bridge</h1>
+        </center>
+
+        <b> Goal </b>
+        <p> &bullet; Decouple an abstraction from its implementation so that the two can vary independently </p>
+        <br>
+
+        <b> When to use </b>
+        <p> &bullet; When you want to avoid a permanent binding between an abstraction and its implementation. This might be the case, for example, when the implementation must be selected or switched at run-time </p>
+        <br>
+
+        <b> Structure - Generalization </b>
+        <center><img  src="media/img/po/UML/UML - Generalization/Bridge.png" width="40%"></img>
+        </center>
+
+        <br>
+        <h3> Participants </h3>
+        <h4> Abstraction </h4>
+        <p> &bullet; Maintains a reference to an object of type Implementor </p>
+        <h4> RefinedAbstraction </h4>
+        <p> &bullet; Extends the interface defined by Abstraction </p>
+        <h4> Implementor </h4>
+        <p> &bullet; Defines the interface for implementation classes. This interface doesn't have to correspond exactly to Abstraction's interface. Typically the Implementor interface provides only primitive operations, and Abstraction defines higher-level operations based on these primitives </p>
+        <h4> ConcreteImplementor </h4>
+        <p> &bullet; Implements the Implementor interface and defines its concrete implementation </p>
+
+
+        <div style="margin-top: 2%" class="graph-img">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Bridge.jpg" width="40%"></img>
+            </center>
+        </div>
+
+        <b> Implementation </b>
+
+        <pre class="prettyprint linenums lang=" java ">
+abstract class Person {
+  private String _name;
+  private Task _task;
+
+  public Person(String name, Task task) {
+    _name = name;
+    _task = task;
+  }
+
+  public String getName() {
+    return _name;
+  }
+
+  public Task getTask() {
+    return _task;
+  }
+
+  abstract public void doTask();
+}
+
+public class Student extends Person {
+
+  public Student(String name, Task task) {
+    super(name, task);
+  }
+
+  public void doTask() {
+    System.out.print(this.getName() +  " working on ");
+     this.getTask().doTask();
+  }
+}
+
+interface Task {
+  public void doTask();
+}
+
+public class Project implements Task {
+
+  public void doTask() {
+    System.out.print("a project.\n");
+  }
+}
+
+public class Exam implements Task {
+
+  public void doTask() {
+    System.out.print("an exam.\n");
+  }
+}
+
+public class Test {
+
+  public static void main(String args[]) {
+    Person student = new Student("Generic Student", (Task) new Project());
+    Person student1 = new Student("Generic Student 1", (Task) new Exam());
+
+    student.doTask();
+    student1.doTask();
+  }
+}
+
+        </pre>
+
   </body>
 
 </html>
