@@ -1099,6 +1099,94 @@ public class Test {
 
         </pre>
 
+        <center>
+            <h1 id="Proxy" class="Programa��o com Objectos">Proxy</h1>
+        </center>
+
+        <b> Goal </b>
+        <p> &bullet; Provide a substitute or placeholder for another object </p>
+        <br>
+
+        <b> When to use </b>
+        <p> &bullet; When there's a need to control access to the original object </p>
+        <br>
+
+        <b> Structure - Generalization </b>
+        <center><img  src="media/img/po/UML/UML - Generalization/Proxy.png" width="40%"></img>
+        </center>
+
+        <br>
+        <h3> Participants </h3>
+        <h4> Proxy </h4>
+        <p> &bullet; Maintains a reference that lets the proxy access the real subject. Proxy may refer to a Subject if the RealSubject and Subject interfaces are the same </p>
+        <p> &bullet; Controls access to the real subject and may be responsible for creating and deleting it </p>
+        <h4> Subject </h4>
+        <p> &bullet; Defines the common interface for RealSubject and Proxy so that a Proxy can be used anywhere a RealSubject is expected </p>
+        <h4> RealSubject </h4>
+        <p> &bullet; Defines the real object that the proxy represents </p>
+
+
+        <div style="margin-top: 2%" class="graph-img">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Proxy.jpg" width="40%"></img>
+            </center>
+        </div>
+
+        <b> Implementation </b>
+
+        <pre class="prettyprint linenums lang=" java ">
+import java.util.Random;
+
+interface UserInformation {
+  public String  getUserName();
+}
+
+public class User implements UserInformation {
+  private String _userName;
+  private int _id;
+
+  public User(String userName) {
+    _userName = userName;
+    Random rand = new Random();
+    _id = rand.nextInt(999);
+  }
+
+  public String getUserName() {
+    return _userName;
+  }
+
+  public int getId() {
+    return _id;
+  }
+}
+
+public class UserProxy implements UserInformation {
+  private User _user;
+
+  public UserProxy(String userName) {
+    _user = new User(userName);
+  }
+
+  public String getUserName() {
+    return _user.getUserName();
+  }
+}
+
+public class Test {
+
+  public static void main(String args[]) {
+    UserInformation userProxy = new UserProxy("Generic User");
+
+    System.out.println("Username: " + userProxy.getUserName());
+    
+    /* UserProxy has no access to the User's method getId()
+    System.out.println("Id: " + userProxy.getId());
+    */
+  }
+}
+
+        </pre>
+
   </body>
 
 </html>
