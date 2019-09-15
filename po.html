@@ -1376,7 +1376,90 @@ public class Test {
 
   }
 }
+        </pre>
 
+        <center>
+            <h1 id="Strategy" class="Programa��o com Objectos">Strategy</h1>
+        </center>
+
+        <b> Goal </b>
+        <p> &bullet; Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it </p>
+        <br>
+
+        <b> When to use </b>
+        <p> &bullet; When many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors </p>
+        <p> &bullet; When a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class </p>
+        <br>
+
+        <b> Structure - Generalization </b>
+        <center><img  src="media/img/po/UML/UML - Generalization/Strategy.png" width="40%"></img>
+        </center>
+
+        <br>
+        <h3> Participants </h3>
+        <h4> Strategy </h4>
+        <p> &bullet; Declares an interface common to all supported algorithms. Context uses this interface to call the algorithm defined by a ConcreteStrategy </p>
+        <h4> ConcreteStrategy </h4>
+        <p> &bullet; Implements the algorithm using the Strategy interface </p>
+        <h4> Context </h4>
+        <p> &bullet; Maintains a reference to a Strategy object </p>
+
+        <div style="margin-top: 2%" class="graph-img">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/Strategy.jpg" width="40%"></img>
+            </center>
+        </div>
+
+        <b> Implementation </b>
+
+        <pre class="prettyprint linenums lang=" java ">
+interface SearchAlgorithm {
+  public void solve();
+}
+
+public class BreadthFirstSearch implements SearchAlgorithm {
+
+  public void solve() {
+    System.out.println("Solving with Breadth First Search.");
+  }
+}
+
+public class DepthFirstSearch implements SearchAlgorithm {
+
+  public void solve() {
+    System.out.println("Solving with Depth First Search.");
+  }
+}
+
+public class SearchContext {
+  private SearchAlgorithm _algorithm;
+
+  //Sets a default search method
+  public SearchContext() {
+    _algorithm = new BreadthFirstSearch();
+  }
+
+  public void setAlgorithm(SearchAlgorithm algorithm) {
+    _algorithm = algorithm;
+  }
+
+  public void solve() {
+    _algorithm.solve();
+  }
+}
+
+public class Test {
+
+  public static void main(String args[]) {
+    SearchContext problem = new SearchContext();
+
+    problem.setAlgorithm(new DepthFirstSearch());
+    problem.solve();
+
+    problem.setAlgorithm(new BreadthFirstSearch());
+    problem.solve();
+  }
+}
 
         </pre>
 
