@@ -1287,6 +1287,99 @@ public class Test {
 
         </pre>
 
+            <center>
+            <h1 id="AbstractFactory" class="Programa��o com Objectos">Abstract Factory</h1>
+        </center>
+
+        <b> Goal </b>
+        <p> &bullet; Provide an interface for creating families of related or dependent objects without specifying their concrete classes </p>
+        <br>
+
+        <b> When to use </b>
+        <p> &bullet; When a system should be independent of how its products are created, composed, and represented </p>
+        <p> &bullet; When a family of related product objects is designed to be used together, and you need to enforce this constraint </p>
+        <br>
+
+        <b> Structure - Generalization </b>
+        <center><img  src="media/img/po/UML/UML - Generalization/AbstractFactory.png" width="40%"></img>
+        </center>
+
+        <br>
+        <h3> Participants </h3>
+        <h4> AbstractFactory </h4>
+        <p> &bullet; Declares an interface for operations that create abstract product objects </p>
+        <h4> ConcreteFactory </h4>
+        <p> &bullet; Implements the operations to create concrete product objects </p>
+        <h4> AbstractProduct </h4>
+        <p> &bullet; Declares an interface for a type of product object </p>
+        <h4> ConcreteProduct </h4>
+        <p> &bullet; Defines a product object to be created by the corresponding concrete factory </p>
+        <p> &bullet; Implements the AbstractProduct interface </p>
+
+
+        <div style="margin-top: 2%" class="graph-img">
+            <b> UML </b>
+            <center><img src="media/img/po/UML/UML - Implementation/AbstractFactory.jpg" width="40%"></img>
+            </center>
+        </div>
+
+        <b> Implementation </b>
+
+        <pre class="prettyprint linenums lang=" java ">
+public abstract class Disk {
+  public abstract String displayInformation();
+}
+
+public class HardDisk extends Disk {
+
+  public String displayInformation() {
+    return "HDD has been added";
+  }
+}
+
+public abstract class Processor {
+  public abstract String displayInformation();
+}
+
+public class IntelProcessor extends Processor {
+
+  public String displayInformation() {
+    return "Intel processor has been added.";
+  }
+}
+
+public abstract class AbstractFactory {
+  public abstract Disk getDisk();
+  public abstract Processor getProcessor();
+}
+
+public class ComputerFactory extends AbstractFactory {
+
+  @Override
+  public Disk getDisk() {
+    return new HardDisk();
+  }
+
+  @Override
+  public Processor getProcessor() {
+    return new IntelProcessor();
+  }
+}
+
+public class Test {
+
+  public static void main(String args[]) {
+    AbstractFactory computerFactory = new ComputerFactory();
+
+    System.out.println(computerFactory.getProcessor().displayInformation());
+    System.out.println(computerFactory.getDisk().displayInformation());
+
+  }
+}
+
+
+        </pre>
+
   </body>
 
 </html>
