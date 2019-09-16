@@ -129,7 +129,7 @@ public class Test {
 
       <b> Structure - Generalization </b>
       <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/AbstractFactory.png">
+        <img class="template-img" src="media/img/po/UML/UML - Generalization/Adapter.png">
       </div></br>
 
       <br>
@@ -218,7 +218,7 @@ public class Test {
 
       <b> Structure - Generalization </b>
       <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/AbstractFactory.png">
+        <img class="template-img" src="media/img/po/UML/UML - Generalization/Bridge.png">
       </div></br>
 
       <br>
@@ -316,8 +316,18 @@ public class Test {
 
       <b> Structure - Generalization </b>
       <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/AbstractFactory.png">
+        <img class="template-img" src="media/img/po/UML/UML - Generalization/Composite.png">
       </div></br>
+
+      <br>
+      <h3> Participants </h3>
+      <h4> Commponent </h4>
+      <p> &bullet; Declares the interface for objects in the composition </p>
+      <h4> Leaf </h4>
+      <p> &bullet; Represents leaf objects in the composition. A leaf has no children </p>
+      <h4> Composite </h4>
+      <p> &bullet; Defines behavior for components having children </p>
+      <p> &bullet; Stores child components </p>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -435,7 +445,7 @@ public class Test {
 
       <b> Structure - Generalization </b>
       <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/AbstractFactory.png">
+        <img class="template-img" src="media/img/po/UML/UML - Generalization/Decorator.png">
       </div></br>
 
       <br>
@@ -935,8 +945,22 @@ public class Test {
       <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 124</h6>
 
       <b> Goal </b>
-      <p> &bull; Ensure there is only one instance of the class </p>
-      <p> &bull; Provide global access to it </p>
+      <p> &bull; Ensure there is only one instance of the class and provide global access to it </p>
+
+      <b> When to use </b>
+      <p> &bullet; When there must be exactly one instance of a class, and it must be accessible to clients from a well-known access point </p>
+      <br>
+
+      <b> Structure - Generalization </b>
+      <div class="template-img-container">
+        <center><img class="template-img" src="media/img/po/UML/UML - Generalization/Singleton.png"></center>
+      </div></br>
+
+      <br>
+      <h3> Participants </h3>
+      <h4> Singleton </h4>
+      <p> &bullet; Defines an Instance operation that lets clients access its unique instance </p>
+      <p> &bullet; May be responsible for creating its own unique instance </p>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -988,6 +1012,21 @@ public class Test {
       <b> When to use </b>
       <p> &bullet; An object's behavior depends on its state, and it must change its behavior at run-time depending on that state </p>
       <p> &bullet; There's several conditional statements that depend on the object's state </p>
+
+      <b> Structure - Generalization </b>
+      <div class="template-img-container">
+        <img class="template-img" src="media/img/po/UML/UML - Generalization/State.png">
+      </div></br>
+
+      <br>
+      <h3> Participants </h3>
+      <h4> Context </h4>
+      <p> &bullet; Defines the interface of interest to clients </p>
+      <p> &bullet; Maintains an instance of a ConcreteState subclass that defines the current state </p>
+      <h4> State </h4>
+      <p> &bullet; Defines an interface for encapsulating the behavior associated with a particular state of the Context </p>
+      <h4> ConcreteState subclasses</h4>
+      <p> &bullet; Each subclass implements a behavior associated with a state of the Context </p>
 
       <b> UML </b>
       <div class="template-img-container">
