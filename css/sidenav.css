@@ -64,6 +64,12 @@
 	display: none;
 }
 
+.dropdown-container .activeTopic {
+	background:  var(--primary-dark-color);;
+	color: white;
+	opacity: 0.4;
+}
+
 
 /* Optional: Style the caret down icon */
 
