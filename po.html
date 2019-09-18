@@ -718,6 +718,102 @@ public class Test {
 }
       </pre>
 
+      <div id="FactoryMethod" class="section-title-anchor">
+        <h3 class="section-title">Factory Method</h3>
+      </div>
+      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 106</h6>
+
+      <b> Goal </b>
+      <p> &bullet; Define an interface for creating an object, but let subclasses decide which class to instantiate </p>
+      <br>
+
+      <b> When to use </b>
+      <p> &bullet; When a class can't anticipate the class of objects it must create </p>
+      <p> &bullet; When a class wants its subclasses to specify the objects it creates </p>
+      <br>
+
+      <b> Structure - Generalization </b>
+      <div class="template-img-container">
+        <img class="template-img" src="media/img/po/UML/UML - Generalization/FactoryMethod.png">
+      </div></br>
+
+      <br>
+      <h3> Participants </h3>
+      <h4> Product </h4>
+      <p> &bullet; Defines the interface of objects the factory method creates </p>
+      <h4> ConcreteProduct </h4>
+      <p> &bullet; Implements the Product interface </p>
+      <h4> Creator </h4>
+      <p> &bullet; Declares the factory method, which returns an object of type Product </p>
+      <h4> ConcreteCreator </h4>
+      <p> &bullet; Overrides the factory method to return an instance of a ConcreteProduct </p>
+      <br>
+
+      <b> UML </b>
+      <div class="template-img-container">
+        <img class="template-img" src="media/img/po/UML/UML - Implementation/FactoryMethod.jpg">
+      </div></br>
+ 
+      <b> Implementation </b>
+
+      <pre class="prettyprint linenums lang=" java ">
+public abstract class Person {
+  private String _name;
+
+  public Person(String name) {
+    _name = name;
+  }
+
+  public String getName() {
+    return _name;
+  }
+}
+
+public class Student extends Person {
+
+  public Student(String name) {
+    super(name);
+  }
+}
+
+public class Teacher extends Person {
+
+  public Teacher(String name) {
+    super(name);
+  }
+}
+
+interface BasePeopleFactory {
+  public Person createPerson(String identifier, String name);
+}
+
+public class PeopleFactory implements BasePeopleFactory {
+
+  public Person createPerson(String identifier, String name)  {
+    switch (identifier) {
+      case "Student":
+        return new Student(name);
+      case "Teacher":
+        return new Teacher(name);
+      default:
+        return null;
+    }
+  }
+}
+
+public class Test {
+
+  public static void main(String args[]) {
+    PeopleFactory newFactory = new PeopleFactory();
+
+    Person student = newFactory.createPerson("Student", "Generic Name");
+    System.out.println(student.getName());
+    Person teacher = newFactory.createPerson("Teacher", "Generic Name 1");
+    System.out.println(teacher.getName());
+  }
+}
+      </pre>
+
       <div id="Observer" class="section-title-anchor">
         <h3 class="section-title">Observer</h3>
       </div>
