@@ -78,7 +78,7 @@ const handleTopicClick = (event) => {
 
 	const topic = $(event.target.parentElement);
 	if (topic.find(".activeTopic"))
-		$("div>div>a").removeClass("activeTopic");
+		$(".dropdown-container a").removeClass("activeTopic");
 
 	$(event.target).addClass("activeTopic");
 }
@@ -93,7 +93,7 @@ const closeDropdownOption = (pageId) => {
 const expandDropdownOptions = (pageId) => {
 
 	if ($(".dropdown-container").find("activeTopic"))
-		$("div>div>a").removeClass("activeTopic");
+		$(".dropdown-container a").removeClass("activeTopic");
 
 	const btn = $(`#navigate-${pageId}`);
 	const options = $(`#options-${pageId}`);
