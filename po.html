@@ -8,19 +8,11 @@
 
 <body>
 
-    <div id="pageTop">
-        <div id="projectName">
-            <center>PO</center>
-        </div>
-        <p></p>
-
-        <div id="className">
-            <center>Programa��o com Objectos</center>
-        </div>
-
+    <div class="page__header">
+      <div class="page__title">Programação com Objectos</div>
     </div>
 
-    <div id="pageBody">
+    <div id="page__content">
 
       <div id="AbstractFactory" class="section-title-anchor">
         <h3 class="section-title">Abstract Factory</h3>
@@ -52,6 +44,7 @@
       <h4> ConcreteProduct </h4>
       <p> &bullet; Defines a product object to be created by the corresponding concrete factory </p>
       <p> &bullet; Implements the AbstractProduct interface </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -140,7 +133,7 @@ public class Test {
       <p> &bullet; Defines an existing interface that needs adapting </p>
       <h4> Adapter </h4>
       <p> &bullet; Adapts the interface of Adaptee to the Target interface </p>
-
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -231,6 +224,7 @@ public class Test {
       <p> &bullet; Defines the interface for implementation classes. This interface doesn't have to correspond exactly to Abstraction's interface. Typically the Implementor interface provides only primitive operations, and Abstraction defines higher-level operations based on these primitives </p>
       <h4> ConcreteImplementor </h4>
       <p> &bullet; Implements the Implementor interface and defines its concrete implementation </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -328,6 +322,7 @@ public class Test {
       <h4> Composite </h4>
       <p> &bullet; Defines behavior for components having children </p>
       <p> &bullet; Stores child components </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -458,6 +453,7 @@ public class Test {
       <p> &bullet; Maintains a reference to a Component object </p>
       <h4>  ConcreteDecorator </h4>
       <p> &bullet; Adds responsibilities to the component </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -560,6 +556,7 @@ public class Test
       <p> &bullet; Implement subsystem functionality </p>
       <p> &bullet; Handle work assigned by the Facade object </p>
       <p> &bullet; Keeps no references to the Facade </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -721,6 +718,102 @@ public class Test {
 }
       </pre>
 
+      <div id="FactoryMethod" class="section-title-anchor">
+        <h3 class="section-title">Factory Method</h3>
+      </div>
+      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 106</h6>
+
+      <b> Goal </b>
+      <p> &bullet; Define an interface for creating an object, but let subclasses decide which class to instantiate </p>
+      <br>
+
+      <b> When to use </b>
+      <p> &bullet; When a class can't anticipate the class of objects it must create </p>
+      <p> &bullet; When a class wants its subclasses to specify the objects it creates </p>
+      <br>
+
+      <b> Structure - Generalization </b>
+      <div class="template-img-container">
+        <img class="template-img" src="media/img/po/UML/UML - Generalization/FactoryMethod.png">
+      </div></br>
+
+      <br>
+      <h3> Participants </h3>
+      <h4> Product </h4>
+      <p> &bullet; Defines the interface of objects the factory method creates </p>
+      <h4> ConcreteProduct </h4>
+      <p> &bullet; Implements the Product interface </p>
+      <h4> Creator </h4>
+      <p> &bullet; Declares the factory method, which returns an object of type Product </p>
+      <h4> ConcreteCreator </h4>
+      <p> &bullet; Overrides the factory method to return an instance of a ConcreteProduct </p>
+      <br>
+
+      <b> UML </b>
+      <div class="template-img-container">
+        <img class="template-img" src="media/img/po/UML/UML - Implementation/FactoryMethod.jpg">
+      </div></br>
+ 
+      <b> Implementation </b>
+
+      <pre class="prettyprint linenums lang=" java ">
+public abstract class Person {
+  private String _name;
+
+  public Person(String name) {
+    _name = name;
+  }
+
+  public String getName() {
+    return _name;
+  }
+}
+
+public class Student extends Person {
+
+  public Student(String name) {
+    super(name);
+  }
+}
+
+public class Teacher extends Person {
+
+  public Teacher(String name) {
+    super(name);
+  }
+}
+
+interface BasePeopleFactory {
+  public Person createPerson(String identifier, String name);
+}
+
+public class PeopleFactory implements BasePeopleFactory {
+
+  public Person createPerson(String identifier, String name)  {
+    switch (identifier) {
+      case "Student":
+        return new Student(name);
+      case "Teacher":
+        return new Teacher(name);
+      default:
+        return null;
+    }
+  }
+}
+
+public class Test {
+
+  public static void main(String args[]) {
+    PeopleFactory newFactory = new PeopleFactory();
+
+    Person student = newFactory.createPerson("Student", "Generic Name");
+    System.out.println(student.getName());
+    Person teacher = newFactory.createPerson("Teacher", "Generic Name 1");
+    System.out.println(teacher.getName());
+  }
+}
+      </pre>
+
       <div id="Observer" class="section-title-anchor">
         <h3 class="section-title">Observer</h3>
       </div>
@@ -751,6 +844,7 @@ public class Test {
       <p> &bullet; Implements the Subject's methods </p>
       <h4> ConcreteObserver </h4>
       <p> &bullet; Implements the Observer's update method </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -879,6 +973,7 @@ public class Test {
       <p> &bullet; Defines the common interface for RealSubject and Proxy so that a Proxy can be used anywhere a RealSubject is expected </p>
       <h4> RealSubject </h4>
       <p> &bullet; Defines the real object that the proxy represents </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -961,12 +1056,12 @@ public class Test {
       <h4> Singleton </h4>
       <p> &bullet; Defines an Instance operation that lets clients access its unique instance </p>
       <p> &bullet; May be responsible for creating its own unique instance </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
         <center><img src="media/img/po/UML/UML - Implementation/Singleton.jpg" width="50%"></center>
       </div></br>
-
 
       <b> Implementation </b>
 
@@ -1027,6 +1122,7 @@ public class Test {
       <p> &bullet; Defines an interface for encapsulating the behavior associated with a particular state of the Context </p>
       <h4> ConcreteState subclasses</h4>
       <p> &bullet; Each subclass implements a behavior associated with a state of the Context </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -1204,6 +1300,7 @@ public class Test {
       <p> &bullet; Implements the algorithm using the Strategy interface </p>
       <h4> Context </h4>
       <p> &bullet; Maintains a reference to a Strategy object </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -1289,6 +1386,7 @@ public class Test {
       <p> &bullet; Implements a template method defining the skeleton of an algorithm </p>
       <h4> ConcreteClass </h4>
       <p> &bullet; Implements the operations using specific steps of the algorithm </p>
+      <br>
 
       <b> UML </b>
       <div class="template-img-container">
@@ -1392,7 +1490,7 @@ public class Test {
 }
       </pre>
 
-      <h3>NOTE &bullet; Bubble Sort was only implemented for demonstration purposes. ArrayLists already have a sort method implemented. For more information on <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">ArrayLists</a> or <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a>. </h3>
+      <h4>NOTE &bullet; Bubble Sort was only implemented for demonstration purposes. ArrayLists already have a sort method implemented. For more information on <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">ArrayLists</a> or <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a>. </h4>
 
       <div id="Visitor" class="section-title-anchor">
         <h3 class="section-title">Visitor</h3>
@@ -1410,6 +1508,18 @@ public class Test {
       <div class="template-img-container">
         <img class="template-img" src="media/img/po/UML/UML - Generalization/Visitor.png">
       </div></br>
+
+      <br>
+      <h3> Participants </h3>
+      <h4> Visitor </h4>
+      <p> &bullet; Declares a Visit operation for each class of ConcreteElement in the object structure. The operation's name and signature identifies the class that sends the Visit request to the visitor </p>
+      <h4> ConcreteVisitor </h4>
+      <p> &bullet; Implements each operation declared by Visitor </p>
+      <h4> Element </h4>
+      <P> &bullet; Defines an Accept operation that takes a visitor as an argument </P>
+      <h4> ConcreteElement </h4>
+      <P> &bullet; Implements an Accept operation that takes a visitor as an argument </P>
+      <br>
       
       <b> UML </b>
       <div class="template-img-container">

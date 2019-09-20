@@ -3,8 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/template.css"></link>
 
-    <link rel="stylesheet" type="text/css" href="google-code-prettify/skins/default.css">
-    <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script>
 
     <!-- template.css has all default class names -->
 
@@ -179,10 +178,10 @@
       */
       
       
-      #include <stdio.h>
-      #include <stdlib.h>
-      #include <unistd.h>		// para o fork() e o sleep()
-      #include <sys/wait.h>	// para o wait()
+      #include &ltstdio.h&gt
+      #include &ltstdlib.h&gt
+      #include &ltunistd.h&gt		// para o fork() e o sleep()
+      #include &ltsys/wait.h&gt	// para o wait()
       
       
       #define	MAX_ITER	3
@@ -264,17 +263,17 @@
         <!-- </pre> -->
 
         <center>
-            <h2 id="sub2" class="Sistemas Operativos">Exemplo 2</h2>
+            <h2 id="so--fork" class="Sistemas Operativos">Exemplo 2</h2>
         </center>
 
         <pre class="prettyprint linenums lang=c">
       <!-- <pre class="prettyprint linenums"> -->
 
-      #include <stdio.h>
-      #include <stdlib.h>
-      #include <unistd.h>
-      #include <sys/types.h>
-      #include <sys/wait.h>
+      #include &ltstdio.h&gt
+      #include &ltstdlib.h&gt
+      #include &ltunistd.h&gt
+      #include &ltsys/types.h&gt
+      #include &ltsys/wait.h&gt
       
       int main (int argc, char** argv) {
       
@@ -336,10 +335,10 @@
         <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
-      #include <unistd.h>
-      #include <stdio.h>
-      #include <sys/types.h>
-      #include <sys/stat.h>
+      #include &ltunistd.h&gt
+      #include &ltstdio.h&gt
+      #include &ltsys/types.h&gt
+      #include &ltsys/stat.h&gt
       
       /* Exemplo de comunicação entre pai e filho usando pipe simples, programado durante a aula de SO. */
       
@@ -399,12 +398,12 @@
         <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
-      #include <unistd.h>
-          #include <unistd.h>
-          #include <stdio.h>
-          #include <sys/types.h>
-          #include <sys/stat.h>
-          #include <fcntl.h>
+      #include &ltunistd.h&gt
+          #include &ltunistd.h&gt
+          #include &ltstdio.h&gt
+          #include &ltsys/types.h&gt
+          #include &ltsys/stat.h&gt
+          #include &ltfcntl.h&gt
           
           /* Exemplo com named pipes criado durante a aula teórica de SO.
           Objetivo: dois programas, P1 e P2, comunicam por named pipe.
@@ -452,12 +451,12 @@
         <pre class="prettyprint linenums lang=c">
       <pre class="prettyprint linenums">
 
-      #include <unistd.h>
-          #include <unistd.h>
-          #include <stdio.h>
-          #include <sys/types.h>
-          #include <sys/stat.h>
-            #include <fcntl.h>
+      #include &ltunistd.h&gt
+          #include &ltunistd.h&gt
+          #include &ltstdio.h&gt
+          #include &ltsys/types.h&gt
+          #include &ltsys/stat.h&gt
+            #include &ltfcntl.h&gt
           
           
           char msg[] = "ola!";
@@ -496,12 +495,12 @@
 
       // C program to implement one side of FIFO 
       // This side writes first, then reads 
-      #include <stdio.h> 
-      #include <string.h> 
-      #include <fcntl.h> 
-      #include <sys/stat.h> 
-      #include <sys/types.h> 
-      #include <unistd.h> 
+      #include &ltstdio.h&gt 
+      #include &ltstring.h&gt 
+      #include &ltfcntl.h&gt 
+      #include &ltsys/stat.h&gt 
+      #include &ltsys/types.h&gt 
+      #include &ltunistd.h&gt 
         
       int main() 
       { 
@@ -556,12 +555,12 @@
       
       // C program to implement one side of FIFO 
       // This side reads first, then reads 
-      #include <stdio.h> 
-      #include <string.h> 
-      #include <fcntl.h> 
-      #include <sys/stat.h> 
-      #include <sys/types.h> 
-      #include <unistd.h> 
+      #include &ltstdio.h&gt 
+      #include &ltstring.h&gt 
+      #include &ltfcntl.h&gt 
+      #include &ltsys/stat.h&gt 
+      #include &ltsys/types.h&gt 
+      #include &ltunistd.h&gt 
         
       int main() 
       { 
@@ -606,7 +605,95 @@
         </div>
     </div>
 
+    <center>
+      <h1 id="so--exec" class="Sistemas Operativos">Exec</h1>
+    </center>
 
+    <pre class="prettyprint linenums lang=c">
+/*
+  Ficheiro: exec.c
+  Autor: João Caldeira / Knuckles / SaucyGoat (which one?)
+
+  Este programa demonstra o uso da chamada de sistema exec.
+*/
+
+
+#include &ltstdio.h&gt
+#include &ltstdlib.h&gt
+#include &ltunistd.h&gt   // para o fork(), sleep() e exec()
+#include &ltsys/wait.h&gt // para o wait()
+
+
+/*
+  RESUMO DO PROGRAMA
+
+  Começamos por fazer a chamada de sistema fork().
+  O processo pai esperará que o filho acabe de executar.
+  O processo filho recorrerá à chamada de sistema execv (um "wrapper" da chamada exec)
+  para executar um dado programa.
+
+  Neste caso, vamos executar o programa "echo", disponível no terminal do Unix.
+  Primeiro, definimos os argumentos a passar a esse programa (o parâmetro argv).
+  O primeiro argumento é o nome do executável, o segundo (neste caso) é uma mensagem
+  que queiramos imprimir no ecrã, e o terceiro é o terminador NULL do array.
+
+  Estamos prontos para a chamada execv!
+  A função/chamada exec substitui o espaço de endereçamento do processo que o chama
+  pelo contido no dado ficheiro executável.
+  O programa "echo" é então executado com os parâmetros dados e imprime a mensagem definida abaixo.
+  Caso a chamada execv falhe, devolve -1.
+
+  Nota: A shell do Linux é um exemplo da utilização das funções fork() e exec().
+      Quando um comando é introduzido no terminal, é criado um processo novo que
+      executa a função especificada no comando.
+*/
+
+
+int main()
+{
+  int r = fork(); // guardamos o valor de retorno do fork()
+
+  if (r == 0) { // verificar se é o filho
+    // CÓDIGO DO PROCESSO FILHO
+    char * prog_name = "/bin/echo"; // path (caminho) do programa
+    char * message = "Filho:\tHello! Sou o filho a executar o programa echo.";  // mensagem a ser imprimida
+    char * const args[] = { prog_name, message, NULL }; // argumentos do programa (argv)
+    int r = execv("/bin/echo", args); // executa o programa "echo" dando os argumentos "args"
+
+    if (r == -1)  // se ocorreu um erro
+      exit(EXIT_FAILURE);
+  } else if (r > 0) { // verificar se é o pai
+    // CÓDIGO DO PROCESSO PAI
+    int status;
+    int pid;
+
+    printf("Pai:\tHello! Sou o pai da criança.\n");
+
+    // execução do pai é suspendida até que um dos seus filhos termine
+    pid = wait(&status);
+
+    /*
+      - wait(): devolve o pid do filho que terminou, ou -1 caso ocorra um erro
+      - WIFEXITED: devolve "true" caso o filho tenha terminado normalmente,
+        "false" caso contrário
+      - WEXITSTATUS: devolve o exit status do filho (em caso de sucesso, o valor é 0)
+    */
+
+    if (WIFEXITED(status))
+      printf("Pai:\tFilho %d terminou com código de retorno %d.\n", pid, WEXITSTATUS(status));
+    else
+      printf("Pai:\tFilho %d terminou abruptamente.\n", pid);
+
+    // pai termina com sucesso
+    exit(EXIT_SUCCESS);
+  } else {  // verificar se a chamada fork() deu erro
+    printf("Oops! Erro no fork().\n");
+    exit(EXIT_FAILURE);
+  }
+
+  exit(EXIT_SUCCESS);
+}
+    </pre>
 
 </body>
 
