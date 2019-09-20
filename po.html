@@ -1,9 +1,6 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/template.css"></link>
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=c&amp;skin=desert"></script>
-
 </head>
 
 <body>
@@ -12,7 +9,7 @@
       <div class="page__title">Programação com Objectos</div>
     </div>
 
-    <div id="page__content">
+    <div class="page__content">
 
       <div id="AbstractFactory" class="section-title-anchor">
         <h3 class="section-title">Abstract Factory</h3>
@@ -648,7 +645,9 @@ public class Student {
     return String.format("Student name: " + getName() + " Id: " + getId());
   }
 
- //hashCode and equals methods must be overridden so that the HashSet in the School class indentifies two Students with the same _id as being the same Object
+ /*hashCode and equals methods must be overridden so that the HashSet
+	in the School class indentifies two Students with 
+	the same _id as being the same Object*/
  @Override
  public int hashCode() {
   return _id;

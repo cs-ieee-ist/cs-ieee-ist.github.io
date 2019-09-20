@@ -28,6 +28,7 @@ const setupListeners = () => {
 	$(".dropdown-btn").on("click", handleDropdownBtnClick);
 	$("#navigate-about").on("click", handleDropdownBtnClick);
 	$(".menu-icon").on("click", handleMenuBtnClick);
+	$(".dropdown-container").on("click", handleTopicClick);
 }
 
 const loadPage = (pageId) => {
@@ -73,6 +74,15 @@ const handleDropdownBtnClick = (e) => {
 	showPage(pageId);
 }
 
+const handleTopicClick = (event) => {
+
+	const topic = $(event.target.parentElement);
+	if (topic.find(".activeTopic"))
+		$(".dropdown-container a").removeClass("activeTopic");
+
+	$(event.target).addClass("activeTopic");
+}
+
 const closeDropdownOption = (pageId) => {
 	const btn = $(`#navigate-${pageId}`);
 	const options = $(`#options-${pageId}`);
@@ -81,6 +91,10 @@ const closeDropdownOption = (pageId) => {
 }
 
 const expandDropdownOptions = (pageId) => {
+
+	if ($(".dropdown-container").find("activeTopic"))
+		$(".dropdown-container a").removeClass("activeTopic");
+
 	const btn = $(`#navigate-${pageId}`);
 	const options = $(`#options-${pageId}`);
 	btn.addClass("active");

@@ -46,7 +46,7 @@
 	box-sizing: border-box;
 }
 
-.sidenav a:hover, .dropdown-btn:hover {
+.sidenav a:not(.activeTopic):hover, .dropdown-btn:hover {
 	background-color: #e4e4e4;
 }
 
@@ -64,6 +64,15 @@
 	display: none;
 }
 
+.dropdown-container .activeTopic {
+	background:  var(--primary-dark-color);;
+	color: white;
+	opacity: 0.4;
+}
+
+.dropdown-container .activeTopic:hover {
+	opacity: 0.5;
+}
 
 /* Optional: Style the caret down icon */
 
