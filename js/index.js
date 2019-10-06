@@ -10,7 +10,7 @@ document.querySelector("body").onload = () => {
 const onPageLoad = () => {
   document.querySelector("body").style.visibility = "visible";
   handleUrl();
-  setupListeners();
+	setupListeners();
 };
 
 const handleUrl = () => {
@@ -38,7 +38,9 @@ const loadPage = pageId => {
   const page = $(`#${pageId}`);
   if (page.children().length !== 0) return;
 
-  page.load(`${pageId}.html`);
+	page.load(`${pageId}.html`, ()=>{
+		PR.prettyPrint();
+	});
 };
 
 const showPage = newPageId => {
