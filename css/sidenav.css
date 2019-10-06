@@ -21,7 +21,7 @@
 	text-decoration: none;
 	font-size: 1.25rem;
 	color: #000;
-	display: block;
+	display: none;
 	border: none;
 	background: none;
 	width: 100%;
@@ -29,6 +29,10 @@
 	cursor: pointer;
 	outline: none;
 	box-sizing: border-box;
+}
+
+.dropdown-btn.completed {
+	display: block;
 }
 
 .sidenav a {

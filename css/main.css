@@ -34,3 +34,7 @@ body {
 pre {
 	padding: 16px 0;
 }
+
+.incomplete {
+	display: none;
+}
