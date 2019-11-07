@@ -5,52 +5,54 @@
 
 <body>
 
-    <div class="page__header">
-      <div class="page__title">Programação com Objectos</div>
-    </div>
+	<div class="page__header">
+		<div class="page__title">Programação com Objectos</div>
+	</div>
 
-    <div class="page__content">
+	<div class="page__content">
 
-      <div id="AbstractFactory" class="section-title-anchor">
-        <h3 class="section-title">Abstract Factory</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 88</h6>
+		<div id="AbstractFactory" class="section-title-anchor">
+			<h3 class="section-title">Abstract Factory</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 88</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Provide an interface for creating families of related or dependent objects without specifying their concrete classes </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Provide an interface for creating families of related or dependent objects without specifying their
+			concrete classes </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; When a system should be independent of how its products are created, composed, and represented </p>
-      <p> &bullet; When a family of related product objects is designed to be used together, and you need to enforce this constraint </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When a system should be independent of how its products are created, composed, and represented </p>
+		<p> &bullet; When a family of related product objects is designed to be used together, and you need to enforce this
+			constraint </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/AbstractFactory.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/AbstractFactory.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> AbstractFactory </h4>
-      <p> &bullet; Declares an interface for operations that create abstract product objects </p>
-      <h4> ConcreteFactory </h4>
-      <p> &bullet; Implements the operations to create concrete product objects </p>
-      <h4> AbstractProduct </h4>
-      <p> &bullet; Declares an interface for a type of product object </p>
-      <h4> ConcreteProduct </h4>
-      <p> &bullet; Defines a product object to be created by the corresponding concrete factory </p>
-      <p> &bullet; Implements the AbstractProduct interface </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> AbstractFactory </h4>
+		<p> &bullet; Declares an interface for operations that create abstract product objects </p>
+		<h4> ConcreteFactory </h4>
+		<p> &bullet; Implements the operations to create concrete product objects </p>
+		<h4> AbstractProduct </h4>
+		<p> &bullet; Declares an interface for a type of product object </p>
+		<h4> ConcreteProduct </h4>
+		<p> &bullet; Defines a product object to be created by the corresponding concrete factory </p>
+		<p> &bullet; Implements the AbstractProduct interface </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/AbstractFactory.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/AbstractFactory.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+		<pre class="prettyprint linenums lang-java">
 public abstract class Disk {
   public abstract String displayInformation();
 }
@@ -103,43 +105,46 @@ public class Test {
 }
       </pre>
 
-      <div id="Adapter" class="section-title-anchor">
-        <h3 class="section-title">Adapter</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 135</h6>
+		<div id="Adapter" class="section-title-anchor">
+			<h3 class="section-title">Adapter</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 135</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Convert the interface of a class into another interface clients expect. Adapter lets classes work
+			together that couldn't otherwise because of incompatible interfaces </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; You want to use an existing class, and its interface does not match the one you need </p>
-      <p> &bullet; You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don't necessarily have compatible interfaces </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; You want to use an existing class, and its interface does not match the one you need </p>
+		<p> &bullet; You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is,
+			classes that don't necessarily have compatible interfaces </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Adapter.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Adapter.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Target </h4>
-      <p> &bullet; Defines the interface that the Client uses </p>
-      <h4> Adaptee </h4>
-      <p> &bullet; Defines an existing interface that needs adapting </p>
-      <h4> Adapter </h4>
-      <p> &bullet; Adapts the interface of Adaptee to the Target interface </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Target </h4>
+		<p> &bullet; Defines the interface that the Client uses </p>
+		<h4> Adaptee </h4>
+		<p> &bullet; Defines an existing interface that needs adapting </p>
+		<h4> Adapter </h4>
+		<p> &bullet; Adapts the interface of Adaptee to the Target interface </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Adapter.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Adapter.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+
+		<pre class="prettyprint linenums lang-java">
 interface ISystem {
       public void runSpecificSystem();
 }
@@ -193,44 +198,48 @@ public class Test {
 }
       </pre>
 
-      <div id="Bridge" class="section-title-anchor">
-        <h3 class="section-title">Bridge</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 146</h6>
+		<div id="Bridge" class="section-title-anchor">
+			<h3 class="section-title">Bridge</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 146</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Decouple an abstraction from its implementation so that the two can vary independently </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Decouple an abstraction from its implementation so that the two can vary independently </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; When you want to avoid a permanent binding between an abstraction and its implementation. This might be the case, for example, when the implementation must be selected or switched at run-time </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When you want to avoid a permanent binding between an abstraction and its implementation. This might be
+			the case, for example, when the implementation must be selected or switched at run-time </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Bridge.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Bridge.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Abstraction </h4>
-      <p> &bullet; Maintains a reference to an object of type Implementor </p>
-      <h4> RefinedAbstraction </h4>
-      <p> &bullet; Extends the interface defined by Abstraction </p>
-      <h4> Implementor </h4>
-      <p> &bullet; Defines the interface for implementation classes. This interface doesn't have to correspond exactly to Abstraction's interface. Typically the Implementor interface provides only primitive operations, and Abstraction defines higher-level operations based on these primitives </p>
-      <h4> ConcreteImplementor </h4>
-      <p> &bullet; Implements the Implementor interface and defines its concrete implementation </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Abstraction </h4>
+		<p> &bullet; Maintains a reference to an object of type Implementor </p>
+		<h4> RefinedAbstraction </h4>
+		<p> &bullet; Extends the interface defined by Abstraction </p>
+		<h4> Implementor </h4>
+		<p> &bullet; Defines the interface for implementation classes. This interface doesn't have to correspond exactly to
+			Abstraction's interface. Typically the Implementor interface provides only primitive operations, and Abstraction
+			defines higher-level operations based on these primitives </p>
+		<h4> ConcreteImplementor </h4>
+		<p> &bullet; Implements the Implementor interface and defines its concrete implementation </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Bridge.jpg">
-      </div></br>     
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Bridge.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+
+		<pre class="prettyprint linenums lang-java">
 abstract class Person {
   private String _name;
   private Task _task;
@@ -293,42 +302,43 @@ public class Test {
 }
       </pre>
 
-      <div id="Composite" class="section-title-anchor">
-        <h3 class="section-title">Composite</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 156</h6>
+		<div id="Composite" class="section-title-anchor">
+			<h3 class="section-title">Composite</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 156</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Compose objects into tree structures to represent part-whole hierarchies</p>
+		<b> Goal </b>
+		<p> &bullet; Compose objects into tree structures to represent part-whole hierarchies</p>
 
-      <b> When to use </b>
-      <p> &bullet; Represent part-whole hierarchies of objects</p>
-      <p> &bullet; Treat all objects in the composite structure uniformly</p>
+		<b> When to use </b>
+		<p> &bullet; Represent part-whole hierarchies of objects</p>
+		<p> &bullet; Treat all objects in the composite structure uniformly</p>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Composite.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Composite.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Commponent </h4>
-      <p> &bullet; Declares the interface for objects in the composition </p>
-      <h4> Leaf </h4>
-      <p> &bullet; Represents leaf objects in the composition. A leaf has no children </p>
-      <h4> Composite </h4>
-      <p> &bullet; Defines behavior for components having children </p>
-      <p> &bullet; Stores child components </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Commponent </h4>
+		<p> &bullet; Declares the interface for objects in the composition </p>
+		<h4> Leaf </h4>
+		<p> &bullet; Represents leaf objects in the composition. A leaf has no children </p>
+		<h4> Composite </h4>
+		<p> &bullet; Defines behavior for components having children </p>
+		<p> &bullet; Stores child components </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Composite.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Composite.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+
+		<pre class="prettyprint linenums lang-java">
 import java.util.ArrayList;
 
 interface AbstractFile {
@@ -421,45 +431,45 @@ public class Test {
 }
       </pre>
 
-      <div id="Decorator" class="section-title-anchor">
-        <h3 class="section-title">Decorator</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 166</h6>
+		<div id="Decorator" class="section-title-anchor">
+			<h3 class="section-title">Decorator</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 166</h6>
 
-      <b> Goal </b>
-      <p> &bullet;  Attach additional responsibilities to an object </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Attach additional responsibilities to an object </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet;  Add responsibilities to individual objects without affecting other objects </p>
-      <p> &bullet;  For responsibilities that can be withdrawn </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; Add responsibilities to individual objects without affecting other objects </p>
+		<p> &bullet; For responsibilities that can be withdrawn </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Decorator.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Decorator.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Component </h4>
-      <p> &bullet; Defines the interface for objects that can have responsabilities added to them dynamically </p>
-      <h4> ConcreteComponent </h4>
-      <p> &bullet; Defines an object to which additional responsabilities can be attached </p>
-      <h4>  Decorator </h4>
-      <p> &bullet; Maintains a reference to a Component object </p>
-      <h4>  ConcreteDecorator </h4>
-      <p> &bullet; Adds responsibilities to the component </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Component </h4>
+		<p> &bullet; Defines the interface for objects that can have responsabilities added to them dynamically </p>
+		<h4> ConcreteComponent </h4>
+		<p> &bullet; Defines an object to which additional responsabilities can be attached </p>
+		<h4> Decorator </h4>
+		<p> &bullet; Maintains a reference to a Component object </p>
+		<h4> ConcreteDecorator </h4>
+		<p> &bullet; Adds responsibilities to the component </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Decorator.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Decorator.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang="java">
+		<pre class="prettyprint linenums lang=" java">
 interface PizzaComponent { 
   public int getCost(); 
 }
@@ -526,43 +536,44 @@ public class Test
 }
       </pre>
 
-      <div id="Facade" class="section-title-anchor">
-        <h3 class="section-title">Facade</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 175</h6>
+		<div id="Facade" class="section-title-anchor">
+			<h3 class="section-title">Facade</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 175</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Hide the complexety of the subsystem and provide an interface to the client </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Hide the complexety of the subsystem and provide an interface to the client </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet;  When you want to provide a simple interface to a complex subsystem </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When you want to provide a simple interface to a complex subsystem </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Facade.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Facade.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Facade </h4>
-      <p> &bullet; Knows which subsystem classes are responsible for a request </p>
-      <p> &bullet; Delegates client requests to appropriate subsystem objects </p>
-      <h4> Subsystem classes </h4>
-      <p> &bullet; Implement subsystem functionality </p>
-      <p> &bullet; Handle work assigned by the Facade object </p>
-      <p> &bullet; Keeps no references to the Facade </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Facade </h4>
+		<p> &bullet; Knows which subsystem classes are responsible for a request </p>
+		<p> &bullet; Delegates client requests to appropriate subsystem objects </p>
+		<h4> Subsystem classes </h4>
+		<p> &bullet; Implement subsystem functionality </p>
+		<p> &bullet; Handle work assigned by the Facade object </p>
+		<p> &bullet; Keeps no references to the Facade </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Facade.jpg">
-      </div></br>
- 
-      <b> Implementation </b>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Facade.jpg">
+		</div></br>
 
-      <pre class="prettyprint linenums lang=" java ">
+		<b> Implementation </b>
+
+
+		<pre class="prettyprint linenums lang-java">
 import java.util.HashSet;
 
 public class SchoolManager {
@@ -717,45 +728,46 @@ public class Test {
 }
       </pre>
 
-      <div id="FactoryMethod" class="section-title-anchor">
-        <h3 class="section-title">Factory Method</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 106</h6>
+		<div id="FactoryMethod" class="section-title-anchor">
+			<h3 class="section-title">Factory Method</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 106</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Define an interface for creating an object, but let subclasses decide which class to instantiate </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Define an interface for creating an object, but let subclasses decide which class to instantiate </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; When a class can't anticipate the class of objects it must create </p>
-      <p> &bullet; When a class wants its subclasses to specify the objects it creates </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When a class can't anticipate the class of objects it must create </p>
+		<p> &bullet; When a class wants its subclasses to specify the objects it creates </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/FactoryMethod.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/FactoryMethod.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Product </h4>
-      <p> &bullet; Defines the interface of objects the factory method creates </p>
-      <h4> ConcreteProduct </h4>
-      <p> &bullet; Implements the Product interface </p>
-      <h4> Creator </h4>
-      <p> &bullet; Declares the factory method, which returns an object of type Product </p>
-      <h4> ConcreteCreator </h4>
-      <p> &bullet; Overrides the factory method to return an instance of a ConcreteProduct </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Product </h4>
+		<p> &bullet; Defines the interface of objects the factory method creates </p>
+		<h4> ConcreteProduct </h4>
+		<p> &bullet; Implements the Product interface </p>
+		<h4> Creator </h4>
+		<p> &bullet; Declares the factory method, which returns an object of type Product </p>
+		<h4> ConcreteCreator </h4>
+		<p> &bullet; Overrides the factory method to return an instance of a ConcreteProduct </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/FactoryMethod.jpg">
-      </div></br>
- 
-      <b> Implementation </b>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/FactoryMethod.jpg">
+		</div></br>
 
-      <pre class="prettyprint linenums lang=" java ">
+		<b> Implementation </b>
+
+
+		<pre class="prettyprint linenums lang-java">
 public abstract class Person {
   private String _name;
 
@@ -813,46 +825,48 @@ public class Test {
 }
       </pre>
 
-      <div id="Observer" class="section-title-anchor">
-        <h3 class="section-title">Observer</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 273</h6>
+		<div id="Observer" class="section-title-anchor">
+			<h3 class="section-title">Observer</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 273</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Define a one-to-many dependency between objects so that when one object changes, all its dependents are notified and updated automatically </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Define a one-to-many dependency between objects so that when one object changes, all its dependents are
+			notified and updated automatically </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; When a change to one object requires changing others, and the amount of objects is unknown </p>
-      <p> &bullet; When an object should be able to notify other objects without knowing who these objects are </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When a change to one object requires changing others, and the amount of objects is unknown </p>
+		<p> &bullet; When an object should be able to notify other objects without knowing who these objects are </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Observer.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Observer.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Subject </h4>
-      <p> &bullet; Provides an interface for attaching and detaching Observer objects </p>
-      <h4> Observer </h4>
-      <p> &bullet; Provides an interface for objects that should be notified of changes in a subject </p>
-      <h4> ConcreteSubject </h4>
-      <p> &bullet; Sends a notification to its observers when changes occur </p>
-      <p> &bullet; Implements the Subject's methods </p>
-      <h4> ConcreteObserver </h4>
-      <p> &bullet; Implements the Observer's update method </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Subject </h4>
+		<p> &bullet; Provides an interface for attaching and detaching Observer objects </p>
+		<h4> Observer </h4>
+		<p> &bullet; Provides an interface for objects that should be notified of changes in a subject </p>
+		<h4> ConcreteSubject </h4>
+		<p> &bullet; Sends a notification to its observers when changes occur </p>
+		<p> &bullet; Implements the Subject's methods </p>
+		<h4> ConcreteObserver </h4>
+		<p> &bullet; Implements the Observer's update method </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Observer.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Observer.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+
+		<pre class="prettyprint linenums lang-java">
 import java.util.ArrayList;
 
 interface Observer {
@@ -945,43 +959,46 @@ public class Test {
 }
       </pre>
 
-      <div id="Proxy" class="section-title-anchor">
-        <h3 class="section-title">Proxy</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 196</h6>
+		<div id="Proxy" class="section-title-anchor">
+			<h3 class="section-title">Proxy</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 196</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Provide a substitute or placeholder for another object </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Provide a substitute or placeholder for another object </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; When there's a need to control access to the original object </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When there's a need to control access to the original object </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Proxy.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Proxy.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Proxy </h4>
-      <p> &bullet; Maintains a reference that lets the proxy access the real subject. Proxy may refer to a Subject if the RealSubject and Subject interfaces are the same </p>
-      <p> &bullet; Controls access to the real subject and may be responsible for creating and deleting it </p>
-      <h4> Subject </h4>
-      <p> &bullet; Defines the common interface for RealSubject and Proxy so that a Proxy can be used anywhere a RealSubject is expected </p>
-      <h4> RealSubject </h4>
-      <p> &bullet; Defines the real object that the proxy represents </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Proxy </h4>
+		<p> &bullet; Maintains a reference that lets the proxy access the real subject. Proxy may refer to a Subject if the
+			RealSubject and Subject interfaces are the same </p>
+		<p> &bullet; Controls access to the real subject and may be responsible for creating and deleting it </p>
+		<h4> Subject </h4>
+		<p> &bullet; Defines the common interface for RealSubject and Proxy so that a Proxy can be used anywhere a
+			RealSubject is expected </p>
+		<h4> RealSubject </h4>
+		<p> &bullet; Defines the real object that the proxy represents </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Proxy.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Proxy.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+
+		<pre class="prettyprint linenums lang-java">
 import java.util.Random;
 
 interface UserInformation {
@@ -1033,38 +1050,39 @@ public class Test {
 }
       </pre>
 
-      <div id="Singleton" class="section-title-anchor">
-        <h3 class="section-title">Singleton</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 124</h6>
+		<div id="Singleton" class="section-title-anchor">
+			<h3 class="section-title">Singleton</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 124</h6>
 
-      <b> Goal </b>
-      <p> &bull; Ensure there is only one instance of the class and provide global access to it </p>
+		<b> Goal </b>
+		<p> &bull; Ensure there is only one instance of the class and provide global access to it </p>
 
-      <b> When to use </b>
-      <p> &bullet; When there must be exactly one instance of a class, and it must be accessible to clients from a well-known access point </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When there must be exactly one instance of a class, and it must be accessible to clients from a
+			well-known access point </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <center><img class="template-img" src="media/img/po/UML/UML - Generalization/Singleton.png"></center>
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<center><img class="template-img" src="media/img/po/UML/UML - Generalization/Singleton.png"></center>
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Singleton </h4>
-      <p> &bullet; Defines an Instance operation that lets clients access its unique instance </p>
-      <p> &bullet; May be responsible for creating its own unique instance </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Singleton </h4>
+		<p> &bullet; Defines an Instance operation that lets clients access its unique instance </p>
+		<p> &bullet; May be responsible for creating its own unique instance </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <center><img src="media/img/po/UML/UML - Implementation/Singleton.jpg" width="50%"></center>
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<center><img src="media/img/po/UML/UML - Implementation/Singleton.jpg" width="50%"></center>
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums">
+		<pre class="prettyprint linenums">
 public class Singleton {
 
       private static Singleton  _singleInstance;
@@ -1095,42 +1113,44 @@ public class Test {
 
 </pre>
 
-      <div id="State" class="section-title-anchor">
-        <h3 class="section-title">State</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 283</h6>
+		<div id="State" class="section-title-anchor">
+			<h3 class="section-title">State</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 283</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Allow an object to change its behavior when its internal state changes</p>
+		<b> Goal </b>
+		<p> &bullet; Allow an object to change its behavior when its internal state changes</p>
 
-      <b> When to use </b>
-      <p> &bullet; An object's behavior depends on its state, and it must change its behavior at run-time depending on that state </p>
-      <p> &bullet; There's several conditional statements that depend on the object's state </p>
+		<b> When to use </b>
+		<p> &bullet; An object's behavior depends on its state, and it must change its behavior at run-time depending on
+			that state </p>
+		<p> &bullet; There's several conditional statements that depend on the object's state </p>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/State.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/State.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Context </h4>
-      <p> &bullet; Defines the interface of interest to clients </p>
-      <p> &bullet; Maintains an instance of a ConcreteState subclass that defines the current state </p>
-      <h4> State </h4>
-      <p> &bullet; Defines an interface for encapsulating the behavior associated with a particular state of the Context </p>
-      <h4> ConcreteState subclasses</h4>
-      <p> &bullet; Each subclass implements a behavior associated with a state of the Context </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Context </h4>
+		<p> &bullet; Defines the interface of interest to clients </p>
+		<p> &bullet; Maintains an instance of a ConcreteState subclass that defines the current state </p>
+		<h4> State </h4>
+		<p> &bullet; Defines an interface for encapsulating the behavior associated with a particular state of the Context
+		</p>
+		<h4> ConcreteState subclasses</h4>
+		<p> &bullet; Each subclass implements a behavior associated with a state of the Context </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/State.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/State.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums">
+		<pre class="prettyprint linenums">
 import java.util.Scanner;  //Used for testing purposes
 
 public interface SurveyState {
@@ -1271,44 +1291,49 @@ public class Test {
 }
     </pre>
 
-      <div id="Strategy" class="section-title-anchor">
-        <h3 class="section-title">Strategy</h3>
-      </div>
+		<div id="Strategy" class="section-title-anchor">
+			<h3 class="section-title">Strategy</h3>
+		</div>
 
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 292</h6>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 292</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the
+			algorithm vary independently from clients that use it </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; When many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors </p>
-      <p> &bullet; When a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When many related classes differ only in their behavior. Strategies provide a way to configure a class
+			with one of many behaviors </p>
+		<p> &bullet; When a class defines many behaviors, and these appear as multiple conditional statements in its
+			operations. Instead of many conditionals, move related conditional branches into their own Strategy class </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Strategy.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Strategy.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Strategy </h4>
-      <p> &bullet; Declares an interface common to all supported algorithms. Context uses this interface to call the algorithm defined by a ConcreteStrategy </p>
-      <h4> ConcreteStrategy </h4>
-      <p> &bullet; Implements the algorithm using the Strategy interface </p>
-      <h4> Context </h4>
-      <p> &bullet; Maintains a reference to a Strategy object </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Strategy </h4>
+		<p> &bullet; Declares an interface common to all supported algorithms. Context uses this interface to call the
+			algorithm defined by a ConcreteStrategy </p>
+		<h4> ConcreteStrategy </h4>
+		<p> &bullet; Implements the algorithm using the Strategy interface </p>
+		<h4> Context </h4>
+		<p> &bullet; Maintains a reference to a Strategy object </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Strategy.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Strategy.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+
+		<pre class="prettyprint linenums lang-java">
 interface SearchAlgorithm {
   public void solve();
 }
@@ -1358,43 +1383,47 @@ public class Test {
 }
       </pre>
 
-      <div id="TemplateMethod" class="section-title-anchor">
-        <h3 class="section-title">Template Method</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 301</h6>
+		<div id="TemplateMethod" class="section-title-anchor">
+			<h3 class="section-title">Template Method</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 301</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Define the skeleton of an algorithm in an operation, deferring some steps to subclasses </p>
-      <p> &bullet; Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure </p>
-      <br>
+		<b> Goal </b>
+		<p> &bullet; Define the skeleton of an algorithm in an operation, deferring some steps to subclasses </p>
+		<p> &bullet; Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's
+			structure </p>
+		<br>
 
-      <b> When to use </b>
-      <p> &bullet; When you want to implement the invariant parts of an algorithm once and leave it up to subclasses to implement the behavior that can vary </p>
-      <p> &bullet; When common behavior among certain classes should be factored and localized in a common class </p>
-      <br>
+		<b> When to use </b>
+		<p> &bullet; When you want to implement the invariant parts of an algorithm once and leave it up to subclasses to
+			implement the behavior that can vary </p>
+		<p> &bullet; When common behavior among certain classes should be factored and localized in a common class </p>
+		<br>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/TemplateMethod.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/TemplateMethod.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> AbstractClass </h4>
-      <p> &bullet; Defines abstract operations that concrete subclasses define to implement certain steps of an algorithm </p>
-      <p> &bullet; Implements a template method defining the skeleton of an algorithm </p>
-      <h4> ConcreteClass </h4>
-      <p> &bullet; Implements the operations using specific steps of the algorithm </p>
-      <br>
+		<br>
+		<h3> Participants </h3>
+		<h4> AbstractClass </h4>
+		<p> &bullet; Defines abstract operations that concrete subclasses define to implement certain steps of an algorithm
+		</p>
+		<p> &bullet; Implements a template method defining the skeleton of an algorithm </p>
+		<h4> ConcreteClass </h4>
+		<p> &bullet; Implements the operations using specific steps of the algorithm </p>
+		<br>
 
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/TemplateMethod.jpg">
-      </div></br>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/TemplateMethod.jpg">
+		</div></br>
 
-      <b> Implementation </b>
+		<b> Implementation </b>
 
-      <pre class="prettyprint linenums lang=" java ">
+
+		<pre class="prettyprint linenums lang-java">
 import java.util.ArrayList;
 
 public abstract class SortTemplateMethod {
@@ -1489,45 +1518,52 @@ public class Test {
 }
       </pre>
 
-      <h4>NOTE &bullet; Bubble Sort was only implemented for demonstration purposes. ArrayLists already have a sort method implemented. For more information on <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">ArrayLists</a> or <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a>. </h4>
+		<h4>NOTE &bullet; Bubble Sort was only implemented for demonstration purposes. ArrayLists already have a sort method
+			implemented. For more information on <a
+				href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">ArrayLists</a> or <a
+				href="https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a>. </h4>
 
-      <div id="Visitor" class="section-title-anchor">
-        <h3 class="section-title">Visitor</h3>
-      </div>
-      <h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 306</h6>
+		<div id="Visitor" class="section-title-anchor">
+			<h3 class="section-title">Visitor</h3>
+		</div>
+		<h6 class="topic-book-chapter">Design Patterns: Elements of reusable Object-Oriented Software - p. 306</h6>
 
-      <b> Goal </b>
-      <p> &bullet; Represent an operation to be performed on the elements of an object structure without changing the original classes of those elements </p>
+		<b> Goal </b>
+		<p> &bullet; Represent an operation to be performed on the elements of an object structure without changing the
+			original classes of those elements </p>
 
-      <b> When to use </b>
-      <p> &bullet; The classes defining the object structure rarely change, but you often want to define new operations over the structure </p>
-      <p> &bullet; Many distinct and unrelated operations need to be performed on objects in an object structure, and you want to avoid "polluting " their classes with these operations </p>
+		<b> When to use </b>
+		<p> &bullet; The classes defining the object structure rarely change, but you often want to define new operations
+			over the structure </p>
+		<p> &bullet; Many distinct and unrelated operations need to be performed on objects in an object structure, and you
+			want to avoid "polluting " their classes with these operations </p>
 
-      <b> Structure - Generalization </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Generalization/Visitor.png">
-      </div></br>
+		<b> Structure - Generalization </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Generalization/Visitor.png">
+		</div></br>
 
-      <br>
-      <h3> Participants </h3>
-      <h4> Visitor </h4>
-      <p> &bullet; Declares a Visit operation for each class of ConcreteElement in the object structure. The operation's name and signature identifies the class that sends the Visit request to the visitor </p>
-      <h4> ConcreteVisitor </h4>
-      <p> &bullet; Implements each operation declared by Visitor </p>
-      <h4> Element </h4>
-      <P> &bullet; Defines an Accept operation that takes a visitor as an argument </P>
-      <h4> ConcreteElement </h4>
-      <P> &bullet; Implements an Accept operation that takes a visitor as an argument </P>
-      <br>
-      
-      <b> UML </b>
-      <div class="template-img-container">
-        <img class="template-img" src="media/img/po/UML/UML - Implementation/Visitor.jpg">
-      </div></br>
+		<br>
+		<h3> Participants </h3>
+		<h4> Visitor </h4>
+		<p> &bullet; Declares a Visit operation for each class of ConcreteElement in the object structure. The operation's
+			name and signature identifies the class that sends the Visit request to the visitor </p>
+		<h4> ConcreteVisitor </h4>
+		<p> &bullet; Implements each operation declared by Visitor </p>
+		<h4> Element </h4>
+		<P> &bullet; Defines an Accept operation that takes a visitor as an argument </P>
+		<h4> ConcreteElement </h4>
+		<P> &bullet; Implements an Accept operation that takes a visitor as an argument </P>
+		<br>
 
-      <b> Implementation </b>
+		<b> UML </b>
+		<div class="template-img-container">
+			<img class="template-img" src="media/img/po/UML/UML - Implementation/Visitor.jpg">
+		</div></br>
 
-      <pre class="prettyprint linenums lang="java">
+		<b> Implementation </b>
+
+		<pre class="prettyprint linenums lang-java">
 interface Element { 
   void accept(Visitor visitor); 
 } 
@@ -1613,8 +1649,8 @@ public class Test {
     teacher.accept(visitor); 
   } 
 }
-      </pre>
+    </pre>
 
-  </body>
+</body>
 
 </html>
