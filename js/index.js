@@ -53,7 +53,7 @@ const showPage = (newPageId) => {
 	currentPageId = newPageId;
 };
 
-const handleMenuBtnClick = () => {
+const toggleSidenav = () => {
 	const menu = $(".sidenav");
 	const menuBtn = $(".menu-icon");
 	if (menu.hasClass("active")) {
@@ -65,6 +65,10 @@ const handleMenuBtnClick = () => {
 	}
 };
 
+const handleMenuBtnClick = () => {
+	toggleSidenav();
+};
+
 const handleDropdownBtnClick = (e) => {
 	const pageId = e.target.id.split("-")[1]; // id format: navigate-$[page id]
 
@@ -73,12 +77,12 @@ const handleDropdownBtnClick = (e) => {
 			closeDropdownOption(currentPageId);
 		}
 		expandDropdownOptions(pageId);
+		if (window.innerWidth <= 1024) toggleSidenav();
 	} else {
 		if (e.currentTarget.classList.contains("active")) {
 			closeDropdownOption(currentPageId);
 		} else {
 			expandDropdownOptions(currentPageId);
-
 		}
 	}
 
@@ -91,7 +95,7 @@ const handleTopicClick = (event) => {
 	const topic = $(event.target.parentElement);
 	if (topic.find(".activeTopic"))
 		$(".dropdown-container a").removeClass("activeTopic");
-
+	if (window.innerWidth <= 1024) toggleSidenav();
 	$(event.target).addClass("activeTopic");
 };
 
