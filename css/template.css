@@ -5,7 +5,7 @@
 }
 
 .page__title {
-	font-size: 3rem;
+	font-size: 2.8rem;
 	font-weight: 600;
 	color: var(--primary-color);
 }
@@ -83,6 +83,7 @@
 .section-title-anchor {
 	position: relative;
 	bottom: 80px;
+	z-index: -1;
 }
 
 .sub-section-title {
@@ -165,6 +166,6 @@ table {
 
 @media screen and (max-width: 500px) {
 	html {
-		font-size: 70%;
+		font-size: 90%;
 	}
 }

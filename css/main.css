@@ -35,4 +35,6 @@ body {
 pre.prettyprint {
 	padding: 16px;
 	border-radius: 16px;
+	font-size: 12px;
+	overflow-x: auto;
 }
