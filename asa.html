@@ -1,0 +1,136 @@
+<html>
+
+<head>
+	<!-- Add custom style here -->
+</head>
+
+<body>
+
+	<div class="page__header">
+		<div class="page__title">
+			Análise e Síntese de Algoritmos
+		</div>
+	</div>
+
+	<div class="page__content">
+		<!-- Page Content -->
+
+		<!-- Introducao aos grafos -->
+
+		<div id="asa--introducao-grafos" class="section-title-anchor">
+			<h3 class="section-title">Introdução aos Grafos</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo ?</h6>
+
+		Os grafos dirigidos têm uma direção associada a cada arco. Já os grafos não dirigidos têm arcos
+		sem uma direção associada, ou seja, o arco (A, B) pode ser atravessado de A para B ou de B
+		para A.</br></br>
+		Existem duas maneiras de representar grafos:</br>
+		<ul>
+			<li>Através de listas de adjacências (bom para resolver grafos esparsos).</li></br>
+			<img class="adjacendias-img" src="./media/img/asa/adj.png"></br>
+			<li>Através de matrizes de adjacências (bom para resolver grafos densos, ou seja, grafos
+					onde quase todos os vértices estão ligados aos restantes).</li></br>
+			<img class="matriz-img" src="./media/img/asa/matriz.png" align="center"></br>
+		</ul>
+
+		<!-- Ordenacao Topologica -->
+
+		<div id="asa--ordenacao-topologica" class="section-title-anchor">
+			<h3 class="section-title">Ordenação Topológica</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo ?</h6>
+		É uma ordenação de todos os vértices tal que se existe um arco (A, B), então A aparece antes
+		de B na ordenação.</br>
+		Ou seja, a ordenação fica de forma a que os vértices que não tem mais arcos para explorar são
+		os últimos na ordenação.</br></br>Exemplo:</br>
+		<img class="ordenacao-top-img" src="./media/img/asa/ord-t.png">
+
+
+		<!-- DFS -->
+
+		<div id="asa--dfs" class="section-title-anchor">
+			<h3 class="section-title">DFS (Depth-First Search)</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo ?</h6>
+		Grafo pesquisado dando prioridade aos arcos dos vértices mais
+		recentemente visitados.</br></br>
+		color[v]: cor do vértice v, (branco, cinzento ou preto)</br>
+		&#09;branco: não visitado
+		cinzento: já visitado, mas algum dos adjacentes não visitado ou procura em algum dos
+		adjacentes não terminada
+		preto: já visitado e procura nos adjacentes já terminada
+		π[v]: predecessor de v na árvore DF
+		d[v]: tempo de início (de visita do vértice)
+		f[v]: tempo de fim (de visita do vértice)</br></br>
+		Exemplo:</br></br>
+
+		<table>
+			<tr>
+				<td>1º</td>
+				<td>Todos os vértices a Branco</br>Tempos de início e fim = 99</br>Predecessores = nulo</td>
+				<td><img class="ordenacao-top-img" src="./media/img/asa/ord-t.png"></td>
+
+			</tr>
+
+		</table>
+
+
+
+
+		<h4 class="sub-section-title">Pseudocode</h4>
+
+		<div class="code-snippet">
+			<b>function</b> BREADTH-FIRST-SEARCH(problem) <b>returns</b> a solution, or failure
+			<div class="code-snippet-scope">
+				node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
+				<b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+				frontier ← a FIFO queue with node as the only element</br>
+				explored ← an empty set</br>
+				<b>loop do</b>
+				<div class="code-snippet-scope">
+					<b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
+					node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
+					add node.STATE to explored</br>
+					<b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
+					<div class="code-snippet-scope">
+						child ← CHILD-NODE(problem, node, action)</br>
+						<b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
+						<div class="code-snippet-scope">
+							<b>if</b> problem.GOAL-TEST(child.STATE) <b>then return</b> SOLUTION(child)</br>
+							frontier ← INSERT(child,frontier )
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h4 class="sub-section-title">Code</h4>
+
+		<?prettify?>
+		<pre class="prettyprint linenums lang-c">
+      #include &lt;stdio.h>
+
+      int main() {
+        printf("Hello World");
+        return 0;
+      }
+    </pre>
+
+		<h4 class="sub-section-title">Image</h4>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/minimax.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		<!-- End Section -->
+		<!-- End Page Content -->
+	</div>
+
+	<script src="./google-code-prettify/run_prettify.js?skin=desert"></script>
+
+</body>
+
+</html>

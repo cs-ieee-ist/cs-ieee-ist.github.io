@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap');
+@import url("./sidenav.css");
+@import url("./template.css");
+@import url("./code-theme.css");
+:root {
+	--primary-color: #0073a9;
+	--primary-dark-color: #006492;
+	--page-background-color: #fff;
+	--sidenav-background-color: #f0f0f0;
+	--header-height: 44px;
+}
+
+html {
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+	background-color: #fff;
+	display: flex;
+}
+
+.content {
+	flex: 1;
+}
+
+.page {
+	height: 100vh;
+	overflow-y: auto;
+	scroll-behavior: smooth;
+}
+
+pre.prettyprint {
+	padding: 16px;
+	border-radius: 16px;
+}

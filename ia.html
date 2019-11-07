@@ -1,0 +1,1555 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+	<div class="page__header">
+		<div class="page__title">
+			Inteligência Artifical
+		</div>
+	</div>
+
+	<div class="page__content">
+		<!-- Page Content -->
+
+		<!-- Agentes Inteligentes -->
+
+		<div id="ia--agentes-inteigentes" class="section-title-anchor">
+			<h3 class="section-title">Agentes Inteligentes</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 2.1, 2.4.2, 2.4.3, 2.4.6</h6>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/agente.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+		Imagem retirada do livro: Artificial Intelligence: A Modern Approach</br></br>
+
+		<h4 class="sub-section-title">Agente</h4>
+
+		Um agente é qualquer coisa que consegue captar/perceber o ambiente onde se encontra e que actua nesse mesmo ambiente
+		através de atuadores.</br>
+
+		O termo percepção refere-se a um input do agente recebido a qualquer instante. Uma sequência de percepções será
+		então a história completa de tudo o que agente ja captou/percebeu.</br></br>
+		<i>"an agent’s choice of action at any given instant can depend on the entire percept
+			sequence observed to date, but not on anything it hasn’t perceived"</i></br></br>
+		O comportamente de um agente pode ser representado matemáticamente por uma função que mapeia qualquer percepção
+		recebida numa ação.</br></br>
+
+		Exemplo de um aspirador:</br>
+		<div class="code-snippet">
+			<b>função</b> AgenteAspirador ([posição, estadoLocal]) <b>devolve</b> acção</br>
+			<div class="code-snippet-scope">
+				Se estadoLocal = Sujo então Aspirar</br>
+				Senão se posição = A então Direita</br>
+				Senão se posição = B então Esquerda
+
+			</div>
+		</div>
+		</br>
+
+		<h4 class="sub-section-title">Agente racional</h4>
+
+		Um agente racional deve procurar fazer “o que está certo”, com base nas suas percepções e nas acções que pode tomar.
+		No entanto, o que quer fazer “o que está certo”? Bem, podemos considerar as consequências do comportamento do
+		agente. Se a sequência de estados que ambiente sofrer, resultantes das ações do agente, for considerada boa então
+		podemos dizer que o agente está a ter uma boa performance.</br></br>
+
+		Definição de agente racional:</br>
+		"For each possible percept sequence, a rational agent should select an action that is expected to maximize its
+		performance measure, given the evidence provided by the percept
+		sequence and whatever built-in knowledge the agent has."</br></br>
+
+		Exemplo do aspirador:</br>
+		A medida de desempenho do
+		agente aspirador pode ser a sujidade
+		aspirada, tempo utilizado, electricidade
+		consumida, ruído gerado, etc.</br></br>
+
+		<h4 class="sub-section-title">Agente Autónomo</h4>
+
+		Um agente é autónomo se o seu conhecimento for determinado apenas pela sua experiência, ou seja, este tem a
+		capacidade de aprender e adaptar-se.</br></br>
+
+		<h4 class="sub-section-title">PEAS</h4>
+
+		- Performance (desempenho)</br>
+		- Environment (ambiente)</br>
+		- Actuators (actuadores)</br>
+		- Sensors (sensores)</br></br>
+
+		PEAS: Agente taxista</br>
+		• Desempenho</br>
+		- Segurança, destino, lucros,
+		legalidade, conforto</br>
+		• Ambiente</br>
+		- Clientes, estradas, trânsito, transeuntes, tempo</br>
+		• Actuadores</br>
+		- Volante, acelerador, travão, buzina, pisca</br>
+		• Sensores</br>
+		- GPS, conta km, velocímetro, nível do depósito,
+		temperatura do óleo</br>
+
+
+		<h4 class="sub-section-title">Tipos de ambientes</h4>
+
+		<b>- Observável vs Parcialmente Observável</b>
+
+		<ul>
+			<li>Num ambiente “observável” os sensores do agente dão acesso ao estado
+				completo do ambiente em cada instante de tempo, pelo que não é
+				necessário manter um estado interno sobre o mundo.</li>
+			<li>Ou seja, o agente consegue a cada instante obter informação correcta e
+				actualizada do mundo que o rodeia.</li>
+			<li>A maioria dos ambientes não são totalmente observáveis tendo em conta
+				o aparelho sensorial comum.</li>
+			<li>Quanto mais observável é um ambiente mais fácil a criação de agentes
+				que nele operem</li>
+		</ul>
+
+		<b>- Estático vs Dinâmico</b>
+
+		<ul>
+			<li>Um ambiente estático é um ambiente que não é alterado enquanto
+				o agente decide que acção vai tomar</li>
+			<li>Um ambiente é semi-dinâmico se este permanece inalterado com a passagem do tempo mas a qualidade do desempenho
+				do agente é alterada</li>
+			<li>Um ambiente dinâmico pergunta constantemente ao agente o que este quer fazer se não decidir então conta como
+				decidir fazer nada.</li>
+		</ul>
+
+		<b>- Determinístico vs Estocástico</b>
+
+		<ul>
+			<li>Num ambiente Determinístico o estado seguinte do ambiente é
+				determinado somente em função do estado actual e da acção
+				executada pelo agente - não há incerteza para o agente sobre o estado
+				do mundo quando o agente executa uma acção</li>
+			<li>Se o ambiente é sempre determinístico excepto para as acções de outros agentes, então o ambiente é estratégico
+			</li>
+			<li>Os ambientes não determinísticos são bastante mais complexos de lidar
+				quando da criação dos agentes</li>
+		</ul>
+
+		<b>- Episódico vs Sequencial</b>
+
+		<ul>
+			<li>Num ambiente Episódico a experiência do agente está dividida em episódios atómicos (em que cada episódio
+				consiste em percepção+acção do agente) e a escolha de cada acção em cada episódio depende apenas do próprio
+				episódio</li>
+		</ul>
+
+		<b>- Discreto vs Contínuo</b>
+
+		<ul>
+			<li>Num ambiente Discreto o agente tem um número limitado de percepções e acções distintas que estão claramente
+				definidas</li>
+		</ul>
+
+		<b>- Single vs Multi-Agente</b>
+
+		<ul>
+			<li>Num ambiente Single Agent, tal como o próprio nome diz, só existe um agente nesse ambiente.</li>
+		</ul>
+
+		Exemplo</br>
+		<table style="margin: auto;border-collapse: collapse">
+			<tr>
+				<th>Ambientes</th>
+				<th>Observavel</th>
+				<th>Agentes</th>
+				<th>Deterministico</th>
+				<th>Episodico</th>
+				<th>Estático</th>
+				<th>Discreto</th>
+			</tr>
+			<tr>
+				<td>Palavras cruzadas</td>
+				<td>Totalmente</td>
+				<td>Single</td>
+				<td>Determinístico</td>
+				<td>Sequencial</td>
+				<td>Estático</td>
+				<td>Discreto</td>
+			</tr>
+			<tr>
+				<td>Xadrez com relógio</td>
+				<td>Totalmente</td>
+				<td>Multi</td>
+				<td>Determinístico</td>
+				<td>Sequencial</td>
+				<td>Semi</td>
+				<td>Discreto</td>
+			</tr>
+			<tr>
+				<td>Poker</td>
+				<td>Parcialmente</td>
+				<td>Multi</td>
+				<td>Estocástico</td>
+				<td>Sequencial</td>
+				<td>Estático</td>
+				<td>Discreto</td>
+			</tr>
+			<tr>
+				<td>Gamão</td>
+				<td>Totalmente</td>
+				<td>Multi</td>
+				<td>Estocástico</td>
+				<td>Sequencial</td>
+				<td>Estático</td>
+				<td>Discreto</td>
+			</tr>
+			<tr>
+				<td>Taxista</td>
+				<td>Parcialmente</td>
+				<td>Multi</td>
+				<td>Estocástico</td>
+				<td>Sequencial</td>
+				<td>Dinâmico</td>
+				<td>Contínuo</td>
+			</tr>
+			<tr>
+				<td>Diagnóstico Médico</td>
+				<td>Parcialmente</td>
+				<td>Single</td>
+				<td>Estocástico</td>
+				<td>Sequencial</td>
+				<td>Dinâmico</td>
+				<td>Contínuo</td>
+			</tr>
+			<tr>
+				<td>Análise de imagens</td>
+				<td>Totalmente</td>
+				<td>Single</td>
+				<td>Determinístico</td>
+				<td>Episódico</td>
+				<td>Semi</td>
+				<td>Contínuo</td>
+			</tr>
+			<tr>
+				<td>Part-picking robot</td>
+				<td>Parcialmente</td>
+				<td>Single</td>
+				<td>Estocástico</td>
+				<td>Episódico</td>
+				<td>Dinâmico</td>
+				<td>Contínuo</td>
+			</tr>
+			<tr>
+				<td>Refinery controller</td>
+				<td>Parcialmente</td>
+				<td>Single</td>
+				<td>Estocástico</td>
+				<td>Sequencial</td>
+				<td>Dinâmico</td>
+				<td>Contínuo</td>
+			</tr>
+			<tr>
+				<td>Tutor interativo de Inglês</td>
+				<td>Parcialmente</td>
+				<td>Multi</td>
+				<td>Estocástico</td>
+				<td>Sequencial</td>
+				<td>Dinâmico</td>
+				<td>Discreto</td>
+			</tr>
+		</table>
+
+		<h4 class="sub-section-title">Tipos de agentes</h4>
+
+		<ul>
+			<li>Agentes reflexos simples</li>
+			<li>Agentes reflexos baseados em modelos</li>
+			<li>Agentes baseados em objectivos</li>
+			<li>Agentes baseados em utilidade</li>
+			<li>Agentes com aprendizagem</li>
+		</ul>
+
+		<b>- Agentes reflexos simples</b></br></br>
+
+		Os agentes de reflexos simples são o tipo de agentes mais simples. Estes escolhem uma ação com base na percepção
+		atual, ignorando todo o historial de percepções. O exemplo do aspirador apresentado anteriormente é um agente de
+		reflexos simples.</br></br>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/agente_simples.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		<div class="code-snippet">
+			<b>function</b> SIMPLE-REFLEX-AGENT(percept) <b>returns</b> an action</br>
+			<div class="code-snippet-scope">
+				persistent: rules, a set of condition-action rules</br>
+				state ← INTERPRET-INPUT(percept)</br>
+				rule ← RULE-MATCH(state, rules)</br>
+				action ← rule.ACTION</br>
+				<b>return</b> action</br>
+			</div>
+		</div>
+
+		<b>- Agentes reflexos simples</b></br></br>
+
+		Os agentes de reflexos baseados em modelos são agentes que mantêm um estado interno que lhes diz como é que o "mundo
+		funciona". O estado interno vai depender do histórico de percepções do agente.</br></br>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/agente_model_based.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		<div class="code-snippet">
+			<b>function</b> MODEL-BASED-REFLEX-AGENT(percept) <b>returns</b> an action
+			<div class="code-snippet-scope">
+				<b>persistent</b>: state, the agent’s current conception of the world state
+				<div class="code-snippet-scope">
+					model, a description of how the next state depends on current state and action</br>
+					rules, a set of condition-action rules</br>
+					action, the most recent action, initially none
+				</div>
+				state ← UPDATE-STATE(state, action, percept, model)</br>
+				rule ← RULE-MATCH(state, rules)</br>
+				action ← rule.ACTION</br>
+				<b>returns</b> action
+			</div>
+		</div>
+
+		<b>- Agentes baseados em objetivos</b></br></br>
+
+		Conhecer algo o estado atual do ambiente nem sempre é suficiente para decidir o que fazer. Por exemplo, num
+		cruzamento, o taxi pode virar à esquerda, virar à esquerda ou ir em frente. A melhor decisão vai depender do local
+		para onde o taxi quer ir. Um agente (model based) pode combinar com o modelo um objetivo de forma a escolher a
+		melhor ação para alcançar esse mesmo objetivo.</br></br>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/agente_goal_based.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		<b>- Agentes baseados em utilidade</b></br></br>
+
+		Este agente tem uma função de utilidade. Esta função de utilidade permite estabelecer preferências
+		entre sequências de estados que permitem atingir os mesmos objectivos. Por exemplo, um agente taxista que
+		pretende chegar a um destino, a função de utilidade permite distinguir as diferentes
+		formas de chegar ao destino, em função do tempo, da despesa, da segurança.</br></br>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/agente_utility_based.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		<b>- Agentes com aprendizagem</b></br></br>
+
+		Este agentec orresponde à ideia de máquina inteligente caracterizada por Turing (1950), em que o agente actua num
+		mundo
+		inicialmente desconhecido. Este é composto por três elementos:
+		<ul>
+			<li>O Elemento de aprendizagem, responsável por tornar o agente mais eficiente ao longo do tempo. Através do
+				feedback da crítica que avalia actuação do agente de acordo com o desempenho espectável.</li>
+			<li>O Elemento de desempenho, responsável por seleccionar as acções do agente</li>
+			<li>O Elemento de geração de problemas, responsável por sugerir acções que podem trazer informação útil.</li>
+		</ul>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/agente_learning.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		<!-- Fim Agentes Inteligentes -->
+		<!-- Procura não informada -->
+		<div id="ia--procura-n-informada" class="section-title-anchor">
+			<h3 class="section-title">Procura não informada</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 3.1, 3.4, 3.5.1, 3.5.2</h6>
+
+		<h4 class="sub-section-title">Estratégias de procura</h4>
+		As estratégias são avaliadas de acordo com 4 aspectos:</br>
+		<ul>
+			<li><b>Completude</b>: encontra sempre uma solução caso exista (se não existir diz que não há solução)</li>
+			<li><b>Complexidade temporal</b>: número de nós gerados</li>
+			<li><b>Complexidade espacial</b>: número máximo de nós em memória</li>
+			<li><b>Optimalidade</b>: encontra a solução de menor custo</li>
+		</ul>
+
+		Complexidade temporal e espacial são medidas em termos de:</br>
+		<ul>
+			<li><b>b</b>: máximo factor de ramificação da árvore de procura (branching factor)</li>
+			<li><b>d</b>: profundidade da solução de menor custo (nó com estado inicial tem profundidade 0)</li>
+			<li><b>m</b>: máxima profundidade do espaço de estados (pode ser ∞)</li>
+		</ul>
+
+		Complexidade temporal:</br>
+		<ul>
+			<li>Função do número de nós gerados durante a procura</li>
+		</ul>
+
+		Complexidade espacial:</br>
+		<ul>
+			<li>Função do número de nós guardados em memória</li>
+		</ul>
+
+		<h4 class="sub-section-title">Estratégias de procura não informada</h4>
+
+		<b>Largura Primeiro (Breadth-first search)</b></br>
+
+		<ul>
+			<li><b>Completa:</b> Sim, se b for finito</li>
+			<li><b>Tempo:</b> b + b<sup>2</sup> + b<sup>3</sup> + ... + b<sup>d</sup> = O(b<sup>d</sup>), exponencial em d
+			</li>
+			<li><b>Espaço:</b> O(b<sup>d</sup>), todos os nós por expandir em memória</li>
+			<li><b>Ótima:</b> Sim, se custo de caminho for uma função não-decrescente da profundidade (e.g. se custo por ação
+				for = 1)</li>
+		</ul>
+
+		<div class="code-snippet">
+			<b>function</b> BREADTH-FIRST-SEARCH(problem) <b>returns</b> a solution, or failure
+			<div class="code-snippet-scope">
+				node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
+				<b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+				frontier ← a FIFO queue with node as the only element</br>
+				explored ← an empty set</br>
+				<b>loop do</b>
+				<div class="code-snippet-scope">
+					<b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
+					node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
+					add node.STATE to explored</br>
+					<b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
+					<div class="code-snippet-scope">
+						child ← CHILD-NODE(problem, node, action)</br>
+						<b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
+						<div class="code-snippet-scope">
+							<b>if</b> problem.GOAL-TEST(child.STATE) <b>then return</b> SOLUTION(child)</br>
+							frontier ← INSERT(child,frontier )
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<b>Custo Uniforme (Uniform cost search)</b></br>
+
+		<ul>
+			<li><b>Completa:</b> Sim, se custo do ramo ≥ ε, em que ε é uma constante > 0, para evitar ciclos em ramos com
+				custo 0</li>
+			<li><b>Tempo:</b> # de nós com g ≤ custo da solução óptima, O(b<sup>1+[C*/ε]</sup>) onde C* é o custo da solução
+				óptima</li>
+			<li><b>Espaço:</b> # de nós com g ≤ custo da solução óptima, O(b<sup>1+[C*/ε]</sup>)</li>
+			<li><b>Ótima:</b> Sim, nós expandidos por ordem crescente de g </li>
+		</ul>
+
+		<div class="code-snippet">
+			<b>function</b> n UNIFORM-COST-SEARCH(problem) <b>returns</b> a solution, or failure
+			<div class="code-snippet-scope">
+				node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
+				frontier ← a priority queue ordered by PATH-COST, with node as the only element
+				explored ← an empty set</br>
+				<b>loop do</b>
+				<div class="code-snippet-scope">
+					<b>if</b> EMPTY?(frontier ) <b>then return</b> failure</br>
+					node ← POP(frontier ) /* chooses the shallowest node in frontier */</br>
+					<b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+					add node.STATE to explored</br>
+					<b>for</b> each action <b>in</b> problem.ACTIONS(node.STATE) <b>do</b>
+					<div class="code-snippet-scope">
+						child ← CHILD-NODE(problem, node, action)</br>
+						<b>if</b> child.STATE is not in explored or frontier <b>then</b></br>
+						<div class="code-snippet-scope">
+							frontier ← INSERT(child,frontier )
+						</div>
+						<b>else if</b> child.STATE is in frontier with higher PATH-COST <b>then</b></br>
+						<div class="code-snippet-scope">
+							replace that frontier node with child
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<b>Profundidade Primeiro (Depth-first search)</b></br>
+
+		<ul>
+			<li><b>Completa:</b> Não: não encontra a solução em espaços de estados com profundidade infinita/com ciclos</li>
+			<li><b>Tempo:</b> O(b<sup>m</sup>): problemático se máxima profundidade do espaço de estados m é muito maior do
+				que profundidade da solução de menor custo d</li>
+			<li><b>Espaço:</b> O(b*m) - espaço linear (só um caminho)</li>
+			<li><b>Ótima:</b> Não </li>
+		</ul>
+
+		<b>Profundidade Limitada (Depth-limited search)</b></br>
+
+		<div class="code-snippet">
+			<b>function</b> DEPTH-LIMITED-SEARCH(problem, limit) <b>returns</b> a solution, or failure/cutoff
+			<div class="code-snippet-scope">
+				<b>return</b> RECURSIVE-DLS(MAKE-NODE(problem.INITIAL-STATE), problem, limit)
+			</div>
+			<b>function</b> RECURSIVE-DLS(node, problem, limit) <b>returns</b> a solution, or failure/cutoff
+			<div class="code-snippet-scope">
+
+				<b>if</b> problem.GOAL-TEST(node.STATE) <b>then return</b> SOLUTION(node)</br>
+				<b>else if</b> limit = 0 t<b>then return</b> cutoff</br>
+				<b>else</b></br>
+				<div class="code-snippet-scope">
+
+					cutoff occurred?←false</br>
+					<b>for each</b> action in problem.ACTIONS(node.STATE) <b>do</b></br>
+					<div class="code-snippet-scope">
+
+						child ← CHILD-NODE(problem, node, action)</br>
+						result ← RECURSIVE-DLS(child, problem, limit − 1)</br>
+						<b>if</b> result = cutoff <b>then</b> cutoff occurred?← true</br>
+						<b>else if</b> result != failure <b>then return</b> result</br>
+						<b>if</b> cutoff occurred? <b>then return</b> cutoff <b>else return</b> failure</br>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<b>Profundidade Limitada Iterativa ( Iterative deepening depth-first search)</b></br>
+
+		<ul>
+			<li><b>Completa:</b> Sim</li>
+			<li><b>Tempo:</b> (d)b + (d − 1)b<sup>2</sup> + ··· + (1)b<sup>d</sup> = O(b<sup>d</sup>)</li>
+			<li><b>Espaço:</b> O(b*d)</li>
+			<li><b>Ótima:</b> Sim, se custo de cada ramo for = 1 </li>
+		</ul>
+
+		<div class="code-snippet">
+			<b>function</b> ITERATIVE-DEEPENING-SEARCH(problem) <b>returns</b> a solution, or failure/cutoff
+			<div class="code-snippet-scope">
+				<b>for</b> depth = 0 <b>to</b> ∞ <b>do</b>
+				<div class="code-snippet-scope">
+					result ← DEPTH-LIMITED-SEARCH(problem, depth)</br>
+					<b>if</b> result != cutoff <b>then return</b> result
+				</div>
+			</div>
+		</div>
+
+		<!-- Fim Procura não informada -->
+		<!-- Procura informada -->
+
+		<div id="ia--procura-informada" class="section-title-anchor">
+			<h3 class="section-title">Procura informada</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 21.1, 21.2 e 21.3</h6>
+
+		<h4 class="sub-section-title">Função heurística</h4>
+
+		<ul>
+			<li>g(n) - custo do caminho do estado inicial até o nó n</li>
+			<li>h*(n) - custo do melhor caminho a partir do nó n até um objectivo</li>
+			<li>h(n) - estimativa do custo do melhor caminho a partir do nó n até um objectivo</li>
+			<li>h(n) = 0, se n = estado objectivo</li>
+		</ul>
+
+		<ul>
+			<li><b>Ideia</b>: usar uma função de avaliação f(n) para cada nó</br>
+				- f(n) usa conhecimento específico do problema</br>
+				- O “melhor” nó é o que tem o menor valor de f(n)</br>
+				- Expandir primeiro o nó que tem o menor valor de f(n)</li>
+			<li><b>Implementação</b>:
+				Nós na fronteira ordenados por ordem crescente da função de avaliação </br>
+				- Fronteira = {n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub>, ...} → f(n<sub>1</sub>) ≤ f(n<sub>2</sub>) ≤
+				f(<sub>3</sub>) ≤ ...
+			</li>
+			<li><b>Casos especiais:</b></br>
+				- Procura Gananciosa </br>
+				- Procura A*
+			</li>
+		</ul>
+
+		<b>Procura Melhor Primeiro (Best First Search)</b></br>
+
+		<ul>
+			<li>Algoritmo Procura Melhor Primeiro</br>
+				- Igual à Procura Custo Uniforme</br>
+				- Fronteira ordenada por f(n) em vez do custo </br>
+				- Procura custo uniforme pode ser vista como Procura Melhor Primeiro, f(n) = g(n)</li>
+		</ul>
+
+		<div class="code-snippet">
+			<b>function</b> BEST-FIRST-SEARCH (problem) <b>returns</b> a solution, or failure
+			<div class="code-snippet-scope">
+
+				node ← a node with State = problem.Initial-State, Path-Cost = 0</br>
+				frontier ← a priority queue ordered by F(node), with node as the only element</br>
+				explored ← an empty set</br>
+				<b>loop do</b>
+				<div class="code-snippet-scope">
+					<b>if</b> EMPTY?(frontier) <b>then return</b> failure</br>
+					node ← POP(frontier)</br>
+					<b>if</b> problem.Goal-Test(node.State) <b>then return</b> Solution(node)</br>
+					add node.State to explored</br>
+					<b>for each</b> action in problem.Actions(node.State) <b>do</b>
+					<div class="code-snippet-scope">
+						child ← CHILD-NODE(problem,node,action)</br>
+						<b>if</b> child.State is not in explored or frontier <b>then</b>
+						<div class="code-snippet-scope">
+							frontier ← Insert(child,frontier)
+						</div>
+						<b>else if</b> child.State is in frontier with higher F-Value <b>then</b>
+						<div class="code-snippet-scope">
+							replace that frontier node with child
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<b>Gananciosa (Greedy Best First Search)</b></br>
+
+		<ul>
+			<li>Função de avaliação f(n) = h(n) (heurística)</li>
+			<li>Procura gananciosa expande o nó que “parece” estar mais próximo do objectivo</li>
+		</ul>
+
+		<ul>
+			<li><b>Completa:</b> Não, pois pode entrar em ciclo</li>
+			<li><b>Tempo:</b> O(b<sup>m</sup>) mas uma boa heurística pode reduzi-lo dramaticamente</li>
+			<li><b>Espaço:</b> O(b<sup>m</sup>) no pior caso mantém todos os nós em memória</li>
+			<li><b>Ótima:</b> Não </li>
+		</ul>
+
+		<b>Procura A*</b></br>
+
+		<ul>
+			<li><b>Ideia:</b> evitar expandir caminhos que já têm um custo muito elevado</li>
+			<li>Função de avaliação f(n) = g(n) + h(n)</br>
+				- g(n) = custo desde o nó inicial até n</br>
+				- h(n) = estimativa do custo desde n até um estado objectivo
+			</li>
+			<li>f(n) = estimativa do custo total da melhor solução que passa por n</br>
+				- caminho desde o estado inicial até estado objectivo (passando por n)
+			</li>
+		</ul>
+
+
+		<ul>
+			<li><b>Completa:</b>Sim, a versão de procura em árvore é ótima se h(n) é admissivel, enquanto a versão de procura
+				em grafo é ótima se h(n) for consistente.</li>
+			<li><b>Tempo:</b> Exponencial</li>
+			<li><b>Espaço:</b> Exponencial</li>
+			<li><b>Ótima:</b> Sim</li>
+		</ul>
+
+		<b>Heurística Admissível</b></br></br>
+		Uma heurística é admissível se o valor estimado para cada nó nunca for superior ao valor ótimo.</br></br>
+
+		<b>Heurística Consistente</b></br></br>
+		Uma heurística é consistente se para cada nó n, e para cada sucessor n' de n gerado por uma acção a temos: h(n) ≤
+		c(n,a,n') + h(n'), ou seja um lado de um triângulo não pode ser maior que
+		a soma dos outros dois lados.</br>
+		<b>Se h é consistente então h é admissível</b>, o caso contrário não se verifica.</br></br>
+
+		<h4 class="sub-section-title">IDA* (Iterative Deepening A*)</h4>
+
+		<ul>
+			<li>Versão iterativa em profundidade da procura A*</li>
+			<li>Critério de corte/Limite:</br>
+				- f(n) = g(n) + h(n)</br>
+				- Em vez se usar profundidade usa-se o custo de f</li>
+			<li>Em cada nova iteração o valor limite é actualizado com o menor valor de f(n) para os nós cortados na
+				iteração anterior</li>
+		</ul>
+
+		<h4 class="sub-section-title">RBFS</h4>
+
+		<ul>
+			<li>Tenta simular o Best-First search mas usando espaço linear</li>
+			<li>Semelhante à procura em profundidade (implementação recursiva)</br>
+				- Para cada nó explorado, mantém o registo do caminho alternativo com menor valor de f</br>
+				- Para escolher o próximo nó a expandir olha apenas para os filhos do nó actual</br>
+				- Se o valor de f para o melhor filho excede o valor em memória, a recursão permite recuperar o melhor caminho
+				alternativo</li>
+		</ul>
+
+		<ul>
+			<li><b>Completa:</b>Sim</li>
+			<li><b>Tempo:</b> Depende da precisão da heurística e de quantas vezes muda o melhor caminho à medida que os
+				nós vão sendo expandidos</li>
+			<li><b>Espaço:</b> O(bd)</li>
+			<li><b>Ótima:</b> Sim, se heurística h(n) for admissível</li>
+		</ul>
+
+
+		<h4 class="sub-section-title">SMA* (Simplified Memory A*)</h4>
+
+		<ul>
+			<li>Procede primeiro como o A*: </br>
+				- Expande sempre o melhor nó na fronteira</br>
+				- Até a memória ficar cheia
+			</li>
+			<li>
+				Quando a memória está cheia:</br>
+				- Esquece o pior nó na fronteira para poder acrescentar outro</br>
+				- Mas, tal como o RBFS, regista o valor da nó esquecido no pai
+			</li>
+			<li>O nó esquecido pode ser regenerado se todos os
+				caminhos forem piores do que o seu valor</li>
+		</ul>
+
+		<!-- Fim Procura informada -->
+		<!-- Jogos -->
+
+		<div id="ia--jogos" class="section-title-anchor">
+			<h3 class="section-title">Procura em Jogos</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 5.1, 5.2, 5.3</h6>
+
+		<h4 class="sub-section-title">Minimax</h4>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/minimax.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		Consideremos um jogo com dois jogadores, um chamado MAX o outro MIN. Eles vão jogar de forma alternada sendo que o
+		MAX começa primeiro. No fim são dados pontos ao vencedor e penalidades ao derrotado. Um jogo pode ser definido como
+		um problema de procura com as seguintes caraterísticas:
+		<ul>
+			<li>S<sub>0</sub>: Estado inicial</li>
+			<li>PLAYER(s): Jogador que tem de jogar no estado s.</li>
+			<li>ACTIONS(s): Conjunto de jogadas possíveis no estado s.</li>
+			<li>RESULT(s, a): Resultado de uma jogada a no estado s.</li>
+			<li>TERMINAL-TEST(s): O terminal test, é true quando o jogo termina e false caso contrário. Estados em que o jogo
+				acaba são chamados de estados finais.</li>
+			<li>UTILITY(s, p): Função de utilidade, define o valor numérico final para um jogo que termina num estado terminal
+				s para um jogador p. Num jogo de xadrez, os resultados possíveis serão +1, 0, -1 que correspondem respetivamente
+				a vitória, empate e derrota.</li>
+		</ul>
+
+		O S<sub>0</sub>, a função ACTIONS e a função RESULT definem uma árvore para o jogo. Onde os nós são estados do jogo
+		e as arestas são jogadas. Por exemplo no jogo do galo (imagem em cima), a partir do S<sub>0</sub>, o MAX tem nove
+		jogadas possíveis.
+		Depois vai-se alternando o MAX, que coloca um X, com o MIN, que coloco uma O, até se se chegar ás folhas da árvore.
+		Esses estados terminais terão um valor que irá corresponder ao retorno da função UTILITY para o MAX em que cada um
+		desses mesmos estados.</br></br>
+
+		<b>Valor MINIMAX</b></br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?MINIMAX(s)=\left\{\begin{matrix} UTILITY(s)\ \ \if \ TERMINAL-TEST(s) \\max_{a\epsilon Actions(s)}MINIMAX(RESULT(s, a)) \  if \ PLAYER(s)=MAX \\min_{a\epsilon Actions(s)}  MINIMAX(RESULT(s, a)) \ if \ PLAYER(s)=MIN\end{matrix}\right." /></br></br>
+
+		<b>Algoritmo MINIMAX</b></br></br>
+
+		<div class="code-snippet">
+			<b>function</b> MINIMAX-DECISION(state) <b>returns</b> an action
+			<div class="code-snippet-scope">
+				<b>return</b> arg maxa ∈ ACTIONS(s) MIN-VALUE(RESULT(state, a))
+			</div></br></br>
+
+			<b>function</b> MAX-VALUE(state) <b>returns</b> a utility value
+			<div class="code-snippet-scope">
+				<b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+				v ← −∞</br>
+				<b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+				<div class="code-snippet-scope">
+					v ← MAX(v, MIN-VALUE(RESULT(s, a)))
+				</div>
+				<b>return</b> v</br>
+			</div></br></br>
+
+			<b>function</b> MIN-VALUE(state) <b>returns</b> a utility value
+			<div class="code-snippet-scope">
+				<b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+				v ← ∞
+				<b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+				<div class="code-snippet-scope">
+					v ← MIN(v, MAX-VALUE(RESULT(s, a)))
+				</div>
+				<b>return</b> v
+			</div>
+
+		</div>
+
+		<ul>
+			<li>Completo Sim (se a árvore de procura for finita)</li>
+			<li>Óptimo: Sim (contra um adversário óptimo)</li>
+			<li>Complexidade temporal: O(b<sup>m</sup>)</li>
+			<li> Complexidade espacial: O(bm) para um algoritmo que gera todos os sucessores de
+				uma vez, O(m) para um algoritmo que gera os sucessores um a um</li>
+		</ul>
+
+		<h4 class="sub-section-title">Cortes Alpha-Beta</h4>
+
+		Na procura Minimax o número de estados a examinar é exponencial. No entanto podemos reduzir o número de estado
+		analisados para metade. O truque passa por calcular a decisão Minimax
+		sem ter de analisar todos os estados, ou seja, fazer uma procura com cortes.
+
+		<ul>
+			<li>α de um nó n = valor da melhor escolha para o jogador MAX (i.e. valor mais alto) encontrada em qualquer ponto
+				de decisão ao longo do caminho para n</li>
+			<li>β e um nó n = valor da melhor escolha para o jogador MIN (i.e. valor mais baixo), encontrada em qualquer ponto
+				de decisão ao longo do caminho para n</li>
+		</ul>
+
+		<div class="code-snippet">
+
+
+			<b>function</b> ALPHA-BETA-SEARCH(state) <b>returns</b> an action
+			<div class="code-snippet-scope">
+				v ← MAX-VALUE(state,−∞,+∞)</br>
+				<b>return</b> the action <b>in</b> ACTIONS(state) with value v
+			</div></br></br>
+
+			<b>function</b> MAX-VALUE(state,α, β) <b>returns</b> a utility value
+			<div class="code-snippet-scope">
+
+				<b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+				v ← −∞
+				<b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+				<div class="code-snippet-scope">
+					v ← MAX(v, MIN-VALUE(RESULT(s,a),α, β))</br>
+					<b>if</b> v ≥ β <b>then return</b> v</br>
+					α ← MAX(α, v)
+				</div>
+				<b>return</b> v
+			</div></br></br>
+
+			<b>function</b> MIN-VALUE(state,α, β) <b>returns</b> a utility value
+			<div class="code-snippet-scope">
+
+				<b>if</b> TERMINAL-TEST(state) <b>then return</b> UTILITY(state)</br>
+				v ← +∞</br>
+				<b>for each</b> a <b>in</b> ACTIONS(state) <b>do</b>
+				<div class="code-snippet-scope">
+
+					v ← MIN(v, MAX-VALUE(RESULT(s,a) ,α, β))
+					<b>if</b> v ≤ α <b>then return</b> v</br>
+					β ← MIN(β, v)
+				</div>
+				<b>return</b> v
+			</div>
+
+		</div>
+
+
+		<!-- Fim Jogos -->
+		<!-- Problema de Satisfação de Restrições -->
+
+		<div id="ia--csp" class="section-title-anchor">
+			<h3 class="section-title">Problema de Satisfação de Restrições (CSP)</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 6.1, 6.2, 6.3</h6>
+
+		Um problema de satisfação de restrições tem três componentes, X, D, e C:
+		<ul>
+			<li>X é o conjunto das variáveis, {X<sub>1</sub>,...,X<sub>n</sub>}.</li>
+			<li>D é o conjunto dos domínios, {D<sub>1</sub>,...,D<sub>n</sub>}, um para cada variável.</li>
+			<li>C é o conjunto das restrições que especificam combinações possíveis de valores para
+				subconjuntos de variáveis</li>
+		</ul>
+
+		Um domínio D<sub>i</sub> consiste no conjunto de valores possíveis, {v<sub>1</sub>,...,v<sub>k</sub>} para a
+		variável X<sub>i</sub>.
+		Cada restrição C<sub>i</sub> consiste no par &lt;scope,rel>, onde "scope" é um tuplo com as variáveis que
+		participam
+		na
+		restrição e "rel" é uma relação que define o conjunto de valores que essas variáveis podem ter. A relação
+		pode ter uma representação explícita, onde é uma lista com todos os tuplos de valores que satisfazem a restrição,
+		exemplo, &lt;(X<sub>1</sub>,X<sub>2</sub>),[(0,1),(1,0)]>. Ou uma representação implícita, exemplo,
+		&lt;(X<sub>1</sub>,X<sub>2</sub>),X<sub>1</sub>!=X<sub>2</sub>>
+
+		Cada estado num CSP é definido por uma atribuição de valores para nenhumas, algumas ou todas as variáveis. Uma
+		atribuição diz-se:
+		<ul>
+			<li>Consistente: se não violar nenhuma restrição.</li>
+			<li>Vazia: se não atribuir valores a qualquer variável</li>
+			<li>Parcial: se atribui valores a apenas algumas variáveis</li>
+			<li>Completa: se atribui valores a todas as variávies</li>
+		</ul>
+
+		A solução de um CSP tem uma uma atribuição completa e consistente.</br></br>
+
+		<b>Examplo: Map coloring</b></br></br>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/csp.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		Temos um mapa da Austrália com todos os estados e territórios. O nosso objetivo é colorir cada região de vermelho,
+		verde ou azul. No entanto, regiões vizinhas não podem ter a mesma cor. Para formularmos isto como um CSP temos de
+		começar por definir:
+		<ul>
+			<li>As variáveis neste caso serão as regiões, X={WA, NT, Q, NSW ,V, SA, T}</li>
+			<li>O domínio de cada variável será D<sub>i</sub> = {red, green, blue} </li>
+			<li>E as restrições do problema serão C = {SA != WA, SA != NT, SA != Q, SA != NSW , SA != V,
+				WA != NT, NT != Q, Q != NSW , NSW != V }, em que X != Y é a abreviatura de &lt;(X,Y), X != Y> e X != Y pode
+				ainda ser enumarada da seguinte forma {(red, green),(red, blue),(green, red),(green, blue),(blue, red),(blue,
+				green)}</li>
+		</ul>
+
+		Para ajudar a visualizar o problema pode-se usarm grafo, como na figura a cima, onde os nós são as variáveis e
+		cada
+		arco representa um restrição em que ambas as variáveis participam.
+
+		<!-- Fim Problema de Satisfação de Restrições -->
+		<!-- Incerteza -->
+
+		<div id="ia--incerteza" class="section-title-anchor">
+			<h3 class="section-title">Incerteza</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 13</h6>
+
+		<h4 class="sub-section-title">Regra de Bayes</h4>
+
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(a|b)P(b)}{P(a)}" /></br></br>
+
+		<b>Versão normalizada</b></br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(b|a)P(a)}{P(b|a)P(a) + P(b|\neg a)P(\neg a)}" /></br></br>
+
+
+		<!-- Fim Incerteza -->
+		<!-- Racicionio probabilistico -->
+
+		<div id="ia--raciocinio-probabilistico" class="section-title-anchor">
+			<h3 class="section-title">Raciocínio Probabilístico</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 14.1, 14.2, 14.4</h6>
+
+		<h4 class="sub-section-title">Redes Bayesianas</h4>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/bayesian-network.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br>
+
+		Uma rede Baysiana é um grafo dirigido e acíclico em que cada nó é anotado com a informação sobre
+		probabilidades.</br>
+		Cada nó corresponde a uma variável aleatória (que pode ser discreta ou contínua) e contém um conjunto de
+		ligações direccionadas e uma distribuição condicional P(X<sub>i</sub>|Pais(X<sub>i</sub>)) que quantifica o
+		efeito
+		dos pais sobre o nó.</br></br>
+
+		<b>Semântica global</b>(ou numérica)</br></br>
+
+		Na Semântica global as redes são entendidas como uma representação da distribuição de probabilidade conjunta, ou
+		seja, indica como construir uma rede.
+		E a distribuição de probabilidade total é definida como produto das distribuições condicionais locais.</br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?P(X_{1},...,X_{n})=\prod_{i=1}P(X_{i}, Parents(X_{i}))" /></br></br>
+
+
+		<b>Semântica local</b>(ou topológica)</br></br>
+
+		Na Semântica local as redes são visualizadas como uma codificação de uma coleção de declarações de independência
+		condicional, ou seja, indica como fazer inferências com uma rede.
+		Cada nó é condicionalmente independente de seus não descendentes, dados os seus pais.
+
+		<!-- Fim Racicionio probabilistico -->
+		<!-- Aprendizagem automática -->
+
+		<div id="ia--aprend-automatica" class="section-title-anchor">
+			<h3 class="section-title">Aprendizagem automática</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 18.1, 18.4 e 18.5</h6>
+
+		A ideia por detrás da aprendizagem é que as percepções de um agente devem servir não apenas para o agente agir,
+		mas
+		igualmente para melhorar a sua capacidade de acção no futuro.
+		As técnicas usadas para melhorar essas capacidades, dependem de quatro fatores:
+		<ul>
+			<li>
+				Componente a ser melhorado.
+			</li>
+			<li>
+				Que conhecimento prévio tem o agente
+			</li>
+			<li>
+				Qual a representação usada para a informação e componenente
+			</li>
+			<li>
+				Qual o feedback disponível para se aprender
+			</li>
+		</ul>
+
+		<b>Componentes do desempenho que devem ser aprendidos</b></br>
+		<ul>
+			<li>
+				Mapeamento de condições do estado atual para acções - Se o instrutor gritar muitas vezes "trava"
+				sempre que há um sinal vermelho, pode-se aprender este par condições/acção.
+			</li>
+			<li>
+				Propriedades do mundo que podem ser inferidas a partir de uma sequência de percepções - Vendo muitas imagens
+				com
+				autocarros, pode aprender a reconhecê-los
+			</li>
+			<li>
+				Informação sobre o modo como o mundo evolui e sobre o resultado de possíveis acções que o agente pode tomar
+				-
+				Travando a fundo sobre piso molhado pode aprender as consequências dos
+				seus actos
+			</li>
+			<li>
+				Função de utilidade indicando quão desejável é um estado do mundo - Se sempre que conduzir como um louco,
+				não
+				receber gorjeta, pode aprender uma componente muito útil para a sua função de utilidade
+			</li>
+			<li>...</li>
+		</ul>
+
+		<b>Representação usada para os componentes</b></br></br>
+
+		Exemplos de matérias anteriores:</br>
+		<ul>
+			<li>
+				Funções de utilidade em jogos
+			</li>
+			<li>
+				Fórmulas lógicas para os componentes de um agente
+			</li>
+		</ul>
+
+		<b>Conhecimento já existente</b></br></br>
+
+		O último factor a ter em conta na criação de um sistema de aprendizagem é a possível existência de
+		conhecimento anterior, em muitos casos o agente inicialmente não tem conhecimento
+		nenhum sobre o que vai aprender, apenas tem acesso aos
+		exemplos apresentados na sua experiência.</br></br>
+
+		<b>Tipos de feedback</b></br>
+
+		<ul>
+			<li><b>Aprendizagem supervisionada:</b> para cada exemplo é dado input e output (implica aprender uma função)
+				-
+				e.g. aprender a reconhecer autocarros: mostram-lhe imagens e dizem-lhe se a imagem contém ou não autocarros
+				(a
+				função a aprender recebe uma imagem e devolve um valor Booleano)
+			</li>
+			<li>
+				<b>Aprendizagem não supervisionada:</b> para cada exemplo só é dado input (implica aprender padrões a partir
+				do
+				input) - e.g. agente aprende a reconhecer (infere) o que é um bom/mau dia de tráfego
+			</li>
+			<li>
+				<b>Aprendizagem com reforço:</b> prémios ocasionais - e.g. gorjeta é consequência de um bom serviço
+			</li>
+		</ul>
+
+		Os seguintes tópicos são muito teóricos, por isso sugerimos a leitura dos seguintes capítulos:
+		<h4 class="sub-section-title">Aprendizagem supervisionada (Capitulo 18.2)</h4>
+		<h4 class="sub-section-title">Árvores de decisão (Capitulo 18.3)</h4>
+		<h4 class="sub-section-title">Generalização e Overfitting (Capitulo 18.3.5)</h4>
+		<h4 class="sub-section-title">Teoria de aprendizagem computacional (Capitulo 18.5)</h4>
+
+		<!-- Fim Aprendizagem automática -->
+		<!-- Arvores de descisao -->
+
+		<div id="ia--arvores-decisao" class="section-title-anchor">
+			<h3 class="section-title">Árvores de decisão</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 18.3</h6>
+
+		Uma árvore de decisão representa uma função que recebe como input um vetor de atributos e que retorna uma
+		"decisão",
+		o
+		valor de output para o input recebido. Os valores dos atributos e do output podem ser discretos ou contínuos,
+		nesta
+		disciplina estuda-se apenas os casos de classificação Booleana em que cada exemplo é classificado como positivo
+		ou
+		negativo. A árvore chega a uma decisão depois de fazer uma sequencia de testes em que cada nó da árvore
+		corresponde
+		a um teste a um dos atributos, os ramos estão rotulados com os possiveís valores do atributo a testar e as
+		folhas
+		representam o valor a ser devolvido.</br></br>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/decision-tree.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br></br>
+
+		<b>Exemplo:</b> Decidir se esperamos por uma mesa num restaurante, com base nos seguintes atributos:</br>
+		<ol>
+			<li>Alternativa: existe um restaurante alternativo próximo?</li>
+			<li>Bar: existe uma área de bar confortável para esperar?</li>
+			<li>Sexta/Sábado: hoje é Sexta ou Sábado?</li>
+			<li>Fome: temos fome?</li>
+			<li>Clientes: número de pessoas no restaurante (Nenhum, Algum, Cheio)</li>
+			<li>Preço: gama de preços ($, $$, $$$)</li>
+			<li>Chuva: está a chover lá fora?</li>
+			<li>Reserva: fizemos uma reserva?</li>
+			<li>Tipo de restaurante: Francês, Italiano, Tailandês, Burger, ...</li>
+			<li>Estimativa do tempo de espera: 0 - 10, 10 - 30, 30 - 60, >60</li>
+		</ol>
+
+		Uma árvore de decisão pode ser escrita da seguinte forma na lógica proposicional:</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Objetivo \Leftrightarrow (Caminho_{1},Caminho_{2},...)" /></br></br>
+
+		Onde um caminho é um conjunto de testes feitos a atributos e que são necessários para seguir esse mesmo
+		caminho.</br></br>
+
+		<b>Indução de árvores de decisão</b></br></br>
+
+		Quanto mais simples for a árvore (i.e. menor) menos esta vai refletir particularidades do conjunto de
+		treino que não interessam aprender. Deste modo, uma árvore mais simples vai classificar melhor instâncias
+		não vistas do conjunto de treino. Logo, será mais útil.
+		Para extrairmos uma boa árvore, temos que escolher uma boa ordem para os atributos. Uma forma
+		de o fazer é seguir o critério do ganho de informação.</br>
+		Temos que:
+
+		<ul>
+			<li>p: número de instâncias positivas no conjunto de treino</li>
+			<li>n: número de instâncias negativas no conjunto de treino</li>
+		</ul>
+
+		Então a entropia associada a um conjunto de treino é dada por:</br></br>
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?I(\frac{p}{n+p},\frac{n}{n+p})" /></br></br>
+
+		sendo,</br></br>
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?I(V)=-\sum_{k}P(v_{k})log_{2}P(v_{k})" /></br></br>
+
+		Se assumirmos que:
+
+		<ul>
+			<li>p<sub>A=i</sub>: número de instâncias positivas cujo atributo A tem o valor i</li>
+			<li>n<sub>A=i</sub>: número de instâncias negativas cujo atributo A tem o valor i</li>
+		</ul>
+
+		Então podemos calcular a entropia do conjunto de instâncias com atributo A = i:</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+
+		Se considerarmos que um atributo A pode ter valores i ∈ {1, 2, ..., m}, então uma separação de instâncias pelo
+		atributo A, vai partir o conjunto de treino em m subconjuntos diferentes. A entropia associada
+		a essa partição é apenas a média ponderada das entropias de cada subconjunto:</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+
+		Assim, o ganho de informação, GI, associado a partir pelo atributo A, não é mais do que a diferença
+		entre a entropia de um conjunto inteiro e a entropia do conjunto partido pelo atributo A:</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?GI(A)=I(\frac{p}{n+p},\frac{n}{n+p})-\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+
+
+		<div class="code-snippet">
+			<b>function</b> DECISION-TREE-LEARNING(examples, attributes, parent examples) <b>returns</b>
+			a tree
+			<div class="code-snippet-scope">
+				<b>if</b> examples is empty <b>then return</b> PLURALITY-VALUE(parent examples)</br>
+				<b>else if</b> all examples have the same classification <b>then return</b> the classification</br>
+				<b>else if</b> attributes is empty <b>then return</b> PLURALITY-VALUE(examples)</br>
+				<b>else</b>
+				<div class="code-snippet-scope">
+					A ← argmax<sub>a ∈ attributes</sub> IMPORTANCE(a, examples)</br>
+					tree ← a new decision tree with root test A</br>
+					<b>for each</b> value v<sub>k</sub> of A <b>do</b>
+					<div class="code-snippet-scope">
+						exs ← {e : e ∈examples <b>and</b> e.A = v<sub>k</sub>}</br>
+						subtree ← DECISION-TREE-LEARNING(exs, attributes − A, examples)</br>
+						add a branch to tree with label (A = v<sub>k</sub>) and subtree subtree</br>
+					</div>
+					<b>return</b> tree
+				</div>
+			</div>
+		</div>
+
+		<!-- Fim Arvores de descisao -->
+		<!-- Aprendizagem por reforco-->
+
+		<div id="ia--aprend-reforco" class="section-title-anchor">
+			<h3 class="section-title">Aprendizagem por reforço</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 21.1, 21.2 e 21.3</h6>
+
+		Nesta cadeira o tipo de Aprendizagem por reforço que estudamos modela o problema da seguinte forma:</br>
+
+		• Conjunto de estados: X = x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> </br>
+		• Conjunto de ações: A = a1, a2, ..., am </br>
+		• Funcão de reward: R: X × A → |R </br>
+		Função V (x) que calcula o reward obtido após uma trajectória com T passos que começa no estado x.
+		Se assumirmos γ como o factor de desconto, podemos calcular V (x) da seguinte forma:</br></br>
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?V(x) = \sum_{t=0}^{T-1}\gamma ^tr^t" /></br></br>
+		Matriz Q com dimensões X x A</br></br>
+		Funcão Q : X × A → R, calcula o mesmo que V mas para um par estado acção inicial.
+		Uma política π(a|x) : X × A → [0, 1] define a probabilidade de se executar cada acção a para cada
+		estado x. À política que maximiza o reward total chamamos política óptima π∗
+		. Esta pode ser extraída
+		da função Q da seguinte forma:</br></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?\pi^\ast(x) = argmax_{a\in A} Q^\ast(x,a)" /></br></br>
+
+		Assim, para podermos aprender a política
+		óptima para um dado ambiente, apenas precisamos de aprender a função Q∗
+		. Utilizando Q-learning
+		podemos apróximar a função Q∗ a partir de várias trajectórias de exemplo no ambiente.
+		Se considerarmos um passo de uma trajectória como o conjunto (x, a, y, r), onde:</br></br>
+
+		• x: estado antes de fazer a acção</br>
+		• a: acção utilizada</br>
+		• y: estado após fazer a acção</br>
+		• r: reward obtida por fazer a acção a no estado x</br>
+		Podemos assim usar a seguinte regra de update (alpha é o <i>learning rate</i>):</br></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Q(x,a) = Q(x,a) + \alpha(R(x,a) + max_{b}Q(y,b) - Q(x,a))" /></br></br>
+
+		Exame 2 2018/2019</br></br>
+
+		Considere o seguinte ambiente com 5 estados:</br></br>
+
+		<table style="width:300px;height: auto;margin: auto;border-collapse: collapse">
+			<style>
+				td {
+					border: 1px solid;
+					text-align: center;
+				}
+
+				tr {
+					height: 50px;
+				}
+			</style>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+			</tr>
+		</table></br></br>
+
+		Em cada estado podem ser executadas 4 acções, cima (↑), direita (→), baixo (↓) e esquerda (←), sendo que
+		aquelas que atravessam uma linha a tracejado fazem o agente transitar entre estados e as restantes fazem com
+		que este se mantenha no mesmo estado. O agente recebe uma recompensa de 1 sempre que executa uma acção
+		que o faz atravessar uma linha a tracejado, excepto ao executar a acção → no estado 2, caso em que recebe uma
+		recompensa de 4. Nos restantes casos o agente tem uma penalização de 2, isto é, recebe uma recompensa de
+		-2.</br></br>
+
+		8.1. (1.0) Calcule os updates feitos pelo algoritmo Q-Learning quando o agente começa no estado 1 e executa a
+		seguinte sequência de acções: → ↑ → → ←. Assuma que os valores de Q estão inicialmente a 0 e
+		considere α = 0.5 e γ = 0.5.</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Q(1, \rightarrow) = Q(1, \rightarrow) + \alpha(r(1, \rightarrow) + \gamma max_{b}Q(2, b) - Q(1, \rightarrow)) = 0 + 0.5 * (1 + 0.5 * 0 - 0) = 0.5" /></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Q(2, \uparrow) = Q(2, \uparrow) + \alpha(r(2, \uparrow) + \gamma max_{b}Q(2, b) - Q(2, \uparrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Q(2, \rightarrow) = Q(2, \rightarrow) + \alpha(r(2, \rightarrow) + \gamma max_{b}Q(3, b) - Q(2, \rightarrow)) = 0 + 0.5 * (4 + 0.5 * 0 - 0) = 2" /></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Q(3, \rightarrow) = Q(3, \rightarrow) + \alpha(r(3, \rightarrow) + \gamma max_{b}Q(3, b) - Q(3, \rightarrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Q(3, \leftarrow) = Q(3, \leftarrow) + \alpha(r(3, \leftarrow) + \gamma max_{b}Q(2, b) - Q(3, \leftarrow)) = 0 + 0.5 * (1 + 0.5 * 2 - 0) = 1" /></br>
+		</br>
+		8.2. (0.5) Seguindo uma política de exploitation e assumindo o estado de Q obtido após realizar os updates da
+		alínea anterior, quais são as 5 primeiras acções efectuadas pelo agente, começando no estado 1? Indique
+		não só as acções, mas também o seu resultado, no formato (estado inicial, acção, estado final,
+		recompensa)</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?(1, \rightarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow , 2, 1)" /></br></br>
+
+		8.3 (0.5) Qual é a política óptima para este ambiente? Caso existam múltiplas acções óptimas num determinado
+		estado, represente todas as possibilidades.</br></br>
+
+		<table style="width:300px;height: auto;margin: auto;border-collapse: collapse">
+			<style>
+				td {
+					border: 1px solid;
+					text-align: center;
+				}
+
+				tr {
+					height: 50px;
+				}
+			</style>
+			<tr>
+				<td>→</td>
+				<td>→</td>
+				<td>←</td>
+			</tr>
+			<tr>
+				<td>↑ →</td>
+				<td>↑</td>
+			</tr>
+		</table></br></br>
+
+		<!-- Fim Aprendizagem por reforco-->
+		<!-- Aprendizagem parametrica-->
+
+		<div id="ia--aprend-param" class="section-title-anchor">
+			<h3 class="section-title">Aprendizagem paramétrica</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 18.6.4, 18.7</h6>
+
+		<h4 class="sub-section-title">Regressão Paramétrica</h4>
+
+		Na regressão paramétrica o mapeamento entre features e previsão
+		é descrito por um vector de parâmetros β. Para aprendermos, estes parâmetros, usamos um conjunto de
+		treino que associa cada um de n exemplos com m features, a um retorno:</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?\begin{matrix} x^{(1)}_{1}\ x^{(1)}_{2}\ ...\ x^{(1)}_{m}\rightarrow y^{1}\\x^{(2)}_{1}\ x^{(2)}_{2}\ ...\ x^{(2)}_{m}\rightarrow y^{2}\\ ... \\x^{(n)}_{1}\ x^{(n)}_{2}\ ...\ x^{(n)}_{m}\rightarrow y^{n}\end{matrix}" /></br></br>
+
+		Agora podemos escrever a previsão do modelo para cada exemplo:</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?\begin{matrix}\hat{y}^{(1)}=\beta_{0}+\beta_{1}x^{(1)}_{1}+...+\beta_{m}x^{(1)}_{m}\\\hat{y}^{(2)}=\beta_{0}+\beta_{1}x^{(2)}_{1}+...+\beta_{m}x^{(2)}_{m}\\...\\\hat{y}^{(n)}=\beta_{0}+\beta_{1}x^{(n)}_{1}+...+\beta_{m}x^{(n)}_{m}\end{matrix}" /></br></br>
+
+		Podemos escrever este sistema de equações da seguinte forma:</br></br>
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y=X\beta" /></br></br>
+
+		Assim, só falta saber como definir o vector de parâmetros β. Para isso necessitamos de definir uma
+		medida de erro para o nosso modelo. Tradicionalmente usa-se a função dos resíduos quadrados (squared loss
+		function):</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Loss^{(i)}=(y^{(i)}-\hat{y}^{(i)})^{2}=(y^{(i)}-X^{(i)}\beta)^{2}" /></br></br>
+
+		Assim, podemos definir o erro total de um modelo para um dado vector de parâmetros como a soma
+		dos resíduos quadrados para todo o conjunto de treino:</br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Loss=\sum_{i=1}^{n}Loss^{(i)}=\sum_{i=1}^{n}(y^{(i)}-X^{(i)}\beta)^{2}=(Y-X\beta)^{T}(Y-X\beta)" /></br></br>
+
+
+		<h4 class="sub-section-title">Regressão Linear</h4>
+
+		No caso da regressão linear, vamos procurar o vector β que minimiza o erro do modelo.
+		Para tal, basta encontrar onde a primeira derivada da função do erro total se anula:</br></br>
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\begin{align*}
+      \frac{\partial Loss}{\partial\beta}=0 \\ 
+      \frac{\partial}{\partial\beta}(Y-X\beta)^{T}(Y-X\beta)=0 \\ 
+      [\frac{\partial}{\partial\beta}(Y-X\beta)^{T}](Y-X\beta)+(Y-X\beta)^{T}[\frac{\partial}{\partial\beta}(Y-X\beta)]=0 \\ 
+      [-X^{T}](Y-X\beta)+(Y-X\beta)^{T}[-X]=0 \\ 
+      [-X^{T}](Y-X\beta)-[X]^{T}(Y-X\beta)=0 \\ 
+      -2X^{T}(Y-X\beta)=0 \\ 
+      X^{T}Y-X^{T}X\beta=0 \\ 
+      X^{T}X\beta=X^{T}Y \\ 
+      \beta=(X^{T}X)^{-1}X^{T}Y 
+     \end{align*}" /></br></br>
+
+
+		<h4 class="sub-section-title">Regressão de Ridge</h4>
+
+		No caso da regressão ridge, vamos, também, calcular um vector β que tenta minimizar o erro do modelo. Contudo
+		para
+		evitar aprender ruído no conjunto de treino, soma-se um termo que
+		penaliza mudanças dos parâmetros. Assim, de modo a actualizar os parâmetros num sentido, o modelo
+		precisa de ver vários exemplos nesse mesmo sentido.
+		O termo de penalização, neste caso, é a norma (L2) do vector β ponderada por um coeficiente de
+		controlo λ. Assim, a derivada que procuramos é a seguinte:</br></br>
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\begin{align*}
+    \frac{\partial}{\partial\beta}[Loss+\lambda\left \|\beta\right \|_{2}^{2}]=0\\ 
+    \frac{\partial Loss}{\partial\beta}+\frac{\partial}{\partial\beta}[\lambda\left \|\beta\right \|_{2}^{2}]=0\\ 
+    -2X^{T}(Y-X\beta)+2\lambda\beta=0\\ 
+    -X^{T}Y+X^{T}X\beta+\lambda\beta=0\\ 
+    (X^{T}X+\lambda I)\beta=X^{T}Y\\ 
+    \beta=(X^{T}X+\lambda I)^{-1}X^{T}Y
+    \end{align*}" /></br></br>
+
+		<h4 class="sub-section-title">Perceptrão</h4>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/perceptron.png">
+			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
+				Pearson</span>
+		</div></br></br>
+
+		O Perceptrão é um classificador linear que coloca um separador entre pontos positivos e negativos de uma
+		classe. Este é composto por três partes: função de input, função de ativação e output.</br></br>
+
+		<b>Função de input:</b></br></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?in = \sum_{i=0}^{n}w_{i}x_{i}\ ou\ ent\tilde{a}o\ w.x" /></br></br>
+
+		<b>Função de ativação:</b></br>
+		<ul>
+			<li>Se in = 0, ou seja o ponto está em cima do separador: h(in) = 1.</li>
+			<li>Se in > 0 , ou seja o ponto está em acima do separador: h(in) = 1.</li>
+			<li>Se in &lt; 0 , ou seja o ponto está em abaixo do separador: h(in)=−1.</li>
+		</ul> <b>Output:</b></br></br>
+
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
+
+		Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que
+		definem
+		o separador. Dado um conjunto de treino X com classificações Y. Começa-se por inicializar o vetor w com
+		valores
+		aleatórios. De seguida cálcula-se para cada exemplo no conjunto de treino o output do perceptrão. Se este
+		valor for igual ao esperado então não se faz nada. Se for diferente então utilizamos a seguinte regra de
+		update para atualizarmos os pesos.</br></br>
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?w = w + \alpha (y_{i}- \hat{y}) x_{i}" /></br></br>
+
+		<b>Exemplo</b></br>
+		Considere o conjunto de treino com 8 pontos:</br></br>
+
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}
+            -2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 
+            0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5
+            \end{bmatrix}" /></br></br>
+
+
+		Com as seguintes classificações:</br></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?Y= [True\ True\ True\ True\ False\ False\ False\ False]" /></br></br>
+		Considere os seguintes pontos de teste.</br></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}-0.5\\ 0.5\end{bmatrix}" /></br></br>
+
+		(a) Fazendo uma ronda de updates com α = 1, w = [1, 1] e w0 = 0, como fica o vector de pesos?</br></br>
+		<b>Resolução:</b></br>
+		O primeiro passo é acrescentar uma dimensão a X para podermos tratar o termo de bias
+		como um peso normal. Assim, ficamos com:</br></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}-2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5\\1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\end{bmatrix}" /></br></br>
+
+		Deste modo, podemos escrever os pesos num só vector: w = [1, 1, 0].
+		Se definirmos True com +1 e False como −1 ficamos com:</br></br>
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y = [1\ 1\ 1\ 1\ -1\ -1\ -1\ -1]" /></br></br>
+
+		Façamos então um ronda de updates</br></br>
+
+		<div class="template-img-container">
+			<img class="template-img" src="./media/img/ia/perceptron-example.png">
+		</div></br></br>
+
+
+		(b) Qual a classificação que o Perceptrão treinado retorna para os pontos de teste.</br></br>
+		<b>Resolução:</b></br></br>
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}([0, 0, 1]) = h([-5, -2.8, 0] · [0, 0, 1]) = h(0) = 1\\
+          \hat{y}([-0.5, 0.5, 1]) = h([-5, -2.8, 0] · [-0.5, 0.5, 1]) = h(1.1) = 1" /></br></br>
+
+		<h4 class="sub-section-title">Reqressão Logística</h4>
+
+		O modelo de regressão logística funciona de forma muito semelhante ao Perceptrão. Sendo também
+		classificador
+		linear que coloca um separador entre pontos positivos e negativos de
+		uma classe.
+		No caso do Perceptrão a função de ativação retornava 1 ou −1. No caso da regressão logística, função
+		utilizada
+		passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo
+		[0,1].</br></br>
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
+		Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o
+		w
+		agora passamos a usar o β.</br>
+		Assim, dado um ponto x o retorno da regressão logística pode ser definido por:</br></br>
+		<img class="latex-img"
+			src="http://latex.codecogs.com/gif.latex?p(+|x)=\sigma(\beta.x)=\frac{1}{1+e^{-\beta.x}}" /></br></br>
+		Tal como para o Perceptrão existem regras de update que podem ser utilizadas para aprender os pesos.
+		Contudo, nesta cadeira esses métodos não são abordados.</br></br>
+
+
+		<!-- Fim Aprendizagem parametrica  -->
+		<!-- Aprendizagem nao parametrica  -->
+		<div id="ia--aprend-n-param" class="section-title-anchor">
+			<h3 class="section-title">Aprendizagem não paramétrica</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo 18.8</h6>
+
+
+		<h4 class="sub-section-title">k-nearest neighbors</h4>
+		<p class="topic-content-text">Agora não temos uma fase de treino para calcular os parametros W, como
+			tinhas
+			na
+			Aprendizagem Paramétrica. E portanto o peso da computação estará na fase de classificação.
+			Dado um exemplo que queremos classificar, começa-se por calcular uma matriz distância que terá a
+			distância
+			do
+			exemplo a cada ponto e as respetivas labels.
+			Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
+		</p>
+
+		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
+
+		<p class="topic-content-text">
+			<b>Exemplo</b></br>
+			Considere o seguinte conjunto de pontos: D = {(−2, 2),(−1, 3),(0, 1),(2, −1)}.</br>
+			Calcule a previsão obtida para os pontos (1, y) e (0, y)</br>
+			(a) Para K = 2.</br>
+			</br>
+			O primeiro passo é calcular a matriz de distâncias para ambos os pontos:</br></br>
+			<img class="latex-img" src="http://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
+      3 & 2 & 1 & 1 \\ 
+      2 & 1 & 0 & 2
+     \end{bmatrix}" /></br></br>
+
+			<b>(a)</b>Tendo em conta os 2 vizinhos mais próximos, obtemos as seguintes estimativas:</br>
+			</br>
+			<img class="latex-img"
+				src="http://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
+
+			<img class="latex-img"
+				src="http://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
+			</br>
+		</p>
+
+		<h4 class="sub-section-title">Kernels</h4>
+		<p class="topic-content-text">
+			Um Kernel não é mais do que uma função que se parece com um alto. A função Kernel será usada para
+			pesarmos
+			os
+			diferentes exemplos no conjunto de treino. Um exemplo que esteja mais longe do ponto a classificar será
+			mais
+			penalizado, um
+			exemplo mais perto será menos penalizado ou não será penalizado de todo.</br></br>
+			Exemplos de diferentes funções que podemos usar como Kernel:<br><br>
+			Kernel Quadrático</br></br>
+
+			<img class="latex-img"
+				src="http://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
+			<div class="template-img-container">
+				<img class="template-img" src="./media/img/ia/kernel_quad.png">
+			</div></br></br>
+
+			Kernel Gaussiano</br></br>
+			<img class="latex-img"
+				src="http://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
+
+			<div class="template-img-container">
+				<img class="template-img" src="./media/img/ia/kernel_gauss.png">
+			</div></br></br>
+
+			Este tipo de regressão que usa um Kernel segue a mesma lógica do k-nearest neighbors, no entanto, agora
+			fazemos
+			uma média ponderada sobre todos os elementos do conjunto de treino.</br></br>
+
+			<img class="latex-img"
+				src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
+		</p>
+
+		<!-- Fim Aprendizagem nao parametrica  -->
+
+		<p class="topic-content-text">
+			Exemplos e excertos retirados dos Exercícios de Aprendizagem Automática dos professores: Luís Sá Couto
+			(luis.sa.couto@tecnico.ulisboa.pt), Andreas Wichert (andreas.wichert@tecnico.ulisboa.pt), Manuel Lopes
+			(manuel.lopes@tecnico.ulisboa.pt)
+		</p>
+		<p class="topic-content-text">As imagens foram retiradas do livro - Artificial Intelligence: A Modern
+			Approach
+			:
+			Stuart Russel and Peter Norvig 2003 Prentice Hall</p>
+		<!-- End Page Content -->
+	</div>
+
+
+</body>
+
+</html>

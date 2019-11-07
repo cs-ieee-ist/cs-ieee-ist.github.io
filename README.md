@@ -21,8 +21,9 @@
   >Requisitos: [python3](https://www.python.org/download/releases/3.0/)
 
   ```sh
-  $ cd cs-ieee-ist.github.io/scripts/coding 
-  $ python3 makeClass.py $(ABREVIACAO_DA_NOVA_CADEIRA)
+  $ cd ./scripts/coding 
+  $ python3 makeClass.py
+  > Class abbreviation: $(ABREVIACAO_DA_NOVA_CADEIRA)
   > Class full name: $(NOME_DA_NOVA_CADEIRA)
   ```
   
@@ -53,10 +54,23 @@ $ git checkout -b issue#12
 ```
 #### mudar de branches
 ```sh
-$ git checkout master
+$ git checkout develop
 ```
 #### saber em que branch estou
 ```sh
 $ git branch
 ```
 
+Quando terminado o issue fazem (após todos os adds e commits que quiserem) um último commit com a mensagem " whatever closes#12"
+
+
+## Repository workaround with Projects
+
+
+O repositório já tem como podem reparar Projects para cada disciplina, que será o local onde dão a info se a tarefa está a ser realizada ou já acabada (arrastando a issue para a coluna adequada). 
+
+Como é óbvio eu não estou preocupado em saber quando é que o fazem ou a que horas, serve apenas para organização de trabalho e para ter noção do que já foi concluído.
+
+Qualquer dúvidas que tenham, não hesitem em contactar.
+
+TODO: depois temos de ver o melhor tema, https://jmblog.github.io/color-themes-for-google-code-prettify/
