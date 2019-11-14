@@ -91,6 +91,16 @@
 	color: #333;
 }
 
+.sub-sub-section-title {
+	font-size: 1rem;
+	margin: 22px 12px;
+	color: #333;
+}
+
+.sub-sub-section-title::before {
+	content: "- ";
+}
+
 .topic-book-chapter {
 	margin: 12px 0 30px 0;
 	font-size: 0.75rem;
@@ -117,7 +127,7 @@
 
 .code-snippet {
 	font-family: 'Anonymous Pro', monospace;
-	font-size: 1.1rem;
+	font-size: 0.9rem;
 	border: 1px solid;
 	padding: 16px;
 	margin: 12px auto;
@@ -167,5 +177,18 @@ table {
 @media screen and (max-width: 500px) {
 	html {
 		font-size: 90%;
+	}
+}
+
+@media print {
+	.sub-section-title, .sub-sub-section-title {
+		break-after: avoid;
+	}
+	.section-title-anchor {
+		page-break-inside: avoid;
+	}
+	.code-snippet {
+		overflow-x: hidden !important;
+		page-break-inside: avoid;
 	}
 }

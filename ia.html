@@ -26,7 +26,6 @@
 			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
 				Pearson</span>
 		</div></br>
-		Imagem retirada do livro: Artificial Intelligence: A Modern Approach</br></br>
 
 		<h4 class="sub-section-title">Agente</h4>
 
@@ -97,7 +96,7 @@
 
 		<h4 class="sub-section-title">Tipos de ambientes</h4>
 
-		<b>- Observável vs Parcialmente Observável</b>
+		<h5 class="sub-sub-section-title"> Observável vs Parcialmente Observável</h5>
 
 		<ul>
 			<li>Num ambiente “observável” os sensores do agente dão acesso ao estado
@@ -111,7 +110,7 @@
 				que nele operem</li>
 		</ul>
 
-		<b>- Estático vs Dinâmico</b>
+		<h5 class="sub-sub-section-title"> Estático vs Dinâmico</h5>
 
 		<ul>
 			<li>Um ambiente estático é um ambiente que não é alterado enquanto
@@ -122,7 +121,7 @@
 				decidir fazer nada.</li>
 		</ul>
 
-		<b>- Determinístico vs Estocástico</b>
+		<h5 class="sub-sub-section-title"> Determinístico vs Estocástico</h5>
 
 		<ul>
 			<li>Num ambiente Determinístico o estado seguinte do ambiente é
@@ -135,7 +134,7 @@
 				quando da criação dos agentes</li>
 		</ul>
 
-		<b>- Episódico vs Sequencial</b>
+		<h5 class="sub-sub-section-title"> Episódico vs Sequencial</h5>
 
 		<ul>
 			<li>Num ambiente Episódico a experiência do agente está dividida em episódios atómicos (em que cada episódio
@@ -143,14 +142,14 @@
 				episódio</li>
 		</ul>
 
-		<b>- Discreto vs Contínuo</b>
+		<h5 class="sub-sub-section-title"> Discreto vs Contínuo</h5>
 
 		<ul>
 			<li>Num ambiente Discreto o agente tem um número limitado de percepções e acções distintas que estão claramente
 				definidas</li>
 		</ul>
 
-		<b>- Single vs Multi-Agente</b>
+		<h5 class="sub-sub-section-title"> Single vs Multi-Agente</h5>
 
 		<ul>
 			<li>Num ambiente Single Agent, tal como o próprio nome diz, só existe um agente nesse ambiente.</li>
@@ -269,7 +268,7 @@
 			<li>Agentes com aprendizagem</li>
 		</ul>
 
-		<b>- Agentes reflexos simples</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes reflexos simples</h5>
 
 		Os agentes de reflexos simples são o tipo de agentes mais simples. Estes escolhem uma ação com base na percepção
 		atual, ignorando todo o historial de percepções. O exemplo do aspirador apresentado anteriormente é um agente de
@@ -292,7 +291,7 @@
 			</div>
 		</div>
 
-		<b>- Agentes reflexos simples</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes reflexos simples</h5>
 
 		Os agentes de reflexos baseados em modelos são agentes que mantêm um estado interno que lhes diz como é que o "mundo
 		funciona". O estado interno vai depender do histórico de percepções do agente.</br></br>
@@ -319,7 +318,7 @@
 			</div>
 		</div>
 
-		<b>- Agentes baseados em objetivos</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes baseados em objetivos</h5>
 
 		Conhecer algo o estado atual do ambiente nem sempre é suficiente para decidir o que fazer. Por exemplo, num
 		cruzamento, o taxi pode virar à esquerda, virar à esquerda ou ir em frente. A melhor decisão vai depender do local
@@ -332,7 +331,7 @@
 				Pearson</span>
 		</div></br>
 
-		<b>- Agentes baseados em utilidade</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes baseados em utilidade</h5>
 
 		Este agente tem uma função de utilidade. Esta função de utilidade permite estabelecer preferências
 		entre sequências de estados que permitem atingir os mesmos objectivos. Por exemplo, um agente taxista que
@@ -345,7 +344,7 @@
 				Pearson</span>
 		</div></br>
 
-		<b>- Agentes com aprendizagem</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes com aprendizagem</h5>
 
 		Este agente corresponde à ideia de máquina inteligente caracterizada por Turing (1950), em que o agente actua num
 		mundo
@@ -398,7 +397,7 @@
 
 		<h4 class="sub-section-title">Estratégias de procura não informada</h4>
 
-		<b>Largura Primeiro (Breadth-first search)</b></br>
+		<h5 class="sub-sub-section-title">Largura Primeiro (Breadth-first search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Sim, se b for finito</li>
@@ -434,7 +433,7 @@
 			</div>
 		</div>
 
-		<b>Custo Uniforme (Uniform cost search)</b></br>
+		<h5 class="sub-sub-section-title">Custo Uniforme (Uniform cost search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Sim, se custo do ramo ≥ ε, em que ε é uma constante > 0, para evitar ciclos em ramos com
@@ -449,7 +448,7 @@
 			<b>function</b> n UNIFORM-COST-SEARCH(problem) <b>returns</b> a solution, or failure
 			<div class="code-snippet-scope">
 				node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
-				frontier ← a priority queue ordered by PATH-COST, with node as the only element
+				frontier ← a priority queue ordered by PATH-COST, </br> with node as the only element
 				explored ← an empty set</br>
 				<b>loop do</b>
 				<div class="code-snippet-scope">
@@ -473,7 +472,7 @@
 			</div>
 		</div>
 
-		<b>Profundidade Primeiro (Depth-first search)</b></br>
+		<h5 class="sub-sub-section-title">Profundidade Primeiro (Depth-first search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Não: não encontra a solução em espaços de estados com profundidade infinita/com ciclos</li>
@@ -483,7 +482,7 @@
 			<li><b>Ótima:</b> Não </li>
 		</ul>
 
-		<b>Profundidade Limitada (Depth-limited search)</b></br>
+		<h5 class="sub-sub-section-title">Profundidade Limitada (Depth-limited search)</h5>
 
 		<div class="code-snippet">
 			<b>function</b> DEPTH-LIMITED-SEARCH(problem, limit) <b>returns</b> a solution, or failure/cutoff
@@ -512,7 +511,7 @@
 			</div>
 		</div>
 
-		<b>Profundidade Limitada Iterativa ( Iterative deepening depth-first search)</b></br>
+		<h5 class="sub-sub-section-title">Profundidade Limitada Iterativa ( Iterative deepening depth-first search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Sim</li>
@@ -565,7 +564,7 @@
 			</li>
 		</ul>
 
-		<b>Procura Melhor Primeiro (Best First Search)</b></br>
+		<h5 class="sub-sub-section-title">Procura Melhor Primeiro (Best First Search)</h5>
 
 		<ul>
 			<li>Algoritmo Procura Melhor Primeiro</br>
@@ -603,7 +602,7 @@
 			</div>
 		</div>
 
-		<b>Gananciosa (Greedy Best First Search)</b></br>
+		<h5 class="sub-sub-section-title">Gananciosa (Greedy Best First Search)</h5>
 
 		<ul>
 			<li>Função de avaliação f(n) = h(n) (heurística)</li>
@@ -617,7 +616,7 @@
 			<li><b>Ótima:</b> Não </li>
 		</ul>
 
-		<b>Procura A*</b></br>
+		<h5 class="sub-sub-section-title">Procura A*</h5>
 
 		<ul>
 			<li><b>Ideia:</b> evitar expandir caminhos que já têm um custo muito elevado</li>
@@ -639,10 +638,10 @@
 			<li><b>Ótima:</b> Sim</li>
 		</ul>
 
-		<b>Heurística Admissível</b></br></br>
+		<h5 class="sub-sub-section-title">Heurística Admissível</h5>
 		Uma heurística é admissível se o valor estimado para cada nó nunca for superior ao valor ótimo.</br></br>
 
-		<b>Heurística Consistente</b></br></br>
+		<h5 class="sub-sub-section-title">Heurística Consistente</h5>
 		Uma heurística é consistente se para cada nó n, e para cada sucessor n' de n gerado por uma acção a temos: h(n) ≤
 		c(n,a,n') + h(n'), ou seja um lado de um triângulo não pode ser maior que
 		a soma dos outros dois lados.</br>
@@ -738,7 +737,7 @@
 		<img class="latex-img"
 			src="https://latex.codecogs.com/gif.latex?MINIMAX(s)=\left\{\begin{matrix} UTILITY(s)\ \ \if \ TERMINAL-TEST(s) \\max_{a\epsilon Actions(s)}MINIMAX(RESULT(s, a)) \  if \ PLAYER(s)=MAX \\min_{a\epsilon Actions(s)}  MINIMAX(RESULT(s, a)) \ if \ PLAYER(s)=MIN\end{matrix}\right." /></br></br>
 
-		<b>Algoritmo MINIMAX</b></br></br>
+		<h5 class="sub-sub-section-title">Algoritmo MINIMAX</h5>
 
 		<div class="code-snippet">
 			<b>function</b> MINIMAX-DECISION(state) <b>returns</b> an action
@@ -906,7 +905,7 @@
 
 		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(a|b)P(b)}{P(a)}" /></br></br>
 
-		<b>Versão normalizada</b></br></br>
+		<h5 class="sub-sub-section-title">Versão normalizada</h5>
 
 		<img class="latex-img"
 			src="https://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(b|a)P(a)}{P(b|a)P(a) + P(b|\neg a)P(\neg a)}" /></br></br>
@@ -944,7 +943,7 @@
 			src="https://latex.codecogs.com/gif.latex?P(X_{1},...,X_{n})=\prod_{i=1}P(X_{i}, Parents(X_{i}))" /></br></br>
 
 
-		<b>Semântica local</b>(ou topológica)</br></br>
+		<h5 class="sub-sub-section-title">Semântica local(ou topológica)</h5>
 
 		Na Semântica local as redes são visualizadas como uma codificação de uma coleção de declarações de independência
 		condicional, ou seja, indica como fazer inferências com uma rede.
@@ -1002,7 +1001,7 @@
 			<li>...</li>
 		</ul>
 
-		<b>Representação usada para os componentes</b></br></br>
+		<h5 class="sub-sub-section-title">Representação usada para os componentes</h5>
 
 		Exemplos de matérias anteriores:</br>
 		<ul>
@@ -1014,7 +1013,7 @@
 			</li>
 		</ul>
 
-		<b>Conhecimento já existente</b></br></br>
+		<h5 class="sub-sub-section-title">Conhecimento já existente</h5>
 
 		O último factor a ter em conta na criação de um sistema de aprendizagem é a possível existência de
 		conhecimento anterior, em muitos casos o agente inicialmente não tem conhecimento

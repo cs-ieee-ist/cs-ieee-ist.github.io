@@ -24,12 +24,14 @@ body {
 
 .content {
 	flex: 1;
-}
-
-.page {
 	height: 100vh;
 	overflow-y: auto;
 	scroll-behavior: smooth;
+
+}
+
+.page {
+
 }
 
 pre.prettyprint {
@@ -37,4 +39,12 @@ pre.prettyprint {
 	border-radius: 16px;
 	font-size: 12px;
 	overflow-x: auto;
+}
+
+@media print {
+	.content {
+		height: max-content !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
 }

@@ -11,7 +11,6 @@
 	transition: transform .44s .2s cubic-bezier(0.19, 0.05, 0.73, 0.94);
 }
 
-
 /* Style the sidenav links and the dropdown button */
 
 .dropdown-btn {
@@ -58,8 +57,19 @@
 	color: white;
 }
 
+.dropdown-btn {
+	background-position: center right 28px;
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' fill='%23555' height='14' viewBox='0 0 18 18'%3E%3Cpath d='M1 4 L 17 4 L 9 14 z'/%3E%3C/svg%3E");
+	padding-right: 13px;
+}
+
+.dropdown-btn.active {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' fill='%23fff' height='14' viewBox='0 0 18 18'%3E%3Cpath d='M9 4 L 1 14 L 17 14 z'/%3E%3C/svg%3E");
+}
+
 .dropdown-btn:hover.active {
-	background: var(--primary-dark-color);
+	background-color: var(--primary-dark-color);
 }
 
 .dropdown-container {
@@ -67,7 +77,8 @@
 }
 
 .dropdown-container .activeTopic {
-	background:  var(--primary-dark-color);;
+	background-color: var(--primary-dark-color);
+	;
 	color: white;
 	opacity: 0.4;
 }
@@ -220,5 +231,14 @@ a.external {
 	}
 	.menu-icon {
 		display: block;
+	}
+}
+
+@media print {
+	.sidenav, header {
+		display: none;
+	}
+	.page__header {
+		margin-top: 42px !important;
 	}
 }
