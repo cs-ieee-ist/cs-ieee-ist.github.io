@@ -9,25 +9,18 @@
 
 </head>
 
-<body onload="PR.prettyPrint()">
+<body>
 
-    <div id="pageTop">
-        <div id="projectName">
-            <center>PROJECT NAME</center>
-        </div>
-        <p></p>
-
-        <div id="className">
-            <center>Sistemas Operativos</center>
-        </div>
-
+ <div class="page__header">
+        <div class="page__title">Sistemas Operativos</div>
     </div>
 
-    <div id="pageBody">
+    <div class="page__content">
 
-        <center>
-            <h1 id="#so--fork" class="Sistemas Operativos">Fork</h1>
-        </center>
+        <div id="so--fork" class="section-title-anchor">
+          <h3 class="section-title">Fork</h3>
+        </div>
+
 
         <div style="margin-top: 2%">
             <center><img src="media/img/so/fork.png" width="40%"></img>
@@ -169,8 +162,6 @@
         </center>
 
         <pre class="prettyprint linenums lang=c">
-        <pre class="prettyprint linenums">
-
       /*
         Ficheiro: fork.c
         Autor: João Caldeira
@@ -263,11 +254,10 @@
         <!-- </pre> -->
 
         <center>
-            <h2 id="so--fork" class="Sistemas Operativos">Exemplo 2</h2>
+            <h2 id="" class="Sistemas Operativos">Exemplo 2</h2>
         </center>
 
         <pre class="prettyprint linenums lang=c">
-      <!-- <pre class="prettyprint linenums"> -->
 
       #include &ltstdio.h&gt
       #include &ltstdlib.h&gt
@@ -321,9 +311,9 @@
         </pre>
 
 
-        <center>
-            <h1 id="#so--pipe" class="Sistemas Operativos">Pipe</h1>
-        </center>
+        <div id="so--pipe" class="section-title-anchor">
+          <h3 class="section-title">Pipe</h3>
+        </div>
         <!-- increment the id for each topic ex sub1, sub2, sub3 etc  -->
 
 
@@ -332,8 +322,7 @@
             </center>
         </div>
 
-        <pre class="prettyprint linenums lang=c">
-      <pre class="prettyprint linenums">
+      <pre class="prettyprint linenums lang=c">
 
       #include &ltunistd.h&gt
       #include &ltstdio.h&gt
@@ -387,16 +376,15 @@
       </pre>
         </pre>
 
-        <center>
-            <h1 id="#so--named-pipe" class="Sistemas Operativos">Named Pipe</h1>
-        </center>
+        <div id="so--named_pipe" class="section-title-anchor">
+          <h3 class="section-title">Named Pipe</h3>
+        </div>
 
         <center>
             <h2 id="sub2" class="Sistemas Operativos">Exemplo 1</h2>
         </center>
 
         <pre class="prettyprint linenums lang=c">
-      <pre class="prettyprint linenums">
 
       #include &ltunistd.h&gt
           #include &ltunistd.h&gt
@@ -449,7 +437,6 @@
         </center>
 
         <pre class="prettyprint linenums lang=c">
-      <pre class="prettyprint linenums">
 
       #include &ltunistd.h&gt
           #include &ltunistd.h&gt
@@ -491,7 +478,6 @@
         </center>
 
         <pre class="prettyprint linenums lang=c">
-      <pre class="prettyprint linenums">
 
       // C program to implement one side of FIFO 
       // This side writes first, then reads 
@@ -551,7 +537,6 @@
         </center>
 
         <pre class="prettyprint linenums lang=c">
-      <pre class="prettyprint linenums">
       
       // C program to implement one side of FIFO 
       // This side reads first, then reads 
@@ -603,11 +588,10 @@
                 Imagens de Slide da Cadeira de Sistemas Operativos do IST
             </div>
         </div>
-    </div>
 
-    <center>
-      <h1 id="so--exec" class="Sistemas Operativos">Exec</h1>
-    </center>
+   <div id="so--exec" class="section-title-anchor">
+          <h3 class="section-title">Exec</h3>
+    </div>
 
     <pre class="prettyprint linenums lang=c">
 /*
@@ -694,6 +678,7 @@ int main()
   exit(EXIT_SUCCESS);
 }
     </pre>
+  </div>
 
 </body>
 
