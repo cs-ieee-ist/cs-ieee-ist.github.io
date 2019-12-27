@@ -19,12 +19,12 @@ const handleUrl = () => {
 		location.href.split("/")[4] === undefined
 	) {
 		showPage(currentPageId);
-		return;
+	} else {
+		const pageId = location.href.split("/")[4];
+		loadPage(pageId);
+		expandDropdownOptions(pageId);
+		showPage(pageId);
 	}
-	const pageId = location.href.split("/")[4];
-	$(`#${pageId}`).load(`${pageId}.html`);
-	expandDropdownOptions(pageId);
-	showPage(pageId);
 };
 
 const setupListeners = () => {
@@ -38,7 +38,7 @@ const loadPage = (pageId) => {
 	const page = $(`#${pageId}`);
 	if (page.children().length !== 0) return;
 
-	page.load(`${pageId}.html`, () => {
+	page.load(`./pages/${pageId}.html`, () => {
 		PR.prettyPrint();
 	});
 };
