@@ -4,7 +4,7 @@
 
 * **Criar disciplina** (se não existir)
 ```sh
-$ cd ./scripts/coding 
+$ cd ./scripts 
 $ python3 makeClass.py
 > Class abbreviation: $(ABREVIACAO_DA_NOVA_CADEIRA)
 > Class full name: $(NOME_DA_NOVA_CADEIRA)
