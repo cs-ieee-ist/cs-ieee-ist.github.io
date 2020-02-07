@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap');
 @import url("./sidenav.css");
 @import url("./template.css");
+@import url("./code-theme.css");
 :root {
 	--primary-color: #0073a9;
 	--primary-dark-color: #006492;
@@ -23,14 +24,27 @@ body {
 
 .content {
 	flex: 1;
-}
-
-.page {
 	height: 100vh;
 	overflow-y: auto;
 	scroll-behavior: smooth;
+
 }
 
-pre {
-	padding: 16px 0;
+.page {
+
+}
+
+pre.prettyprint {
+	padding: 16px;
+	border-radius: 16px;
+	font-size: 12px;
+	overflow-x: auto;
+}
+
+@media print {
+	.content {
+		height: max-content !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
 }

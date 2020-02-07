@@ -26,7 +26,6 @@
 			<span class="img-reference">Russell, S. and Norvig, P., 2009, Artificial Intelligence: A Modern Approach 3rd ed,
 				Pearson</span>
 		</div></br>
-		Imagem retirada do livro: Artificial Intelligence: A Modern Approach</br></br>
 
 		<h4 class="sub-section-title">Agente</h4>
 
@@ -55,7 +54,7 @@
 		<h4 class="sub-section-title">Agente racional</h4>
 
 		Um agente racional deve procurar fazer “o que está certo”, com base nas suas percepções e nas acções que pode tomar.
-		No entanto, o que quer fazer “o que está certo”? Bem, podemos considerar as consequências do comportamento do
+		Mas, o que quer dizer “o que está certo”? Bem, podemos considerar as consequências do comportamento do
 		agente. Se a sequência de estados que ambiente sofrer, resultantes das ações do agente, for considerada boa então
 		podemos dizer que o agente está a ter uma boa performance.</br></br>
 
@@ -97,7 +96,7 @@
 
 		<h4 class="sub-section-title">Tipos de ambientes</h4>
 
-		<b>- Observável vs Parcialmente Observável</b>
+		<h5 class="sub-sub-section-title"> Observável vs Parcialmente Observável</h5>
 
 		<ul>
 			<li>Num ambiente “observável” os sensores do agente dão acesso ao estado
@@ -111,7 +110,7 @@
 				que nele operem</li>
 		</ul>
 
-		<b>- Estático vs Dinâmico</b>
+		<h5 class="sub-sub-section-title"> Estático vs Dinâmico</h5>
 
 		<ul>
 			<li>Um ambiente estático é um ambiente que não é alterado enquanto
@@ -122,7 +121,7 @@
 				decidir fazer nada.</li>
 		</ul>
 
-		<b>- Determinístico vs Estocástico</b>
+		<h5 class="sub-sub-section-title"> Determinístico vs Estocástico</h5>
 
 		<ul>
 			<li>Num ambiente Determinístico o estado seguinte do ambiente é
@@ -135,7 +134,7 @@
 				quando da criação dos agentes</li>
 		</ul>
 
-		<b>- Episódico vs Sequencial</b>
+		<h5 class="sub-sub-section-title"> Episódico vs Sequencial</h5>
 
 		<ul>
 			<li>Num ambiente Episódico a experiência do agente está dividida em episódios atómicos (em que cada episódio
@@ -143,14 +142,14 @@
 				episódio</li>
 		</ul>
 
-		<b>- Discreto vs Contínuo</b>
+		<h5 class="sub-sub-section-title"> Discreto vs Contínuo</h5>
 
 		<ul>
 			<li>Num ambiente Discreto o agente tem um número limitado de percepções e acções distintas que estão claramente
 				definidas</li>
 		</ul>
 
-		<b>- Single vs Multi-Agente</b>
+		<h5 class="sub-sub-section-title"> Single vs Multi-Agente</h5>
 
 		<ul>
 			<li>Num ambiente Single Agent, tal como o próprio nome diz, só existe um agente nesse ambiente.</li>
@@ -269,7 +268,7 @@
 			<li>Agentes com aprendizagem</li>
 		</ul>
 
-		<b>- Agentes reflexos simples</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes reflexos simples</h5>
 
 		Os agentes de reflexos simples são o tipo de agentes mais simples. Estes escolhem uma ação com base na percepção
 		atual, ignorando todo o historial de percepções. O exemplo do aspirador apresentado anteriormente é um agente de
@@ -292,7 +291,7 @@
 			</div>
 		</div>
 
-		<b>- Agentes reflexos simples</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes reflexos simples</h5>
 
 		Os agentes de reflexos baseados em modelos são agentes que mantêm um estado interno que lhes diz como é que o "mundo
 		funciona". O estado interno vai depender do histórico de percepções do agente.</br></br>
@@ -319,7 +318,7 @@
 			</div>
 		</div>
 
-		<b>- Agentes baseados em objetivos</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes baseados em objetivos</h5>
 
 		Conhecer algo o estado atual do ambiente nem sempre é suficiente para decidir o que fazer. Por exemplo, num
 		cruzamento, o taxi pode virar à esquerda, virar à esquerda ou ir em frente. A melhor decisão vai depender do local
@@ -332,12 +331,12 @@
 				Pearson</span>
 		</div></br>
 
-		<b>- Agentes baseados em utilidade</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes baseados em utilidade</h5>
 
 		Este agente tem uma função de utilidade. Esta função de utilidade permite estabelecer preferências
 		entre sequências de estados que permitem atingir os mesmos objectivos. Por exemplo, um agente taxista que
 		pretende chegar a um destino, a função de utilidade permite distinguir as diferentes
-		formas de chegar ao destino, em função do tempo, da despesa, da segurança.</br></br>
+		formas de chegar ao destino, em função do tempo, da despesa e da segurança.</br></br>
 
 		<div class="template-img-container">
 			<img class="template-img" src="./media/img/ia/agente_utility_based.png">
@@ -345,9 +344,9 @@
 				Pearson</span>
 		</div></br>
 
-		<b>- Agentes com aprendizagem</b></br></br>
+		<h5 class="sub-sub-section-title"> Agentes com aprendizagem</h5>
 
-		Este agentec orresponde à ideia de máquina inteligente caracterizada por Turing (1950), em que o agente actua num
+		Este agente corresponde à ideia de máquina inteligente caracterizada por Turing (1950), em que o agente actua num
 		mundo
 		inicialmente desconhecido. Este é composto por três elementos:
 		<ul>
@@ -398,7 +397,7 @@
 
 		<h4 class="sub-section-title">Estratégias de procura não informada</h4>
 
-		<b>Largura Primeiro (Breadth-first search)</b></br>
+		<h5 class="sub-sub-section-title">Largura Primeiro (Breadth-first search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Sim, se b for finito</li>
@@ -434,7 +433,7 @@
 			</div>
 		</div>
 
-		<b>Custo Uniforme (Uniform cost search)</b></br>
+		<h5 class="sub-sub-section-title">Custo Uniforme (Uniform cost search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Sim, se custo do ramo ≥ ε, em que ε é uma constante > 0, para evitar ciclos em ramos com
@@ -449,7 +448,7 @@
 			<b>function</b> n UNIFORM-COST-SEARCH(problem) <b>returns</b> a solution, or failure
 			<div class="code-snippet-scope">
 				node ←a node with STATE = problem.INITIAL-STATE, PATH-COST = 0</br>
-				frontier ← a priority queue ordered by PATH-COST, with node as the only element
+				frontier ← a priority queue ordered by PATH-COST, </br> with node as the only element
 				explored ← an empty set</br>
 				<b>loop do</b>
 				<div class="code-snippet-scope">
@@ -473,7 +472,7 @@
 			</div>
 		</div>
 
-		<b>Profundidade Primeiro (Depth-first search)</b></br>
+		<h5 class="sub-sub-section-title">Profundidade Primeiro (Depth-first search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Não: não encontra a solução em espaços de estados com profundidade infinita/com ciclos</li>
@@ -483,7 +482,7 @@
 			<li><b>Ótima:</b> Não </li>
 		</ul>
 
-		<b>Profundidade Limitada (Depth-limited search)</b></br>
+		<h5 class="sub-sub-section-title">Profundidade Limitada (Depth-limited search)</h5>
 
 		<div class="code-snippet">
 			<b>function</b> DEPTH-LIMITED-SEARCH(problem, limit) <b>returns</b> a solution, or failure/cutoff
@@ -512,7 +511,7 @@
 			</div>
 		</div>
 
-		<b>Profundidade Limitada Iterativa ( Iterative deepening depth-first search)</b></br>
+		<h5 class="sub-sub-section-title">Profundidade Limitada Iterativa ( Iterative deepening depth-first search)</h5>
 
 		<ul>
 			<li><b>Completa:</b> Sim</li>
@@ -565,7 +564,7 @@
 			</li>
 		</ul>
 
-		<b>Procura Melhor Primeiro (Best First Search)</b></br>
+		<h5 class="sub-sub-section-title">Procura Melhor Primeiro (Best First Search)</h5>
 
 		<ul>
 			<li>Algoritmo Procura Melhor Primeiro</br>
@@ -603,7 +602,7 @@
 			</div>
 		</div>
 
-		<b>Gananciosa (Greedy Best First Search)</b></br>
+		<h5 class="sub-sub-section-title">Gananciosa (Greedy Best First Search)</h5>
 
 		<ul>
 			<li>Função de avaliação f(n) = h(n) (heurística)</li>
@@ -617,7 +616,7 @@
 			<li><b>Ótima:</b> Não </li>
 		</ul>
 
-		<b>Procura A*</b></br>
+		<h5 class="sub-sub-section-title">Procura A*</h5>
 
 		<ul>
 			<li><b>Ideia:</b> evitar expandir caminhos que já têm um custo muito elevado</li>
@@ -639,10 +638,10 @@
 			<li><b>Ótima:</b> Sim</li>
 		</ul>
 
-		<b>Heurística Admissível</b></br></br>
+		<h5 class="sub-sub-section-title">Heurística Admissível</h5>
 		Uma heurística é admissível se o valor estimado para cada nó nunca for superior ao valor ótimo.</br></br>
 
-		<b>Heurística Consistente</b></br></br>
+		<h5 class="sub-sub-section-title">Heurística Consistente</h5>
 		Uma heurística é consistente se para cada nó n, e para cada sucessor n' de n gerado por uma acção a temos: h(n) ≤
 		c(n,a,n') + h(n'), ou seja um lado de um triângulo não pode ser maior que
 		a soma dos outros dois lados.</br>
@@ -736,9 +735,9 @@
 		<b>Valor MINIMAX</b></br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?MINIMAX(s)=\left\{\begin{matrix} UTILITY(s)\ \ \if \ TERMINAL-TEST(s) \\max_{a\epsilon Actions(s)}MINIMAX(RESULT(s, a)) \  if \ PLAYER(s)=MAX \\min_{a\epsilon Actions(s)}  MINIMAX(RESULT(s, a)) \ if \ PLAYER(s)=MIN\end{matrix}\right." /></br></br>
+			src="https://latex.codecogs.com/gif.latex?MINIMAX(s)=\left\{\begin{matrix} UTILITY(s)\ \ \if \ TERMINAL-TEST(s) \\max_{a\epsilon Actions(s)}MINIMAX(RESULT(s, a)) \  if \ PLAYER(s)=MAX \\min_{a\epsilon Actions(s)}  MINIMAX(RESULT(s, a)) \ if \ PLAYER(s)=MIN\end{matrix}\right." /></br></br>
 
-		<b>Algoritmo MINIMAX</b></br></br>
+		<h5 class="sub-sub-section-title">Algoritmo MINIMAX</h5>
 
 		<div class="code-snippet">
 			<b>function</b> MINIMAX-DECISION(state) <b>returns</b> an action
@@ -904,12 +903,12 @@
 		<h4 class="sub-section-title">Regra de Bayes</h4>
 
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(a|b)P(b)}{P(a)}" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(a|b)P(b)}{P(a)}" /></br></br>
 
-		<b>Versão normalizada</b></br></br>
+		<h5 class="sub-sub-section-title">Versão normalizada</h5>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(b|a)P(a)}{P(b|a)P(a) + P(b|\neg a)P(\neg a)}" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?P(b|a) = \frac{P(b|a)P(a)}{P(b|a)P(a) + P(b|\neg a)P(\neg a)}" /></br></br>
 
 
 		<!-- Fim Incerteza -->
@@ -941,10 +940,10 @@
 		seja, indica como construir uma rede.
 		E a distribuição de probabilidade total é definida como produto das distribuições condicionais locais.</br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?P(X_{1},...,X_{n})=\prod_{i=1}P(X_{i}, Parents(X_{i}))" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?P(X_{1},...,X_{n})=\prod_{i=1}P(X_{i}, Parents(X_{i}))" /></br></br>
 
 
-		<b>Semântica local</b>(ou topológica)</br></br>
+		<h5 class="sub-sub-section-title">Semântica local(ou topológica)</h5>
 
 		Na Semântica local as redes são visualizadas como uma codificação de uma coleção de declarações de independência
 		condicional, ou seja, indica como fazer inferências com uma rede.
@@ -1002,7 +1001,7 @@
 			<li>...</li>
 		</ul>
 
-		<b>Representação usada para os componentes</b></br></br>
+		<h5 class="sub-sub-section-title">Representação usada para os componentes</h5>
 
 		Exemplos de matérias anteriores:</br>
 		<ul>
@@ -1014,7 +1013,7 @@
 			</li>
 		</ul>
 
-		<b>Conhecimento já existente</b></br></br>
+		<h5 class="sub-sub-section-title">Conhecimento já existente</h5>
 
 		O último factor a ter em conta na criação de um sistema de aprendizagem é a possível existência de
 		conhecimento anterior, em muitos casos o agente inicialmente não tem conhecimento
@@ -1090,7 +1089,7 @@
 		Uma árvore de decisão pode ser escrita da seguinte forma na lógica proposicional:</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Objetivo \Leftrightarrow (Caminho_{1},Caminho_{2},...)" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?Objetivo \Leftrightarrow (Caminho_{1},Caminho_{2},...)" /></br></br>
 
 		Onde um caminho é um conjunto de testes feitos a atributos e que são necessários para seguir esse mesmo
 		caminho.</br></br>
@@ -1111,11 +1110,11 @@
 
 		Então a entropia associada a um conjunto de treino é dada por:</br></br>
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?I(\frac{p}{n+p},\frac{n}{n+p})" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?I(\frac{p}{n+p},\frac{n}{n+p})" /></br></br>
 
 		sendo,</br></br>
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?I(V)=-\sum_{k}P(v_{k})log_{2}P(v_{k})" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?I(V)=-\sum_{k}P(v_{k})log_{2}P(v_{k})" /></br></br>
 
 		Se assumirmos que:
 
@@ -1127,20 +1126,20 @@
 		Então podemos calcular a entropia do conjunto de instâncias com atributo A = i:</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
 
 		Se considerarmos que um atributo A pode ter valores i ∈ {1, 2, ..., m}, então uma separação de instâncias pelo
 		atributo A, vai partir o conjunto de treino em m subconjuntos diferentes. A entropia associada
 		a essa partição é apenas a média ponderada das entropias de cada subconjunto:</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
 
 		Assim, o ganho de informação, GI, associado a partir pelo atributo A, não é mais do que a diferença
 		entre a entropia de um conjunto inteiro e a entropia do conjunto partido pelo atributo A:</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?GI(A)=I(\frac{p}{n+p},\frac{n}{n+p})-\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?GI(A)=I(\frac{p}{n+p},\frac{n}{n+p})-\sum_{i}\frac{p_{i}+n_{i}}{p+n} I(\frac{p_{A=i}}{n_{A=i}+p_{A=i}},\frac{n_{A=i}}{n_{A=i}+p_{A=i}})" /></br></br>
 
 
 		<div class="code-snippet">
@@ -1180,7 +1179,7 @@
 		• Funcão de reward: R: X × A → |R </br>
 		Função V (x) que calcula o reward obtido após uma trajectória com T passos que começa no estado x.
 		Se assumirmos γ como o factor de desconto, podemos calcular V (x) da seguinte forma:</br></br>
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?V(x) = \sum_{t=0}^{T-1}\gamma ^tr^t" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?V(x) = \sum_{t=0}^{T-1}\gamma ^tr^t" /></br></br>
 		Matriz Q com dimensões X x A</br></br>
 		Funcão Q : X × A → R, calcula o mesmo que V mas para um par estado acção inicial.
 		Uma política π(a|x) : X × A → [0, 1] define a probabilidade de se executar cada acção a para cada
@@ -1188,7 +1187,7 @@
 		. Esta pode ser extraída
 		da função Q da seguinte forma:</br></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?\pi^\ast(x) = argmax_{a\in A} Q^\ast(x,a)" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?\pi^\ast(x) = argmax_{a\in A} Q^\ast(x,a)" /></br></br>
 
 		Assim, para podermos aprender a política
 		óptima para um dado ambiente, apenas precisamos de aprender a função Q∗
@@ -1202,7 +1201,7 @@
 		• r: reward obtida por fazer a acção a no estado x</br>
 		Podemos assim usar a seguinte regra de update (alpha é o <i>learning rate</i>):</br></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Q(x,a) = Q(x,a) + \alpha(R(x,a) + max_{b}Q(y,b) - Q(x,a))" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?Q(x,a) = Q(x,a) + \alpha(R(x,a) + max_{b}Q(y,b) - Q(x,a))" /></br></br>
 
 		Exame 2 2018/2019</br></br>
 
@@ -1242,15 +1241,15 @@
 		considere α = 0.5 e γ = 0.5.</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Q(1, \rightarrow) = Q(1, \rightarrow) + \alpha(r(1, \rightarrow) + \gamma max_{b}Q(2, b) - Q(1, \rightarrow)) = 0 + 0.5 * (1 + 0.5 * 0 - 0) = 0.5" /></br>
+			src="https://latex.codecogs.com/gif.latex?Q(1, \rightarrow) = Q(1, \rightarrow) + \alpha(r(1, \rightarrow) + \gamma max_{b}Q(2, b) - Q(1, \rightarrow)) = 0 + 0.5 * (1 + 0.5 * 0 - 0) = 0.5" /></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Q(2, \uparrow) = Q(2, \uparrow) + \alpha(r(2, \uparrow) + \gamma max_{b}Q(2, b) - Q(2, \uparrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
+			src="https://latex.codecogs.com/gif.latex?Q(2, \uparrow) = Q(2, \uparrow) + \alpha(r(2, \uparrow) + \gamma max_{b}Q(2, b) - Q(2, \uparrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Q(2, \rightarrow) = Q(2, \rightarrow) + \alpha(r(2, \rightarrow) + \gamma max_{b}Q(3, b) - Q(2, \rightarrow)) = 0 + 0.5 * (4 + 0.5 * 0 - 0) = 2" /></br>
+			src="https://latex.codecogs.com/gif.latex?Q(2, \rightarrow) = Q(2, \rightarrow) + \alpha(r(2, \rightarrow) + \gamma max_{b}Q(3, b) - Q(2, \rightarrow)) = 0 + 0.5 * (4 + 0.5 * 0 - 0) = 2" /></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Q(3, \rightarrow) = Q(3, \rightarrow) + \alpha(r(3, \rightarrow) + \gamma max_{b}Q(3, b) - Q(3, \rightarrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
+			src="https://latex.codecogs.com/gif.latex?Q(3, \rightarrow) = Q(3, \rightarrow) + \alpha(r(3, \rightarrow) + \gamma max_{b}Q(3, b) - Q(3, \rightarrow)) = 0 + 0.5 * (-2 + 0.5 * 0 - 0) = -1" /></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Q(3, \leftarrow) = Q(3, \leftarrow) + \alpha(r(3, \leftarrow) + \gamma max_{b}Q(2, b) - Q(3, \leftarrow)) = 0 + 0.5 * (1 + 0.5 * 2 - 0) = 1" /></br>
+			src="https://latex.codecogs.com/gif.latex?Q(3, \leftarrow) = Q(3, \leftarrow) + \alpha(r(3, \leftarrow) + \gamma max_{b}Q(2, b) - Q(3, \leftarrow)) = 0 + 0.5 * (1 + 0.5 * 2 - 0) = 1" /></br>
 		</br>
 		8.2. (0.5) Seguindo uma política de exploitation e assumindo o estado de Q obtido após realizar os updates da
 		alínea anterior, quais são as 5 primeiras acções efectuadas pelo agente, começando no estado 1? Indique
@@ -1258,7 +1257,7 @@
 		recompensa)</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?(1, \rightarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow , 2, 1)" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?(1, \rightarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow, 2, 1)\par(2, \rightarrow, 3, 4)\par(3, \leftarrow , 2, 1)" /></br></br>
 
 		8.3 (0.5) Qual é a política óptima para este ambiente? Caso existam múltiplas acções óptimas num determinado
 		estado, represente todas as possibilidades.</br></br>
@@ -1300,29 +1299,29 @@
 		treino que associa cada um de n exemplos com m features, a um retorno:</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?\begin{matrix} x^{(1)}_{1}\ x^{(1)}_{2}\ ...\ x^{(1)}_{m}\rightarrow y^{1}\\x^{(2)}_{1}\ x^{(2)}_{2}\ ...\ x^{(2)}_{m}\rightarrow y^{2}\\ ... \\x^{(n)}_{1}\ x^{(n)}_{2}\ ...\ x^{(n)}_{m}\rightarrow y^{n}\end{matrix}" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?\begin{matrix} x^{(1)}_{1}\ x^{(1)}_{2}\ ...\ x^{(1)}_{m}\rightarrow y^{1}\\x^{(2)}_{1}\ x^{(2)}_{2}\ ...\ x^{(2)}_{m}\rightarrow y^{2}\\ ... \\x^{(n)}_{1}\ x^{(n)}_{2}\ ...\ x^{(n)}_{m}\rightarrow y^{n}\end{matrix}" /></br></br>
 
 		Agora podemos escrever a previsão do modelo para cada exemplo:</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?\begin{matrix}\hat{y}^{(1)}=\beta_{0}+\beta_{1}x^{(1)}_{1}+...+\beta_{m}x^{(1)}_{m}\\\hat{y}^{(2)}=\beta_{0}+\beta_{1}x^{(2)}_{1}+...+\beta_{m}x^{(2)}_{m}\\...\\\hat{y}^{(n)}=\beta_{0}+\beta_{1}x^{(n)}_{1}+...+\beta_{m}x^{(n)}_{m}\end{matrix}" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?\begin{matrix}\hat{y}^{(1)}=\beta_{0}+\beta_{1}x^{(1)}_{1}+...+\beta_{m}x^{(1)}_{m}\\\hat{y}^{(2)}=\beta_{0}+\beta_{1}x^{(2)}_{1}+...+\beta_{m}x^{(2)}_{m}\\...\\\hat{y}^{(n)}=\beta_{0}+\beta_{1}x^{(n)}_{1}+...+\beta_{m}x^{(n)}_{m}\end{matrix}" /></br></br>
 
 		Podemos escrever este sistema de equações da seguinte forma:</br></br>
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y=X\beta" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?Y=X\beta" /></br></br>
 
 		Assim, só falta saber como definir o vector de parâmetros β. Para isso necessitamos de definir uma
 		medida de erro para o nosso modelo. Tradicionalmente usa-se a função dos resíduos quadrados (squared loss
 		function):</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Loss^{(i)}=(y^{(i)}-\hat{y}^{(i)})^{2}=(y^{(i)}-X^{(i)}\beta)^{2}" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?Loss^{(i)}=(y^{(i)}-\hat{y}^{(i)})^{2}=(y^{(i)}-X^{(i)}\beta)^{2}" /></br></br>
 
 		Assim, podemos definir o erro total de um modelo para um dado vector de parâmetros como a soma
 		dos resíduos quadrados para todo o conjunto de treino:</br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Loss=\sum_{i=1}^{n}Loss^{(i)}=\sum_{i=1}^{n}(y^{(i)}-X^{(i)}\beta)^{2}=(Y-X\beta)^{T}(Y-X\beta)" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?Loss=\sum_{i=1}^{n}Loss^{(i)}=\sum_{i=1}^{n}(y^{(i)}-X^{(i)}\beta)^{2}=(Y-X\beta)^{T}(Y-X\beta)" /></br></br>
 
 
 		<h4 class="sub-section-title">Regressão Linear</h4>
@@ -1330,7 +1329,7 @@
 		No caso da regressão linear, vamos procurar o vector β que minimiza o erro do modelo.
 		Para tal, basta encontrar onde a primeira derivada da função do erro total se anula:</br></br>
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\begin{align*}
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?\begin{align*}
       \frac{\partial Loss}{\partial\beta}=0 \\ 
       \frac{\partial}{\partial\beta}(Y-X\beta)^{T}(Y-X\beta)=0 \\ 
       [\frac{\partial}{\partial\beta}(Y-X\beta)^{T}](Y-X\beta)+(Y-X\beta)^{T}[\frac{\partial}{\partial\beta}(Y-X\beta)]=0 \\ 
@@ -1353,7 +1352,7 @@
 		O termo de penalização, neste caso, é a norma (L2) do vector β ponderada por um coeficiente de
 		controlo λ. Assim, a derivada que procuramos é a seguinte:</br></br>
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\begin{align*}
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?\begin{align*}
     \frac{\partial}{\partial\beta}[Loss+\lambda\left \|\beta\right \|_{2}^{2}]=0\\ 
     \frac{\partial Loss}{\partial\beta}+\frac{\partial}{\partial\beta}[\lambda\left \|\beta\right \|_{2}^{2}]=0\\ 
     -2X^{T}(Y-X\beta)+2\lambda\beta=0\\ 
@@ -1375,7 +1374,7 @@
 
 		<b>Função de input:</b></br></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?in = \sum_{i=0}^{n}w_{i}x_{i}\ ou\ ent\tilde{a}o\ w.x" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?in = \sum_{i=0}^{n}w_{i}x_{i}\ ou\ ent\tilde{a}o\ w.x" /></br></br>
 
 		<b>Função de ativação:</b></br>
 		<ul>
@@ -1385,7 +1384,7 @@
 		</ul> <b>Output:</b></br></br>
 
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?\hat{y} = h(in) = h(\sum_{i=0}^{n}w_{i}a_{i})" /></br></br>
 
 		Agora que vimos como o Perceptrão faz a classificação, falta-nos ver como ele aprende os pesos, que
 		definem
@@ -1394,13 +1393,13 @@
 		aleatórios. De seguida cálcula-se para cada exemplo no conjunto de treino o output do perceptrão. Se este
 		valor for igual ao esperado então não se faz nada. Se for diferente então utilizamos a seguinte regra de
 		update para atualizarmos os pesos.</br></br>
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?w = w + \alpha (y_{i}- \hat{y}) x_{i}" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?w = w + \alpha (y_{i}- \hat{y}) x_{i}" /></br></br>
 
 		<b>Exemplo</b></br>
 		Considere o conjunto de treino com 8 pontos:</br></br>
 
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?X = \begin{bmatrix}
             -2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 
             0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5
             \end{bmatrix}" /></br></br>
@@ -1408,21 +1407,21 @@
 
 		Com as seguintes classificações:</br></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?Y= [True\ True\ True\ True\ False\ False\ False\ False]" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?Y= [True\ True\ True\ True\ False\ False\ False\ False]" /></br></br>
 		Considere os seguintes pontos de teste.</br></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}-0.5\\ 0.5\end{bmatrix}" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?\begin{bmatrix}0\\0\end{bmatrix},\begin{bmatrix}-0.5\\ 0.5\end{bmatrix}" /></br></br>
 
 		(a) Fazendo uma ronda de updates com α = 1, w = [1, 1] e w0 = 0, como fica o vector de pesos?</br></br>
 		<b>Resolução:</b></br>
 		O primeiro passo é acrescentar uma dimensão a X para podermos tratar o termo de bias
 		como um peso normal. Assim, ficamos com:</br></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?X = \begin{bmatrix}-2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5\\1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\end{bmatrix}" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?X = \begin{bmatrix}-2 & -1 & 0 & 1 & 2 & 1 & 0 & 1 \\ 0 & 0.5 & -0.1 & -1.5 & 0 & 0.5 & 0.4 & 1.5\\1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\end{bmatrix}" /></br></br>
 
 		Deste modo, podemos escrever os pesos num só vector: w = [1, 1, 0].
 		Se definirmos True com +1 e False como −1 ficamos com:</br></br>
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?Y = [1\ 1\ 1\ 1\ -1\ -1\ -1\ -1]" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?Y = [1\ 1\ 1\ 1\ -1\ -1\ -1\ -1]" /></br></br>
 
 		Façamos então um ronda de updates</br></br>
 
@@ -1433,10 +1432,10 @@
 
 		(b) Qual a classificação que o Perceptrão treinado retorna para os pontos de teste.</br></br>
 		<b>Resolução:</b></br></br>
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}([0, 0, 1]) = h([-5, -2.8, 0] · [0, 0, 1]) = h(0) = 1\\
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?\hat{y}([0, 0, 1]) = h([-5, -2.8, 0] · [0, 0, 1]) = h(0) = 1\\
           \hat{y}([-0.5, 0.5, 1]) = h([-5, -2.8, 0] · [-0.5, 0.5, 1]) = h(1.1) = 1" /></br></br>
 
-		<h4 class="sub-section-title">Reqressão Logística</h4>
+		<h4 class="sub-section-title">Regressão Logística</h4>
 
 		O modelo de regressão logística funciona de forma muito semelhante ao Perceptrão. Sendo também
 		classificador
@@ -1446,13 +1445,13 @@
 		utilizada
 		passa a ser a função logística, também conhecida como sigmoid, que retorna um valor no intervalo
 		[0,1].</br></br>
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?\sigma(x) = \frac{1}{1+e^{-x}}" /></br></br>
 		Outra diferença é a letra usada para identifcar os pesos, por convenção na regressão logística usava-mos o
 		w
 		agora passamos a usar o β.</br>
 		Assim, dado um ponto x o retorno da regressão logística pode ser definido por:</br></br>
 		<img class="latex-img"
-			src="http://latex.codecogs.com/gif.latex?p(+|x)=\sigma(\beta.x)=\frac{1}{1+e^{-\beta.x}}" /></br></br>
+			src="https://latex.codecogs.com/gif.latex?p(+|x)=\sigma(\beta.x)=\frac{1}{1+e^{-\beta.x}}" /></br></br>
 		Tal como para o Perceptrão existem regras de update que podem ser utilizadas para aprender os pesos.
 		Contudo, nesta cadeira esses métodos não são abordados.</br></br>
 
@@ -1477,7 +1476,7 @@
 			Para classificar o exemplo faz-se uma média ponderada das labels dos k vizinhos mais próximos.
 		</p>
 
-		<img class="latex-img" src="http://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
+		<img class="latex-img" src="https://latex.codecogs.com/gif.latex?\hat{y}=\frac{\sum_{i=1}^{K} y_{i}}{K}" />
 
 		<p class="topic-content-text">
 			<b>Exemplo</b></br>
@@ -1486,7 +1485,7 @@
 			(a) Para K = 2.</br>
 			</br>
 			O primeiro passo é calcular a matriz de distâncias para ambos os pontos:</br></br>
-			<img class="latex-img" src="http://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
+			<img class="latex-img" src="https://latex.codecogs.com/gif.latex?D = \begin{bmatrix}
       3 & 2 & 1 & 1 \\ 
       2 & 1 & 0 & 2
      \end{bmatrix}" /></br></br>
@@ -1494,10 +1493,10 @@
 			<b>(a)</b>Tendo em conta os 2 vizinhos mais próximos, obtemos as seguintes estimativas:</br>
 			</br>
 			<img class="latex-img"
-				src="http://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
+				src="https://latex.codecogs.com/gif.latex?(0,1),(2,-1) \rightarrow \hat{y}(1) = \frac{1+(-1)}{2} = 0" /></br>
 
 			<img class="latex-img"
-				src="http://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
+				src="https://latex.codecogs.com/gif.latex?(-1,3),(0,1) \rightarrow \hat{y}(0) = \frac{3+1}{2} = 2" /></br>
 			</br>
 		</p>
 
@@ -1514,14 +1513,14 @@
 			Kernel Quadrático</br></br>
 
 			<img class="latex-img"
-				src="http://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
+				src="https://latex.codecogs.com/gif.latex?K(d) = \max(0,1-left(\left(2\operatorname{abs}\left(d\right)\right)/k)^2\right), k=10" /></br>
 			<div class="template-img-container">
 				<img class="template-img" src="./media/img/ia/kernel_quad.png">
 			</div></br></br>
 
 			Kernel Gaussiano</br></br>
 			<img class="latex-img"
-				src="http://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
+				src="https://latex.codecogs.com/gif.latex?K(d) = \frac{1}{\sqrt{2\pi}}\times e^{\frac{-d^2}{2}}" /></br></br>
 
 			<div class="template-img-container">
 				<img class="template-img" src="./media/img/ia/kernel_gauss.png">
@@ -1532,7 +1531,7 @@
 			uma média ponderada sobre todos os elementos do conjunto de treino.</br></br>
 
 			<img class="latex-img"
-				src="http://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
+				src="https://latex.codecogs.com/gif.latex?\hat{y}(x_{q}) = \frac{\sum_{i=1}^{N} y_{i}\ast K(d(x_{q},x_{i}))}{\sum_{i=1}^{N} K(d(x_{q},x_{i}))}" /></br>
 		</p>
 
 		<!-- Fim Aprendizagem nao parametrica  -->
