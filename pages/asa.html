@@ -78,6 +78,54 @@
 
 		</table>
 
+		<div id="asa--classificacao-arcos" class="section-title-anchor">
+			<h3 class="section-title">Classificação de Arcos</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo ?</h6>
+		Arcos para trás (Back Edges)</br>
+		<ul>
+			<li>Ligam vértice U ao vértice V, antecessor na mesma árvore, ou seja, U está a tentar aceder a V já visitado anteriormente sendo V um dos vértices possíveis para o qual U pode avançar.</li>
+		</ul>
+		Arcos para a frente (Forward Edges)
+		<ul>
+			<li>Ligam vértice U ao vértice V, descendente na mesma árvore, ou seja, U está a tentar aceder a V já visitado anteriormente sendo V um dos possíveis para o qual U pode avançar.</li>
+		</ul>
+		Arcos de Cruzamento (Cross Edges)
+		<ul>
+			<li>Ligam vértice U ao vértice V, na mesma árvore, se U (ou V) não anteessor de V (ou U) ou entre árvores diferentes.</li>
+		</ul>
+
+
+		<div id="asa--componentes-fortemente-ligados" class="section-title-anchor">
+			<h3 class="section-title">Componentes Fortemente Ligados</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo ?</h6>
+		É composto por um conjunto máximo de vértices U &sube; V, tal que para quaisquer u,v &isin; U, u é atingível a partir de v, e v é atingível a partir de u, ou seja, é um grupo de vértices que se conseguem atingir uns aos outros. Exemplo:
+		<!-- imagem -->
+
+
+
+		<div id="asa--tarjan" class="section-title-anchor">
+			<h3 class="section-title">Tarjan</h3>
+		</div>
+		<h6 class="topic-book-chapter">Capitulo ?</h6>
+		Baseado em DFS</br>
+		Tem por objetivo identificar SCC's (Strongly Connected Components) </br></br>
+
+		Raíz de um SCC: Primeiro vértice do SCC a ser descoberto </br>
+		color[v]: Cor do vértice v, (branco, cinzento ou amarelo) </br>
+		<ul>
+			branco: não visitado</br>
+			cinzento: já visitado</br>
+			amarelo: Raiz de SCC</br>
+		</ul>
+		d[v]: Número de vértices visitados quando v é descoberto</br>
+		low[v]: O menor valor de d[] atingível por um arco para trás ou de cruzamento na sub-árvore de v</br>
+		L: Caminho percorrido desde a origem até ao ponto atual</br>
+		Se d[v] = low[v], então v é raiz de um SCC</br></br>
+		Exemplo:</br>
+		<!-- fazer tabela -->
+		
 
 
 
