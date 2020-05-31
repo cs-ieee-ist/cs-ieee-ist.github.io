@@ -1,0 +1,7 @@
+.contentContainer {
+	display: flex;
+}
+
+.dummySidebar {
+  width: var(--content-sidebar-width);
+}
