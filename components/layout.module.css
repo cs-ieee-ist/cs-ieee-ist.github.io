@@ -125,6 +125,10 @@
 	align-self: center;
 }
 
+.contentContainer {
+
+}
+
 .contentSidebar {
 	width: var(--content-sidebar-width);
 	margin-top: 50px;
@@ -168,6 +172,19 @@
 	background-color: var(--accent);
 }
 
+.footer {
+	max-width: 600px;
+	margin: auto;
+	margin-top: 32px;
+	padding: 24px;
+	border-top: 1px solid var(--light-gray-2);
+	text-align: center;
+}
+
+.footerTitle {
+	font-size: 0.9rem;
+}
+
 @media screen and (max-width: 950px) {
 	.mainContent {
 		width: 100%;
@@ -176,6 +193,12 @@
 }
 
 @media screen and (max-width: 750px) {
+	.header {
+			height: 52px;
+	}
+	.headerIcon {
+		width: 24px;
+	}
 	.mainContent {
 		padding: 0;
 	}
@@ -209,5 +232,9 @@
 	}
 	.sidebarItem.active {
 		background-color: rgba(0, 0, 0, 0.05);
+	}
+
+	.contentContainer {
+		margin: 0 12px;
 	}
 }
