@@ -11,7 +11,7 @@ class Levenshtein {
 		this._b = b;
 		this._aSize = a.length;
 		this._bSize = b.length;
-		this._d = new Array<number>(a.length+1).fill(0).map(() => new Array<number>(b.length+1).fill(0));
+		this._d = new Array<number>(a.length + 1).fill(0).map(() => new Array<number>(b.length + 1).fill(0));
 	}
 
 	min(i: number, j: number) {
@@ -61,10 +61,17 @@ class Levenshtein {
 }
 
 export function search(query: string, array: string[]) {
-	const RATIO_THRESHOLD = 1.05;
-	return array.filter((value) => {
+	const RATIO_THRESHOLD = 1.09;
+	let res: { title: string, ratio: number }[] = [];
+	for (const value of array) {
 		const lev = new Levenshtein(query, value);
 		const ratio = lev.run();
-		return ratio < RATIO_THRESHOLD;
-	});;
+		if (ratio < RATIO_THRESHOLD)
+			res.push({title: value, ratio});
+	}
+	return res.sort((a, b) => {
+		if (a.ratio < b.ratio) return -1;
+		if (a.ratio > b.ratio) return 1;
+		return 0;
+	})
 }

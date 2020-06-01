@@ -18,7 +18,7 @@ Dummy page just to show some concepts
 
 ## Code
 
-```
+```c
 #include <stdio.h>
 
 int main() {
