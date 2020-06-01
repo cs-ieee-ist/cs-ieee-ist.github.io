@@ -102,7 +102,7 @@
 
 .contentCard h2 {
 	font-size: 1.1rem;
-	border-bottom: 1px solid var(--gray);
+	border-bottom: 1px solid var(--light-gray-2);
 }
 
 .contentCard h3 {
@@ -146,4 +146,16 @@
 	padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
+}
+
+
+@media screen and (max-width: 750px) {
+	.contentCard {
+		width: 100%;
+	}
+}
+
+
+@media screen and (max-width: 550px) {
+
 }

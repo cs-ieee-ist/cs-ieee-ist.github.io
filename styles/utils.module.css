@@ -98,3 +98,16 @@
   background-color: var(--gray);
 }
 
+@media screen and (max-width: 750px) {
+	.jumbotron {
+		border-radius: 0;
+		padding: 16px 50px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.jumbotron {
+		padding: 12px 30px;
+	}
+}
+

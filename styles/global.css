@@ -3,13 +3,14 @@
 :root {
   --light-black: #333;
   --gray: #707070;
-  --light-gray: #f6f6f6;
+	--light-gray: #f6f6f6;
+	--light-gray-2: #dcdcdc;
   --white: #fff;
   --primary-dark: #1c4259;
   --primary: #12679d;
   --primary-light: #66c5d6;
   --accent-light: #e1d7d8;
-  --accent: #dabc81; 
+  --accent: #dabc81;
 
   --content-sidebar-width: 175px;
 }
@@ -41,4 +42,16 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+@media screen and (max-width: 750px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	html {
+		font-size: 14px;
+	}
 }
