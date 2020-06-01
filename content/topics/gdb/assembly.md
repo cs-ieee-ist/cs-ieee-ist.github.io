@@ -21,7 +21,11 @@ Dummy page just to show some concepts
 ```c
 #include <stdio.h>
 
+// An example
+
 int main() {
+	int i = 1;
+	i = i + 2;
 	printf("Hello World\n");
 	return 0;
 }

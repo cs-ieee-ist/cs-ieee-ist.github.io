@@ -118,10 +118,8 @@
 }
 
 .contentCard pre {
-	background-color: var(--primary-dark);
 	margin: 0 -24px;
 	padding: 12px 24px;
-	color: white;
 	margin: 0 -24px;
 	padding: 12px 24px;
 	font-size: 0.8rem;
@@ -130,15 +128,15 @@
 .contentCard table {
 	width: 100%;
 	font-size: 0.8rem;
-	background-color: var(--primary-dark);
-	color: var(--white);
-	border-radius: 8px;
+	background-color: #282a36;
+	color: #f8f8f2;
+	border-radius: 2px;
 	border-collapse: collapse;
 	overflow: hidden;
 }
 
 .contentCard td, .contentCard th {
-  border: 1px solid #ddd;
+  border: 1px solid  #4f5465;
   padding: 8px 14px;
 }
 

@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
+import highlight from 'remark-highlight.js'
 
 const TOPICS_DIR_PATH = 'content/topics';
 const contentDirectory = path.join(process.cwd(), TOPICS_DIR_PATH)
@@ -106,6 +107,7 @@ export async function getContentData(topic: string, id: string) {
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)
+    .use(highlight)
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
