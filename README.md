@@ -11,4 +11,4 @@ Contributions are more than welcome. See more at [CONTRIBUTING.md](CONTRIBUTING.
 
 ## Built with
 
-* [Next.js]()
+* [Next.js](https://nextjs.org/)
