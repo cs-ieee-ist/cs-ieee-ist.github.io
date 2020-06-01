@@ -69,7 +69,7 @@
 	margin: 0 auto 14px;
 	background-color: var(--white);
 	border: 1px solid var(--primary-dark);
-	border-radius: 14px;
+	border-radius: 8px;
 	display: flex;
 	overflow: hidden;
 	cursor: pointer;
@@ -136,18 +136,19 @@
 }
 
 .contentCard td, .contentCard th {
-  border: 1px solid  #4f5465;
-  padding: 8px 14px;
+	border: 1px solid #4f5465;
+	padding: 8px 14px;
 }
 
-.contentCard tbody tr:hover {background-color: rgba(255, 255, 255, 0.05);}
+.contentCard tbody tr:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+}
 
 .contentCard th {
 	padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
+	padding-bottom: 12px;
+	text-align: center;
 }
-
 
 @media screen and (max-width: 750px) {
 	.contentCard {
@@ -155,7 +156,6 @@
 		padding: 24px 12px;
 	}
 }
-
 
 @media screen and (max-width: 550px) {
 	.searchCard {
