@@ -143,8 +143,8 @@
 .sidebarItem {
 	display: flex;
 	align-items: center;
-	height: 28px;
-	margin: 6px 0;
+	height: 34px;
+	margin: 2px 0;
 	font-size: 0.9rem;
 	text-transform: capitalize;
 }
@@ -157,6 +157,10 @@
 
 .sidebarItem.active {
 	font-weight: 600;
+}
+
+.sidebarItem:hover {
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .sidebarItem::before {
