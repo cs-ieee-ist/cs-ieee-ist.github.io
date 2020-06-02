@@ -146,6 +146,7 @@
 	height: 28px;
 	margin: 6px 0;
 	font-size: 0.9rem;
+	text-transform: capitalize;
 }
 
 .sidebarItem a {

@@ -1,3 +1,5 @@
+import PageId from "../models/pageId";
+
 class Levenshtein {
 
 	private _a: string;
@@ -60,14 +62,15 @@ class Levenshtein {
 
 }
 
-export function search(query: string, array: string[]) {
+export function search(query: string, pages: PageId[]) {
 	const RATIO_THRESHOLD = 1.09;
-	let res: { title: string, ratio: number }[] = [];
-	for (const value of array) {
-		const lev = new Levenshtein(query, value);
+	let res: { page: PageId, ratio: number }[] = [];
+	for (const page of pages) {
+		const title = page.getTitle()
+		const lev = new Levenshtein(query, title);
 		const ratio = lev.run();
 		if (ratio < RATIO_THRESHOLD)
-			res.push({title: value, ratio});
+			res.push({page, ratio});
 	}
 	return res.sort((a, b) => {
 		if (a.ratio < b.ratio) return -1;

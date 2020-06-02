@@ -1,14 +1,12 @@
 import styles from "./layout.module.css";
 import Link from "next/link";
+import PageId from "../models/pageId";
 
 export default function ContentSidebar({
   topicPages,
   activePage,
 }: {
-  topicPages: {
-    id: string;
-    title: string;
-  }[];
+  topicPages: PageId[];
   activePage: string;
 }) {
   return (
@@ -17,13 +15,13 @@ export default function ContentSidebar({
         {topicPages.map((page) => {
           return (
             <li
-              key={page.title}
+              key={page.getTitle()}
               className={`${styles.sidebarItem} ${
-                isSamePage(page.id, activePage) ? styles.active : ""
+                isSamePage(page.getPage(), activePage) ? styles.active : ""
               }`}
             >
-              <Link href={page.id}>
-                <a>{page.title}</a>
+              <Link href={page.getLink()}>
+                <a>{page.getPage()}</a>
               </Link>
             </li>
           );

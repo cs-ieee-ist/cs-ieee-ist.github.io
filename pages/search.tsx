@@ -7,14 +7,16 @@ import styles from "../components/layout.module.css";
 import { useRouter } from "next/router";
 import { search } from "../lib/stringSearch";
 import SearchCard from "../components/cards/searchCard";
+import PageId from "../models/pageId";
 
-export default function Search({ pages }: { pages: string[] }) {
+export default function Search({ pages }: { pages: {topic: string, page: string}[] }) {
 	const router = useRouter();
 	let nColor = 0;
 	const MAX_COLOR = 7;
-	let resultPages: { title: string; ratio: number }[] = [];
+	let resultPages: { page: PageId; ratio: number }[] = [];
+	const pagesIds = pages.map(value => (new PageId(value.topic, value.page)));
 	if (router.query.query !== undefined)
-		resultPages = search(router.query.query as string, pages);
+		resultPages = search(router.query.query as string, pagesIds);
 
 	return (
 		<Layout>
@@ -25,8 +27,8 @@ export default function Search({ pages }: { pages: string[] }) {
 				{resultPages.map((value) => {
 					return (
 						<SearchCard
-							name={value.title}
-							key={value.title}
+							page={value.page}
+							key={value.page.getTitle()}
 							color={`backColor${(nColor = (nColor % MAX_COLOR) + 1)}`}
 						/>
 					);

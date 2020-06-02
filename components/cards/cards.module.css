@@ -89,6 +89,7 @@
 	align-items: center;
 	margin: auto 24px;
 	text-transform: capitalize;
+	color: #212121;
 	flex: 1;
 }
 

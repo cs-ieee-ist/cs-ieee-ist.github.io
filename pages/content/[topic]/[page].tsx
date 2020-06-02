@@ -10,6 +10,7 @@ import layoutStyles from "../../../components/layout.module.css";
 import { GetStaticProps, GetStaticPaths } from "next";
 import ContentCard from "../../../components/cards/contentCard";
 import ContentSidebar from "../../../components/contentSidebar";
+import PageId from "../../../models/pageId";
 
 export default function Content({
 	contentData,
@@ -17,22 +18,24 @@ export default function Content({
 }: {
 	contentData: {
 		topic: string;
-		id: string;
+		page: string;
 		contentHtml: string;
 	};
-	topicPages: {
-		id: string;
-		title: string;
-	}[];
+	topicPages: { topic: string; page: string }[];
 }) {
 	return (
 		<Layout>
 			<Head>
-				<title>{createTitle(contentData.topic, contentData.id)}</title>
+				<title>
+					{PageId.createTitle(contentData.topic, contentData.page)}
+				</title>
 			</Head>
 			<div className={layoutStyles.contentContainer}>
 				<div className={styles.contentContainer}>
-					<ContentSidebar topicPages={topicPages} activePage={contentData.id} />
+					<ContentSidebar
+						topicPages={topicPages.map(page => (new PageId(page.topic, page.page)))}
+						activePage={contentData.page}
+					/>
 					<ContentCard>
 						<div
 							dangerouslySetInnerHTML={{ __html: contentData.contentHtml }}
@@ -53,6 +56,7 @@ const createTitle = (topic: string, id: string) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = getAllContentIds();
+
 	return {
 		paths,
 		fallback: false,
@@ -62,9 +66,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const contentData = await getContentData(
 		params.topic as string,
-		params.id as string
+		params.page as string
 	);
 	const topicPages = await getTopicPages(params.topic as string);
+
 	return {
 		props: {
 			contentData,
