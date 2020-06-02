@@ -31,7 +31,7 @@ export default function Content({
 				</title>
 			</Head>
 			<div className={layoutStyles.contentContainer}>
-				<div className={styles.contentContainer}>
+				<div className={styles.pageContentContainer}>
 					<ContentSidebar
 						topicPages={topicPages.map(page => (new PageId(page.topic, page.page)))}
 						activePage={contentData.page}

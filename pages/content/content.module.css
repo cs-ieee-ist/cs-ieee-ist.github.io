@@ -1,4 +1,4 @@
-.contentContainer {
+.pageContentContainer {
 	display: flex;
 }
 
@@ -7,18 +7,11 @@
 }
 
 @media screen and (max-width: 750px) {
-	.contentContainer {
+	.pageContentContainer {
 		flex-direction: column;
-		padding: 24px;
 	}
 	.dummySidebar {
 		width: 0;
 	}
 }
 
-
-@media screen and (max-width: 550px) {
-	.contentContainer {
-		padding: 0 12px;
-	}
-}
