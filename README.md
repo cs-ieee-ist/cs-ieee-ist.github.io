@@ -1,27 +1,14 @@
-# CS-IEEE-IST
-  
-## Workflow
+# CS Essentials
 
-* **Criar disciplina** (se não existir)
-```sh
-$ cd ./scripts 
-$ python3 makeClass.py
-> Class abbreviation: $(ABREVIACAO_DA_NOVA_CADEIRA)
-> Class full name: $(NOME_DA_NOVA_CADEIRA)
-```
-* **Criar issue** 
-* **Criar branch**
-```sh
-$ git branch issue#12
-$ git checkout issue#12
-```
-ou
-```sh
-$ git checkout -b issue#12
-```
-[*More info about branches*](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+## What is this?
+This is a repository that helps students, from any area, learn and practice with CS-related tools. For example, Vim, Gdb and Git. Our goal is to help students being more proficient and efficient using these tools. This project was inspired by [The Missing Semester](https://missing.csail.mit.edu/) 
 
-* **Fazer Pull Request para o branch** *develop*
-## More info
+## Who is this for?
+Anyone that seeks to learn more about CS-related tools. 
 
-Qualquer dúvida que tenham podem criar uma **issue** com a label **question**.
+## Contribute
+Contributions are more than welcome. See more at [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Built with
+
+* [Next.js](https://nextjs.org/)
