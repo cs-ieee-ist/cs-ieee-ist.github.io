@@ -20,7 +20,7 @@ export default function ContentSidebar({
                 isSamePage(page.getPage(), activePage) ? styles.active : ""
               }`}
             >
-              <Link href={page.getLink()}>
+              <Link href="/content/[topic]/[page]" as={page.getLink()}>
                 <a>{page.getPage()}</a>
               </Link>
             </li>

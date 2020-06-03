@@ -48,12 +48,6 @@ export default function Content({
 	);
 }
 
-const createTitle = (topic: string, id: string) => {
-	const title = id.charAt(0).toUpperCase() + id.slice(1);
-
-	return `${topic} - ${title}`;
-};
-
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = getAllContentIds();
 

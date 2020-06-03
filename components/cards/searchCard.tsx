@@ -11,7 +11,7 @@ export default function SearchCard({
 	color: string;
 }) {
 	return (
-		<Link href={page.getLink()}>
+		<Link href="/content/[topic]/[page]" as={page.getLink()}>
 			<a>
 				<div className={` ${styles.searchCard}`}>
 					<div
